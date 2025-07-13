@@ -1,0 +1,42 @@
+.gear-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gear-card:hover {
+  transform: scale(1.02);
+}
+
+.gear-card img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.gear-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.gear-card ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.gear-card li {
+  margin-bottom: 0.4rem;
+}

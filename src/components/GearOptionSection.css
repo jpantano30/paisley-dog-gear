@@ -1,0 +1,31 @@
+.gear-option {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.gear-option h2 {
+  font-size: 1.25rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gear-option .toggle {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+.gear-details {
+  margin-top: 0.75rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.gear-details ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
