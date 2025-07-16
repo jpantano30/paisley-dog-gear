@@ -14,6 +14,7 @@ const galleryImages = [
   "custom-longline.jpg",
   "customname.jpg",
   "traffichandle.jpg",
+  "CustumTrafficHandle.jpg",
 ];
 
 const Gallery = () => {
