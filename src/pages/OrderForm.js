@@ -80,7 +80,7 @@ const handleSubmit = (e) => {
           <option value="Standard Leash">Standard Leash</option>
           <option value="Long Line">Long Line</option>
           <option value="The Tallulah">The Tallulah</option>
-          <option value="The Paisley">The Paisley</option>
+          {/* <option value="The Paisley">The Paisley</option> */}
           <option value="Safety Strap">Safety Strap</option>
           <option value="Leash Extender">Leash Extender</option>
           <option value="Traffic Handle">Traffic Handle</option>
@@ -93,7 +93,12 @@ const handleSubmit = (e) => {
         <label>Length (if applicable):</label>
         <select name="length" onChange={handleChange}>
           <option value="">-- Optional --</option>
-          <option value="3in">3"</option>
+          <option value="3in">3" (Safety Strap) </option>
+          <option value="4in">4" (Safety Strap) </option>
+          <option value="5in">5" (Safety Strap) </option>
+          <option value="6in">6" (Safety Strap) </option>
+          <option value="8in">8" (Safety Strap) </option>
+          <option value="10in">10" (Safety Strap) </option>
           <option value="4ft">4ft</option>
           <option value="6ft">6ft</option>
           <option value="8ft">8ft</option>
@@ -107,7 +112,7 @@ const handleSubmit = (e) => {
         <input
           type="text"
           name="colors"
-          placeholder="List 1–3 colors (two-tone is +$8)"
+          placeholder="List 1–3 colors (two-tone is +$6 & 3+ colors is +$10-$20) (List custom designs in notes)"
           onChange={handleChange}
         />
 
@@ -116,30 +121,31 @@ const handleSubmit = (e) => {
           <option value="">-- Optional --</option>
           <option value="Silver">Silver</option>
           <option value="Black">Black</option>
+          <option value="BlackPlastic">Black Plastic (collars)</option>
         </select>
 
-        <label>Snap Type:</label>
+        <label>Snap Type (if applicable):</label>
         <select name="snapType" onChange={handleChange}>
           <option value="">-- Optional --</option>
           <option value="Locking Carabiner">Locking Carabiner</option>
           <option value="Swivel Snap">Swivel Snap</option>
         </select>
 
-        <label>Handle Type (for leashes):</label>
+        <label>Handle Type (for leashes)Use Notes for Additional Options:</label>
         <select name="handleType" onChange={handleChange}>
           <option value="">-- Optional --</option>
-          <option value="Loop Handle">Loop Handle</option>
-          <option value="Convertible with O-ring">Convertible with O-Ring</option>
-          <option value="No Handle + D-ring">No Handle + D-Ring</option>
+          <option value="Loop Handle">Loop Handle (Standard) With or Without D-Ring (Use Notes)</option>
+          <option value="Convertible with O-ring">Hands-Free System with Snap, Floating O-Ring & Sliding D-Ring or O-Ring </option>
+          <option value="No Handle + D-ring">No Handle + D-Ring or O-Ring (Use Case: Attach a separate Traffic handle)</option>
         </select>
 
-        <label>Upload Inspiration (optional):</label>
-        <input type="file" name="file" accept="image/*" onChange={handleChange} />
+        {/* <label>Upload Inspiration (optional):</label>
+        <input type="file" name="file" accept="image/*" onChange={handleChange} /> */}
 
         <label>Notes or Custom Requests:</label>
         <textarea
           name="notes"
-          placeholder="Tell me anything else I should know (special placements, HTV names, etc.)"
+          placeholder="Tell me anything else I should know (special placements of built in Traffic Handles, O-Rings, D-Rings, HTV customizations, etc.)"
           onChange={handleChange}
         />
 

@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
 import "./Navbar.css";
+// import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">
-        <Link to="/">Paisley Dog Gear & Training</Link>
+      <div className="navbar-left">
+        <Link to="/" className="logo-link">
+          <img src="/assets/logo.jpg" alt="Paisley Dog Gear Logo" className="nav-logo" />
+          <span className="site-name">Paisley Dog Gear & Training</span>
+        </Link>
       </div>
       <ul className="nav-links">
         <li><Link to="/gallery">Gallery</Link></li>

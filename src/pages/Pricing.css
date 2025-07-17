@@ -1,55 +1,190 @@
+:root {
+  --accent-teal: #6c9a8b;
+  --accent-brown: #7e5e3b;
+  --accent-coral: #e27d60;
+  --accent-gray: #9e9e9e;
+  --text-dark: #333;
+  --bg-light: #faf9f6;
+  --highlight-bg: #f2f9f8;
+}
+
 .pricing-page {
-  padding: 2rem;
-  max-width: 1100px;
+  padding: 3rem 2rem;
+  max-width: 1200px;
   margin: 0 auto;
-  font-family: sans-serif;
-  color: #333;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: 'Open Sans', sans-serif;
 }
 
 .pricing-page h1 {
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
+  color: var(--accent-brown);
   margin-bottom: 2rem;
 }
 
-.pricing-section {
-  margin-bottom: 3rem;
+.training-options {
+  font-weight: bold;
 }
 
 .pricing-section h2 {
-  font-size: 1.5rem;
-  color: #111;
+  font-size: 2rem;
+  color: var(--accent-brown);
   margin-bottom: 1.5rem;
   text-align: center;
+  position: relative;
 }
+
+.pricing-section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-coral);
+  margin: 0.5rem auto 0;
+  border-radius: 4px;
+}
+
+.pricing-section p {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pricing-section p.notes {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.pricing-section p.notes strong {
+  color: var(--accent-brown);
+  font-weight: 700;
+}
+
+
 
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .price-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 1.2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
+  border: 2px solid var(--accent-teal);
+  transition: transform 0.2s ease;
+}
+
+.price-card:hover {
+  transform: scale(1.02);
 }
 
 .price-card h3 {
-  margin-bottom: 0.7rem;
-  font-size: 1.2rem;
-  color: #222;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  color: var(--accent-teal);
 }
 
 .price-card ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .price-card li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.price-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-teal);
+  font-weight: bold;
+}
+
+.price-card.training-card h3::before {
+  content: "🎓 ";
+}
+
+
+.price-card a {
+  color: var(--accent-coral);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* New visual styles for options */
+li span.buckle-brass {
+  color: var(--accent-brown);
+  font-weight: 600;
+}
+
+li span.buckle-plastic {
+  color: var(--accent-gray);
+  font-weight: 600;
+  font-style: italic;
+}
+
+li span.upgrade {
+  color: var(--accent-coral);
+  font-weight: 600;
+}
+
+/* Optional: Add subtle background to highlight upgrade lines */
+li.upgrade-option {
+  background-color: var(--highlight-bg);
+  border-left: 4px solid var(--accent-coral);
+  padding-left: 1rem;
+  border-radius: 4px;
+}
+
+/* .buckle-brass {
+  color: #7e5e3b;
+  font-weight: 600;
+}
+
+.buckle-plastic {
+  color: #333;
+  font-weight: 600;
+  font-style: italic;
+} */
+
+.upgrade-option {
+  margin-top: 0.25rem;
+}
+
+.upgrade {
+  font-weight: 600;
+  color: var(--accent-coral);
+}
+
+@media (max-width: 600px) {
+  .pricing-page {
+    padding: 2rem 1rem;
+  }
+
+  .pricing-section p.notes {
+    font-size: 1rem;
+    text-align: left;
+    padding: 0 0.5rem;
+  }
 }

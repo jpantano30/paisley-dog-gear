@@ -2,31 +2,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
   padding: 1rem 2rem;
-  background-color: #f8f5f2;
-  border-bottom: 1px solid #ddd;
-  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-.logo a {
-  font-weight: bold;
-  font-size: 1.3rem;
+.logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.nav-logo {
+  height: 48px;
+  width: auto;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.site-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
   color: #333;
+  text-shadow: 1px 1px #f4f4f4;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  list-style: none;
 }
 
-.nav-links a {
-  text-decoration: none;
+.nav-links li a {
   color: #333;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: #888;
+.nav-links li a:hover {
+  color: #e27d60;
 }

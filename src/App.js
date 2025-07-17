@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import Colors from "./pages/Colors";
 import TrainingForm from "./pages/TrainingForm";
 import Pricing from "./pages/Pricing"; 
+import './App.css'; 
+
 
 function App() {
   return (

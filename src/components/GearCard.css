@@ -40,3 +40,19 @@
 .gear-card li {
   margin-bottom: 0.4rem;
 }
+
+.pricing-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.pricing-button:hover {
+  background-color: #555;
+}

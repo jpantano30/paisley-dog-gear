@@ -1,22 +1,38 @@
+/* === /src/components/Footer.css === */
 .footer {
-  background-color: #f8f5f2;
-  padding: 1rem;
+  background-color: #fafafa;
+  padding: 2rem 1rem;
   text-align: center;
-  border-top: 1px solid #ddd;
-  font-family: sans-serif;
-  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .contact-info {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
 }
 
 .contact-info a {
   color: #555;
   text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .contact-info a:hover {
-  color: #999;
+  background-color: #f0f0f0;
+  color: #000;
 }

@@ -6,12 +6,8 @@ const TrainingForm = () => {
     name: "",
     email: "",
     dogName: "",
-    dogBreed: "",
-    dogAge: "",
-    location: "",
-    interest: "",
-    availability: "",
-    notes: ""
+    goals: "",
+    experience: ""
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -42,45 +38,39 @@ const TrainingForm = () => {
   };
 
   return (
-    <div className="training-form">
+    <div className="training-form-container">
       <h1>Dog Training Request</h1>
-      <p>Please tell me about your pup and what you're looking for!</p>
 
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input name="name" required onChange={handleChange} />
+      <section className="training-intro">
+        <h2>Dog Training</h2>
+        <p className="notes">
+          I specialize in <strong>freestyle and trick training</strong> — teaching everything from spins, weaves, and jumps to advanced routines.
+          It's all about movement, creativity, and building a stronger bond with your dog through fun and focus.
+          <br /><br />
+          I also offer help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach.
+          Tools like prong collars or e-collars may be used if needed and are introduced thoughtfully and with consent.
+          Training is tailored to each dog and handler — let’s build a plan that fits your goals.
+        </p>
+      </section>
+  
+      <br />
+      <h2 className="form-heading">Please tell me about your pup and what you're looking for!</h2>
 
-        <label>Email</label>
-        <input name="email" type="email" required onChange={handleChange} />
+      <form onSubmit={handleSubmit} className="training-form">
+        <label>Your Name:</label>
+        <input type="text" name="name" required onChange={handleChange} value={formData.name} />
 
-        <label>Dog’s Name</label>
-        <input name="dogName" onChange={handleChange} />
+        <label>Email Address:</label>
+        <input type="email" name="email" required onChange={handleChange} value={formData.email} />
 
-        <label>Dog’s Breed</label>
-        <input name="dogBreed" onChange={handleChange} />
+        <label>Dog's Name:</label>
+        <input type="text" name="dogName" onChange={handleChange} value={formData.dogName} />
 
-        <label>Dog’s Age</label>
-        <input name="dogAge" onChange={handleChange} />
+        <label>What are your training goals?</label>
+        <textarea name="goals" required onChange={handleChange} value={formData.goals}></textarea>
 
-        <label>Location (City or neighborhood)</label>
-        <input name="location" onChange={handleChange} />
-
-        <label>What are you looking for?</label>
-        <select name="interest" required onChange={handleChange}>
-          <option value="">-- Select --</option>
-          <option value="Trick Training">Trick Training</option>
-          <option value="Freestyle / Dance">Freestyle / Dance</option>
-          <option value="Obedience / Manners">Obedience / Manners</option>
-          <option value="Behavior Help">Behavior Help</option>
-          <option value="Service Dog Task Work">Service Dog Task Work</option>
-          <option value="Other">Other</option>
-        </select>
-
-        <label>Preferred Days/Times</label>
-        <input name="availability" onChange={handleChange} />
-
-        <label>Additional Notes</label>
-        <textarea name="notes" onChange={handleChange} />
+        <label>Any prior training experience or notes?</label>
+        <textarea name="experience" onChange={handleChange} value={formData.experience}></textarea>
 
         <button type="submit">Submit Request</button>
       </form>
