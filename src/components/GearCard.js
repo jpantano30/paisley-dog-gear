@@ -5,14 +5,14 @@ import "./GearCard.css";
 const GearCard = ({ title, image, items, anchor }) => {
   return (
     <div className="gear-card">
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <ul>
+      <img src={image} alt={title} className="gear-card-image" />
+      <h3 className="gear-card-title">{title}</h3>
+      <ul className="gear-card-list">
         {items.map((item, i) => {
           if (item.startsWith("**") && item.endsWith("**")) {
             const cleanText = item.replace(/\*\*/g, "");
             return (
-              <li key={i} style={{ fontWeight: "bold", marginTop: "1rem" }}>
+              <li key={i} className="gear-section-header">
                 {cleanText}
               </li>
             );

@@ -228,6 +228,23 @@
   right: 16px;
 }
 
+.section-note {
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 1rem auto 2rem;
+  line-height: 1.5;
+}
+
+.section-note a {
+  color: var(--accent-teal);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.section-note a:hover {
+  color: var(--accent-coral);
+}
 
 
 /* === MOBILE RESPONSIVE === */

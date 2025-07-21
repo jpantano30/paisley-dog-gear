@@ -75,9 +75,11 @@ const Colors = () => {
 
   return (
     <div className="colors-page">
-      <h1>Biothane Color Options</h1>
+      <h1 className="colors-heading">Biothane Color Options</h1>
       <p>
-        Select up to <strong>3 colors</strong>. Two-tone adds <strong>+$8</strong>. Let me know if you want help choosing!
+        Select up to <strong>3 colors</strong>. Two-tone adds <strong>+$8</strong>. <br /> 
+        Click the <strong>★</strong> to favorite a color — your selected colors will appear together below in the preview section! <br /> 
+        Let me know if you want help choosing!
       </p>
 
       <div className="category-filter">

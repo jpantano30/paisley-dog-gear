@@ -200,3 +200,83 @@
   margin-bottom: 1rem;
   color: var(--accent-teal);
 }
+
+.colors-heading {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+}
+
+@media (max-width: 768px) {
+  .colors-page {
+    padding: 1rem;
+  }
+
+  .colors-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .colors-page p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .category-filter {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .swatch-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .swatch img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .swatch span {
+    font-size: 0.9rem;
+  }
+
+  .favorite-btn {
+    font-size: 1rem;
+    top: 4px;
+    right: 4px;
+  }
+
+  .selected-colors {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .selected-colors img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+  .preview-section,
+  .favorites-preview-section {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .preview-section h2,
+  .favorites-preview-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .clear-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

@@ -7,8 +7,9 @@ const Home = () => {
       <div className="hero">
         <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />
         <h1>Paisley Dog Gear & Training</h1>
+        <h2 className="tagline">Custom Biothane Dog Gear & Trick Training in Boston, MA</h2>
         <p>Functional. Custom. Made for Adventure.</p>
-        <a href="/order" className="cta-button">Start a Custom Order</a>
+        <a href="/order" className="cta-button cta-primary">Start a Custom Order</a>
       </div>
 
 
@@ -24,7 +25,7 @@ const Home = () => {
         <h2>Meet the Dogs</h2>
         <div className="dog-profiles">
           <div className="dog-card">
-            <img src="/assets/tully.jpg" alt="Tallulah the Bordoodle" />
+            <img src="/assets/tully.jpeg" alt="Tallulah the Bordoodle" />
             <h3>Tallulah</h3>
             <p>My energetic SDiT and demo dog. Smart, sassy, and trained in freestyle, agility, and service tasks.
               <br />
@@ -89,27 +90,16 @@ const Home = () => {
           I offer trick training, freestyle, and behavior support in the Boston area.
           Interested in training or private coaching? Fill out the contact form.
         </p>
-        <a href="/training" className="cta-button">Request Dog Training</a>
+        <a href="/training" className="cta-button cta-secondary">Fill Out Training Request</a>
         <br />
         <br />
-        <p> Or direct message me on Instagram.
+        <p> Or direct message me on Instagram.</p>
+        <div className="social-links">
+          <a href="https://www.instagram.com/tullytornado" target="_blank" rel="noopener noreferrer">@TullyTornado</a>
           <br />
-          <a 
-            href="https://www.instagram.com/tullytornado"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @TullyTornado 
-          </a>
-          <br />
-          <a 
-            href="https://www.instagram.com/eatwellandeatdessert"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @eatwellandeatdessert 
-          </a>
-          </p>
+          <a href="https://www.instagram.com/eatwellandeatdessert" target="_blank" rel="noopener noreferrer">@eatwellandeatdessert</a>
+        </div>
+
       </section>
     </section>
   );

@@ -21,6 +21,7 @@
 .order-form form {
   display: flex;
   flex-direction: column;
+  gap: .5rem;
 }
 
 .order-form label {
@@ -38,11 +39,13 @@
   border-radius: 5px;
   border: 1px solid #aaa;
   font-size: 1rem;
+  width: 100%;
 }
 
 .order-form textarea {
   min-height: 100px;
   resize: vertical;
+  margin-bottom: 1rem;
 }
 
 .order-form input[type="file"] {
@@ -108,4 +111,59 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 768px) {
+  .order-form {
+    padding: 1.5rem 1rem;
+  }
+
+  .order-form form {
+  gap: 0.5rem;
+  }
+
+  .order-form h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .order-form p {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .order-form label {
+    font-size: 0.95rem;
+  }
+
+  .order-form input,
+  .order-form select,
+  .order-form textarea {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .order-form textarea {
+  margin-bottom: 1rem;
+  }
+
+  .order-form button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-content p {
+    font-size: 0.95rem;
+  }
+
+  .modal-content button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
 }

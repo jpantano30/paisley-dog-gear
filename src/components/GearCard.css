@@ -5,7 +5,7 @@
   padding: 1.2rem;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.04);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,9 +13,11 @@
 
 .gear-card:hover {
   transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
 
-.gear-card img {
+.gear-card img,
+.gear-card-image {
   width: 100%;
   max-width: 250px;
   height: auto;
@@ -24,35 +26,45 @@
   object-fit: cover;
 }
 
-.gear-card h3 {
+.gear-card h3,
+.gear-card-title {
   margin: 0.5rem 0;
   font-size: 1.2rem;
   color: #222;
 }
 
-.gear-card ul {
+.gear-card ul,
+.gear-card-list {
   list-style: none;
   padding: 0;
   font-size: 0.95rem;
   color: #444;
+  margin: 0;
 }
 
 .gear-card li {
   margin-bottom: 0.4rem;
 }
 
+.gear-section-header {
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #333;
+}
+
 .pricing-button {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   padding: 0.5rem 1.2rem;
   background-color: #222;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   border-radius: 6px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .pricing-button:hover {
   background-color: #555;
+  transform: translateY(-1px);
 }

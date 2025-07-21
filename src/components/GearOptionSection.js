@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./GearOptionSection.css";
 
@@ -8,7 +7,8 @@ const GearOptionSection = ({ title, children, defaultOpen = false }) => {
   return (
     <section className="gear-option">
       <h2 onClick={() => setIsOpen(!isOpen)}>
-        {title} <span className="toggle">{isOpen ? "▲" : "▼"}</span>
+        <span>{title}</span>
+        <span className="toggle">{isOpen ? "▲" : "▼"}</span>
       </h2>
       {isOpen && <div className="gear-details">{children}</div>}
     </section>
@@ -16,3 +16,4 @@ const GearOptionSection = ({ title, children, defaultOpen = false }) => {
 };
 
 export default GearOptionSection;
+

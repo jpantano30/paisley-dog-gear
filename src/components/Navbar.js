@@ -1,25 +1,45 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-// import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="logo-link">
-          <img src="/assets/logo.jpg" alt="Paisley Dog Gear Logo" className="nav-logo" />
+        <Link to="/" className="logo-link" onClick={closeMenu}>
+          <img
+            src="/assets/logo.jpg"
+            alt="Paisley Dog Gear Logo"
+            className="nav-logo"
+          />
           <span className="site-name">Paisley Dog Gear & Training</span>
         </Link>
       </div>
-      <ul className="nav-links">
-        <li><Link to="/gallery">Gallery</Link></li>
-        <li><Link to="/options">Gear Options</Link></li>
-        <li><Link to="/colors">Colors</Link></li>
-        <li><Link to="/pricing">Pricing</Link></li> 
-        <li><Link to="/order">Order</Link></li>
-        <li><Link to="/training">Training</Link></li>
-      </ul>
+
+      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+        <li><Link to="/gallery" onClick={closeMenu}>Gallery</Link></li>
+        <li><Link to="/options" onClick={closeMenu}>Gear Options</Link></li>
+        <li><Link to="/colors" onClick={closeMenu}>Colors</Link></li>
+        <li><Link to="/pricing" onClick={closeMenu}>Pricing</Link></li>
+        <li><Link to="/order" onClick={closeMenu}>Order</Link></li>
+        <li><Link to="/training" onClick={closeMenu}>Training</Link></li>
+      </div>
+
+      <div
+        className={`hamburger ${menuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <span />
+        <span />
+        <span />
+      </div>
     </nav>
   );
 };

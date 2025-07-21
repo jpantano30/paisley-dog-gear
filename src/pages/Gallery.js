@@ -75,7 +75,11 @@ const Gallery = () => {
 
       <div className="section-divider">
         <h2>Hardware Colors</h2>
+        <p className="section-note">
+          These are our standard hardware colors. Curious about how different Biothane colors look together? You can preview your favorites on the <a href="/colors">Colors page</a> by clicking the ⭐ icon. Your selected colors will show up below the swatches!
+        </p>
       </div>
+
 
       <div className="hardware-colors">
         <div className="gallery-item" onClick={() => openModal(galleryImages.length)}>
