@@ -63,10 +63,10 @@ const Pricing = () => {
             <ul>
               <li>Ball Holder: $15–$20</li>
               <li>Safety Strap (Biothane): $12–$15</li>
-              <li>Safety Strap (Paracord Weave): +$10</li>
+              <li>Safety Strap (Paracord Weave): $20–$30</li>
               <li>Leash Extender: $15–$22</li>
               <li>Traffic Handle: $14–$20</li>
-              <li>Paracord Traffic Handle: +$10+</li>
+              <li>Paracord Traffic Handle (Fishtail or Weaved): +$10+</li>
             </ul>
           </div>
 
