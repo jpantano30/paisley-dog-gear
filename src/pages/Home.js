@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
         <h1>Paisley Dog Gear & Training</h1>
         <h2 className="tagline">Custom Biothane Dog Gear & Trick Training in Boston, MA</h2>
         <p>Functional. Custom. Made for Adventure.</p>
-        <a href="/order" className="cta-button cta-primary">Start a Custom Order</a>
+        <Link to="/order" className="cta-button cta-primary">Start a Custom Order</Link>
       </div>
 
 
@@ -90,7 +91,7 @@ const Home = () => {
           I offer trick training, freestyle, and behavior support in the Boston area.
           Interested in training or private coaching? Fill out the contact form.
         </p>
-        <a href="/training" className="cta-button cta-secondary">Fill Out Training Request</a>
+        <Link to="/training" className="cta-button cta-secondary">Fill Out Training Request</Link>
         <br />
         <br />
         <p> Or direct message me on Instagram.</p>

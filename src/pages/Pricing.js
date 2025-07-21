@@ -1,5 +1,6 @@
 import React from "react";
 import "./Pricing.css";
+import { Link } from "react-router-dom";
 
 const Pricing = () => {
   return (
@@ -138,7 +139,7 @@ const Pricing = () => {
             <ul>
               <li>Free 15–20 min call</li>
               <li>Tell me about your dog and your goals</li>
-              <li>Schedule via the <a href="/booking">Booking Page</a></li>
+              <li>Schedule via the <Link to="/booking">Booking Page</Link></li>
             </ul>
           </div>
         </div>
