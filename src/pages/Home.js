@@ -66,13 +66,13 @@ const Home = () => {
         <h2>Featured Gear</h2>
         <div className="product-grid">
           <div className="product-card">
-            <img src="/assets/thetallulah.jpg" alt="The Tallulah hands-free leash" />
+            <img src="/assets/tallulah-sage2.JPG" alt="The Tallulah hands-free leash" />
             <h3>The Tallulah</h3>
             <p>Our signature hands-free leash system — versatile, strong, and designed for real life.
             </p>
           </div>
           <div className="product-card">
-            <img src="/assets/ballholder.jpg" alt="Biothane Ball Holder" />
+            <img src="/assets/ballholderSW.jpeg" alt="Biothane Ball Holder" />
             <h3>Biothane Ball Holder</h3>
             <p>Clips to your gear and fits ChuckIt or standard balls. D-ring or snap clip.</p>
           </div>

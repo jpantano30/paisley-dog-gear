@@ -5,7 +5,7 @@ import "./Options.css";
 const gearData = [
   {
     title: "Standard Leashes",
-    image: "/assets/handsfree-redandblack2.JPG",
+    image: "/assets/standard.jpeg",
     anchor: "leashes",
     items: [
       "**Length Options**",
@@ -149,7 +149,7 @@ const gearData = [
   },
   {
     title: "Collars",
-    image: "/assets/sageNwhitecollar.jpg",
+    image: "/assets/collar1.jpg",
     anchor: "collars",
     items: [
       "**Styles**",
@@ -178,7 +178,7 @@ const gearData = [
   },
   {
     title: "Ball Holders",
-    image: "/assets/ballholder.jpg",
+    image: "/assets/ballholderSW.jpeg",
     anchor: "accessories",
     items: [
       "**Colors**",
@@ -227,6 +227,20 @@ const gearData = [
 
       "**Usable On**",
       "- Personalize leashes, collars, harnesses, etc."
+    ]
+  },
+  {
+    title: "Starter Sets",
+    image: "/assets/set2.jpeg",
+    anchor: "",
+    items: [
+      "**Colors**",
+      "- 1–2 solid colors",
+      "- Two-tone optional",
+      
+      "**Options**",
+      "- Includes: Collar + Leash + Ball Holder",
+      "- Custom layouts, colors, and handle styles available"
     ]
   }
 ];
