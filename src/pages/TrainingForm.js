@@ -66,13 +66,23 @@ const TrainingForm = () => {
         <label>Dog's Name:</label>
         <input type="text" name="dogName" onChange={handleChange} value={formData.dogName} />
 
+        <label>Dog's Age:</label>
+        <input type="text" name="dogAge" onChange={handleChange} value={formData.dogAge} />
+
+        <label>Dog's Breed:</label>
+        <input type="text" name="dogBreed" onChange={handleChange} value={formData.dogBreed} />
+
         <label>What are your training goals?</label>
         <textarea name="goals" required onChange={handleChange} value={formData.goals}></textarea>
 
         <label>Any prior training experience or notes?</label>
         <textarea name="experience" onChange={handleChange} value={formData.experience}></textarea>
 
+        <label>How did you hear about me?</label>
+        <input type="text" name="referral" onChange={handleChange} value={formData.referral} />
+
         <button type="submit">Submit Request</button>
+
       </form>
 
       {showModal && (

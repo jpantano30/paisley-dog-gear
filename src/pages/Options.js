@@ -197,23 +197,23 @@ const gearData = [
       "- Clip to belt, leash, or bag"
     ]
   },
-  {
-    title: "Harnesses (Custom Only)",
-    image: "/assets/sdharness.jpg",
-    anchor: "harnesses",
-    items: [
-      "**Details**",
-      "- Fully handmade Biothane harness",
-      "- Custom fitted to your dog",
-      "- Service-dog appropriate",
+  // {
+  //   title: "Harnesses (Custom Only)",
+  //   image: "/assets/sdharness.jpg",
+  //   anchor: "harnesses",
+  //   items: [
+  //     "**Details**",
+  //     "- Fully handmade Biothane harness",
+  //     "- Custom fitted to your dog",
+  //     "- Service-dog appropriate",
 
-      "**How to Order**",
-      "- Reach out to start your design",
+  //     "**How to Order**",
+  //     "- Reach out to start your design",
 
-      "**Pricing**",
-      "- $60 to $150+ depending on complexity and features"
-    ]
-  },
+  //     "**Pricing**",
+  //     "- $60 to $150+ depending on complexity and features"
+  //   ]
+  // },
   {
     title: "Customization",
     image: "/assets/customname.jpg",

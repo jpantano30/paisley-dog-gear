@@ -10,6 +10,7 @@ import Colors from "./pages/Colors";
 import TrainingForm from "./pages/TrainingForm";
 import Pricing from "./pages/Pricing"; 
 import './App.css'; 
+import Consult from "./pages/Booking";
 
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/options" element={<Options />} />
           <Route path="/colors" element={<Colors />} />
-          <Route path="/pricing" element={<Pricing />} /> {/* ⬅️ add this */}
+          <Route path="/pricing" element={<Pricing />} /> 
           <Route path="/order" element={<OrderForm />} />
           <Route path="/training" element={<TrainingForm />} />
+          <Route path="/booking" element={<Consult />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

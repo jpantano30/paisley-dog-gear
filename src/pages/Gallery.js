@@ -11,10 +11,10 @@ const galleryImages = [
   { filename: "sageNwhiteCollar2.jpg", caption: "Sage & White Collar With Plastic Buckle" },
   { filename: "saftystrapparacord.jpeg", caption: "Safety Strap (Paracord)" },
   { filename: "tallulah-sage2.JPG", caption: "Sage (Alternate View)" },
-  { filename: "sdharness.jpg", caption: "Standard SD Harness in Pink and Black" },
+  // { filename: "sdharness.jpg", caption: "Standard SD Harness in Pink and Black" },
   { filename: "ballholder.jpg", caption: "Ball Holder" },
-  { filename: "sdharness2.jpg", caption: "SD Harness (Side View)" },
-  { filename: "customSDharness.jpg", caption: "Custom SD Harness" },
+  // { filename: "sdharness2.jpg", caption: "SD Harness (Side View)" },
+  // { filename: "customSDharness.jpg", caption: "Custom SD Harness" },
   { filename: "handsfree-redandblack1.JPG", caption: "Hands-Free Red/Black" },
   { filename: "customname.jpg", caption: "Custom Name (HTV)" },
   { filename: "traffichandle.jpg", caption: "Traffic Handle" },
@@ -58,7 +58,7 @@ const Gallery = () => {
   return (
     <div className="gallery-page">
       <h1>Gallery</h1>
-      <p>Check out examples of past leashes, collars, harnesses, and more!</p>
+      <p>Check out examples of past leashes, collars, ball holders, and more!</p>
 
       <div className="section-divider">
         <h2>Gear Highlights</h2>

@@ -57,16 +57,6 @@ const Pricing = () => {
             </ul>
           </div>
 
-
-          <div className="price-card" id="harnesses">
-            <h3>Harnesses</h3>
-            <ul>
-              <li>Basic: $55–$75</li>
-              <li>Custom Fit / Service Dog: $70–$160+</li>
-              <li>Reach out for design options</li>
-            </ul>
-          </div>
-
           <div className="price-card" id="accessories">
             <h3>Accessories</h3>
             <ul>
@@ -87,6 +77,15 @@ const Pricing = () => {
               <li>Extra D-Rings or O-Rings: +$2–$5 each</li>
             </ul>
           </div>
+
+          {/* <div className="price-card" id="harnesses">
+            <h3>Harnesses</h3>
+            <ul>
+              <li>Basic: $55–$75</li>
+              <li>Custom Fit / Service Dog: $70–$160+</li>
+              <li>Reach out for design options</li>
+            </ul>
+          </div> */}
 
           <div className="price-card" id="bundles">
             <h3>Starter Set</h3>
@@ -110,7 +109,7 @@ const Pricing = () => {
           <div className="price-card">
             <h3>Private Training</h3>
             <ul>
-              <li>45–60 min session: $65–$90</li>
+              <li>45–60 min session: $30–$55</li>
               <li>Perfect for freestyle, tricks, or behavior coaching</li>
               <li>Held locally or in select public locations</li>
             </ul>
@@ -119,8 +118,8 @@ const Pricing = () => {
           <div className="price-card">
             <h3>Training Packages</h3>
             <ul>
-              <li>3 Sessions: $180–$250</li>
-              <li>5 Sessions: $300–$400</li>
+              <li>3 Sessions (1hr): $140–$160</li>
+              <li>5 Sessions (1hr): $220–$275</li>
               <li>Build a custom plan with progress goals</li>
             </ul>
           </div>
@@ -139,7 +138,7 @@ const Pricing = () => {
             <ul>
               <li>Free 15–20 min call</li>
               <li>Tell me about your dog and your goals</li>
-              <li>Schedule via the <a href="/training">Training Form</a></li>
+              <li>Schedule via the <a href="/booking">Booking Page</a></li>
             </ul>
           </div>
         </div>

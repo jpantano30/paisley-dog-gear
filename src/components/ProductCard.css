@@ -1,3 +1,4 @@
+/* Existing styles (keep as-is) */
 .product-card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -7,6 +8,8 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
   width: 280px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .product-card:hover {
@@ -28,4 +31,26 @@
 .product-card p {
   font-size: 0.95rem;
   color: #555;
+}
+
+/* === Mobile-Friendly Styles === */
+@media (max-width: 600px) {
+  .product-card {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .product-card img {
+    height: 160px;
+    border-radius: 4px;
+  }
+
+  .product-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .product-card p {
+    font-size: 0.9rem;
+  }
 }
