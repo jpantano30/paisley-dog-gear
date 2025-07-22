@@ -4,7 +4,9 @@
   --text-dark: #2f2f2f;
   --bg-light: #faf9f6;
   --swatch-border: #ccc;
+  --accent-coral: #e27d60;
 }
+
 
 /* ==== OPTIONS PAGE STYLES ==== */
 
@@ -97,6 +99,52 @@
   color: #4a4a4a;
   line-height: 1.6;
 }
+
+.pricing-button2 {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.4rem;
+  background-color: rgb(193, 201, 201);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.pricing-button2:hover {
+  background-color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.colors-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.colors-button {
+  padding: 0.6rem 1.4rem;
+  background-color: var(--accent-coral);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.colors-button:hover {
+  background-color: #fa9b82;
+  transform: translateY(-1px);
+}
+
 
 
 /* .gear-card li::before {

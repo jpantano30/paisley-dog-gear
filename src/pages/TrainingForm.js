@@ -46,10 +46,10 @@ const TrainingForm = () => {
         <p className="notes">
           I specialize in <strong>freestyle and trick training</strong> — teaching everything from spins, weaves, and jumps to advanced routines.
           It's all about movement, creativity, and building a stronger bond with your dog through fun and focus.
-          <br /><br />
+          {/* <br /><br />
           I also offer help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach.
           Tools like prong collars or e-collars may be used if needed and are introduced thoughtfully and with consent.
-          Training is tailored to each dog and handler — let’s build a plan that fits your goals.
+          Training is tailored to each dog and handler — let’s build a plan that fits your goals. */}
         </p>
       </section>
   

@@ -208,6 +208,10 @@
   color: var(--accent-coral);
 }
 
+.about p {
+  margin-bottom: 1.25rem;
+}
+
 
 
 /* === Responsive === */

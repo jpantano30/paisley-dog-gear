@@ -108,11 +108,11 @@ const handleSubmit = (e) => {
           <option value="Custom">Custom Length</option>
         </select>
 
-        <label>Color(s):</label>
+        <label>Color(s) (List custom designs in notes):</label>
         <input
           type="text"
           name="colors"
-          placeholder="List 1–3 colors (two-tone is +$6 & 3+ colors is +$10-$20) (List custom designs in notes)"
+          placeholder="List 1–3 colors (two-tone is +$6 & 3+ colors is +$10-$20)"
           onChange={handleChange}
         />
 

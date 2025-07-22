@@ -1,3 +1,12 @@
+:root {
+  --accent-teal: #6c9a8b;
+  --accent-brown: #7e5e3b;
+  --text-dark: #2f2f2f;
+  --bg-light: #faf9f6;
+  --swatch-border: #ccc;
+  --accent-coral: #e27d60;
+}
+
 .gear-card {
   background: #fff;
   border: 1px solid #ddd;
@@ -65,6 +74,63 @@
 }
 
 .pricing-button:hover {
-  background-color: #555;
+  background-color: var(--accent-teal);
   transform: translateY(-1px);
+}
+
+.gear-description {
+  font-size: 0.96rem;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.toggle-button {
+  background-color: var(--accent-teal);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-button:hover {
+  background-color: #cf6a53;
+}
+
+.gear-best-for {
+  font-size: 0.9rem;
+  color: #7d4f2d;
+  margin-bottom: 0.5rem;
+  background: #fff3ec;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.gear-bestfor {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.pricing-button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background-color: var(--accent-coral);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gear-pricing-list {
+  list-style: disc;
+  margin-top: 10px;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #444;
 }
