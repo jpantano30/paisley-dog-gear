@@ -1,6 +1,8 @@
 import React from "react";
 import GearCard from "../components/GearCard";
 import "./Options.css";
+import { Link } from "react-router-dom";
+
 
 const gearData = [
   {
@@ -304,18 +306,27 @@ const Options = () => {
   return (
     <div className="options-page">
       <h1>Gear Options</h1>
-      <p>Explore our range of customizable gear options for your pets. All of my leashes are made with 5/8" Biothane webbing for durability and comfort. Custom widths are available upon request. Custom designs are welcome!</p>
+      <p>
+        Explore our range of customizable gear options for your pets. All of my leashes are made with 5/8" Biothane webbing for durability and comfort. Custom widths are available upon request. Custom designs are welcome!
+      </p>
+
       <div className="colors-button-wrapper">
-        <a href="/colors" className="colors-button">🎨 View Color Options</a>
+        <Link to="/colors" className="colors-button">
+          🎨 View Color Options
+        </Link>
       </div>
+
       <div className="gear-card-list">
         {gearData.map((gear, index) => (
           <GearCard key={index} {...gear} />
         ))}
       </div>
-      <button className="pricing-button2">
-        <a href="/pricing" className="pricing-link">See Pricing Page</a>
-      </button>
+
+      <div className="pricing-button-wrapper">
+        <Link to="/pricing" className="pricing-button2">
+          See Pricing Page
+        </Link>
+      </div>
     </div>
   );
 };
