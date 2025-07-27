@@ -81,7 +81,7 @@ const Home = () => {
             </p>
           </div>
           <div className="product-card">
-            <img src="/assets/ballholderSW.jpeg" alt="Biothane Ball Holder" />
+            <img src="/assets/leashpicsNvids/ballholder3.JPG" alt="Biothane Ball Holder" />
             <h3>Biothane Ball Holder</h3>
             <p>Clips to your gear and fits ChuckIt or standard balls. D-ring or snap clip.</p>
           </div>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const gearData = [
   {
     title: "Standard Leashes",
-    image: "/assets/standard.jpeg",
+    image: "/assets/leashpicsNvids/leashes.JPG",
     anchor: "leashes",
     description: "Custom everyday leashes made to fit your walk style. Choose the length, snap type, and color combo that works best for you.",
     bestFor: "Everyday walking • City environments • Training",
@@ -48,7 +48,7 @@ const gearData = [
   },
   {
     title: "Long Lines",
-    image: "/assets/custom-longline.jpg",
+    image: "/assets/leashpicsNvids/longlinerolled.JPG",
     anchor: "longlines",
     description: "Perfect for recall training, hiking, or decompression walks. Choose your length and extras like handles or rings.",
     bestFor: "Recall training • Hiking • Decompression walks",
@@ -161,7 +161,7 @@ const gearData = [
   },
   {
     title: "Traffic Handles",
-    image: "/assets/traffichandle.jpg",
+    image: "/assets/leashpicsNvids/traffichandleedit.JPG",
     anchor: "accessories",
     description: "Short grab handles for quick control in tight spaces. Great for heel work or crowded areas.",
     bestFor: "Heel work • Crowded areas • Quick control • Large dogs",
@@ -195,7 +195,7 @@ const gearData = [
   },
   {
     title: "Collars",
-    image: "/assets/collar1.jpg",
+    image: "/assets/leashpicsNvids/IMG_5129.JPG",
     anchor: "collars",
     description: "Strong, stylish, and built for comfort. Custom sizing, hardware, and HTV personalization available.",
     bestFor: "Daily wear • Personalized fit • Add-on ready",
@@ -232,7 +232,7 @@ const gearData = [
   },
   {
     title: "Ball Holders",
-    image: "/assets/ballholderSW.jpeg",
+    image: "/assets/leashpicsNvids/ballholder3.JPG",
     anchor: "accessories",
     description: "A must-have for fetch lovers. Clip to any leash, belt, or bag. Fits ChuckIt or standard tennis balls.",
     bestFor: "Fetch sessions • Ball-crazy dogs • On-the-go storage • Clean storage",
@@ -260,7 +260,7 @@ const gearData = [
   },
   {
     title: "Customization",
-    image: "/assets/customname.jpg",
+    image: "/assets/leashpicsNvids/IMG_5119.JPG",
     anchor: "addons",
     description: "Personalize your gear with names, phrases, or emergency contact info. Cute and functional.",
     bestFor: "Personalizing gear • Emergency info • Cute upgrades • Service dog gear",
