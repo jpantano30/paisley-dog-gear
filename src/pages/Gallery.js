@@ -114,6 +114,8 @@ const Gallery = () => {
         </div>
       </div>
 
+      
+
       {modalIndex !== null && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

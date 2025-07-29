@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./TrainingForm.css";
+import { Link } from "react-router-dom";
 
 const TrainingForm = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,14 @@ const TrainingForm = () => {
           Training is tailored to each dog and handler — let’s build a plan that fits your goals. */}
         </p>
       </section>
-  
+
+      <section className="training-videos">
+        <h2>Training Videos</h2>
+        <p>Check out some of my training videos to see my methods in action!</p>
+        <Link to="/videos" className="nav-link">🎥 Training Videos</Link>
+
+      </section>
+
       <br />
       <h2 className="form-heading">Please tell me about your pup and what you're looking for!</h2>
 

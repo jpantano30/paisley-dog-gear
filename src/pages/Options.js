@@ -234,7 +234,7 @@ const gearData = [
     title: "Ball Holders",
     image: "/assets/leashpicsNvids/ballholder3.JPG",
     anchor: "accessories",
-    description: "A must-have for fetch lovers. Clip to any leash, belt, or bag. Fits ChuckIt or standard tennis balls.",
+    description: "A must-have for fetch lovers. Keep hands & bags clean. Clip to any leash, belt, or bag. Fits ChuckIt or standard tennis balls.",
     bestFor: "Fetch sessions • Ball-crazy dogs • On-the-go storage • Clean storage",
     items: [
       "**Colors**",
@@ -307,7 +307,16 @@ const Options = () => {
     <div className="options-page">
       <h1>Gear Options</h1>
       <p>
-        Explore our range of customizable gear options for your pets. All of my leashes are made with 5/8" Biothane webbing for durability and comfort. Custom widths are available upon request. Custom designs are welcome!
+        Explore our range of customizable gear options for your pets. All leashes are made with 5/8" Beta Biothane® — a waterproof, odor-resistant material known for its durability, flexibility, and comfort in hand. This size offers a pull strength of around 600–750 lbs, depending on hardware and configuration. Each piece is assembled using high-quality Chicago screws with threadlock for added security.
+        <br />
+        <br />
+        If you need something heavier-duty, 3/4" and 1" Biothane is available for leashes by request — ideal for larger dogs or handlers looking for a wider grip and added strength. Collars can be made in widths up to 1.5" on request, which is perfect for large dogs or bold statement styles. 
+        <br />
+        <br />
+        <strong> Custom designs are encouraged!</strong>
+      </p>
+      <p>
+        <strong>Note:</strong> Prices are subject to change based on customization options and materials.
       </p>
 
       <div className="colors-button-wrapper">

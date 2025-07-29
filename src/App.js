@@ -11,6 +11,7 @@ import TrainingForm from "./pages/TrainingForm";
 import Pricing from "./pages/Pricing"; 
 import './App.css'; 
 import Consult from "./pages/Booking";
+import VideoGallery from "./pages/VideoGallery";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/order" element={<OrderForm />} />
           <Route path="/training" element={<TrainingForm />} />
           <Route path="/booking" element={<Consult />} />
+          <Route path="/videos" element={<VideoGallery />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
