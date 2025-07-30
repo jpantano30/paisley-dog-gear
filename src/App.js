@@ -12,6 +12,8 @@ import Pricing from "./pages/Pricing";
 import './App.css'; 
 import Consult from "./pages/Booking";
 import VideoGallery from "./pages/VideoGallery";
+import dataDeletion from "./pages/dataDeletion";
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
           <Route path="/booking" element={<Consult />} />
           <Route path="/videos" element={<VideoGallery />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/data-deletion" element={<dataDeletion />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />

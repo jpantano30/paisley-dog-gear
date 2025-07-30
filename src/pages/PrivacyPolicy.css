@@ -1,0 +1,33 @@
+/* src/pages/PrivacyPolicy.css */
+.privacy-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.privacy-container h1,
+.privacy-container h2 {
+  color: #e27d60;
+  margin-top: 1.5rem;
+}
+
+.privacy-container .last-updated {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.privacy-container a {
+  color: #41b3a3;
+  text-decoration: underline;
+}
+
+.privacy-container ul {
+  margin-left: 1.2rem;
+}
+
+.privacy-container ul li {
+  margin-bottom: 0.5rem;
+}
