@@ -5,7 +5,7 @@ const galleryImages = [
   
   { filename: "tallulah-sage.JPG", caption: "The Tallulah in Sage & White", type: "image" },
   { filename: "handsfree-redandblack2.JPG", caption: "Hands-free standard red and black", type: "image" },
-  { filename: "/leashpicsNvids/rwb.jpg", caption: "Hands-free 8ft red, white and blue leash and matching adjustable collar", type: "image" },
+  { filename: "/leashpicsNvids/rwb.jpg", caption: "Hands-free 8ft red, white and blue (3-tone) leash and matching adjustable collar", type: "image" },
   { filename: "leashextender.jpg", caption: "Leash extender (sage & white with black hardware)", type: "image" },
   { filename: "/leashpicsNvids/bella.jpg", caption: "Custom hands-free leash in amethyst purple and violet", type: "image" },
   { filename: "/leashpicsNvids/Pan.jpg", caption: "Custom hands-free leash in blue 522 and deep sea", type: "image" },
@@ -114,7 +114,7 @@ const Gallery = () => {
         </div>
       </div>
 
-      
+
 
       {modalIndex !== null && (
         <div className="modal-overlay" onClick={closeModal}>

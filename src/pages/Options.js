@@ -54,7 +54,7 @@ const gearData = [
     bestFor: "Recall training • Hiking • Decompression walks",
     items: [
       "**Length Options**",
-      "- 8ft, 10ft, 15ft, 20ft",
+      "- 8ft, 10ft, 12ft, 15ft, 20ft",
 
       "**Colors**",
       "- 1–3 solid colors",
@@ -67,7 +67,8 @@ const gearData = [
       "**Add-ons**",
       "- Traffic Handle",
       "- Hands-free Ring",
-      "- Leash Extender for more length options"
+      "- Leash Extender for more length options",
+      "- Custom lengths available",
     ], 
     pricing: [
       "Base: $35–$50 (based on length)",

@@ -1,6 +1,6 @@
 import React from "react";
 import "./VideoGallery.css";
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 
 const VideoGallery = () => {
   return (
@@ -14,7 +14,6 @@ const VideoGallery = () => {
           allow="autoplay"
           allowFullScreen
           title="Tully Training Video"
-          frameBorder="0"
         />
       </div>
     </div>
