@@ -11,7 +11,7 @@ import TrainingForm from "./pages/TrainingForm";
 import Pricing from "./pages/Pricing"; 
 import './App.css'; 
 import Consult from "./pages/Booking";
-import VideoGallery from "./pages/VideoGallery";
+import VideoGallery from "./pages/VideoGallery.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/DataDeletion";
 

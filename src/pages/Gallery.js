@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Gallery.css";
+import { Link } from "react-router-dom";
 
 const galleryImages = [
   
@@ -81,6 +82,8 @@ const Gallery = () => {
     <div className="gallery-page">
       <h1>Gallery</h1>
       <p>Check out examples of past leashes, collars, ball holders, and more!</p>
+
+      <p>View our <Link to="/videos">video gallery</Link> for more inspiration.</p>
 
       <div className="section-divider">
         <h2>Gear Highlights</h2>

@@ -36,7 +36,7 @@ const Home = () => {
           <div className="dog-card">
             <img src="/assets/tully.jpeg" alt="Tallulah the Bordoodle" />
             <h3>Tallulah</h3>
-            <p>My energetic SDiT and demo dog. Smart, sassy, and trained in freestyle, agility, and service tasks.
+            <p>My energetic SDiT and demo dog. Smart, sassy, and training in freestyle and service work.
               <br />
               <br />
               Follow her adventures on Instagram:
@@ -53,7 +53,7 @@ const Home = () => {
           <div className="dog-card">
             <img src="/assets/paisley.jpg" alt="Paisley the Cavachon" />
             <h3>Paisley</h3>
-            <p>The OG service dog. Sweet, calm, and retired — but still the inspiration behind it all.
+            <p>The OG service dog. Sweet, calm, and retired — but still the inspiration behind it all. My first dog ever and the reason I fell in love with training, canine communication, and the power of a true bond. Paisley supported me through some of the hardest years of my life. She worked with quiet confidence, always by my side, always steady. Though she’s now enjoying retirement (and plenty of naps), her legacy lives on in every leash I make and every dog I help train. None of this would exist without her.
               <br />
               <br />
               Follow her journey on Instagram:
