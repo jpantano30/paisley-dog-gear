@@ -25,7 +25,7 @@ const gearData = [
       "- Three-color: custom pricing",
 
       "**Hardware**",
-      "- Silver or Black (black +$3-$5)",
+      "- Silver or Black (black +$3–$5)",
       "- Snaps: Locking Carabiner (+$8) or Swivel Snap",
 
       "**Handle Styles**",
@@ -35,16 +35,17 @@ const gearData = [
 
       "**Add-ons**",
       "- Built-in Traffic Handle (12\", 18\", or 24\"): +$5",
-      "- Paracord Fishtail Handle: +$10-$20 (based on size)"
+      "- Paracord Fishtail Handle: +$10–$18 (based on size)"
     ],
     pricing: [
-      "Base: $25–$35 (depends on length)",
+      "4–6 ft: $30–$35",
+      "8–10 ft: $38–$42",
+      "15–20 ft: $45–$55",
+      "Two-tone upgrade: +$8",
       "Locking carabiner: +$8",
-      "Black hardware: +$3–$5",
-      "Two-tone: +$8",
-      "Traffic handle add-on: +$5",
-      "Paracord handle: +$10–$20",
-      "Hands-free upgrade: +$10"
+      "Traffic handle: +$5",
+      "Paracord handle: +$10–$18",
+      "Hands-free system upgrade: +$10"
     ]
   },
   {
@@ -55,7 +56,7 @@ const gearData = [
     bestFor: "Recall training • Hiking • Decompression walks",
     items: [
       "**Length Options**",
-      "- 8ft, 10ft, 12ft, 15ft, 20ft",
+      "- 10ft, 12ft, 15ft, 20ft, 25ft, 30ft",
 
       "**Colors**",
       "- 1–3 solid colors",
@@ -66,15 +67,16 @@ const gearData = [
       "- Snaps: Locking Carabiner or Swivel Snap",
 
       "**Add-ons**",
-      "- Traffic Handle",
-      "- Hands-free Ring",
-      "- Leash Extender for more length options",
-      "- Custom lengths available",
+      "- Traffic Handle: +$5",
+      "- Hands-free Ring: +$8",
+      "- Leash Extender: +$10–$16",
+      "- Custom lengths available"
     ], 
     pricing: [
-      "Base: $35–$50 (based on length)",
+      "10–15 ft: $40–$50",
+      "20–30 ft: $55–$65",
       "Two-tone: +$8",
-      "Paracord or handle add-ons: $5–$20"
+      "Handle or accessory add-ons: +$5–$18"
     ]
   },
   {
@@ -89,76 +91,44 @@ const gearData = [
       "- Wear crossbody, around waist, or handheld",
 
       "**Features**",
-      "- Multiple D-ring positions",
-      "- Sliding D-rings & O-ring for hands-free use",
+      "- Sliding D/O-rings and multiple fixed D-rings",
       "- Built-in traffic handle",
-      "- Comes with matching leash extender",
+      "- Includes matching leash extender",
 
       "**Customization**",
-      "- Custom color, length, handle layout"
+      "- Color layout, length, and hardware placement"
     ],
     pricing: [
-      "Base system: $60–$75",
-      "Includes matching leash extender",
-      "Black hardware or added traffic handle may increase price"
+      "Base system: $65–$75",
+      "Includes extender, traffic handle, sliding rings",
+      "Upgrades (two-tone, black hardware, paracord): add-on"
     ]
   },
   {
-    title: "Safety Straps",
-    image: "/assets/saftystrapparacord.jpeg",
-    anchor: "accessories",
-    description: "A backup strap for extra security on collars, harnesses, or seat belts. Perfect for car rides or off-leash work.",
-    bestFor: "Backup security • Car rides • Off-leash work",
+    title: "Collars",
+    image: "/assets/leashpicsNvids/IMG_5129.JPG",
+    anchor: "collars",
+    description: "Strong, stylish, and built for comfort. Custom sizing, hardware, and HTV personalization available.",
+    bestFor: "Daily wear • Personalized fit • Add-on ready",
     items: [
-      "**Length Options**",
-      "- 3\", 4\", 6\", 8\", 10\"",
+      "**Widths**",
+      "- 5/8\" (default)",
+      "- 1\" available on request",
+      "- Other custom widths (e.g. 1.5\") on request — longer shipping",
 
-      "**Colors**",
-      "- 1–2 solid colors",
-      "- Two-tone: +$8",
-
-      "**Hardware**",
-      "- Silver or Black",
-      "- Snaps: Locking Carabiner or Swivel Snap",
-      "- Optional: D-Ring",
-
-      "**Upgrade**",
-      "- Weaved Paracord Safety Strap: +$10–$20 (based on length)"
-    ], 
-    pricing: [
-      "Standard: $8–$12",
-      "Paracord upgrade: +$10–$20"
-    ]
-  },
-  {
-    title: "Leash Extenders",
-    image: "/assets/leashextender.jpg",
-    anchor: "accessories",
-    description: "Give your dog more freedom or create double-dog setups with these flexible extenders.",
-    bestFor: "Giving dogs more room • Double-dog walking",
-    items: [
-      "**Length Options**",
-      "- 6\", 10\", 12\", 15\", 18\", 24\"",
-
-      "**Colors**",
-      "- 1–2 solid colors",
-      "- Two-tone: +$8",
-
-      "**Hardware**",
-      "- Silver or Black",
-      "- Snaps: Locking Carabiner or Swivel Snap",
+      "**Styles**",
+      "- Buckle or Quick Release Buckle",
+      "- Optional O-ring split for two-tone",
 
       "**Add-ons**",
-      "- Traffic Handle",
-      "- D-Ring",
-      "- Custom Writing (HTV)",
-
-      "**Use Case**",
-      "- Adds length, freedom, or space for double-dog setups"
+      "- D-ring, O-ring, HTV personalization, handle, etc."
     ],
     pricing: [
-      "Base: $10–$16",
-      "Add-ons: $3–$10"
+      "5/8\" Buckle or Quick Release: $22–$28",
+      "1\" Width (by request): $28–$35",
+      "O-Ring Split (two-tone): +$8",
+      "HTV personalization: +$5–$10",
+      "Black hardware: +$2–$5"
     ]
   },
   {
@@ -171,134 +141,113 @@ const gearData = [
       "**Sizes**",
       "- 8\", 10\", 12\", 15\", 18\"",
 
-      "**Colors**",
+      "**Styles**",
+      "- Flat Biothane or Paracord Fishtail",
+      "- With or without D-ring/O-ring attachment",
+
+      "**Colors & Hardware**",
       "- 1–2 solid colors",
-      "- Two-tone: +$8",
-
-      "**Hardware**",
-      "- Silver or Black",
-      "- Snaps: Locking Carabiner or Swivel Snap",
-
-      "**Add-ons**",
-      "- Fixed D-Ring",
-      "- Floating O-Ring",
-
-      "**Upgrade**",
-      "- Paracord Fishtail Handle: +$10–$20 (based on size)",
-
-      "**Use Case**",
-      "- Used for quick control in crowds or for tall handlers"
+      "- Two-tone: +$5",
+      "- Black hardware: +$3"
     ], 
     pricing: [
-      "Standard: $10–$15",
+      "Standard Biothane: $12–$18",
       "Two-tone: +$5",
-      "Paracord upgrade: +$10–$20"
+      "Paracord Fishtail: +$10–$18"
     ]
   },
   {
-    title: "Collars",
-    image: "/assets/leashpicsNvids/IMG_5129.JPG",
-    anchor: "collars",
-    description: "Strong, stylish, and built for comfort. Custom sizing, hardware, and HTV personalization available.",
-    bestFor: "Daily wear • Personalized fit • Add-on ready",
+    title: "Leash Extenders",
+    image: "/assets/leashextender.jpg",
+    anchor: "accessories",
+    description: "Give your dog more freedom or create double-dog setups with these flexible extenders.",
+    bestFor: "Adding length • Double-dog walking • Attachment flexibility",
     items: [
-      "**Styles**",
-      "- Buckle or Quick Release Buckle",
-
-      "**Colors**",
-      "- 1–2 solid colors",
-      "- O-ring split for two-tone",
-
-      "**Hardware**",
-      "- Silver or Black",
-
-      "**Widths**",
-      "- 5/8\", 1\"",
-
       "**Sizes**",
-      "- Small (9–12\")",
-      "- Medium (12–16\")",
-      "- Large (15–20\")",
-      "- XL (20–25\")",
+      "- 6–24 inches (custom lengths available)",
 
-      "**Add-ons**",
-      "- D-Ring, O-Ring, Custom Writing (HTV), Handle, etc.",
-      "- Custom sizes available upon request"
-    ], 
+      "**Upgrades**",
+      "- Two-tone color: +$5",
+      "- Built-in traffic handle: +$5",
+      "- Floating or fixed O-ring: +$3"
+    ],
     pricing: [
-      "Base: $20–$28",
-      "HTV personalization: +$5",
-      "Black hardware: +$2–$4",
-      "Handle or specialty add-ons: custom"
+      "Base: $10–$16",
+      "Add-ons: +$3–$10"
     ]
   },
   {
     title: "Ball Holders",
     image: "/assets/leashpicsNvids/ballholder3.JPG",
     anchor: "accessories",
-    description: "A must-have for fetch lovers. Keep hands & bags clean. Clip to any leash, belt, or bag. Fits ChuckIt or standard tennis balls.",
-    bestFor: "Fetch sessions • Ball-crazy dogs • On-the-go storage • Clean storage",
+    description: "A must-have for fetch lovers. Keep hands and bags clean. Clips to any leash, belt, or bag.",
+    bestFor: "Fetch sessions • Clean carry • Hands-free convenience",
     items: [
-      "**Colors**",
-      "- 1–2 solid colors",
-      "- Two-tone optional",
+      "**Fit**",
+      "- Fits standard ChuckIt or tennis balls",
+      "- Custom sizing available",
 
       "**Attachment Options**",
-      "- D-Ring",
-      "- Clip",
+      "- D-ring or clip-on style",
+      "- Two-tone upgrade optional"
+    ],
+    pricing: [
+      "Standard: $12–$15",
+      "Two-tone: +$4",
+      "Custom sizing: quoted"
+    ]
+  },
+  {
+    title: "Safety Straps",
+    image: "/assets/saftystrapparacord.jpeg",
+    anchor: "accessories",
+    description: "A backup strap for added security during car rides or off-leash work.",
+    bestFor: "Backup connection • Seatbelt clip • Double-clip setups",
+    items: [
+      "**Sizes**",
+      "- 3–10 inches",
 
-      "**Fit**",
-      "- Fits standard tennis or ChuckIt balls",
-      "- Custom sizes available",
+      "**Styles**",
+      "- Biothane or Paracord Weave",
+      "- Optional D-ring",
 
-      "**Use Case**",
-      "- Clip to belt, leash, or bag"
+      "**Hardware**",
+      "- Silver or Black, Swivel or Carabiner"
     ], 
     pricing: [
-      "Standard: $10–$15",
-      "Two-tone: +$4",
-      "Custom sizes: quoted"
+      "Biothane: $10–$12",
+      "Paracord upgrade: +$10–$15"
     ]
   },
   {
     title: "Customization",
     image: "/assets/leashpicsNvids/IMG_5119.JPG",
     anchor: "addons",
-    description: "Personalize your gear with names, phrases, or emergency contact info. Cute and functional.",
-    bestFor: "Personalizing gear • Emergency info • Cute upgrades • Service dog gear",
+    description: "Add names, phrases, or emergency contact info to any gear using heat transfer vinyl (HTV).",
+    bestFor: "Personalization • Safety info • Service dog gear",
     items: [
-      "**Options**",
-      "- Add names, phrases, or contact info",
-
-      "**Material**",
-      "- HTV (heat transfer vinyl) application",
-
-      "**Usable On**",
-      "- Personalize leashes, collars, harnesses, etc."
+      "**Style**",
+      "- Custom font, layout, and placement",
+      "- Can be applied to most flat gear"
     ], 
     pricing: [
-      "HTV personalization: $5-$10 per item",
-      "Font, size, color: fully customizable"
+      "HTV personalization: $5–$10 per item"
     ]
   },
   {
     title: "Starter Sets",
     image: "/assets/set2.jpeg",
     anchor: "startersets",
-    description: "The full setup — includes a matching leash, collar, and ball holder. Great for new pups or gift sets.",
-    bestFor: "Gifting • First dog setups • Stylish matching sets",
+    description: "Matching collar, leash, and ball holder — perfect for gifting or new dog setups.",
+    bestFor: "Gift bundles • First-time dog owners • Style sets",
     items: [
-      "**Colors**",
-      "- 1–2 solid colors",
-      "- Two-tone optional",
-
-      "**Options**",
-      "- Includes: Collar + Leash + Ball Holder",
-      "- Custom layouts, colors, and handle styles available"
+      "**Includes**",
+      "- 5/8\" collar, standard leash, and ball holder",
+      "- Matching or coordinating color themes"
     ],
     pricing: [
-      "Base bundle: $55–$75",
-      "Upgrades (two-tone, hardware, add-ons): varies"
+      "Bundle: $60–$75",
+      "Upgrades (two-tone, paracord, locking snap): varies"
     ]
   }
 ];

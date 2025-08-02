@@ -18,6 +18,11 @@ const videoFiles = [
     title: "How the Gear Works: Ball Holder",
     type: "gear",
   },
+  {    
+    youtubeId: "5zaoEDiXv_E",
+    title: "Tully’s freestyle training session.",
+    type: "training",
+  },
 ];
 
 const VideoGallery = () => {

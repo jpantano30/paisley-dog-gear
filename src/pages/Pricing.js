@@ -11,19 +11,19 @@ const Pricing = () => {
         <h2>Custom Biothane Gear</h2>
         <p className="notes">
           Most items are made with 5/8″ standard Beta Biothane. 1″ width available upon request and may affect price and shipping time. <br />
-          Shipping is included in your custom quote. USPS rates typically range from $5–$9 depending on size and destination.
+          Shipping is included in your custom quote. USPS rates typically range from $5–$9 depending on size and destination. Pick up is available in the local area (Boston, MA) for free. I also do drop offs for a small fee if youre in the area <br />
         </p>
 
         <div className="pricing-grid">
           <div className="price-card" id="leashes">
             <h3>Standard Leashes</h3>
             <ul>
-              <li>4–6 ft: $35–$45</li>
-              <li>8–10 ft: $45–$55</li>
-              <li>15–20 ft: $55–$65</li>
+              <li>4–6 ft: $30–$35</li>
+              <li>8–10 ft: $38–$42</li>
+              <li>15–20 ft: $45–$55</li>
               <li>Convertible + O-Ring (hands-free): +$10</li>
-              <li>Built-in Traffic Handle: +$6–$8</li>
-              <li>Paracord Fishtail Handle: +$10+</li>
+              <li>Built-in Traffic Handle: +$5</li>
+              <li>Paracord Fishtail Handle: +$10-$18</li>
             </ul>
           </div>
 
