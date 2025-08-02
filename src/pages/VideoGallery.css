@@ -51,3 +51,10 @@
   font-weight: 600;
   color: #333;
 }
+
+.video-section-title {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #41b3a3;
+}

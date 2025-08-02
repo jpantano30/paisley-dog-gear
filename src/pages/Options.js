@@ -4,6 +4,7 @@ import "./Options.css";
 import { Link } from "react-router-dom";
 
 
+
 const gearData = [
   {
     title: "Standard Leashes",
@@ -318,6 +319,12 @@ const Options = () => {
       </p>
       <p>
         <strong>Note:</strong> Prices are subject to change based on customization options and materials.
+      </p>
+
+      <p> Gear Demo Videos:
+        <Link to="/videos#gear-demos" className="gear-video-link">
+          Watch Gear Demo Videos
+        </Link>
       </p>
 
       <div className="colors-button-wrapper">

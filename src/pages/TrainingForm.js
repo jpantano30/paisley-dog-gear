@@ -61,8 +61,50 @@ const TrainingForm = () => {
 
       </section>
 
-      <br />
-      <h2 className="form-heading">Please tell me about your pup and what you're looking for!</h2>
+      <section className="training-pricing">
+        <h2>Training Rates</h2>
+
+        <div className="pricing-grid training-pricing-grid">
+            <div className="price-card">
+              <h3>Private Training</h3>
+              <ul>
+                <li>One 60 min session: $50</li>
+                <li>Great for freestyle, tricks, recall, or behavior work</li>
+                <li>Held locally or in select public locations</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Training Packages</h3>
+              <ul>
+                <li>3 Sessions (1 hr each): $135 total ($45/session)</li>
+                <li>5 Sessions (1 hr each): $200 total ($40/session)</li>
+                <li>Includes progress tracking and goal planning</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Virtual Coaching</h3>
+              <ul>
+                <li>30 min Zoom or Google Meet: $30 to $45</li>
+                <li>Ideal for trick tune-ups, routines, or behavior Q&A</li>
+                <li>Submit videos or questions ahead of time if you'd like</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Intro Consult</h3>
+              <ul>
+                <li>Free 15 to 20 minute call</li>
+                <li>Tell me about your dog and your goals</li>
+                <li>Schedule via the <Link to="/booking">Booking Page</Link></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <br />
+        <h2 className="form-heading">Please tell me about your pup and what you're looking for!</h2>
 
       <form onSubmit={handleSubmit} className="training-form">
         <label>Your Name:</label>

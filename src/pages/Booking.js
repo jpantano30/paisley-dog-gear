@@ -10,7 +10,7 @@ export default function Booking() {
         Want to chat about training goals or see if we’re a good fit? Schedule a free 15-minute consult using the calendar below.
       </p>
       <InlineWidget
-        url="https://calendly.com/jpantano30/free-15-min-training-consult"
+        url="https://calendly.com/paisleygearandtraining/free-15-min-training-consult"
         styles={{ height: "700px" }}
       />
     </div>
