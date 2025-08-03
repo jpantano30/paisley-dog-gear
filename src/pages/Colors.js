@@ -81,6 +81,7 @@ const Colors = () => {
         Click the <strong>★</strong> to favorite a color — your selected colors will appear together below in the preview section! <br /> 
         Let me know if you want help choosing!
       </p>
+      <p>Colors are subject to availability.</p>
 
       <div className="category-filter">
         {categories.map((cat) => (
