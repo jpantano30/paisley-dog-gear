@@ -221,7 +221,7 @@ const gearData = [
   },
   {
     title: "Customization",
-    image: "/assets/leashpicsNvids/IMG_5119.JPG",
+    image: "/assets/leashpicsNvids/IMG_5191.JPG",
     anchor: "addons",
     description: "Add names, phrases, or emergency contact info to any gear using heat transfer vinyl (HTV).",
     bestFor: "Personalization • Safety info • Service dog gear",
