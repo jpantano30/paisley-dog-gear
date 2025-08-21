@@ -14,21 +14,29 @@ const Footer = () => {
         <a href="mailto:paisleygearandtraining@gmail.com">
           paisleygearandtraining@gmail.com
         </a>
-        <span> | </span>
+        {/* <span> | </span>
         <a
-          href="https://instagram.com/eatwellandeatdessert"
+          href="https://www.instagram.com/eatwellandeatdessert/?hl=en"
           target="_blank"
           rel="noreferrer"
         >
           Instagram - Gear
-        </a>
+        </a> */}
         <span> | </span>
         <a
-          href="https://instagram.com/tullytornado"
+          href="https://www.instagram.com/tullytornado/?hl=en"
           target="_blank"
           rel="noreferrer"
         >
           Instagram - Training
+        </a>
+        <span> | </span>
+        <a
+          href="https://www.facebook.com/PaisleyGearandTraining"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Facebook - Paisley Gear & Training
         </a>
       </div>
 

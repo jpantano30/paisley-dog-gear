@@ -813,6 +813,7 @@ export default function ProductBuilder() {
                   onChange={(e) => update({ colorPrimary: e.target.value })}
                   placeholder="e.g., Hot Pink"
                 />
+                <p><em>Check out colors <Link to="/colors">here</Link></em></p>
               </div>
               <div>
                 <label>Two-tone</label>
