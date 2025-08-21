@@ -269,6 +269,7 @@ export default function OrderForm() {
           <div className="modal-content">
             <h2>Thank you!</h2>
             <p>Your request has been received. I’ll follow up via email soon.</p>
+            <p><em>Note: </em></p><p>All custom gear is made to order and may take 2-4 weeks to ship.</p>
             <button onClick={() => setShowModal(false)}>Close</button>
           </div>
         </div>

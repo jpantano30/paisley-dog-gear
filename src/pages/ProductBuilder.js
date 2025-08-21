@@ -581,7 +581,8 @@ export default function ProductBuilder() {
         <p>Start by choosing a product type. The available options and add-ons will update automatically.</p>
         <p>Once you’ve made your selection, customize it with colors, hardware, and other details. When you’re ready, click <strong>Send to Order Page</strong> to review and submit your request.</p>
         <br />
-        <p>Not sure what to choose? <Link to="/options">Check out our options!</Link>.</p>
+        <p>Not sure what to choose? <Link to="/options">Check out our options!</Link>.</p><br />
+        <p><em>Note: </em> Colors for paracord are available in a variety of options. Please describe your desired color scheme in the notes section if applicable.</p>
       </header>
 
       <div className="builder-grid">
