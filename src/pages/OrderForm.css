@@ -120,7 +120,7 @@
   }
 
   .order-form form {
-  gap: 0.5rem;
+    gap: 0.5rem;
   }
 
   .order-form h1 {
@@ -146,7 +146,7 @@
   }
 
   .order-form textarea {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 
   .order-form button {

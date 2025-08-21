@@ -26,6 +26,7 @@ const Navbar = () => {
         <li><Link to="/options" onClick={closeMenu}>Gear Options</Link></li>
         {/* <li><Link to="/colors" onClick={closeMenu}>Colors</Link></li> */}
         {/* <li><Link to="/pricing" onClick={closeMenu}>Pricing</Link></li> */}
+        <Link to="/builder" onClick={closeMenu}>Builder</Link>
         <li><Link to="/order" onClick={closeMenu}>Order</Link></li>
         <li><Link to="/training" onClick={closeMenu}>Training</Link></li>
         <li><Link to="/gallery" onClick={closeMenu}>Gallery</Link></li>

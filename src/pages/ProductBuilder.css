@@ -1,0 +1,197 @@
+/* ===== Product Builder ===== */
+
+:root{
+  --ink:#1f1f1f;
+  --muted:#666;
+  --line:#e6e6e6;
+  --card:#fff;
+  --bg:#f6f3ef;
+  --accent:#111;       /* button/price border */
+  --accent-teal:#6c9a8b;
+  --accent-brown:#7e5e3b;
+  --text-dark:#2f2f2f;
+  --bg-light:#faf9f6;
+  --swatch-border:#ccc;
+  --accent-coral:#e27d60;
+  --light-cream:#ede1d5;
+}
+
+.builder-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.builder-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.builder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .builder-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.form-row > div {
+  flex: 1;
+  min-width: 240px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+select, input[type="text"], input[type="number"], textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.small {
+  font-size: 12px;
+  color: #666;
+}
+
+.help {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #444;
+}
+
+.summary {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.summary ul {
+  padding-left: 18px;
+}
+
+.price-badge {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid #222;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #222;
+  background: #222;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button.secondary {
+  background: transparent;
+  color: #222;
+}
+
+/* Quick-pick chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips button {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--accent-coral);
+}
+.chips button:hover { background: #eee; }
+
+/* Small helper blurb under add-on checkboxes */
+.addon-explain {
+  margin: 4px 0 0 24px; /* indent under the checkbox */
+  color: #666;
+  font-size: 12px;
+  line-height: 1.35;
+  max-width: 46ch;
+}
+
+/* “What’s included” box */
+.included {
+  border-top: 1px dashed #e2e2e2;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.included h4 {
+  margin: 8px 0 6px;
+}
+.included ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* A gentle inline notice */
+.notice {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #b04a00;
+}
+
+/* 🔒 Locked option styling */
+.locked-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.locked-option em {
+  font-style: normal;
+  color: #6c9a8b;   /* subtle teal */
+  font-weight: 600;
+}
+.locked-option .lock {
+  margin-left: 6px;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+.locked-option input[disabled] {
+  accent-color: #6c9a8b;
+  cursor: not-allowed;
+}

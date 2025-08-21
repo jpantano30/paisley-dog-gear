@@ -14,6 +14,7 @@ import Consult from "./pages/Booking";
 import VideoGallery from "./pages/VideoGallery.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/DataDeletion";
+import ProductBuilder from "./pages/ProductBuilder";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/data-deletion" element={<DataDeletion />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/builder" element={<ProductBuilder />} />
         </Routes>
       </main>
       <Footer />

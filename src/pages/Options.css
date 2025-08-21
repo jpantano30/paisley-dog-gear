@@ -1,221 +1,94 @@
-:root {
-  --accent-teal: #6c9a8b;
-  --accent-brown: #7e5e3b;
-  --text-dark: #2f2f2f;
-  --bg-light: #faf9f6;
-  --swatch-border: #ccc;
-  --accent-coral: #e27d60;
+:root{
+  --accent-teal:#6c9a8b;
+  --accent-brown:#7e5e3b;
+  --text-dark:#2f2f2f;
+  --bg-light:#faf9f6;
+  --swatch-border:#ccc;
+  --accent-coral:#e27d60;
+  --light-cream:#ede1d5;
 }
 
-
-/* ==== OPTIONS PAGE STYLES ==== */
-
-.options-page {
-  padding: 4rem 2rem;
-  background-color: #f8f5f2;
-  max-width: 1100px;
-  margin: 0 auto;
+.options-page{
+  padding:4rem 2rem;
+  background-color:#f8f5f2;
+  max-width:1100px;
+  margin:0 auto;
 }
 
-.options-page h1 {
-  font-size: 2.75rem;
-  font-weight: 700;
-  color: #e27d60;
-  text-align: center;
-  margin-bottom: 3rem;
-  text-shadow: 1px 1px #fdfdfd;
-  font-family: 'Georgia', serif;
-  letter-spacing: 0.5px;
+.options-page h1{
+  font-size:2.75rem;
+  font-weight:700;
+  color:#e27d60;
+  text-align:center;
+  margin-bottom:2rem;
+  text-shadow:1px 1px #fdfdfd;
+  font-family:'Georgia',serif;
+  letter-spacing:.5px;
 }
 
-.options-page p {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--accent-teal);
-  text-align: center;
-  margin-bottom: 3rem;
-  text-shadow: 1px 1px #fdfdfd;
-  font-family: 'Georgia', serif;
-  letter-spacing: 0.2px;
-  ;
+.options-page p{
+  font-size:1.05rem;
+  font-weight:500;
+  color:var(--accent-teal);
+  text-align:center;
+  margin-bottom:1.5rem;
+  font-family:'Georgia',serif;
+  letter-spacing:.2px;
 }
 
-/* Grid of Gear Cards */
-.gear-card-list {
-  display: grid;
+.gear-card-list{
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  /* gap: 2.5rem; */
 }
 
-/* ==== GEAR CARD ==== */
+.gear-card{
+  background:#fff;
+  border-radius:18px;
+  padding:1.6rem;
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+  border:1px solid #eee;
+  margin:10px;
+}
+.gear-card:hover{ transform:translateY(-6px); box-shadow:0 14px 32px rgba(0,0,0,.08); }
 
-.gear-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 1.75rem;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid #eee;
-  margin: 10px;
+.gear-card img{
+  width:100%; height:auto; border-radius:12px; margin-bottom:1rem; object-fit:cover;
 }
 
-.gear-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+.gear-card h3{
+  font-size:1.5rem; color:#2f2f2f; text-align:center; margin:.2rem 0 1rem; font-weight:600;
 }
 
-/* Gear Image */
-.gear-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 1.25rem;
-  object-fit: cover;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
+.gear-card ul{ list-style:none; padding:0; margin:0; }
+.gear-card li{ margin-bottom:.55rem; position:relative; padding-left:1.2rem; font-size:.96rem; color:#4a4a4a; line-height:1.55; }
 
-/* Title */
-.gear-card h3 {
-  font-size: 1.5rem;
-  color: #2f2f2f;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  font-family: 'Arial Rounded MT Bold', sans-serif;
+.pricing-button2{
+  display:inline-block; margin:1.25rem 0 0;
+  padding:.6rem 1.4rem; background:#c1c9c9; color:#fff !important;
+  text-decoration:none; font-weight:700; border-radius:8px;
+  transition: background-color .2s ease, transform .1s ease;
 }
-
-/* Item List Styling */
-.gear-card ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.gear-card li {
-  margin-bottom: 0.6rem;
-  position: relative;
-  padding-left: 1.4rem;
-  font-size: 0.96rem;
-  color: #4a4a4a;
-  line-height: 1.6;
-}
-
-.pricing-button2 {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.4rem;
-  background-color: rgb(193, 201, 201);
-  color: #fff !important;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.pricing-button2:hover {
-  background-color: var(--accent-teal);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.colors-button-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.colors-button {
-  padding: 0.6rem 1.4rem;
-  background-color: var(--accent-coral);
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  cursor: pointer;
-  text-align: center;
-  font-weight: 600;
-  font-family: "Arial Rounded MT Bold", sans-serif;
-  color: white;
-  text-decoration: none;
-}
-
-.colors-button:hover {
-  background-color: #fa9b82;
-  transform: translateY(-1px);
-}
+.pricing-button2:hover{ background:var(--accent-teal); transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,.1); }
 
 .colors-button-wrapper,
-.pricing-button-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0;
+.pricing-button-wrapper{
+  display:flex; justify-content:center; margin:1.5rem 0;
 }
-
-/* .colors-button,
-.pricing-button2 {
-  background-color: #e1785c;
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.25rem;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s;
+.colors-button{
+  padding:.6rem 1.4rem; background:var(--accent-coral); border:none; border-radius:8px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  transition: background-color .2s ease, transform .1s ease;
+  cursor:pointer; text-align:center; font-weight:600; color:#fff; text-decoration:none;
 }
+.colors-button:hover{ background:#fa9b82; transform:translateY(-1px); }
 
-.colors-button:hover,
-.pricing-button2:hover {
-  background-color: #d6674e;
-} */
-
-
-
-
-/* .gear-card li::before {
-  content: "🐾";
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  font-size: 0.9rem;
-  color: #9c6644;
-} */
-
-/* ==== MOBILE RESPONSIVE ==== */
-@media (max-width: 768px) {
-  .options-page {
-    padding: 2rem 1rem;
-  }
-
-  .options-page h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-  }
-
-  .options-page p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    padding: 0 0.5rem;
-  }
-
-  .gear-card-list {
-    grid-template-columns: 1fr;
-    /* gap: 1.5rem; */
-  }
-
-  .gear-card {
-    padding: 1.25rem;
-    border-radius: 14px;
-  }
-
-  .gear-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .gear-card li {
-    font-size: 0.9rem;
-    padding-left: 1.2rem;
-  }
+@media (max-width:768px){
+  .options-page{ padding:2rem 1rem; }
+  .options-page h1{ font-size:2rem; margin-bottom:1.25rem; }
+  .options-page p{ font-size:1rem; margin-bottom:1.25rem; padding:0 .5rem; }
+  .gear-card-list{ grid-template-columns:1fr; }
+  .gear-card{ padding:1.25rem; border-radius:14px; }
+  .gear-card h3{ font-size:1.3rem; margin-bottom:.75rem; }
+  .gear-card li{ font-size:.92rem; padding-left:1rem; }
 }

@@ -10,7 +10,7 @@ const Home = () => {
         <h1>Paisley Dog Gear & Training</h1>
         <h2 className="tagline">Custom Biothane Dog Gear & Trick Training in Boston, MA</h2>
         <p>Functional. Custom. Made for Adventure.</p>
-        <Link to="/order" className="cta-button cta-primary">Start a Custom Order</Link>
+        <Link to="/builder" className="cta-button cta-primary">Design Your Own Here!</Link>
       </div>
 
 

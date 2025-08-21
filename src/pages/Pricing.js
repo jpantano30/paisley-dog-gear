@@ -11,7 +11,7 @@ const Pricing = () => {
         <h2>Custom Biothane Gear</h2>
         <p className="notes">
           Most items are made with 5/8″ standard Beta Biothane. 1″ width available upon request and may affect price and shipping time. <br />
-          Shipping is included in your custom quote. USPS rates typically range from $5–$9 depending on size and destination. Pick up is available in the local area (Boston, MA) for free. I also do drop offs for a small fee if youre in the area <br />
+          Shipping is included in your custom quote from me. USPS rates typically range from $5–$9 depending on size and destination. Pick up is available in the local area (Boston, MA) for free. I also do drop offs for a small fee if you're in the area. <br />
         </p>
 
         <div className="pricing-grid">
@@ -99,51 +99,73 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="pricing-section">
-        <h2>Dog Training</h2>
-        <p className="notes">
-          I specialize in <span className="training-options">freestyle and trick training</span> — teaching everything from spins, weaves, and jumps to advanced routines. It's all about movement, creativity, and building a stronger bond with your dog through fun and focus.<br /><br />
-          I also offer help with <span className="training-options">manners, obedience, and behavior</span> using a balanced, communication-focused approach. Tools like prong collars or e-collars may be used if needed and are introduced thoughtfully and with consent. Training is tailored to each dog and handler. Let’s build a plan that fits your goals.
-        </p>
-
-        <div className="pricing-grid">
-          <div className="price-card">
-            <h3>Private Training</h3>
-            <ul>
-              <li>One 60 min session: $50</li>
-              <li>Great for freestyle, tricks, recall, or behavior work</li>
-              <li>Held locally or in select public locations</li>
-            </ul>
-          </div>
-
-          <div className="price-card">
-            <h3>Training Packages</h3>
-            <ul>
-              <li>3 Sessions (1 hr each): $135 total ($45/session)</li>
-              <li>5 Sessions (1 hr each): $200 total ($40/session)</li>
-              <li>Includes progress tracking and goal planning</li>
-            </ul>
-          </div>
-
-          <div className="price-card">
-            <h3>Virtual Coaching</h3>
-            <ul>
-              <li>30 min Zoom or Google Meet: $30 to $45</li>
-              <li>Ideal for trick tune-ups, routines, or behavior Q&A</li>
-              <li>Submit videos or questions ahead of time if you'd like</li>
-            </ul>
-          </div>
-
-          <div className="price-card">
-            <h3>Intro Consult</h3>
-            <ul>
-              <li>Free 15 to 20 minute call</li>
-              <li>Tell me about your dog and your goals</li>
-              <li>Schedule via the <Link to="/booking">Booking Page</Link></li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <section className="training-pricing">
+              <h2>Training Rates</h2>
+      
+              <div className="pricing-grid training-pricing-grid">
+                {/* Meet-Up (Boston or agreed location) */}
+                <div className="price-card">
+                  <h3>Private Training — Meet-Up</h3>
+                  <ul>
+                    <li>One 60 min session: <strong>$50</strong></li>
+                    <li>No travel fee at Boston spots or other agreed meet-up locations</li>
+                    <li>Perfect for freestyle, tricks, recall, or behavior work</li>
+                  </ul>
+                </div>
+      
+                {/* In-Home / Local Park / Field Trip */}
+                <div className="price-card">
+                  <h3>Private Training — In-Home, Local Park, or Field Trip</h3>
+                  <ul>
+                    <li>One 60 min session: <strong>$50</strong> <em>+ travel (see policy)</em></li>
+                    <li>Options include: your home, a local park near you, or a field trip to Home Depot/Lowe’s</li>
+                    <li>Great for puppies, behavior work, and real-world training</li>
+                  </ul>
+                </div>
+      
+                {/* Packages */}
+                <div className="price-card">
+                  <h3>Training Packages</h3>
+                  <ul>
+                    <li>3 Sessions (1 hr each): <strong>$135 total</strong> ($45/session)</li>
+                    <li>5 Sessions (1 hr each): <strong>$200 total</strong> ($40/session)</li>
+                    <li>Includes progress tracking and goal planning</li>
+                    <li><strong>Note:</strong> Package discounts apply to training time only; travel (if any) is charged per visit.</li>
+                  </ul>
+                </div>
+      
+                {/* Virtual */}
+                <div className="price-card">
+                  <h3>Virtual Coaching</h3>
+                  <ul>
+                    <li>30 min Zoom or Google Meet: <strong>$30–$45</strong></li>
+                    <li>Ideal for trick tune-ups, routines, or behavior Q&amp;A</li>
+                    <li>Submit videos or questions ahead of time if you'd like</li>
+                  </ul>
+                </div>
+      
+                {/* Intro */}
+                <div className="price-card">
+                  <h3>Intro Consult</h3>
+                  <ul>
+                    <li>Free 15–20 minute call</li>
+                    <li>Tell me about your dog and your goals</li>
+                    <li>Schedule via the <Link to="/booking">Booking Page</Link></li>
+                  </ul>
+                </div>
+      
+                {/* Travel Policy */}
+                <div className="price-card policy">
+                  <h3>Travel Policy (for In-Home, Park, or Field Trip Sessions)</h3>
+                  <ul>
+                    <li>First <strong>40 minutes round-trip</strong> of travel are included.</li>
+                    <li>After that: <strong>$0.75 per minute (round-trip)</strong>, billed in 10-minute increments.</li>
+                    <li>Travel is calculated per visit from our Boston location (North End); meet-ups in Boston have <strong>no travel fee</strong>.</li>
+                    <li>Example: ~50 min each way (≈100 min round-trip) → 60 billable minutes × $0.75 = <strong>$45 travel</strong>.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
 
     </div>

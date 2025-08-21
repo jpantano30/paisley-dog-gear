@@ -3,8 +3,6 @@ import GearCard from "../components/GearCard";
 import "./Options.css";
 import { Link } from "react-router-dom";
 
-
-
 const gearData = [
   {
     title: "Standard Leashes",
@@ -15,271 +13,201 @@ const gearData = [
     items: [
       "**Length Options**",
       "- 4ft: City walks / high-traffic areas",
-      "- 6ft: Everyday walks / training",
+      "- 5–6ft: Everyday walks / training",
       "- 8–10ft: Relaxed walks, hiking, recall",
-      "- 15–20ft: Training (not for crowded areas)",
-
+      "- 15–20ft: Training (open spaces only)",
       "**Colors**",
       "- 1–3 solid colors",
       "- Two-tone: +$8",
-      "- Three-color: custom pricing",
-
       "**Hardware**",
-      "- Silver or Black (black +$3–$5)",
+      "- Silver or Black (+$3)",
       "- Snaps: Locking Carabiner (+$8) or Swivel Snap",
-
       "**Handle Styles**",
-      "- Loop Handle (standard)",
-      "- Snap + O-Ring (Hands-Free System): +$10",
-      "- No Handle + Fixed D-Ring or O-Ring",
-
+      "- Loop Handle (standard) or No Handle",
+      "- Hands-free conversion (+$10)",
       "**Add-ons**",
       "- Built-in Traffic Handle (12\", 18\", or 24\"): +$5",
-      "- Paracord Fishtail Handle: +$10–$18 (based on size)"
+      "- Paracord handle upgrade: +$10–$18"
     ],
     pricing: [
       "4–6 ft: $30–$35",
       "8–10 ft: $38–$42",
       "15–20 ft: $45–$55",
-      "Two-tone upgrade: +$8",
-      "Locking carabiner: +$8",
-      "Traffic handle: +$5",
-      "Paracord handle: +$10–$18",
-      "Hands-free system upgrade: +$10"
+      "Two-tone: +$8 • Locking: +$8 • Traffic: +$5 • Hands-free: +$10"
     ]
   },
   {
     title: "Long Lines",
     image: "/assets/leashpicsNvids/longlinerolled.JPG",
     anchor: "longlines",
-    description: "Perfect for recall training, hiking, or decompression walks. Choose your length and extras like handles or rings.",
+    description: "Perfect for recall training, hiking, or decompression walks. Choose your length and extras like rings or a grab handle.",
     bestFor: "Recall training • Hiking • Decompression walks",
     items: [
       "**Length Options**",
       "- 10ft, 12ft, 15ft, 20ft, 25ft, 30ft",
-
       "**Colors**",
       "- 1–3 solid colors",
       "- Two-tone: +$8",
-
       "**Hardware**",
-      "- Silver or Black",
-      "- Snaps: Locking Carabiner or Swivel Snap",
-
+      "- Silver or Black (+$3)",
+      "- Snaps: Locking Carabiner (+$8) or Swivel Snap",
       "**Add-ons**",
-      "- Traffic Handle: +$5",
-      "- Hands-free Ring: +$8",
-      "- Leash Extender: +$10–$16",
+      "- Built-in grab/traffic handle (+$5; paracord +$10–$12)",
+      "- Rings (fixed or floating) (+$3 each)",
       "- Custom lengths available"
-    ], 
+    ],
     pricing: [
-      "10–15 ft: $40–$50",
-      "20–30 ft: $55–$65",
-      "Two-tone: +$8",
-      "Handle or accessory add-ons: +$5–$18"
+      "10–15 ft: $45–$65",
+      "20–30 ft: $55–$75",
+      "Two-tone: +$8 • Locking: +$8 • Handle: +$5 (+paracord)"
     ]
   },
   {
     title: "The Tallulah",
     image: "/assets/tallulah-sage2.JPG",
     anchor: "tallulah",
-    description: "A hands-free leash system designed for training, multitasking, and public access work. Wear it crossbody, at your waist, or handheld.",
+    description: "A hands-free leash system for training, multitasking, and public access work. Wear it crossbody, at your waist, or handheld.",
     bestFor: "Hands-free walking • Training • Public access work",
     items: [
       "**Description**",
       "- Multi-functional hands-free leash/long line system",
       "- Wear crossbody, around waist, or handheld",
-
       "**Features**",
       "- Sliding D/O-rings and multiple fixed D-rings",
       "- Built-in traffic handle",
-      "- Includes matching leash extender",
-
+      "- Includes matching extender",
       "**Customization**",
       "- Color layout, length, and hardware placement"
     ],
     pricing: [
-      "Base system: $65–$75",
+      "Base system: $65–$85",
       "Includes extender, traffic handle, sliding rings",
-      "Upgrades (two-tone, black hardware, paracord): add-on"
+      "Upgrades (two-tone, black hardware): add-on"
     ]
   },
   {
     title: "Collars",
     image: "/assets/leashpicsNvids/IMG_5129.JPG",
     anchor: "collars",
-    description: "Strong, stylish, and built for comfort. Custom sizing, hardware, and HTV personalization available.",
-    bestFor: "Daily wear • Personalized fit • Add-on ready",
+    description: "Strong, stylish, and built for comfort. Choose your size band, width, buckle, and optional two-tone or HTV.",
+    bestFor: "Daily wear • Personalized fit",
     items: [
-      "**Widths**",
-      "- 5/8\" (default)",
-      "- 1\" available on request",
-      "- Other custom widths (e.g. 1.5\") on request — longer shipping",
-
-      "**Styles**",
-      "- Buckle or Quick Release Buckle",
-      "- Optional O-ring split for two-tone",
-
-      "**Add-ons**",
-      "- D-ring, O-ring, HTV personalization, handle, etc."
+      "**Sizes (measured fit)**",
+      "- XS: 8–11\" — from $22",
+      "- S: 10–13\" — from $24",
+      "- M: 12–16\" — from $26",
+      "- L: 15–20\" — from $28",
+      "- XL: 20–25\" — from $32",
+      "**Buckle Options**",
+      "- Metal double-bar (Silver or Black +$2)",
+      "- Plastic quick-release (Black, −$2)",
+      "**Width**",
+      "- 5/8\" standard • 1\" +$8",
+      "**Style Upgrades**",
+      "- Two-tone O-ring split: +$8",
+      "- Black metal hardware set: +$3",
+      "- HTV: Name $5 • Name+Phone $8 • Large $10"
     ],
     pricing: [
-      "5/8\" Buckle or Quick Release: $22–$28",
-      "1\" Width (by request): $28–$35",
-      "O-Ring Split (two-tone): +$8",
-      "HTV personalization: +$5–$10",
-      "Black hardware: +$2–$5"
+      "Price varies by size band and options selected."
     ]
   },
   {
     title: "Traffic Handles",
     image: "/assets/leashpicsNvids/traffichandleedit.JPG",
     anchor: "accessories",
-    description: "Short grab handles for quick control in tight spaces. Great for heel work or crowded areas.",
-    bestFor: "Heel work • Crowded areas • Quick control • Large dogs",
+    description: "Short grab handles for quick control in tight spaces. Choose Biothane or a paracord weave.",
+    bestFor: "Heel work • Crowded areas • Large dogs",
     items: [
       "**Sizes**",
       "- 8\", 10\", 12\", 15\", 18\"",
-
       "**Styles**",
-      "- Flat Biothane or Paracord Fishtail",
-      "- With or without D-ring/O-ring attachment",
-
+      "- Biothane (standard) or Paracord (fishtail/weave)",
       "**Colors & Hardware**",
-      "- 1–2 solid colors",
-      "- Two-tone: +$5",
-      "- Black hardware: +$3"
-    ], 
+      "- 1–2 colors • Two-tone +$5",
+      "- Silver hardware (Black +$3)"
+    ],
     pricing: [
-      "Standard Biothane: $12–$18",
-      "Two-tone: +$5",
-      "Paracord Fishtail: +$10–$18"
+      "Biothane: $12–$18 • Paracord: +$10–$12",
+      "Two-tone: +$5"
     ]
   },
   {
     title: "Leash Extenders",
     image: "/assets/leashextender.jpg",
-    anchor: "accessories",
-    description: "Give your dog more freedom or create double-dog setups with these flexible extenders.",
-    bestFor: "Adding length • Double-dog walking • Attachment flexibility",
+    anchor: "extenders",
+    description: "Add length or create double-dog setups. Comes with a snap and ring.",
+    bestFor: "Adding length • Double-dog walking",
     items: [
       "**Sizes**",
-      "- 6–24 inches (custom lengths available)",
-
+      "- 6–24 inches (custom available)",
+      "**Includes**",
+      "- Snap + attachment ring",
       "**Upgrades**",
-      "- Two-tone color: +$5",
-      "- Built-in traffic handle: +$5",
-      "- Floating or fixed O-ring: +$3"
+      "- Two-tone +$5 • Black hardware +$3"
     ],
     pricing: [
-      "Base: $10–$16",
-      "Add-ons: +$3–$10"
+      "Base: $12–$16 depending on size",
+      "Two-tone: +$5"
     ]
   },
   {
     title: "Ball Holders",
     image: "/assets/leashpicsNvids/ballholder3.JPG",
-    anchor: "accessories",
-    description: "A must-have for fetch lovers. Keep hands and bags clean. Clips to any leash, belt, or bag.",
-    bestFor: "Fetch sessions • Clean carry • Hands-free convenience",
+    anchor: "ballholder",
+    description: "A must-have for fetch lovers. Clips to any leash, belt, or bag.",
+    bestFor: "Fetch sessions • Hands-free carry",
     items: [
       "**Fit**",
-      "- Fits standard ChuckIt or tennis balls",
+      "- Fits standard ChuckIt/tennis balls",
       "- Custom sizing available",
-
-      "**Attachment Options**",
-      "- D-ring or clip-on style",
-      "- Two-tone upgrade optional"
+      "**Includes**",
+      "- Ring/clip attachment • Silver hardware",
+      "**Options**",
+      "- Two-tone +$5 • Black hardware +$3"
     ],
     pricing: [
       "Standard: $12–$15",
-      "Two-tone: +$4",
-      "Custom sizing: quoted"
+      "Two-tone: +$5"
     ]
   },
   {
     title: "Safety Straps",
     image: "/assets/saftystrapparacord.jpeg",
-    anchor: "accessories",
-    description: "A backup strap for added security during car rides or off-leash work.",
-    bestFor: "Backup connection • Seatbelt clip • Double-clip setups",
+    anchor: "safety",
+    description: "Backup strap for car rides or double-clip setups.",
+    bestFor: "Backup connection • Seatbelt clip",
     items: [
       "**Sizes**",
       "- 3–10 inches",
-
       "**Styles**",
-      "- Biothane or Paracord Weave",
-      "- Optional D-ring",
-
-      "**Hardware**",
-      "- Silver or Black, Swivel or Carabiner"
-    ], 
-    pricing: [
-      "Biothane: $10–$12",
-      "Paracord upgrade: +$10–$15"
-    ]
-  },
-  {
-    title: "Customization",
-    image: "/assets/leashpicsNvids/IMG_5191.JPG",
-    anchor: "addons",
-    description: "Add names, phrases, or emergency contact info to any gear using heat transfer vinyl (HTV).",
-    bestFor: "Personalization • Safety info • Service dog gear",
-    items: [
-      "**Style**",
-      "- Custom font, layout, and placement",
-      "- Can be applied to most flat gear"
-    ], 
-    pricing: [
-      "HTV personalization: $5–$10 per item"
-    ]
-  },
-  {
-    title: "Starter Sets",
-    image: "/assets/set2.jpeg",
-    anchor: "startersets",
-    description: "Matching collar, leash, and ball holder — perfect for gifting or new dog setups.",
-    bestFor: "Gift bundles • First-time dog owners • Style sets",
-    items: [
+      "- Biothane (standard) or Paracord weave (+labor)",
       "**Includes**",
-      "- 5/8\" collar, standard leash, and ball holder",
-      "- Matching or coordinating color themes"
+      "- Snap + ring • Silver hardware"
     ],
     pricing: [
-      "Bundle: $60–$75",
-      "Upgrades (two-tone, paracord, locking snap): varies"
+      "Biothane: $12–$15 • Paracord: $20–$30",
+      "Two-tone: +$5"
     ]
   }
 ];
-
 
 const Options = () => {
   return (
     <div className="options-page">
       <h1>Gear Options</h1>
       <p>
-        Explore our range of customizable gear options for your pets. All leashes are made with 5/8" Beta Biothane® — a waterproof, odor-resistant material known for its durability, flexibility, and comfort in hand. This size offers a pull strength of around 600–750 lbs, depending on hardware and configuration. Each piece is assembled using high-quality Chicago screws with threadlock for added security.
-        <br />
-        <br />
-        If you need something heavier-duty, 3/4" and 1" Biothane is available for leashes by request — ideal for larger dogs or handlers looking for a wider grip and added strength. Collars can be made in widths up to 1.5" on request, which is perfect for large dogs or bold statement styles. 
-        <br />
-        <br />
-        <strong> Custom designs are encouraged!</strong>
+        All leashes are made with 5/8" Beta Biothane® by default — durable, waterproof, and comfortable in-hand.
+        3/4" and 1" widths available for bigger dogs or wider grip. Each piece is assembled using Chicago screws with threadlock.
       </p>
-      <p>
-        <strong>Note:</strong> Prices are subject to change based on customization options and materials.
-      </p>
+      <p><strong>Note:</strong> Prices vary with options; final quotes confirm shipping and details.</p>
 
-      <p> Gear Demo Videos:
-        <Link to="/videos#gear-demos" className="gear-video-link">
-          Watch Gear Demo Videos
-        </Link>
+      <p>Gear Demo Videos:{" "}
+        <Link to="/videos#gear-demos" className="gear-video-link">Watch Gear Demo Videos</Link>
       </p>
 
       <div className="colors-button-wrapper">
-        <Link to="/colors" className="colors-button">
-          🎨 View Color Options
-        </Link>
+        <Link to="/colors" className="colors-button">🎨 View Color Options</Link>
       </div>
 
       <div className="gear-card-list">
@@ -289,9 +217,7 @@ const Options = () => {
       </div>
 
       <div className="pricing-button-wrapper">
-        <Link to="/pricing" className="pricing-button2">
-          See Pricing Page
-        </Link>
+        <Link to="/pricing" className="pricing-button2">See Pricing Page</Link>
       </div>
     </div>
   );
