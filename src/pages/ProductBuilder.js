@@ -70,7 +70,10 @@ const BASE_FT = PRICING?.baseLengthFt || {};
 const PER_FT = PRICING?.perFoot || {};
 const BASE_IN = PRICING?.baseLengthIn || {};
 const PER_IN = PRICING?.perInch || {};
-const HTV = PRICING?.htv || { name: 0, namePhone: 0, phraseLarge: 0 };
+// HTV options (used for non-collar Biothane gear)
+const HTV = PRICING?.htv || { name: 5, namePhone: 8, phraseLarge: 10, custom: null };
+// For dropdown labels: show “+$5” or “quote” (when price is null/undefined)
+const htvPriceTag = (v) => (v == null ? "quote" : `+$${v}`);
 const COLLAR = PRICING?.collar || { htv: {}, sizeBase: {}, widthUpcharge: {}, buckleTypeAdj: {} };
 
 
@@ -482,9 +485,15 @@ export default function ProductBuilder() {
 
     // HTV for Biothane gear (exclude paracord-only item)
     if (!isCollarType && form.productType !== "safetyStrapParacord" && form.htvGearOption !== "none") {
-      const htvAmt = HTV?.[form.htvGearOption] || 0;
-      if (htvAmt) { L.push([`HTV ${form.htvGearOption}`, htvAmt]); sum += htvAmt; }
+      const htvAmt = HTV?.[form.htvGearOption];
+      if (Number.isFinite(htvAmt) && htvAmt > 0) {
+        L.push([`HTV ${form.htvGearOption}`, htvAmt]); sum += htvAmt;
+      } else {
+        // Show as $0 in math but label it as a quoted customization
+        L.push([`HTV ${form.htvGearOption} (quoted)`, 0]);
+      }
     }
+
 
     // Rings & misc (only where allowed)
     const allowAddon = (key) => spec?.addons?.[key];
@@ -876,9 +885,11 @@ export default function ProductBuilder() {
                   <label>HTV Personalization</label>
                   <select value={form.htvOption} onChange={(e) => update({ htvOption: e.target.value })}>
                     <option value="none">None</option>
-                    <option value="name">Name (+${COLLAR?.htv?.name || 0})</option>
-                    <option value="namePhone">Name + Phone (+${COLLAR?.htv?.namePhone || 0})</option>
-                    <option value="phraseLarge">Phrase / Large (+${COLLAR?.htv?.phraseLarge || 0})</option>
+                    <option value="name">Name ({htvPriceTag(COLLAR?.htv?.name)})</option>
+                    <option value="namePhone">Name + Phone ({htvPriceTag(COLLAR?.htv?.namePhone)})</option>
+                    <option value="phraseLarge">Phrase / Large ({htvPriceTag(COLLAR?.htv?.phraseLarge)})</option>
+                    <option value="custom">Custom ({htvPriceTag(COLLAR?.htv?.custom)})</option>
+
                   </select>
                 </div>
               </div>
@@ -957,10 +968,12 @@ export default function ProductBuilder() {
                   onChange={(e)=>update({ htvGearOption: e.target.value })}
                 >
                   <option value="none">None</option>
-                  <option value="name">Name (+${HTV?.name || 0})</option>
-                  <option value="namePhone">Name + Phone (+${HTV?.namePhone || 0})</option>
-                  <option value="phraseLarge">Phrase / Large (+${HTV?.phraseLarge || 0})</option>
+                  <option value="name">Name ({htvPriceTag(HTV?.name)})</option>
+                  <option value="namePhone">Name + Phone ({htvPriceTag(HTV?.namePhone)})</option>
+                  <option value="phraseLarge">Phrase / Large ({htvPriceTag(HTV?.phraseLarge)})</option>
+                  <option value="custom">Custom ({htvPriceTag(HTV?.custom)})</option>
                 </select>
+
                 <div className="small">Applied to Biothane surfaces only. Not available on Paracord weaves.</div>
               </div>
             </div>
