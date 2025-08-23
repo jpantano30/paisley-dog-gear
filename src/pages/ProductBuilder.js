@@ -4,6 +4,58 @@ import "./ProductBuilder.css";
 import PRICING from "../components/pricingConfig";
 import { useNavigate, Link } from "react-router-dom";
 
+// Simple in-file color catalog
+const COLOR_CATALOG = [
+  // { id: "unique-key", code: "Blue 521", name: "Navy Blue", hex: "#0b2742" },
+  { id: "purple-524", code: "Amethyst Orchid Purple 524", name: "Amethyst Orchid Purple / Medium Purple (524)"},
+  { id: "grape-pu527", code: "Grape Pu527", name: "Grape Purple (Pu527)" },
+  { id: "purple-522", code: "Purple 522", name: "Light Purple (522)" },
+  { id: "violet-521", code: "Violet 521", name: "Violet / Dark Purple (521)" },
+  { id: "gold-521", code: "Beta Gold 521", name: "Gold (521)" },
+  { id: "yellow-521", code: "Yellow 521", name: "Yellow (521)" },
+  { id: "yellow-527", code: "Yellow 527", name: "Bright/Neon Yellow (527)" },
+  { id: "black-520", code: "Black 520", name: "Black (520)" },
+  { id: "grey-523", code: "Grey 523", name: "Grey (523)" },
+  { id: "tan-525", code: "Tan 525", name: "Tan (525)" },
+  { id: "white-521", code: "White 521", name: "White (521)" },
+  { id: "deep-sea-523", code: "Deep Sea 523", name: "Deep Sea/ Dark Blue (523)" },
+  { id: "blue-522", code: "Blue 522", name: "Royal Blue (522)" },
+  { id: "periwinkle-bu525", code: "Periwinkle Bu525", name: "Periwinkle Blue (Bu525)" },
+  { id: "blue-521", code: "Blue 521", name: "Classic Blue (521)" },
+  { id: "blue-52h", code: "Blue 52h", name: "Sky Blue (52h)" },
+  { id: "blue-52f", code: "Blue 52f", name: "Turquoise Blue (52f)" },
+  { id: "dusty-turquoise-tu521", code: "Dusty Turquoise Tu521", name: "Dusty Turquoise (Tu521)" },
+  { id: "teal-521", code: "Teal 521", name: "Teal (521)" },
+  { id: "green-52k", code: "Green 52k", name: "Aqua Green (52K)" },
+  { id: "green-522", code: "Green 522", name: "Forest Green (522)" },
+  { id: "green-525", code: "Green 525", name: "Lime Green (525)" },
+  { id: "green-528", code: "Green 528", name: "Bright Green (528)" },
+  { id: "olive-drab-521", code: "Olive Drab 521", name: "Olive Drab (521)" },
+  { id: "sagegreen-527", code: "Sagegreen 527", name: "Sage Green (527)" },
+  { id: "orange-522", code: "Orange 522", name: "Bright/Neon Orange (522)" },
+  { id: "orange-529", code: "Orange 529", name: "Light Orange (529)" },
+  { id: "pink-521", code: "Pink 521", name: "Light Pink (521)" },
+  { id: "pink-523", code: "Pink 523", name: "Medium Pink (523)" },
+  { id: "pink-coral-524", code: "Pink Coral 524", name: "Coral Pink (524)" },
+  { id: "magenta-pink-526", code: "Magenta Pink 526", name: "Magenta Pink (526)" },
+  { id: "brown-521", code: "Brown 521", name: "Light Brown (521)" },
+  { id: "brown-522", code: "Brown 522", name: "Medium Brown (522)" },
+  { id: "brown-523", code: "Brown 523", name: "Dark Brown (523)" },
+  { id: "coyote-brown-521", code: "Coyote Brown 521", name: "Coyote Brown (521)" },
+  { id: "red-522", code: "Red 522", name: "Red (522)" },
+  { id: "chili-red-523", code: "Chili Red 523", name: "Chili Red (523)" },
+  { id: "wine-521", code: "Wine 521", name: "Wine / Maroon (521)" },
+];
+
+// Fast lookups
+const COLOR_BY_ID = Object.fromEntries(COLOR_CATALOG.map(c => [c.id, c]));
+const colorLabel = (id) => {
+  const c = COLOR_BY_ID[id];
+  return c ? `${c.code} — ${c.name}` : "";
+};
+
+
+
 const money = (n) => Math.round(n * 100) / 100;
 
 // Safe helpers (avoid undefined reads from PRICING)
@@ -229,10 +281,11 @@ export default function ProductBuilder() {
 
     // shared look/feel
     width: '5/8"',
-    colorPrimary: "",
-    colorSecondary: "",
+    colorPrimaryId: "",   // was colorPrimary
+    colorSecondaryId: "", // was colorSecondary
     useTwoTone: false,
     hardware: "standard",
+
 
     // leash-only
     snap: "swivelSnap",
@@ -270,6 +323,32 @@ export default function ProductBuilder() {
   const isCollarType = ["collarBuckle", "collarQuickRelease"].includes(form.productType);
   const spec = PRODUCT_SPEC[form.productType] || null;
   const isLocked = (key) => !!spec?.locked?.[key];
+
+
+  // Load saved form on mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("builderFormV2");
+      if (raw) {
+        const saved = JSON.parse(raw);
+        // Backward-compat shim: if older keys exist, map them forward
+        const next = { ...saved };
+        if (saved.colorPrimary && !saved.colorPrimaryId) next.colorPrimaryId = saved.colorPrimary;
+        if (saved.colorSecondary && !saved.colorSecondaryId) next.colorSecondaryId = saved.colorSecondary;
+        setForm((f) => ({ ...f, ...next }));
+      }
+    } catch {}
+  }, []);
+
+  // Save on every change
+  useEffect(() => {
+    try {
+      localStorage.setItem("builderFormV2", JSON.stringify(form));
+    } catch {}
+  }, [form]);
+
+
+
 
   // Keep 7ft minimum when hands-free conversion is on for a leash
   useEffect(() => {
@@ -446,9 +525,12 @@ export default function ProductBuilder() {
 
       // shared
       width: form.width,
-      colorPrimary: form.colorPrimary,
-      colorSecondary: form.useTwoTone ? form.colorSecondary : "",
+      colorPrimary: form.colorPrimaryId, // send the id
+      colorPrimaryName: colorLabel(form.colorPrimaryId), // human label
+      colorSecondary: form.useTwoTone ? form.colorSecondaryId : "",
+      colorSecondaryName: form.useTwoTone ? colorLabel(form.colorSecondaryId) : "",
       hardware: form.hardware,
+
 
       // leash/line/hands-free
       snap: ["leash", "longLine", "handsFreeSystem"].includes(form.productType) ? form.snap : "",
@@ -808,17 +890,31 @@ export default function ProductBuilder() {
             <div className="form-row">
               <div>
                 <label>Primary Color</label>
-                <input
-                  type="text"
-                  value={form.colorPrimary}
-                  onChange={(e) => update({ colorPrimary: e.target.value })}
-                  placeholder="e.g., Hot Pink"
-                />
-                <p><em>Check out colors <Link to="/colors">here</Link></em></p>
+                <select
+                  value={form.colorPrimaryId}
+                  onChange={(e) => update({ colorPrimaryId: e.target.value })}
+                >
+                  <option value="">Select color…</option>
+                  {COLOR_CATALOG.map(c => (
+                    <option key={c.id} value={c.id}>
+                      {c.code} — {c.name}
+                    </option>
+                  ))}
+                </select>
+                <p>
+                  <em>
+                    Want to see the full chart?{" "}
+                    <a href="/colors" target="_blank" rel="noopener noreferrer">Open colors in a new tab</a>
+                  </em>
+                </p>
               </div>
+
               <div>
                 <label>Two-tone</label>
-                <select value={form.useTwoTone ? "yes" : "no"} onChange={(e) => update({ useTwoTone: e.target.value === "yes" })}>
+                <select
+                  value={form.useTwoTone ? "yes" : "no"}
+                  onChange={(e) => update({ useTwoTone: e.target.value === "yes" })}
+                >
                   <option value="no">No</option>
                   <option value="yes">Yes</option>
                 </select>
@@ -835,15 +931,21 @@ export default function ProductBuilder() {
             <div className="form-row">
               <div>
                 <label>Secondary Color</label>
-                <input
-                  type="text"
-                  value={form.colorSecondary}
-                  onChange={(e) => update({ colorSecondary: e.target.value })}
-                  placeholder="e.g., Black"
-                />
+                <select
+                  value={form.colorSecondaryId}
+                  onChange={(e) => update({ colorSecondaryId: e.target.value })}
+                >
+                  <option value="">Select color…</option>
+                  {COLOR_CATALOG.map(c => (
+                    <option key={c.id} value={c.id}>
+                      {c.code} — {c.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           )}
+
 
           {/* HTV personalization — Biothane items only (exclude Paracord strap) */}
           {(!isCollarType && form.productType !== "safetyStrapParacord") && (
