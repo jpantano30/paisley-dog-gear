@@ -13,7 +13,7 @@ import './App.css';
 import Consult from "./pages/Booking";
 import VideoGallery from "./pages/VideoGallery.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import DataDeletion from "./pages/DataDeletion";
+import DataDeletion from "./pages/dataDeletion.js";
 import ProductBuilder from "./pages/ProductBuilder";
 
 
