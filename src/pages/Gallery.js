@@ -3,24 +3,41 @@ import "./Gallery.css";
 import { Link } from "react-router-dom";
 
 const galleryImages = [
-  
+  { filename: "paisley_leashCollar_ocean.jpeg", caption: "Paisley wearing her custom leash and two tone collar!", type: "image" },
+
   { filename: "tallulah-sage.JPG", caption: "The Tallulah in Sage & White", type: "image" },
   { filename: "handsfree-redandblack2.JPG", caption: "Hands-free standard red and black", type: "image" },
+
+  { filename: "/leashpicsNvids/IMG_5191.JPG", caption: "Custom 2 Tone Collar", type: "image" },
+  { filename: "PurpleTrafficNCollar_ocean.jpg", caption: "Amythest Purple traffic handle/ pull tab and collar.", type: "image" },
+
   { filename: "/leashpicsNvids/rwb.jpg", caption: "Hands-free 8ft red, white and blue (3-tone) leash and matching adjustable collar", type: "image" },
+  { filename: "collars_custom.JPG", caption: "Custom Collars", type: "image" },
+
   { filename: "leashextender.jpg", caption: "Leash extender (sage & white with black hardware)", type: "image" },
   { filename: "/leashpicsNvids/bella.jpg", caption: "Custom hands-free leash in amethyst purple and violet", type: "image" },
   { filename: "/leashpicsNvids/Pan.jpg", caption: "Custom hands-free leash in blue 522 and deep sea", type: "image" },
   { filename: "custom-longline.jpg", caption: "Custom Long Line ", type: "image" },
   { filename: "sageNwhitecollar.jpg", caption: "Sage & white collar", type: "image" },
   { filename: "/leashpicsNvids/red&bluecollar.JPG", caption: "Red & blue collar with silver buckle", type: "image" },
+  { filename: "IMG_5366 copy.JPG", caption: "Custom Collar Designs", type: "image" },
   { filename: "sageNwhiteCollar2.jpg", caption: "Sage & white collar with plastic quick release buckle", type: "image" },
+
   { filename: "/leashpicsNvids/red&bluebuckle.JPG", caption: "Red & blue collar with silver buckle", type: "image" },
+
+  { filename: "Leash_extender_ocean.jpg", caption: "Leash Extender", type: "image" },
+
+  { filename: "pinkblackleash_ocean.jpg", caption: "Pink & Black Leash", type: "image" },
+
+  { filename: "rwb_ocean2.jpg", caption: "Hands-free leash", type: "image" },
+
+
   { filename: "/leashpicsNvids/hardware.JPG", caption: "Black and silver hardware", type: "image" },
   { filename: "saftystrapparacord.jpeg", caption: "Safety Strap (Paracord)", type: "image" },
   { filename: "/leashpicsNvids/leashes.jpg", caption: "Example leash colors and styles", type: "image" },
   { filename: "tallulah-sage2.JPG", caption: "The Tallulah system (Alternate View)", type: "image" },
   { filename: "/leashpicsNvids/traffichandleEdit.jpg", caption: "Pink and Black Traffic Handle", type: "image" },
-  { filename: "/leashpicsNvids/IMG_5131.JPG", caption: "Red and blue collar (alternate view)", type: "image" },
+  
   { filename: "/leashpicsNvids/leashes2.jpg", caption: "Example leash colors and styles", type: "image" },
   { filename: "set2.JPEG", caption: "Sage & white set", type: "image" },
   // { filename: "sdharness.jpg", caption: "Standard SD Harness in Pink and Black" },
