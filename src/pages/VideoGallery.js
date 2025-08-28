@@ -9,6 +9,12 @@ const videoFiles = [
     type: "training",
   },
   {
+    youtubeId: "wJ6vECs0Cu4",
+    title: "Tully’s freestyle practice under the Rowes Wharf Arch.",
+    type: "training",
+  },
+
+  {
     youtubeId: "LsJ_rdnYVlY",
     title: "How the Gear Works: Hands-Free Leash (3 Colors)",
     type: "gear",
