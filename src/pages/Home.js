@@ -35,7 +35,7 @@ const Home = () => {
           <div className="hero-bar-inner">
             <div className="hero-bar-text">
               <p className="hero-kicker">Handmade in Boston</p>
-              <h1 className="hero-heading">Custom Biothane Gear & Trick Training</h1>
+              <h1 className="hero-heading">Custom Biothane Dog Goods & Training</h1>
               <p className="hero-sub">
                 Durable, waterproof gear and positive training built for real life.
               </p>
@@ -63,21 +63,7 @@ const Home = () => {
         <section className="about">
           <h2>About the Maker</h2>
           <p>
-            Hey, I’m Jena — maker, dog trainer, and former pastry chef. I started
-            Paisley Dog Gear & Training because I love creating things that are actually
-            useful. Designing custom gear became the perfect blend of my creativity and
-            my obsession with dogs.
-          </p>
-          <p>
-            The name comes from my first service dog, Paisley… her legacy lives on in every
-            leash I make and every dog I help train.
-          </p>
-          <p>
-            Now I train my younger dog, Tallulah. We do canine freestyle and service dog
-            work, so all my gear is tested in real life and built to hold up.
-          </p>
-          <p>
-            I design every piece to be functional, comfortable, and stylish.
+            Hi, I’m Jena, maker, dog trainer, software engineer, and former pastry chef. I started Paisley Dog Gear & Training to build gear that actually works. My first service dog, Paisley, still inspires everything I make, and Tallulah, my energetic Bordoodle, service dog in training, and demo dog, helps field-test it in freestyle and service work. Every piece is designed to be functional, comfortable, and good-looking.
           </p>
         </section>
 
