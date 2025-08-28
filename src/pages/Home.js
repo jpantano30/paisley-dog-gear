@@ -37,7 +37,7 @@ const Home = () => {
               <p className="hero-kicker">Handmade in Boston</p>
               <h1 className="hero-heading">Custom Biothane Dog Goods & Training</h1>
               <p className="hero-sub">
-                Durable, waterproof gear and positive training built for real life.
+                Durable, waterproof gear and balanced training built for real life.
               </p>
             </div>
 
