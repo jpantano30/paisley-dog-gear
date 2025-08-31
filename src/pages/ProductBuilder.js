@@ -729,7 +729,7 @@ export default function ProductBuilder() {
               </div>
               {spec?.fields?.gripHandle && (
                 <div>
-                  <label>Grip</label>
+                  <label>Grip/Handle</label>
                   <select value={form.gripHandle} onChange={(e) => update({ gripHandle: e.target.value })}>
                     <option value="loop">Loop</option>
                     <option value="noHandle">No Handle</option>

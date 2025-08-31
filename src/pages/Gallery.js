@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 
 const galleryImages = [
   { filename: "paisley_leashCollar_ocean.jpeg", caption: "Paisley wearing her custom leash and two tone collar!", type: "image" },
+  { filename: "painted.JPG", caption: "Custom Painted Collar", type: "image" },
 
   { filename: "tallulah-sage.JPG", caption: "The Tallulah in Sage & White", type: "image" },
   { filename: "handsfree-redandblack2.JPG", caption: "Hands-free standard red and black", type: "image" },
+
+  { filename: "Turbo_gym.JPEG", caption: "Custom Collar with Name Plate", type: "image" },
 
   { filename: "/leashpicsNvids/IMG_5191.JPG", caption: "Custom 2 Tone Collar", type: "image" },
   { filename: "PurpleTrafficNCollar_ocean.jpg", caption: "Amythest Purple traffic handle/ pull tab and collar.", type: "image" },
@@ -16,8 +19,13 @@ const galleryImages = [
 
   { filename: "leashextender.jpg", caption: "Leash extender (sage & white with black hardware)", type: "image" },
   { filename: "/leashpicsNvids/bella.jpg", caption: "Custom hands-free leash in amethyst purple and violet", type: "image" },
+
+  { filename: "Turbo_painted.jpg", caption: "Turbo rocking a hand painted collar!", type: "image" },
+
   { filename: "/leashpicsNvids/Pan.jpg", caption: "Custom hands-free leash in blue 522 and deep sea", type: "image" },
-  { filename: "custom-longline.jpg", caption: "Custom Long Line ", type: "image" },
+  { filename: "custom-longline.jpg", caption: "Custom Leash in Violet", type: "image" },
+  { filename: "Littleone_collar.jpg", caption: "Little one in her custom collar in Amythest Orichid Purple", type: "image" },
+
   { filename: "sageNwhitecollar.jpg", caption: "Sage & white collar", type: "image" },
   { filename: "/leashpicsNvids/red&bluecollar.JPG", caption: "Red & blue collar with silver buckle", type: "image" },
   { filename: "IMG_5366 copy.JPG", caption: "Custom Collar Designs", type: "image" },
@@ -70,6 +78,8 @@ const galleryImages = [
   { filename: "PaisleyCollar.jpg", caption: "Paisley in a Sage & White Collar", type: "image" },
   { filename: "PaisleyCollar2.jpg", caption: "Paisley in a Sage & White Collar", type: "image" },
   { filename: "TullySaftyStrapParacord.jpg", caption: "Tully's Safety Strap (Paracord)", type: "image" },
+  { filename: "lo_collarleash.jpg", caption: "", type: "image" },
+  { filename: "Turbo_collar.jpg", caption: "", type: "image" },
 ];
 
 const Gallery = () => {

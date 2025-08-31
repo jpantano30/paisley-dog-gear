@@ -35,7 +35,7 @@ const Home = () => {
           <div className="hero-bar-inner">
             <div className="hero-bar-text">
               <p className="hero-kicker">Handmade in Boston</p>
-              <h1 className="hero-heading">Custom Biothane Dog Goods & Training</h1>
+              <h1 className="hero-heading">Custom Biothane Dog Gear & Training</h1>
               <p className="hero-sub">
                 Durable, waterproof gear and balanced training built for real life.
               </p>
