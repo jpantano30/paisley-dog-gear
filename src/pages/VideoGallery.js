@@ -46,6 +46,22 @@ const VideoGallery = () => {
   }, [location]);
 
   return (
+    <>
+      {/* SEO tags for Video Gallery page */}
+      <title>Dog Trick Tutorials and Gear Demos</title>
+      <meta name="description" content="Quick videos with trick breakdowns, training tips and gear demos to help you choose and train." />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/videos" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Dog Trick Tutorials and Gear Demos" />
+      <meta property="og:description" content="Quick videos with trick breakdowns, training tips and gear demos to help you choose and train." />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/videos" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Dog Trick Tutorials and Gear Demos" />
+      <meta name="twitter:description" content="Quick videos with trick breakdowns, training tips and gear demos to help you choose and train." />
+
+  
     <div className="video-page container">
       <h1>Training & Gear Videos</h1>
       <p>Here are some of our favorite training moments and gear demos!</p>
@@ -92,6 +108,7 @@ const VideoGallery = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

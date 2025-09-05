@@ -181,6 +181,39 @@ export default function OrderForm() {
   // const isLeashType = ["Standard Leash", "Long Line", "Traffic Handle", "Pull Tab"].includes(formData.productType);
 
   return (
+    <>
+      {/* SEO tags for Order Form page */}
+      <title>Request a Quote | Custom Biothane Gear</title>
+      <meta
+        name="description"
+        content="Submit your custom biothane gear request. We review your specs from the Builder or form and reply with a final quote."
+      />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/order" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Request a Quote | Custom Biothane Gear" />
+      <meta property="og:description" content="Send your specs—length, width, hardware, colors—and we’ll follow up with a final quote and timeline." />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/order" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Request a Quote | Custom Biothane Gear" />
+      <meta name="twitter:description" content="Send your specs—length, width, hardware, colors—and we’ll follow up with a final quote and timeline." />
+
+      {/* Product/Service JSON-LD to clarify no direct checkout */}
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Custom Biothane Gear — Quote Request",
+        "provider": { "@type": "Organization", "name": "Paisley Dog Gear & Training" },
+        "areaServed": "Boston, MA",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Quote provided after request." },
+        "paymentAccepted": "PayPal, Venmo"
+      })}</script>
+
+
+
+
+
     <div className="order-form">
       <h1>Custom Order Request</h1>
 
@@ -275,5 +308,6 @@ export default function OrderForm() {
         </div>
       )}
     </div>
+    </>
   );
 }

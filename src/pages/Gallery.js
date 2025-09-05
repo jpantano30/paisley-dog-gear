@@ -106,6 +106,21 @@ const Gallery = () => {
   }, [modalIndex]);
 
   return (
+    <>
+    {/* SEO tags for Gallery page */}
+    <title>Gallery | Biothane Gear and Training</title>
+    <meta name="description" content="Real dogs using our custom biothane gear plus training clips and before and after moments." />
+    <link rel="canonical" href="https://paisleydoggearandtraining.com/gallery" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gallery | Biothane Gear and Training" />
+    <meta property="og:description" content="Real dogs using our custom biothane gear plus training clips and before and after moments." />
+    <meta property="og:url" content="https://paisleydoggearandtraining.com/gallery" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gallery | Biothane Gear and Training" />
+    <meta name="twitter:description" content="Real dogs using our custom biothane gear plus training clips and before and after moments." />
+
     <div className="gallery-page">
       <h1>Gallery</h1>
       <p>Check out examples of past leashes, collars, ball holders, and more!</p>
@@ -200,6 +215,7 @@ const Gallery = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

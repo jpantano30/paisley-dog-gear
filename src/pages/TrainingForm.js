@@ -44,6 +44,43 @@ const TrainingForm = () => {
   //         Training is tailored to each dog and handler — let’s build a plan that fits your goals. */}
 
   return (
+    <>
+      {/* SEO tags for Training page */}
+      <title>Request Dog Training | How Our Training Works</title>
+      <meta
+        name="description"
+        content="Tell us about your dog and goals, then we’ll follow up with a plan and pricing. See our training process and what to expect."
+      />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Request Dog Training | How Our Training Works" />
+      <meta property="og:description" content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process." />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Request Dog Training | How Our Training Works" />
+      <meta name="twitter:description" content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process." />
+
+      {/* FAQ JSON-LD so Google/AI can quote answers */}
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need a consult first?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A free 15-minute consult is optional and great for checking fit or asking quick questions. You can also submit the training form directly." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the training process work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "You share your goals, we review and propose a plan, then schedule sessions. You’ll get clear homework and progress check-ins." }
+          }
+        ]
+      })}
+    </script>
+
     <div className="training-form-container">
       <h1>Dog Training Request</h1>
 
@@ -193,6 +230,7 @@ const TrainingForm = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -4,6 +4,22 @@ import './PrivacyPolicy.css';
 
 export default function PrivacyPolicy() {
   return (
+    <>
+      {/* SEO tags for Privacy Policy page */}
+      <title>Privacy Policy | Paisley Dog Gear & Training</title>
+      <meta name="description" content="How we collect, use and protect your information when you browse, order or book training." />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/privacy" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Privacy Policy | Paisley Dog Gear & Training" />
+      <meta property="og:description" content="How we collect, use and protect your information when you browse, order or book training." />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/privacy" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Privacy Policy | Paisley Dog Gear & Training" />
+      <meta name="twitter:description" content="How we collect, use and protect your information when you browse, order or book training." />
+
+    
     <div className="privacy-container">
       <h1>Privacy Policy</h1>
       <p className="last-updated">Last updated: July 2025</p>
@@ -89,5 +105,6 @@ export default function PrivacyPolicy() {
         <a href="mailto:jpantano30@gmail.com">jpantano30@gmail.com</a>.
       </p>
     </div>
+    </>
   );
 }

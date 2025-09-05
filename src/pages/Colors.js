@@ -74,103 +74,123 @@ const Colors = () => {
   const categories = ["all", ...new Set(colorData.map((c) => c.category))];
 
   return (
-    <div className="colors-page">
-      <h1 className="colors-heading">Biothane Color Options</h1>
-      <p>
-        Select up to <strong>3 colors</strong>. Two-tone adds <strong>+$8</strong>. <br /> 
-        Click the <strong>★</strong> to favorite a color — your selected colors will appear together below in the preview section! <br /> 
-        Let me know if you want help choosing!
-      </p>
-      <p>Colors are subject to availability.</p>
+    <> 
+      {/* SEO tags for Colors page */}
 
-      <div className="category-filter">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className={`filter-btn ${selectedCategory === cat ? "active" : ""}`}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}
-          </button>
-        ))}
-      </div>
+      <title>Biothane Colors Chart | Paisley</title>
+      <meta name="description" content="Compare biothane colors and pick your favorites for leashes, collars and accessories." />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/colors" />
 
-      <div className="swatch-grid">
-        {colorData
-          .filter((c) => selectedCategory === "all" || c.category === selectedCategory)
-          .map((color, i) => (
-            <div
-              key={i}
-              className={`swatch ${selectedColors.includes(color.name) ? "selected" : ""}`}
-              onClick={() => handleColorSelect(color.name)}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Biothane Colors Chart | Paisley" />
+      <meta property="og:description" content="Compare biothane colors and pick your favorites for leashes, collars and accessories." />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/colors" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Biothane Colors Chart | Paisley" />
+      <meta name="twitter:description" content="Compare biothane colors and pick your favorites for leashes, collars and accessories." />
+
+
+
+      <div className="colors-page">
+        <h1 className="colors-heading">Biothane Color Options</h1>
+        <p>
+          Select up to <strong>3 colors</strong>. Two-tone adds <strong>+$8</strong>. <br /> 
+          Click the <strong>★</strong> to favorite a color — your selected colors will appear together below in the preview section! <br /> 
+          Let me know if you want help choosing!
+        </p>
+        <p>Colors are subject to availability.</p>
+
+        <div className="category-filter">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`filter-btn ${selectedCategory === cat ? "active" : ""}`}
+              onClick={() => setSelectedCategory(cat)}
             >
-              <div
-                className="swatch-img-wrapper"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setModalImg(`/assets/colors/${color.name}.png`);
-                }}
-              >
-                <img
-                  src={`/assets/colors/${color.name}.png`}
-                  alt={formatName(color.name)}
-                />
-              </div>
-              <span>{formatName(color.name)}</span>
-              <button
-                className={`favorite-btn ${favorites.includes(color.name) ? "favorited" : ""}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleFavorite(color.name);
-                }}
-              >
-                {favorites.includes(color.name) ? "★" : "☆"}
-              </button>
-            </div>
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
           ))}
+        </div>
+
+        <div className="swatch-grid">
+          {colorData
+            .filter((c) => selectedCategory === "all" || c.category === selectedCategory)
+            .map((color, i) => (
+              <div
+                key={i}
+                className={`swatch ${selectedColors.includes(color.name) ? "selected" : ""}`}
+                onClick={() => handleColorSelect(color.name)}
+              >
+                <div
+                  className="swatch-img-wrapper"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setModalImg(`/assets/colors/${color.name}.png`);
+                  }}
+                >
+                  <img
+                    src={`/assets/colors/${color.name}.png`}
+                    alt={formatName(color.name)}
+                  />
+                </div>
+                <span>{formatName(color.name)}</span>
+                <button
+                  className={`favorite-btn ${favorites.includes(color.name) ? "favorited" : ""}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleFavorite(color.name);
+                  }}
+                >
+                  {favorites.includes(color.name) ? "★" : "☆"}
+                </button>
+              </div>
+            ))}
+        </div>
+
+        {selectedColors.length > 0 && (
+          <div className="preview-section">
+            <h2>Your Color Selection</h2>
+            <div className="selected-colors">
+              {selectedColors.map((name, index) => (
+                <img
+                  key={index}
+                  src={`/assets/colors/${name}.png`}
+                  alt={formatName(name)}
+                />
+              ))}
+            </div>
+            <button className="clear-btn" onClick={clearSelection}>
+              Clear Selection
+            </button>
+          </div>
+        )}
+        
+        {favorites.length > 0 && (
+          <div className="favorites-preview-section">
+            <h2>Preview These Together</h2>
+            <div className="selected-colors">
+              {favorites.map((name, index) => (
+                <img
+                  key={index}
+                  src={`/assets/colors/${name}.png`}
+                  alt={formatName(name)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {modalImg && (
+          <div className="modal-overlay" onClick={() => setModalImg(null)}>
+            <div className="modal-content">
+              <img src={modalImg} alt="Preview" />
+            </div>
+          </div>
+        )}
       </div>
-
-      {selectedColors.length > 0 && (
-        <div className="preview-section">
-          <h2>Your Color Selection</h2>
-          <div className="selected-colors">
-            {selectedColors.map((name, index) => (
-              <img
-                key={index}
-                src={`/assets/colors/${name}.png`}
-                alt={formatName(name)}
-              />
-            ))}
-          </div>
-          <button className="clear-btn" onClick={clearSelection}>
-            Clear Selection
-          </button>
-        </div>
-      )}
-      
-      {favorites.length > 0 && (
-        <div className="favorites-preview-section">
-          <h2>Preview These Together</h2>
-          <div className="selected-colors">
-            {favorites.map((name, index) => (
-              <img
-                key={index}
-                src={`/assets/colors/${name}.png`}
-                alt={formatName(name)}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {modalImg && (
-        <div className="modal-overlay" onClick={() => setModalImg(null)}>
-          <div className="modal-content">
-            <img src={modalImg} alt="Preview" />
-          </div>
-        </div>
-      )}
-    </div>
+    </>
+    
   );
 };
 

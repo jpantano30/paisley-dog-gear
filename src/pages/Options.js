@@ -194,6 +194,24 @@ const gearData = [
 
 const Options = () => {
   return (
+
+    <>
+      {/* SEO tags for Options page */}
+      
+    <title>Colors, Hardware and Sizing Options</title>
+    <meta name="description" content="See color swatches, hardware choices, widths and sizing tips so you order exactly what you need." />
+    <link rel="canonical" href="https://paisleydoggearandtraining.com/options" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Colors, Hardware and Sizing Options" />
+    <meta property="og:description" content="See color swatches, hardware choices, widths and sizing tips so you order exactly what you need." />
+    <meta property="og:url" content="https://paisleydoggearandtraining.com/options" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Colors, Hardware and Sizing Options" />
+    <meta name="twitter:description" content="See color swatches, hardware choices, widths and sizing tips so you order exactly what you need." />
+
+
     <div className="options-page">
       <h1>Gear Options</h1>
       <p>
@@ -220,6 +238,7 @@ const Options = () => {
         <Link to="/pricing" className="pricing-button2">See Pricing Page</Link>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,11 +1,9 @@
 // ===== HOME PAGE =====
-// /src/pages/Home.js
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
 // ===== HERO IMAGES =====
-// Swap these paths for your actual hero images
 const HERO_IMAGES = [
   { src: "/assets/leashpicsNvids/set3.JPG", alt: "Hands-free biothane dog leash" },
   { src: "/assets/leashpicsNvids/red&bluebuckle.JPG", alt: "Biothane buckle dog collar" },
@@ -15,6 +13,14 @@ const HERO_IMAGES = [
 const Home = () => {
   return (
     <>
+     {/* SEO tags for Home page */}
+      <title>Custom Biothane Dog Gear | Paisley</title>
+      <meta
+        name="description"
+        content="Handmade biothane leashes and collars plus private training. Build your gear, request a quote, or book a free 15-minute consult."
+      />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/" />
+
       {/* ===== HERO STRIP (full-bleed under navbar) ===== */}
       <section className="hero-strip" aria-label="Featured photos">
         <div className="hero-grid">
@@ -30,7 +36,7 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Bottom-left bar (opposite of Strange Tails) */}
+        {/* Bottom-left bar */}
         <div className="hero-bottombar" role="presentation">
           <div className="hero-bar-inner">
             <div className="hero-bar-text">

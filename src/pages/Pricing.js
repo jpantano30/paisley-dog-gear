@@ -4,6 +4,22 @@ import { Link } from "react-router-dom";
 
 const Pricing = () => {
   return (
+    <>
+    {/* SEO tags for Pricing page */}
+    <title>Pricing | Gear and Training Packages</title>
+    <meta name="description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
+    <link rel="canonical" href="https://paisleydoggearandtraining.com/pricing" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pricing | Gear and Training Packages" />
+    <meta property="og:description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
+    <meta property="og:url" content="https://paisleydoggearandtraining.com/pricing" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pricing | Gear and Training Packages" />
+    <meta name="twitter:description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
+
+  
     <div className="pricing-page">
       <h1>Pricing</h1>
 
@@ -169,6 +185,7 @@ const Pricing = () => {
 
 
     </div>
+    </>
   );
 };
 

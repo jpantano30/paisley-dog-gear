@@ -666,6 +666,41 @@ export default function ProductBuilder() {
   }, [spec, form.productType, form.trafficHandleBuiltIn, form.trafficHandleMaterial]);
 
   return (
+    <>
+    {/* SEO for the Builder page */}
+    <title>Build Your Custom Biothane Leash or Collar</title>
+    <meta
+    name="description"
+    content="Choose length, width, hardware and colors. Then send your build to the order form to request a final quote."
+    />
+    <link rel="canonical" href="https://paisleydoggearandtraining.com/builder" />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Build Your Custom Biothane Leash or Collar"
+    />
+    <meta
+      property="og:description"
+      content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
+    />
+    <meta
+      property="og:url"
+      content="https://paisleydoggearandtraining.com/builder"
+    />
+    {/* <meta property="og:image" content="https://yourcdn/.../builder.jpg" /> */}
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Build Your Custom Biothane Leash or Collar"
+    />
+    <meta
+      name="twitter:description"
+      content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
+    />
     <div className="builder-container">
       <header className="builder-header">
         <h1>Build Your Gear</h1>
@@ -1053,5 +1088,6 @@ export default function ProductBuilder() {
         </div>
       </div>
     </div>
+    </>
   );
 } 
