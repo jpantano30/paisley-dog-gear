@@ -13,7 +13,7 @@ The site includes interactive forms for training inquiries and gear requests, cl
 
 - Responsive front end built with React.js  
 - Interactive forms for service requests and inquiries  
-- Pages for **Home**, **Services**, and **About**  
+- Pages for **Home**, **Options**, **Builder**, **Order**, **Training**, and **Gallery**  
 - Clean, branded UI focused on clarity and ease of use  
 
 ---
@@ -29,11 +29,20 @@ The site includes interactive forms for training inquiries and gear requests, cl
 ## 📂 Project Structure
 
 ```text
-src/
-├─ components/        # Reusable React components
-├─ pages/             # Page-level components (Home, Services, About)
-├─ assets/            # Images, logos, and media
-└─ App.js             # Main app entry
+├─ public/                  # Static files served as-is
+│  ├─ assets/               # Images/screenshots used by site & README
+│  ├─ _redirects            # Netlify redirect rules
+│  ├─ index.html            # Base HTML template for the React app
+│  ├─ manifest.json         # PWA/site metadata (name, icons)
+│  ├─ robots.txt            # Search engine crawler rules
+│  └─ sitemap.xml           # SEO sitemap for indexing
+├─ src/                     # Application source code
+│  ├─ components/           # Reusable UI components
+│  ├─ pages/                # Route-level pages (Home, Services, Builder, Order, Gallery)
+│  ├─ App.css               # Global styles for app shell
+│  ├─ App.js                # Root component & app routes (main app entry)
+│  └─ index.js              # React DOM bootstrap / render root
+└─ README.md                # Project overview & setup instructions
 ```
 
 ---
