@@ -83,15 +83,15 @@ The app will be available at `http://localhost:3000/`.
 
 ### Home Page
 
-![Home Page](src/assets/home.jpg)
+![Home Page](public/assets/home.jpg)
 
 ### Gear Options
 
-![Gear Options](src/assets/options.jpg)
+![Gear Options](public/assets/options.jpg)
 
 ### Builder Page
 
-![Builder Page](src/assets/builder.jpg)
+![Builder Page](public/assets/builder.jpg)
 
 ---
 
