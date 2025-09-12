@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Paisley Dog Gear & Training
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A front-end React.js website for **Paisley Dog Gear & Training**, my small business offering custom Biothane dog gear and professional dog training services.
 
-## Available Scripts
+The site includes interactive forms for training inquiries and gear requests, clear navigation, and brand-consistent design.
 
-In the project directory, you can run:
+**Live site:** [paisleydoggearandtraining.com](https://paisleydoggearandtraining.com)  
+**Repo:** [github.com/jpantano30/paisley-dog-gear](https://github.com/jpantano30/paisley-dog-gear)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Responsive front end built with React.js  
+- Interactive forms for service requests and inquiries  
+- Pages for **Home**, **Services**, and **About**  
+- Clean, branded UI focused on clarity and ease of use  
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Frontend:** React.js, JavaScript, HTML, CSS  
+- **Version Control:** Git, GitHub  
+- **Deployment:** Netlify  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```text
+src/
+├─ components/        # Reusable React components
+├─ pages/             # Page-level components (Home, Services, About)
+├─ assets/            # Images, logos, and media
+└─ App.js             # Main app entry
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🖥️ Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the project locally:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repo  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   git clone https://github.com/jpantano30/paisley-dog-gear.git
+   ```
 
-## Learn More
+1. Navigate into the folder  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   cd paisley-dog-gear
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Install dependencies  
 
-### Code Splitting
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Start the development server  
 
-### Analyzing the Bundle Size
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app will be available at `http://localhost:3000/`.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📸 Screenshots
 
-### Advanced Configuration
+### Home Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Home Page](src/assets/home.jpg)
 
-### Deployment
+### Gear Options
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Gear Options](src/assets/options.jpg)
 
-### `npm run build` fails to minify
+### Builder Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Builder Page](src/assets/builder.jpg)
+
+---
+
+## 🌟 About Paisley Dog Gear & Training
+
+Paisley Dog Gear & Training provides **custom Biothane leashes, collars, and harnesses**, plus balanced training with a focus on fitness, tricks, and everyday obedience.
+
+- Instagram: [@paisleydoggearandtraining](https://www.instagram.com/paisleydoggearandtraining)  
+- Website: [paisleydoggearandtraining.com](https://paisleydoggearandtraining.com)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
