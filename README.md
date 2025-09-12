@@ -99,7 +99,7 @@ The app will be available at `http://localhost:3000/`.
 
 Paisley Dog Gear & Training provides **custom Biothane leashes, collars, and harnesses**, plus balanced training with a focus on fitness, tricks, and everyday obedience.
 
-- Instagram: [@paisleydoggearandtraining](https://www.instagram.com/paisleydoggearandtraining)  
+<!-- - Instagram: [@paisleydoggearandtraining](https://www.instagram.com/paisleydoggearandtraining)   -->
 - Website: [paisleydoggearandtraining.com](https://paisleydoggearandtraining.com)
 
 ---
