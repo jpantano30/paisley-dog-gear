@@ -15,6 +15,7 @@ import VideoGallery from "./pages/VideoGallery.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/dataDeletion.js";
 import ProductBuilder from "./pages/ProductBuilder";
+import VideoWatch from "./pages/VideoWatch";
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
           <Route path="/data-deletion" element={<DataDeletion />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/builder" element={<ProductBuilder />} />
+          <Route path="/videos" element={<VideoGallery />} />
+          <Route path="/videos/:slug" element={<VideoWatch />} />
+
         </Routes>
       </main>
       <Footer />
