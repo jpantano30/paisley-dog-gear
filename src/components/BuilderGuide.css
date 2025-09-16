@@ -1,0 +1,69 @@
+/* src/components/BuilderGuide.css */
+
+.guide-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.guide-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.guide-emoji {
+  font-size: 22px;
+}
+
+.guide-title {
+  margin: 0;
+  color: #2b6a64; /* teal-ish */
+}
+
+.guide-sub {
+  color: #6b6b6b;
+  font-size: 0.95rem;
+}
+
+.guide-divider {
+  height: 1px;
+  background: #eee;
+  margin: 12px 0;
+}
+.guide-divider.subtle { opacity: .75; }
+
+.guide-list h4 {
+  margin: 4px 0 6px;
+  color: #7e5e3b; /* brown heading like your theme */
+}
+
+.guide-ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.guide-li {
+  margin: 6px 0;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+.guide-section h4 {
+  margin: 0 0 6px;
+  color: #7e5e3b;
+}
+
+.guide-section p {
+  margin: 0;
+  color: #4a4a4a;
+  line-height: 1.55;
+}
+
+.guide-section a {
+  color: #e27d60;
+  text-decoration: underline;
+}
+.guide-section a:hover { opacity: .9; }

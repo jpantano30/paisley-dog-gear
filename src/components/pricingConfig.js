@@ -90,8 +90,8 @@ const PRICING = {
 
   // Color & personalization
   color: {
-    twoToneLeashOrLine: 8,
-    twoToneSmallAccessory: 5
+    twoToneLeashOrLine: 5,
+    twoToneSmallAccessory: 3
   },
 
   personalization: {

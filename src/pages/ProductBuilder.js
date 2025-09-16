@@ -4,10 +4,11 @@ import "./ProductBuilder.css";
 import PRICING from "../components/pricingConfig";
 import { useNavigate } from "react-router-dom";
 import "../components/page-intro.css";
+import BuilderGuide from "../components/BuilderGuide";
+
 
 // Simple in-file color catalog
 const COLOR_CATALOG = [
-  // { id: "unique-key", code: "Blue 521", name: "Navy Blue", hex: "#0b2742" },
   { id: "purple-524", code: "Amethyst Orchid Purple 524", name: "Amethyst Orchid Purple / Medium Purple (524)"},
   { id: "grape-pu527", code: "Grape Pu527", name: "Grape Purple (Pu527)" },
   { id: "purple-522", code: "Purple 522", name: "Light Purple (522)" },
@@ -55,8 +56,6 @@ const colorLabel = (id) => {
   return c ? `${c.code} — ${c.name}` : "";
 };
 
-
-
 const money = (n) => Math.round(n * 100) / 100;
 
 // Safe helpers (avoid undefined reads from PRICING)
@@ -77,16 +76,8 @@ const HTV = PRICING?.htv || { name: 5, namePhone: 8, phraseLarge: 10, custom: nu
 const htvPriceTag = (v) => (v == null ? "quote" : `+$${v}`);
 const COLLAR = PRICING?.collar || { htv: {}, sizeBase: {}, widthUpcharge: {}, buckleTypeAdj: {} };
 
-
 /**
  * Product-aware UI spec
- * - units: "ft" | "in" | "none"
- * - sizePresets: quick-pick buttons
- * - sizeBounds: min/max for the input
- * - include: list shown under “What’s included”
- * - fields: which control groups to show
- * - addons: which add-ons are valid for this product
- * - locked: fields that are displayed but cannot be changed (forced true)
  */
 const PRODUCT_SPEC = {
   leash: {
@@ -272,6 +263,7 @@ const PRODUCT_TYPES = [
   { value: "ballHolder", label: PRODUCT_SPEC.ballHolder.label }
 ];
 
+
 export default function ProductBuilder() {
   const navigate = useNavigate();
 
@@ -285,11 +277,10 @@ export default function ProductBuilder() {
 
     // shared look/feel
     width: '5/8"',
-    colorPrimaryId: "",   // was colorPrimary
-    colorSecondaryId: "", // was colorSecondary
+    colorPrimaryId: "",
+    colorSecondaryId: "",
     useTwoTone: false,
     hardware: "standard",
-
 
     // leash-only
     snap: "swivelSnap",
@@ -328,14 +319,12 @@ export default function ProductBuilder() {
   const spec = PRODUCT_SPEC[form.productType] || null;
   const isLocked = (key) => !!spec?.locked?.[key];
 
-
   // Load saved form on mount
   useEffect(() => {
     try {
       const raw = localStorage.getItem("builderFormV2");
       if (raw) {
         const saved = JSON.parse(raw);
-        // Backward-compat shim: if older keys exist, map them forward
         const next = { ...saved };
         if (saved.colorPrimary && !saved.colorPrimaryId) next.colorPrimaryId = saved.colorPrimary;
         if (saved.colorSecondary && !saved.colorSecondaryId) next.colorSecondaryId = saved.colorSecondary;
@@ -350,9 +339,6 @@ export default function ProductBuilder() {
       localStorage.setItem("builderFormV2", JSON.stringify(form));
     } catch {}
   }, [form]);
-
-
-
 
   // Keep 7ft minimum when hands-free conversion is on for a leash
   useEffect(() => {
@@ -450,11 +436,8 @@ export default function ProductBuilder() {
 
     // Snap price — apply to any product that exposes the snap field
     if (spec?.fields?.snap) {
-      const s = SNAP?.[form.snap] || 0; // SNAP is the guarded alias for PRICING.snap
-      if (s) {
-        L.push([`Snap ${form.snap}`, s]);
-        sum += s;
-      }
+      const s = SNAP?.[form.snap] || 0;
+      if (s) { L.push([`Snap ${form.snap}`, s]); sum += s; }
     }
 
     // Grip handle (leash only)
@@ -490,11 +473,9 @@ export default function ProductBuilder() {
       if (Number.isFinite(htvAmt) && htvAmt > 0) {
         L.push([`HTV ${form.htvGearOption}`, htvAmt]); sum += htvAmt;
       } else {
-        // Show as $0 in math but label it as a quoted customization
         L.push([`HTV ${form.htvGearOption} (quoted)`, 0]);
       }
     }
-
 
     // Rings & misc (only where allowed)
     const allowAddon = (key) => spec?.addons?.[key];
@@ -535,12 +516,11 @@ export default function ProductBuilder() {
 
       // shared
       width: form.width,
-      colorPrimary: form.colorPrimaryId, // send the id
-      colorPrimaryName: colorLabel(form.colorPrimaryId), // human label
+      colorPrimary: form.colorPrimaryId,
+      colorPrimaryName: colorLabel(form.colorPrimaryId),
       colorSecondary: form.useTwoTone ? form.colorSecondaryId : "",
       colorSecondaryName: form.useTwoTone ? colorLabel(form.colorSecondaryId) : "",
       hardware: form.hardware,
-
 
       // leash/line/hands-free
       snap: ["leash", "longLine", "handsFreeSystem"].includes(form.productType) ? form.snap : "",
@@ -571,7 +551,6 @@ export default function ProductBuilder() {
       collarTwoTone: isCollarType ? String(form.collarTwoTone) : "",
       collarHardwareBlack: isCollarType ? String(form.collarHardwareBlack) : "",
       htvOption: isCollarType ? form.htvOption : "",
-      collarParacordFishtail: isCollarType ? String(form.collarParacordFishtail) : "",
 
       // summary
       estPrice: String(total),
@@ -678,39 +657,21 @@ export default function ProductBuilder() {
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
-      <meta
-        property="og:title"
-        content="Build Your Custom Biothane Leash or Collar"
-      />
-      <meta
-        property="og:description"
-        content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
-      />
-      <meta
-        property="og:url"
-        content="https://paisleydoggearandtraining.com/builder"
-      />
-      {/* <meta property="og:image" content="https://yourcdn/.../builder.jpg" /> */}
+      <meta property="og:title" content="Build Your Custom Biothane Leash or Collar" />
+      <meta property="og:description" content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last." />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/builder" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:title"
-        content="Build Your Custom Biothane Leash or Collar"
-      />
-      <meta
-        name="twitter:description"
-        content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
-      />
+      <meta name="twitter:title" content="Build Your Custom Biothane Leash or Collar" />
+      <meta name="twitter:description" content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last." />
 
       <div className="builder-container">
-        {/* Keep ONE page H1 */}
         <header className="builder-header">
           <h1>Build Your Gear</h1>
           <p>Start by choosing a product type. The available options and add-ons will update automatically.</p>
         </header>
 
-        {/* Short, styled intro (smaller than H1) */}
         <div className="page-intro" aria-label="About the Gear Builder">
           <h2>Build your custom biothane gear</h2>
           <p>
@@ -725,6 +686,7 @@ export default function ProductBuilder() {
         </div>
 
         <div className="builder-grid">
+          {/* LEFT: Options */}
           <div className="card">
             <h3>Choose Options</h3>
 
@@ -741,9 +703,9 @@ export default function ProductBuilder() {
               {/* Hardware (non-collar) */}
               {!isCollarType && (
                 <div>
-                  <label>Hardware</label>
+                  <label>Hardware </label>
                   <select value={form.hardware} onChange={(e) => update({ hardware: e.target.value })}>
-                    <option value="standard">Silver</option>
+                    <option value="standard">Silver — Standard</option>
                     <option value="black">Black (+${HW?.black || 0})</option>
                   </select>
                 </div>
@@ -752,9 +714,9 @@ export default function ProductBuilder() {
               {/* Width (non-collar where applicable) */}
               {!isCollarType && spec?.fields?.width && (
                 <div>
-                  <label>Width</label>
+                  <label>Width </label>
                   <select value={form.width} onChange={(e) => update({ width: e.target.value })}>
-                    <option>5/8"</option>
+                    <option>5/8" - Standard</option>
                     <option>3/4"</option>
                     <option>1"</option>
                   </select>
@@ -769,17 +731,17 @@ export default function ProductBuilder() {
             {spec?.fields?.snap && (
               <div className="form-row">
                 <div>
-                  <label>Snap</label>
+                  <label>Snap </label>
                   <select value={form.snap} onChange={(e) => update({ snap: e.target.value })}>
-                    <option value="swivelSnap">Swivel Snap</option>
+                    <option value="swivelSnap">Swivel Snap — Standard</option>
                     <option value="lockingCarabiner">Locking Carabiner (+${SNAP?.lockingCarabiner || 0})</option>
                   </select>
                 </div>
                 {spec?.fields?.gripHandle && (
                   <div>
-                    <label>Grip/Handle</label>
+                    <label>Grip/Handle </label>
                     <select value={form.gripHandle} onChange={(e) => update({ gripHandle: e.target.value })}>
-                      <option value="loop">Loop</option>
+                      <option value="loop">Loop — Standard</option>
                       <option value="noHandle">No Handle</option>
                     </select>
                   </div>
@@ -794,7 +756,11 @@ export default function ProductBuilder() {
                       <option value="no">No</option>
                       <option value="yes">Yes (+${ADDONS?.handsFreeConversion || 0})</option>
                     </select>
-                    <div className="small">Requires 7 ft minimum.</div>
+                    <div className="small">
+                      Hands-free leash option: includes a snap on the end and clip points for
+                      regular leash, cross-body, or waist carry, with quick ways to shorten the leash.
+                      Requires 7 ft minimum.
+                    </div>
                   </div>
                 )}
               </div>
@@ -820,6 +786,13 @@ export default function ProductBuilder() {
                           <option value="no">No</option>
                           <option value="yes">Yes (+${ADDONS?.trafficHandleBuiltIn || 0})</option>
                         </select>
+                        {form.trafficHandleBuiltIn && (
+                          <div className="small">
+                            Standard builds do <strong>not</strong> include a traffic handle. Turn this on
+                            to add a close-control handle near the snap. Pick Biothane (flat) or a Paracord
+                            overlay for grip and color, then choose the placement.
+                          </div>
+                        )}
                       </>
                     )}
                   </div>
@@ -897,7 +870,7 @@ export default function ProductBuilder() {
                     <label>Two-tone (O-ring split)</label>
                     <select value={form.collarTwoTone ? "yes" : "no"} onChange={(e) => update({ collarTwoTone: e.target.value === "yes" })}>
                       <option value="no">No</option>
-                      <option value="yes">Yes (+$8)</option>
+                      <option value="yes">Yes (+${COLLAR?.twoToneORingSplit || 0})</option>
                     </select>
                   </div>
                 </div>
@@ -968,7 +941,7 @@ export default function ProductBuilder() {
                 </div>
 
                 <div>
-                  <label>Two-tone</label>
+                  <label>Two-tone <span className="muted">(Standard: No)</span></label>
                   <select
                     value={form.useTwoTone ? "yes" : "no"}
                     onChange={(e) => update({ useTwoTone: e.target.value === "yes" })}
@@ -1082,12 +1055,22 @@ export default function ProductBuilder() {
             </div>
           </div>
 
+          {/* RIGHT: Dynamic Builder Guide */}
+          <div className="card">
+            <BuilderGuide form={form} spec={spec} />
+          </div>
+
+          {/* RIGHT (below Guide): Estimate */}
           <div className="card">
             <h3>Estimate & Breakdown</h3>
             <div className="summary">
               <div className="price-badge">${total.toFixed(2)}</div>
               <h4>Line items</h4>
-              <ul>{lines.map(([label, amt], i) => (<li key={i}>{label}: ${amt.toFixed(2)}</li>))}</ul>
+              <ul>
+                {lines.map(([label, amt], i) => (
+                  <li key={i}>{label}: ${amt.toFixed(2)}</li>
+                ))}
+              </ul>
 
               <div className="cta-row">
                 <button onClick={goToOrderForm}>Send to Order Page</button>
@@ -1100,6 +1083,5 @@ export default function ProductBuilder() {
         </div>
       </div>
     </>
-
   );
-} 
+}
