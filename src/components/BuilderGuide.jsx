@@ -1,306 +1,215 @@
-// src/components/BuilderGuide.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import "./BuilderGuide.css";
-
-// Small helpers
-const Li = ({ children }) => <li className="guide-li">{children}</li>;
-const Section = ({ title, children }) => (
-  <section className="guide-section">
-    <h4>{title}</h4>
-    <p>{children}</p>
-  </section>
-);
 
 /**
- * Returns the guide content (title, subtitle, bullets, sections)
- * based on the selected product type.
+ * Optional media per product.
+ * Put images in /public/assets/guide/ and point to them here.
+ * If an entry is missing, the media block is simply hidden.
  */
-function getGuideContent(form) {
-  const type = form?.productType;
+const PRODUCT_MEDIA = {
+  leash: {
+    src: "/assets/guide/leash.jpg",
+    alt: "Custom biothane leash with swivel snap and loop handle",
+    credit: "Leash example"
+  },
+  longLine: {
+    src: "/assets/guide/longline.jpg",
+    alt: "Long line example",
+    credit: "Long line example"
+  },
+  handsFreeSystem: {
+    src: "/assets/guide/handsfree.jpg",
+    alt: "Hands-free leash worn cross-body",
+    credit: "Hands-free system shown cross-body"
+  },
+  trafficLead: {
+    src: "/assets/guide/traffic-handle.jpg",
+    alt: "Traffic handle / short lead",
+    credit: "Traffic handle example"
+  },
+  leashExtender: {
+    src: "/assets/guide/extender.jpg",
+    alt: "Leash extender with snap and ring",
+    credit: "Leash extender example"
+  },
+  ballHolder: {
+    src: "/assets/guide/ball-holder.jpg",
+    alt: "Ball holder accessory",
+    credit: "Ball holder example"
+  },
+  collarBuckle: {
+    src: "/assets/guide/collar.jpg",
+    alt: "Biothane collar with metal buckle",
+    credit: "Collar example"
+  },
+  safetyStrapBiothane: {
+    src: "/assets/guide/safety-strap-bio.jpg",
+    alt: "Biothane safety strap",
+    credit: "Safety strap (Biothane)"
+  },
+  safetyStrapParacord: {
+    src: "/assets/guide/safety-strap-para.jpg",
+    alt: "Paracord safety strap",
+    credit: "Safety strap (Paracord weave)"
+  }
+};
 
-  // Defaults (shown before a product is selected)
-  let heading = "Builder Guide";
-  let subheading = "Tips for picking sizes and options";
-  let bullets = [
-    "Width: 5/8″",
-    "Snap: Swivel snap",
-    "Grip: Loop handle",
-    "Hardware: Silver",
-    "Two-tone: Off",
+const StandardList = ({ productType }) => {
+  // Defaults for most leash/line builds
+  const base = [
+    <>Width: <strong>5/8″</strong></>,
+    <>Snap: <strong>Swivel snap</strong></>,
+    <>Grip: <strong>Loop handle</strong></>,
+    <>Hardware: <strong>Silver</strong></>,
+    <>Two-tone: <strong>Off</strong></>
   ];
-  let sections = [
-    {
-      title: "Hands-free Conversion",
-      body:
-        "Converts a standard leash into a hands-free setup with clip points for handheld, cross-body, or waist carry — easy to shorten on the fly. Recommended lengths: 7–10 ft.",
-    },
-    {
-      title: "Built-in Traffic Handle",
-      body:
-        'Adds a close-control handle near the snap for busy areas or crossings. Choose Biothane (flat) or a Paracord overlay for extra grip, then set the placement: <em>Base</em> (by the snap) or <em>12″/18″/24″</em> above.',
-    },
-    {
-      title: "Two-tone Colors",
-      body:
-        `Pick a primary plus an accent for a clean, custom look. Need help choosing? Open the <a href="/colors" target="_blank" rel="noopener noreferrer">color chart</a>.`,
-    },
-    {
-      title: "Rings & Extras",
-      body:
-        "Add O/D-rings for clip points, a floating O-ring for quick hands-free, or a stopper to hold a sliding ring in place.",
-    },
-  ];
 
-  switch (type) {
-    case "leash":
-      bullets = [
-        "Width: 5/8″ — standard for most dogs.",
-        "Snap: Swivel snap — locking carabiner adds security.",
-        "Grip: Loop handle — choose “No Handle” if adding a separate traffic handle.",
-        "Hardware: Silver",
-        "Two-tone: Optional",
-      ];
-      sections = [
-        {
-          title: "Hands-free Conversion",
-          body:
-            "Turns a leash into a cross-body/waist option with extra clip points to shorten quickly. Requires 7 ft minimum.",
-        },
-        {
-          title: "Built-in Traffic Handle",
-          body:
-            'Quick grab point near the clip. Pick Biothane (flat) or Paracord overlay for extra grip, then place it at <em>Base</em> (by the snap) or <em>12″/18″/24″</em> above.',
-        },
-        {
-          title: "Two-tone Colors",
-          body:
-            `Primary + accent looks clean and customizable. See the <a href="/colors" target="_blank" rel="noopener noreferrer">color chart</a>.`,
-        },
-        {
-          title: "Rings & Extras",
-          body:
-            "Add O/D-rings, a floating O-ring for quick hands-free, or a stopper to hold a sliding ring in place.",
-        },
-      ];
-      break;
+  if (productType === "longLine") return <ul className="guide-bullets">{base}</ul>;
+  if (productType === "leash") return <ul className="guide-bullets">{base}</ul>;
 
-    case "longLine":
-      bullets = [
-        "Common lengths: 10–30 ft.",
-        "Width: 5/8″ — easy to handle; 3/4″ for bigger dogs.",
-        "Snap: Swivel snap — locking carabiner adds security.",
-        "Handle: With or without loop (your call).",
-        "Hardware: Silver",
-      ];
-      sections = [
-        {
-          title: "Built-in Traffic Handle",
-          body:
-            'Optional quick-grab handle near the snap. Choose material (Biothane or Paracord overlay) and placement (<em>Base</em> or <em>12″/18″/24″</em>).',
-        },
-        {
-          title: "Training Use",
-          body:
-            "Great for recall practice and roaming while staying connected. Consider brighter colors for visibility.",
-        },
-        {
-          title: "Two-tone & Extras",
-          body:
-            `Accent colors help ID direction/ends. See the <a href="/colors" target="_blank" rel="noopener noreferrer">color chart</a>. Add rings if you want anchor/clip points.`,
-        },
-      ];
-      break;
-
-    case "trafficLead":
-      bullets = [
-        "Length: 8–12″ is most popular.",
-        "Width: 5/8″ standard; 3/4″ for large breeds.",
-        "Snap: Swivel snap; locking carabiner adds security.",
-        "Hardware: Silver",
-        "Two-tone: Optional",
-      ];
-      sections = [
-        {
-          title: "Purpose",
-          body:
-            "Short, easy-grab handle for busy environments and heel work.",
-        },
-        {
-          title: "Options",
-          body:
-            "Choose width, snap style, and color(s). You can add a D-ring or floating O-ring if you want clip points.",
-        },
-      ];
-      break;
-
-    case "leashExtender":
-      bullets = [
-        "Common sizes: 6–18″.",
-        "Ends: Snap + O-ring (standard).",
-        "Width: 5/8″; upgrade for bigger gear if desired.",
-        "Hardware: Silver",
-      ];
-      sections = [
-        {
-          title: "How it’s used",
-          body:
-            "Extend any leash, create quick hands-free clips, or use as a short traffic tab.",
-        },
-        {
-          title: "Extras",
-          body:
-            "Floating O-ring is handy for on-the-fly clip-ups or adjusting length.",
-        },
-      ];
-      break;
-
-    case "safetyStrapBiothane":
-      bullets = [
-        "Length: 3–8″ typical.",
-        "Two snaps — one to collar, one to harness/leash.",
-        "Material: Biothane (waterproof, easy to clean).",
-        "Hardware: Silver",
-      ];
-      sections = [
-        {
-          title: "Purpose",
-          body:
-            "Backup connection between gear points for extra security.",
-        },
-        {
-          title: "Options",
-          body:
-            "Pick length, width, snap style, and colors. Two-tone is available.",
-        },
-      ];
-      break;
-
-    case "safetyStrapParacord":
-      bullets = [
-        "Length: 2–8″ typical.",
-        "Two snaps — backup connection.",
-        "Material: Paracord weave overlay.",
-        "Hardware: Silver",
-      ];
-      sections = [
-        {
-          title: "Grip & Look",
-          body:
-            "Paracord adds texture and an accent look. Choose any color combo (subject to availability).",
-        },
-      ];
-      break;
-
-    case "handsFreeSystem":
-      heading = "Builder Guide";
-      subheading = "The Tallulah — multi-point hands-free system";
-      bullets = [
-        "Wear cross-body, at the waist, or handheld.",
-        "Sliding rings for quick length changes.",
-        "Includes a matching 1 ft extender.",
-        "Built-in traffic handle included.",
-        "Typical lengths: 7–10 ft.",
-      ];
-      sections = [
-        {
-          title: "Fit & Adjust",
-          body:
-            "Use sliding O/D-rings to go from handheld to cross-body or waist carry. Shorten quickly for street crossings.",
-        },
-        {
-          title: "Handle Placement",
-          body:
-            'Built-in handle is included — choose <em>Base</em> (near the clip) or <em>12″/18″/24″</em> above for your reach.',
-        },
-        {
-          title: "Colors & Extras",
-          body:
-            `Pick two-tone for a clean accent, then add rings if you want more clip points. See the <a href="/colors" target="_blank" rel="noopener noreferrer">color chart</a>.`,
-        },
-      ];
-      break;
-
-    case "ballHolder":
-      bullets = [
-        "Holds a standard ChuckIt ball.",
-        "Attachment: D-ring + carabiner.",
-        "Width: 5/8″.",
-        "Two-tone: Optional",
-      ];
-      sections = [
-        {
-          title: "Use",
-          body:
-            "Clip to a leash, belt, or bag. Waterproof and easy to rinse.",
-        },
-      ];
-      break;
-
-    case "collarBuckle":
-    case "collarQuickRelease":
-      bullets = [
-        "Sizing: pick the range that fits your dog’s neck.",
-        "Width: 5/8″ for small/medium; 1″ for larger dogs.",
-        "Buckle: metal double-bar (silver or black) or plastic quick-release.",
-        "Two-tone split: optional at the O-ring.",
-      ];
-      sections = [
-        {
-          title: "Personalization",
-          body:
-            "Add HTV name/phone or a short phrase. Paracord fishtail overlay is available for a textured accent.",
-        },
-        {
-          title: "Fit",
-          body:
-            "Measure snug-to-comfortable; you want adjustment room up and down.",
-        },
-      ];
-      break;
-
-    default:
-      break;
+  if (productType === "handsFreeSystem") {
+    return (
+      <ul className="guide-bullets">
+        <>Width: <strong>5/8″</strong></>
+        <>Traffic handle: <strong>Included</strong></>
+        <>Adjusters: <strong>Sliding O/D-rings</strong></>
+        <>Carry: <strong>Handheld / cross-body / waist</strong></>
+        <>Two-tone: <strong>Optional</strong></>
+      </ul>
+    );
   }
 
-  return { heading, subheading, bullets, sections };
-}
+  if (productType === "trafficLead") {
+    return (
+      <ul className="guide-bullets">
+        <>Typical length: <strong>8–12″</strong></>
+        <>Width: <strong>5/8″</strong></>
+        <>Snap: <strong>Swivel or carabiner</strong></>
+        <>Hardware: <strong>Silver</strong></>
+        <>Two-tone: <strong>Optional</strong></>
+      </ul>
+    );
+  }
 
-export default function BuilderGuide({ form, spec }) {
-  const { heading, subheading, bullets, sections } = getGuideContent(form);
+  if (productType === "leashExtender") {
+    return (
+      <ul className="guide-bullets">
+        <>Ends: <strong>Snap + O-ring</strong></>
+        <>Use: <strong>Extend leash / quick hands-free</strong></>
+        <>Typical length: <strong>6–18″</strong></>
+        <>Two-tone: <strong>Optional</strong></>
+      </ul>
+    );
+  }
+
+  if (productType?.startsWith("safetyStrap")) {
+    return (
+      <ul className="guide-bullets">
+        <>Purpose: <strong>Backup from collar to harness</strong></>
+        <>Ends: <strong>Two snaps</strong></>
+        <>Typical length: <strong>3–8″</strong></>
+        <>Material: <strong>{productType === "safetyStrapParacord" ? "Paracord weave" : "Biothane"}</strong></>
+      </ul>
+    );
+  }
+
+  if (productType === "ballHolder") {
+    return (
+      <ul className="guide-bullets">
+        <>Fits: <strong>Standard ChuckIt ball</strong></>
+        <>Attach: <strong>D-ring + carabiner</strong></>
+        <>Width: <strong>5/8″</strong></>
+        <>Two-tone: <strong>Optional</strong></>
+      </ul>
+    );
+  }
+
+  if (productType === "collarBuckle") {
+    return (
+      <ul className="guide-bullets">
+        <>Buckle: <strong>Metal double-bar</strong> (black or silver)</>
+        <>Widths: <strong>5/8″</strong> or <strong>1″</strong></>
+        <>Options: <strong>Two-tone</strong>, <strong>HTV name/phone</strong></>
+      </ul>
+    );
+  }
+
+  // Fallback if no product chosen
+  return (
+    <ul className="guide-bullets">
+      <>Pick a product to see tips.</>
+      <>You can always <Link to="/options">review options</Link> first.</>
+    </ul>
+  );
+};
+
+export default function BuilderGuide({ form }) {
+  const type = form?.productType || "";
+  const media = PRODUCT_MEDIA[type];
 
   return (
-    <aside className="guide-card" aria-label="Builder guide">
-      <div className="guide-head">
-        <div className="guide-emoji" aria-hidden>💡</div>
+    <aside aria-label="Builder Help">
+      <div className="guide-header">
+        <span className="guide-dot" aria-hidden>💡</span>
         <div>
-          <h3 className="guide-title">{heading}</h3>
-          <div className="guide-sub">{subheading}</div>
+          <h4 className="guide-title">Builder Guide</h4>
+          <div className="guide-sub">Tips for picking sizes and options</div>
         </div>
       </div>
 
-      <div className="guide-divider" />
-
-      {/* “Standard Picks” list (or product-specific quick picks) */}
-      {bullets?.length > 0 && (
-        <div className="guide-list">
-          <h4>Standard Picks</h4>
-          <ul className="guide-ul">
-            {bullets.map((b, i) => <Li key={i}>{/* allow simple <em> injects later */}{b}</Li>)}
-          </ul>
-        </div>
+      {/* Media (optional) */}
+      {media && (
+        <figure className="guide-media">
+          <img src={media.src} alt={media.alt} />
+          <figcaption>{media.credit}</figcaption>
+        </figure>
       )}
 
-      {/* Detail sections */}
-      {sections?.map((s, i) => (
-        <React.Fragment key={i}>
-          <div className="guide-divider subtle" />
-          <Section title={s.title}>
-            {/* allow a few <em>/<a> tags */}
-            <span dangerouslySetInnerHTML={{ __html: s.body }} />
-          </Section>
-        </React.Fragment>
-      ))}
+      <div className="guide-section">
+        <h5>Standard Picks</h5>
+        <StandardList productType={type} />
+      </div>
+
+      {/* Contextual explanations that apply to leash/line items */}
+      {(type === "leash" || type === "longLine") && (
+        <>
+          <div className="guide-section">
+            <h5>Hands-free Conversion</h5>
+            <p>
+              Converts a standard leash into a hands-free setup with clip points for handheld,
+              cross-body, or waist carry — easy to shorten on the fly. Recommended lengths:
+              <strong> 7–10 ft</strong>.
+            </p>
+          </div>
+
+          <div className="guide-section">
+            <h5>Built-in Traffic Handle</h5>
+            <p>
+              Adds a close-control handle near the snap for busy areas or crossings. Choose
+              <strong> Biothane</strong> (flat) or a <strong>Paracord</strong> overlay for extra
+              grip, then set the placement: <em>Base</em> (by the snap) or <em>12″/18″/24″</em> above.
+            </p>
+          </div>
+        </>
+      )}
+
+      <div className="guide-section">
+        <h5>Two-tone Colors</h5>
+        <p>
+          Pick a primary plus an accent for a clean, custom look. Need help choosing?
+          Open the <a href="/colors" target="_blank" rel="noopener noreferrer">color chart</a>.
+        </p>
+      </div>
+
+      {(type === "leash" || type === "longLine" || type === "handsFreeSystem" || type === "leashExtender") && (
+        <div className="guide-section">
+          <h5>Rings & Extras</h5>
+          <p>
+            Add O/D-rings for clip points, a floating O-ring for quick hands-free,
+            or a stopper to hold a sliding ring in place.
+          </p>
+        </div>
+      )}
     </aside>
   );
 }
