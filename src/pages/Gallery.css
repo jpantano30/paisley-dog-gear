@@ -28,6 +28,11 @@
   margin-bottom: 2.5rem;
 }
 
+.gallery-page .page-intro.compact {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
 /* === GALLERY GRID === */
 .gallery-grid {
   display: grid;

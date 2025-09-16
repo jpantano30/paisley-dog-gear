@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./OrderForm.css";
 import { useSearchParams } from "react-router-dom";
+import "../components/page-intro.css";
 
 // Map builder product keys to your public-facing labels
 const PRODUCT_LABELS = {
@@ -186,20 +187,26 @@ export default function OrderForm() {
       <title>Request a Quote | Custom Biothane Gear</title>
       <meta
         name="description"
-        content="Submit your custom biothane gear request. We review your specs from the Builder or form and reply with a final quote."
+        content="Send your selections for custom Biothane leashes, long lines, collars and accessories. We review, confirm details, and email a final quote. Payment is handled separately via Venmo or PayPal."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/order" />
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Request a Quote | Custom Biothane Gear" />
-      <meta property="og:description" content="Send your specs—length, width, hardware, colors—and we’ll follow up with a final quote and timeline." />
+      <meta
+        property="og:description"
+        content="Share your specs—length, width, hardware, colors—and we’ll follow up with a final quote and timeline."
+      />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/order" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Request a Quote | Custom Biothane Gear" />
-      <meta name="twitter:description" content="Send your specs—length, width, hardware, colors—and we’ll follow up with a final quote and timeline." />
+      <meta
+        name="twitter:description"
+        content="Share your specs—length, width, hardware, colors—and we’ll follow up with a final quote and timeline."
+      />
 
-      {/* Product/Service JSON-LD to clarify no direct checkout */}
+      {/* Structured data: clarifies there’s no checkout here */}
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",
@@ -210,104 +217,124 @@ export default function OrderForm() {
         "paymentAccepted": "PayPal, Venmo"
       })}</script>
 
+      {/* Hero */}
+      <div className="order-hero">
+        <h1>Custom Order Request</h1>
+        <p className="order-sub">
+          Share the details for your custom gear and I’ll send a quote. If you used the Builder, your selections will
+          appear below automatically.
+        </p>
+        <div className="est-badge">
+          Estimated from Builder:{" "}
+          <strong>{formData.estPrice ? `$${formData.estPrice}` : "—"}</strong>
+        </div>
+      </div>
 
+      {/* Context box (SEO-friendly, same style used elsewhere) */}
+      <section className="page-intro" aria-label="How quotes work">
+        <h2>How quotes work</h2>
+        <p>
+          We review your measurements and options, confirm any details, and email your
+          quote with timing. Payment happens separately via Venmo or PayPal after you
+          approve the quote. Shipping or local pickup will be included in our reply.
+        </p>
+      </section>
 
+      {/* Form card */}
+      <div className="order-form card">
+        <form onSubmit={handleSubmit} className="order-grid">
+          {/* Column A */}
+          <div>
+            <label>Name</label>
+            <input type="text" name="name" required onChange={handleChange} value={formData.name} />
 
+            <label>Email</label>
+            <input type="email" name="email" required onChange={handleChange} value={formData.email} />
 
-    <div className="order-form">
-      <h1>Custom Order Request</h1>
+            <label>Product Type</label>
+            <select name="productType" required onChange={handleChange} value={formData.productType}>
+              <option value="">-- Select --</option>
+              <option>Standard Leash</option>
+              <option>Long Line</option>
+              <option>The Tallulah</option>
+              <option>Safety Strap — Biothane</option>
+              <option>Safety Strap — Paracord Weave</option>
+              <option>Leash Extender</option>
+              <option>Traffic Handle</option>
+              <option>Collar — Buckle</option>
+              <option>Collar — Quick Release</option>
+              <option>Ball Holder</option>
+              <option>Pull Tab</option>
+              <option>Other</option>
+            </select>
 
-      <p>
-        <strong>Estimated from Builder:</strong>{" "}
-        {formData.estPrice ? `$${formData.estPrice}` : "—"}
-      </p>
+            <label>Length (if applicable)</label>
+            <input
+              type="text"
+              name="length"
+              placeholder='e.g., "6ft" or "12in"'
+              onChange={handleChange}
+              value={formData.length}
+            />
 
-      <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input type="text" name="name" required onChange={handleChange} value={formData.name} />
+            <label>Color(s)</label>
+            <input
+              type="text"
+              name="colors"
+              placeholder="List 1–3 colors (two-tone available)"
+              onChange={handleChange}
+              value={formData.colors}
+            />
+          </div>
 
-        <label>Email:</label>
-        <input type="email" name="email" required onChange={handleChange} value={formData.email} />
+          {/* Column B */}
+          <div>
+            <label>Hardware Finish</label>
+            <select name="hardware" onChange={handleChange} value={formData.hardware}>
+              <option value="">-- Optional --</option>
+              <option value="Silver">Silver</option>
+              <option value="Black">Black</option>
+              <option value="BlackPlastic">Black Plastic (collars)</option>
+            </select>
 
-        <label>Product Type:</label>
-        <select name="productType" required onChange={handleChange} value={formData.productType}>
-          <option value="">-- Select --</option>
-          <option>Standard Leash</option>
-          <option>Long Line</option>
-          <option>The Tallulah</option>
-          <option>Safety Strap — Biothane</option>
-          <option>Safety Strap — Paracord Weave</option>
-          <option>Leash Extender</option>
-          <option>Traffic Handle</option>
-          <option>Collar — Buckle</option>
-          <option>Collar — Quick Release</option>
-          <option>Ball Holder</option>
-          <option>Pull Tab</option>
-          <option>Other</option>
-        </select>
+            <label>Snap Type (if applicable)</label>
+            <select name="snapType" onChange={handleChange} value={formData.snapType}>
+              <option value="">-- Optional --</option>
+              <option value="Locking Carabiner">Locking Carabiner</option>
+              <option value="Swivel Snap">Swivel Snap</option>
+            </select>
 
-        <label>Length (if applicable):</label>
-        <input
-          type="text"
-          name="length"
-          placeholder='e.g., "6ft" or "12in"'
-          onChange={handleChange}
-          value={formData.length}
-        />
+            <label>Handle Style (for leashes)</label>
+            <select name="handleType" onChange={handleChange} value={formData.handleType}>
+              <option value="">-- Optional --</option>
+              <option value="Loop Handle">Loop Handle (standard)</option>
+              <option value="No Handle + D-ring">No Handle + D-ring / O-ring</option>
+            </select>
 
-        <label>Color(s) (List custom designs in notes):</label>
-        <input
-          type="text"
-          name="colors"
-          placeholder="List 1–3 colors (two-tone available)"
-          onChange={handleChange}
-          value={formData.colors}
-        />
+            <label>Notes or Custom Requests</label>
+            <textarea
+              name="notes"
+              placeholder="Special placements, HTV text, collar size/width, buckle style, extra rings, etc."
+              onChange={handleChange}
+              value={formData.notes}
+            />
 
-        <label>Hardware Color:</label>
-        <select name="hardware" onChange={handleChange} value={formData.hardware}>
-          <option value="">-- Optional --</option>
-          <option value="Silver">Silver</option>
-          <option value="Black">Black</option>
-          <option value="BlackPlastic">Black Plastic (collars)</option>
-        </select>
-
-        <label>Snap Type (if applicable):</label>
-        <select name="snapType" onChange={handleChange} value={formData.snapType}>
-          <option value="">-- Optional --</option>
-          <option value="Locking Carabiner">Locking Carabiner</option>
-          <option value="Swivel Snap">Swivel Snap</option>
-        </select>
-
-        <label>Handle Type (for leashes) — use Notes for more details:</label>
-        <select name="handleType" onChange={handleChange} value={formData.handleType}>
-          <option value="">-- Optional --</option>
-          <option value="Loop Handle">Loop Handle (Standard)</option>
-          <option value="No Handle + D-ring">No Handle + D-Ring or O-Ring</option>
-        </select>
-
-        <label>Notes or Custom Requests:</label>
-        <textarea
-          name="notes"
-          placeholder="Tell me anything else I should know (special placements, HTV text, collar size/width, buckle style, etc.)"
-          onChange={handleChange}
-          value={formData.notes}
-        />
-
-        <button type="submit">Submit Request</button>
-      </form>
+            <button type="submit">Submit Request</button>
+          </div>
+        </form>
+      </div>
 
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h2>Thank you!</h2>
-            <p>Your request has been received. I’ll follow up via email soon.</p>
-            <p><em>Note: </em></p><p>All custom gear is made to order and may take 2-4 weeks to ship.</p>
+            <h2>Thanks — got it!</h2>
+            <p>Your request was received. I’ll follow up by email with your quote and timing.</p>
+            <p>Payment is by Venmo or PayPal after you approve the quote.</p>
             <button onClick={() => setShowModal(false)}>Close</button>
           </div>
         </div>
       )}
-    </div>
     </>
+
   );
 }

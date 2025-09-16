@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./VideoGallery.css";
+import "../components/page-intro.css";
 
 const videoFiles = [
   {
@@ -61,12 +62,33 @@ const VideoGallery = () => {
       <meta name="twitter:title" content="Dog Trick Tutorials and Gear Demos" />
       <meta name="twitter:description" content="Quick videos with trick breakdowns, training tips and gear demos to help you choose and train." />
 
+
   
     <div className="video-page container">
       <h1>Training & Gear Videos</h1>
       <p>Here are some of our favorite training moments and gear demos!</p>
 
+      <section aria-label="About these videos" className="page-intro">
+      <h2>What you’ll find here</h2>
+      <p>
+        Quick clips of real training sessions and short demos of our custom
+        biothane gear. Training videos show handling, tricks, and how we build
+        confidence in busy places. Gear demos walk through features like the
+        hands-free system and ball holder so you can see how they attach and why
+        they’re useful.
+      </p>
+      {/* <ul>
+        <li><strong>Training:</strong> heel work, freestyle patterns, recall ideas.</li>
+        <li><strong>Gear demos:</strong> how to wear the hands-free setup, add or remove rings, and use accessories.</li>
+      </ul> */}
+      <p>
+        If a demo helps you decide, you can <a href="/builder">build your gear</a>
+        {" "}and then <a href="/order">request a quote</a>.
+      </p>
+    </section>
+
       <h2 className="video-section-title">Training Videos</h2>
+
       <div className="videos-grid">
         {videoFiles
           .filter(video => video.type === "training")

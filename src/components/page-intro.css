@@ -1,0 +1,47 @@
+/* Simple styling for the SEO-helping intro blocks */
+.page-intro {
+  max-width: 900px;
+  margin: 16px auto 24px;
+  margin-top: 8px;
+  padding: 14px 18px;
+  border: 1px solid #e5e7eb;      /* light gray */
+  border-radius: 12px;
+  background: #fafafa;
+  text-align: center;
+}
+
+.page-intro h2 {
+  margin: 0 0 6px;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.page-intro p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.page-intro ul {
+  margin: 8px 0 0 18px;
+  padding: 0;
+  list-style: disc;
+}
+
+.page-intro li {
+  margin: 4px 0;
+}
+
+.page-intro a {
+  text-decoration: underline;
+}
+
+/* Dark mode friendly */
+@media (prefers-color-scheme: dark) {
+  .page-intro {
+    background: #151515;
+    border-color: #2a2a2a;
+  }
+  .page-intro a {
+    color: #9ecbff;
+  }
+}

@@ -2,6 +2,7 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import "../components/page-intro.css";
 
 // ===== HERO IMAGES =====
 const HERO_IMAGES = [
@@ -50,6 +51,7 @@ const Home = () => {
             <div className="hero-actions">
               <Link to="/builder" className="cta-button cta-primary">Design Your Own</Link>
               <Link to="/training" className="cta-button cta-ghost">Training</Link>
+              <Link to="/options" className="cta-button cta-ghost">View Options</Link>
             </div>
           </div>
         </div>
@@ -164,7 +166,20 @@ const Home = () => {
             </a>
           </div> */}
         </section>
+        <section aria-label="Quick links" style={{marginTop: 16}} className="page-intro">
+          <p>
+            Ready to design gear? <a href="/builder">Use the Gear Builder</a>.{" "} <br />
+            Know what you want? <a href="/order">Request a quote</a>.{" "}
+            <br />
+            Want help with behavior or tricks? <a href="/training">Request training</a>{" "}
+            or <a href="/booking">book a free 15-minute consult</a>.{" "}
+            <br />
+            Explore our <a href="/gallery">gallery</a>, <a href="/colors">colors</a>,{" "}
+            <a href="/options">options</a>, and <a href="/videos">videos</a>.
+          </p>
+        </section>
       </section>
+      
     </>
   );
 };

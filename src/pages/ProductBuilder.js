@@ -2,7 +2,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./ProductBuilder.css";
 import PRICING from "../components/pricingConfig";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../components/page-intro.css";
 
 // Simple in-file color catalog
 const COLOR_CATALOG = [
@@ -667,427 +668,438 @@ export default function ProductBuilder() {
 
   return (
     <>
-    {/* SEO for the Builder page */}
-    <title>Build Your Custom Biothane Leash or Collar</title>
-    <meta
-    name="description"
-    content="Choose length, width, hardware and colors. Then send your build to the order form to request a final quote."
-    />
-    <link rel="canonical" href="https://paisleydoggearandtraining.com/builder" />
+      {/* SEO for the Builder page */}
+      <title>Build Your Custom Biothane Leash or Collar</title>
+      <meta
+        name="description"
+        content="Choose length, width, hardware and colors. Then send your build to the order form to request a final quote."
+      />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/builder" />
 
-    {/* Open Graph */}
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Build Your Custom Biothane Leash or Collar"
-    />
-    <meta
-      property="og:description"
-      content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
-    />
-    <meta
-      property="og:url"
-      content="https://paisleydoggearandtraining.com/builder"
-    />
-    {/* <meta property="og:image" content="https://yourcdn/.../builder.jpg" /> */}
+      {/* Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:title"
+        content="Build Your Custom Biothane Leash or Collar"
+      />
+      <meta
+        property="og:description"
+        content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
+      />
+      <meta
+        property="og:url"
+        content="https://paisleydoggearandtraining.com/builder"
+      />
+      {/* <meta property="og:image" content="https://yourcdn/.../builder.jpg" /> */}
 
-    {/* Twitter */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Build Your Custom Biothane Leash or Collar"
-    />
-    <meta
-      name="twitter:description"
-      content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
-    />
-    <div className="builder-container">
-      <header className="builder-header">
-        <h1>Build Your Gear</h1>
-        <p>Start by choosing a product type. The available options and add-ons will update automatically.</p>
-        <p>Once you’ve made your selection, customize it with colors, hardware, and other details. When you’re ready, click <strong>Send to Order Page</strong> to review and submit your request.</p>
-        <br />
-        <p>Not sure what to choose? <Link to="/options">Check out our options!</Link>.</p><br />
-        <p><em>Note: </em> Colors for paracord are available in a variety of options. Please describe your desired color scheme in the notes section if applicable.</p>
-      </header>
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:title"
+        content="Build Your Custom Biothane Leash or Collar"
+      />
+      <meta
+        name="twitter:description"
+        content="Pick length, width, color and hardware. Waterproof, easy to clean and made to last."
+      />
 
-      <div className="builder-grid">
-        <div className="card">
-          <h3>Choose Options</h3>
+      <div className="builder-container">
+        {/* Keep ONE page H1 */}
+        <header className="builder-header">
+          <h1>Build Your Gear</h1>
+          <p>Start by choosing a product type. The available options and add-ons will update automatically.</p>
+        </header>
 
-          {/* Product */}
-          <div className="form-row">
-            <div>
-              <label>Product Type</label>
-              <select value={form.productType} onChange={(e) => update({ productType: e.target.value })}>
-                <option value="">Select…</option>
-                {PRODUCT_TYPES.map(p => <option key={p.value} value={p.value}>{p.label}</option>)}
-              </select>
-            </div>
-
-            {/* Hardware (non-collar) */}
-            {!isCollarType && (
-              <div>
-                <label>Hardware</label>
-                <select value={form.hardware} onChange={(e) => update({ hardware: e.target.value })}>
-                  <option value="standard">Silver</option>
-                  <option value="black">Black (+${HW?.black || 0})</option>
-                </select>
-              </div>
-            )}
-
-            {/* Width (non-collar where applicable) */}
-            {!isCollarType && spec?.fields?.width && (
-              <div>
-                <label>Width</label>
-                <select value={form.width} onChange={(e) => update({ width: e.target.value })}>
-                  <option>5/8"</option>
-                  <option>3/4"</option>
-                  <option>1"</option>
-                </select>
-              </div>
-            )}
-          </div>
-
-          {/* Size */}
-          {spec && <SizePicker />}
-
-          {/* Snaps / Grip / Hands-free */}
-          {spec?.fields?.snap && (
-            <div className="form-row">
-              <div>
-                <label>Snap</label>
-                <select value={form.snap} onChange={(e) => update({ snap: e.target.value })}>
-                  <option value="swivelSnap">Swivel Snap</option>
-                  <option value="lockingCarabiner">Locking Carabiner (+${SNAP?.lockingCarabiner || 0})</option>
-                </select>
-              </div>
-              {spec?.fields?.gripHandle && (
-                <div>
-                  <label>Grip/Handle</label>
-                  <select value={form.gripHandle} onChange={(e) => update({ gripHandle: e.target.value })}>
-                    <option value="loop">Loop</option>
-                    <option value="noHandle">No Handle</option>
-                  </select>
-                </div>
-              )}
-              {spec?.fields?.handsFreeConversion && (
-                <div>
-                  <label>Hands-free Conversion</label>
-                  <select
-                    value={form.handsFreeConversion ? "yes" : "no"}
-                    onChange={(e) => update({ handsFreeConversion: e.target.value === "yes" })}
-                  >
-                    <option value="no">No</option>
-                    <option value="yes">Yes (+${ADDONS?.handsFreeConversion || 0})</option>
-                  </select>
-                  <div className="small">Requires 7 ft minimum.</div>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Built-in Traffic Handle */}
-          {spec?.fields?.trafficHandleBuiltIn && (
-            <>
-              <div className="form-row">
-                <div>
-                  {isLocked("trafficHandleBuiltIn") ? (
-                    <label className="locked-option" aria-label="Built-in traffic handle included">
-                      <input type="checkbox" checked disabled />
-                      <span>Built-in Traffic Handle <em>(included)</em></span>
-                    </label>
-                  ) : (
-                    <>
-                      <label>Built-in Traffic Handle</label>
-                      <select
-                        value={form.trafficHandleBuiltIn ? "yes" : "no"}
-                        onChange={(e) => update({ trafficHandleBuiltIn: e.target.value === "yes" })}
-                      >
-                        <option value="no">No</option>
-                        <option value="yes">Yes (+${ADDONS?.trafficHandleBuiltIn || 0})</option>
-                      </select>
-                    </>
-                  )}
-                </div>
-
-                {(form.trafficHandleBuiltIn || isLocked("trafficHandleBuiltIn")) && spec?.fields?.trafficHandleMaterial && (
-                  <div>
-                    <label>Traffic Handle Material</label>
-                    <select
-                      value={form.trafficHandleMaterial}
-                      onChange={(e) => update({ trafficHandleMaterial: e.target.value })}
-                    >
-                      <option value="biothane">Biothane (+$0)</option>
-                      <option value="paracordFishtail">Paracord Fishtail (+${ADDONS?.trafficHandleMaterial?.paracordFishtail || 0})</option>
-                      <option value="paracordWeave">Paracord Weave (+${ADDONS?.trafficHandleMaterial?.paracordWeave || 0})</option>
-                    </select>
-                  </div>
-                )}
-              </div>
-
-              {(form.trafficHandleBuiltIn || isLocked("trafficHandleBuiltIn")) && spec?.fields?.trafficHandlePlacement && (
-                <div className="form-row">
-                  <div>
-                    <label>Traffic Handle Placement</label>
-                    <select
-                      value={form.trafficHandlePlacement}
-                      onChange={(e) => update({ trafficHandlePlacement: e.target.value })}
-                    >
-                      <option value="base">At base of leash</option>
-                      <option value="12in">12″ above base</option>
-                      <option value="18in">18″ above base</option>
-                      <option value="24in">24″ above base</option>
-                    </select>
-                    <div className="small">
-                      Choose where you want to grab quickly. “Base” is by the snap; 12″/18″/24″ are higher up for a natural reach.
-                    </div>
-                  </div>
-                </div>
-              )}
-            </>
-          )}
-
-          {/* Collars */}
-          {isCollarType && (
-            <>
-              <div className="form-row">
-                <div>
-                  <label>Collar Size</label>
-                  <select value={form.collarSize} onChange={(e) => update({ collarSize: e.target.value })}>
-                    <option value="xs">XS (8–11")</option>
-                    <option value="s">S (10–13")</option>
-                    <option value="m">M (12–16")</option>
-                    <option value="l">L (15–20")</option>
-                    <option value="xl">XL (20–25")</option>
-                  </select>
-                </div>
-                <div>
-                  <label>Width</label>
-                  <select value={form.collarWidth} onChange={(e) => update({ collarWidth: e.target.value })}>
-                    <option value={'5/8"'}>5/8"</option>
-                    <option value={'1"'}>1"</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div>
-                  <label>Buckle Type</label>
-                  <select value={form.buckleType} onChange={(e) => update({ buckleType: e.target.value })}>
-                    <option value="metalSilver">Metal Double-bar — Silver</option>
-                    <option value="metalBlack">Metal Double-bar — Black (+$2)</option>
-                    <option value="plasticQR">Plastic Quick-Release — Black (−$2)</option>
-                  </select>
-                </div>
-                <div>
-                  <label>Two-tone (O-ring split)</label>
-                  <select value={form.collarTwoTone ? "yes" : "no"} onChange={(e) => update({ collarTwoTone: e.target.value === "yes" })}>
-                    <option value="no">No</option>
-                    <option value="yes">Yes (+$8)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div>
-                  <label>Metal Hardware Finish</label>
-                  <select
-                    value={form.collarHardwareBlack ? "black" : "silver"}
-                    onChange={(e) => update({ collarHardwareBlack: e.target.value === "black" })}
-                    disabled={form.buckleType === "plasticQR"}
-                  >
-                    <option value="silver">Silver</option>
-                    <option value="black">Black (+$3)</option>
-                  </select>
-                  <div className="small">Applies to metal buckle/D-ring/keeper.</div>
-                </div>
-
-                <div>
-                  <label>Collar Style</label>
-                  <select
-                    value={form.collarParacordFishtail ? "fishtail" : "standard"}
-                    onChange={(e) => update({ collarParacordFishtail: e.target.value === "fishtail" })}
-                  >
-                    <option value="standard">Standard Biothane</option>
-                    <option value="fishtail">Paracord Fishtail Overlay (+${COLLAR?.paracordFishtailUpcharge || 0})</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div>
-                  <label>HTV Personalization</label>
-                  <select value={form.htvOption} onChange={(e) => update({ htvOption: e.target.value })}>
-                    <option value="none">None</option>
-                    <option value="name">Name ({htvPriceTag(COLLAR?.htv?.name)})</option>
-                    <option value="namePhone">Name + Phone ({htvPriceTag(COLLAR?.htv?.namePhone)})</option>
-                    <option value="phraseLarge">Phrase / Large ({htvPriceTag(COLLAR?.htv?.phraseLarge)})</option>
-                    <option value="custom">Custom ({htvPriceTag(COLLAR?.htv?.custom)})</option>
-
-                  </select>
-                </div>
-              </div>
-            </>
-          )}
-
-          {/* Colors */}
-          {spec?.fields?.colors && (
-            <div className="form-row">
-              <div>
-                <label>Primary Color</label>
-                <select
-                  value={form.colorPrimaryId}
-                  onChange={(e) => update({ colorPrimaryId: e.target.value })}
-                >
-                  <option value="">Select color…</option>
-                  {COLOR_CATALOG.map(c => (
-                    <option key={c.id} value={c.id}>
-                      {c.code} — {c.name}
-                    </option>
-                  ))}
-                </select>
-                <p>
-                  <em>
-                    Want to see the full chart?{" "}
-                    <a href="/colors" target="_blank" rel="noopener noreferrer">Open colors in a new tab</a>
-                  </em>
-                </p>
-              </div>
-
-              <div>
-                <label>Two-tone</label>
-                <select
-                  value={form.useTwoTone ? "yes" : "no"}
-                  onChange={(e) => update({ useTwoTone: e.target.value === "yes" })}
-                >
-                  <option value="no">No</option>
-                  <option value="yes">Yes</option>
-                </select>
-                {!isCollarType && (
-                  <div className="small">
-                    +${isSmallAccessory ? (COLOR?.twoToneSmallAccessory || 0) : (COLOR?.twoToneLeashOrLine || 0)}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {form.useTwoTone && spec?.fields?.colors && (
-            <div className="form-row">
-              <div>
-                <label>Secondary Color</label>
-                <select
-                  value={form.colorSecondaryId}
-                  onChange={(e) => update({ colorSecondaryId: e.target.value })}
-                >
-                  <option value="">Select color…</option>
-                  {COLOR_CATALOG.map(c => (
-                    <option key={c.id} value={c.id}>
-                      {c.code} — {c.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          )}
-
-
-          {/* HTV personalization — Biothane items only (exclude Paracord strap) */}
-          {(!isCollarType && form.productType !== "safetyStrapParacord") && (
-            <div className="form-row">
-              <div>
-                <label>HTV Personalization (Biothane)</label>
-                <select
-                  value={form.htvGearOption}
-                  onChange={(e)=>update({ htvGearOption: e.target.value })}
-                >
-                  <option value="none">None</option>
-                  <option value="name">Name ({htvPriceTag(HTV?.name)})</option>
-                  <option value="namePhone">Name + Phone ({htvPriceTag(HTV?.namePhone)})</option>
-                  <option value="phraseLarge">Phrase / Large ({htvPriceTag(HTV?.phraseLarge)})</option>
-                  <option value="custom">Custom ({htvPriceTag(HTV?.custom)})</option>
-                </select>
-
-                <div className="small">Applied to Biothane surfaces only. Not available on Paracord weaves.</div>
-              </div>
-            </div>
-          )}
-
-          {/* Add-ons */}
-          {spec && (allow("oRing") || allow("dRing") || allow("floatingORing") || allow("stopper")) && (
-            <div className="form-row">
-              <div>
-                <label>Add-ons</label>
-                <div className="help">
-                  {allow("oRing") && (
-                    <>
-                      <label><input type="checkbox" checked={form.oRing} onChange={(e) => update({ oRing: e.target.checked })} /> O-ring (+${ADDONS?.oRing || 0})</label>
-                      <div className="addon-explain">Fixed O-ring near the handle or base. Clip a poop bag holder, keys, or a carabiner for quick hands-free.</div>
-                    </>
-                  )}
-                  {allow("dRing") && (
-                    <>
-                      <br />
-                      <label><input type="checkbox" checked={form.dRing} onChange={(e) => update({ dRing: e.target.checked })} /> D-ring (+${ADDONS?.dRing || 0})</label>
-                      <div className="addon-explain">Fixed D-ring (flat side). Handy anchor point near the handle/base.</div>
-                    </>
-                  )}
-                  {allow("floatingORing") && (
-                    <>
-                      <br />
-                      <label><input type="checkbox" checked={form.floatingORing} onChange={(e) => update({ floatingORing: e.target.checked })} /> Floating O-ring (+${ADDONS?.floatingORing || 0})</label>
-                      <div className="addon-explain">Slides along the leash. Great for quick hands-free clips or shortening.</div>
-                    </>
-                  )}
-                  {allow("stopper") && (
-                    <>
-                      <br />
-                      <label><input type="checkbox" checked={form.stopper} onChange={(e) => update({ stopper: e.target.checked })} /> Stopper (+${ADDONS?.stopper || 0})</label>
-                      <div className="addon-explain">Keeps a sliding ring from moving past a set point.</div>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* What's included */}
-          {derivedIncluded.length ? (
-            <div className="included">
-              <h4>What’s included</h4>
-              <ul>{derivedIncluded.map((t, i) => <li key={i}>{t}</li>)}</ul>
-            </div>
-          ) : null}
-
-          <div>
-            <label>Notes for Maker</label>
-            <textarea
-              rows={3}
-              value={form.notes}
-              onChange={(e) => update({ notes: e.target.value })}
-              placeholder="Anything special I should know…"
-            />
-          </div>
+        {/* Short, styled intro (smaller than H1) */}
+        <div className="page-intro" aria-label="About the Gear Builder">
+          <h2>Build your custom biothane gear</h2>
+          <p>
+            Choose the exact length, width, hardware, and colors for your leash, long line, collar, or accessories. 
+            You’ll see an estimated price as you go. When you’re ready, click <strong>Send to Order Page</strong>—
+            I’ll review your specs and reply with a final quote and timeline.
+          </p>
+          <p className="small">
+            Materials are waterproof, odor-resistant, and easy to clean—great for daily walks, muddy hikes, or training sessions.
+            Not sure what to pick? <a href="/options">See options</a>.
+          </p>
         </div>
 
-        <div className="card">
-          <h3>Estimate & Breakdown</h3>
-          <div className="summary">
-            <div className="price-badge">${total.toFixed(2)}</div>
-            <h4>Line items</h4>
-            <ul>{lines.map(([label, amt], i) => (<li key={i}>{label}: ${amt.toFixed(2)}</li>))}</ul>
+        <div className="builder-grid">
+          <div className="card">
+            <h3>Choose Options</h3>
 
-            <div className="cta-row">
-              <button onClick={goToOrderForm}>Send to Order Page</button>
-              <button className="secondary" onClick={() => window.print()}>Print</button>
+            {/* Product */}
+            <div className="form-row">
+              <div>
+                <label>Product Type</label>
+                <select value={form.productType} onChange={(e) => update({ productType: e.target.value })}>
+                  <option value="">Select…</option>
+                  {PRODUCT_TYPES.map(p => <option key={p.value} value={p.value}>{p.label}</option>)}
+                </select>
+              </div>
+
+              {/* Hardware (non-collar) */}
+              {!isCollarType && (
+                <div>
+                  <label>Hardware</label>
+                  <select value={form.hardware} onChange={(e) => update({ hardware: e.target.value })}>
+                    <option value="standard">Silver</option>
+                    <option value="black">Black (+${HW?.black || 0})</option>
+                  </select>
+                </div>
+              )}
+
+              {/* Width (non-collar where applicable) */}
+              {!isCollarType && spec?.fields?.width && (
+                <div>
+                  <label>Width</label>
+                  <select value={form.width} onChange={(e) => update({ width: e.target.value })}>
+                    <option>5/8"</option>
+                    <option>3/4"</option>
+                    <option>1"</option>
+                  </select>
+                </div>
+              )}
             </div>
-            <br />
-            <p>You’ll receive a custom quote with final pricing after you submit the form.</p>
+
+            {/* Size */}
+            {spec && <SizePicker />}
+
+            {/* Snaps / Grip / Hands-free */}
+            {spec?.fields?.snap && (
+              <div className="form-row">
+                <div>
+                  <label>Snap</label>
+                  <select value={form.snap} onChange={(e) => update({ snap: e.target.value })}>
+                    <option value="swivelSnap">Swivel Snap</option>
+                    <option value="lockingCarabiner">Locking Carabiner (+${SNAP?.lockingCarabiner || 0})</option>
+                  </select>
+                </div>
+                {spec?.fields?.gripHandle && (
+                  <div>
+                    <label>Grip/Handle</label>
+                    <select value={form.gripHandle} onChange={(e) => update({ gripHandle: e.target.value })}>
+                      <option value="loop">Loop</option>
+                      <option value="noHandle">No Handle</option>
+                    </select>
+                  </div>
+                )}
+                {spec?.fields?.handsFreeConversion && (
+                  <div>
+                    <label>Hands-free Conversion</label>
+                    <select
+                      value={form.handsFreeConversion ? "yes" : "no"}
+                      onChange={(e) => update({ handsFreeConversion: e.target.value === "yes" })}
+                    >
+                      <option value="no">No</option>
+                      <option value="yes">Yes (+${ADDONS?.handsFreeConversion || 0})</option>
+                    </select>
+                    <div className="small">Requires 7 ft minimum.</div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Built-in Traffic Handle */}
+            {spec?.fields?.trafficHandleBuiltIn && (
+              <>
+                <div className="form-row">
+                  <div>
+                    {isLocked("trafficHandleBuiltIn") ? (
+                      <label className="locked-option" aria-label="Built-in traffic handle included">
+                        <input type="checkbox" checked disabled />
+                        <span>Built-in Traffic Handle <em>(included)</em></span>
+                      </label>
+                    ) : (
+                      <>
+                        <label>Built-in Traffic Handle</label>
+                        <select
+                          value={form.trafficHandleBuiltIn ? "yes" : "no"}
+                          onChange={(e) => update({ trafficHandleBuiltIn: e.target.value === "yes" })}
+                        >
+                          <option value="no">No</option>
+                          <option value="yes">Yes (+${ADDONS?.trafficHandleBuiltIn || 0})</option>
+                        </select>
+                      </>
+                    )}
+                  </div>
+
+                  {(form.trafficHandleBuiltIn || isLocked("trafficHandleBuiltIn")) && spec?.fields?.trafficHandleMaterial && (
+                    <div>
+                      <label>Traffic Handle Material</label>
+                      <select
+                        value={form.trafficHandleMaterial}
+                        onChange={(e) => update({ trafficHandleMaterial: e.target.value })}
+                      >
+                        <option value="biothane">Biothane (+$0)</option>
+                        <option value="paracordFishtail">Paracord Fishtail (+${ADDONS?.trafficHandleMaterial?.paracordFishtail || 0})</option>
+                        <option value="paracordWeave">Paracord Weave (+${ADDONS?.trafficHandleMaterial?.paracordWeave || 0})</option>
+                      </select>
+                    </div>
+                  )}
+                </div>
+
+                {(form.trafficHandleBuiltIn || isLocked("trafficHandleBuiltIn")) && spec?.fields?.trafficHandlePlacement && (
+                  <div className="form-row">
+                    <div>
+                      <label>Traffic Handle Placement</label>
+                      <select
+                        value={form.trafficHandlePlacement}
+                        onChange={(e) => update({ trafficHandlePlacement: e.target.value })}
+                      >
+                        <option value="base">At base of leash</option>
+                        <option value="12in">12″ above base</option>
+                        <option value="18in">18″ above base</option>
+                        <option value="24in">24″ above base</option>
+                      </select>
+                      <div className="small">
+                        Choose where you want to grab quickly. “Base” is by the snap; 12″/18″/24″ are higher up for a natural reach.
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Collars */}
+            {isCollarType && (
+              <>
+                <div className="form-row">
+                  <div>
+                    <label>Collar Size</label>
+                    <select value={form.collarSize} onChange={(e) => update({ collarSize: e.target.value })}>
+                      <option value="xs">XS (8–11")</option>
+                      <option value="s">S (10–13")</option>
+                      <option value="m">M (12–16")</option>
+                      <option value="l">L (15–20")</option>
+                      <option value="xl">XL (20–25")</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Width</label>
+                    <select value={form.collarWidth} onChange={(e) => update({ collarWidth: e.target.value })}>
+                      <option value={'5/8"'}>5/8"</option>
+                      <option value={'1"'}>1"</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div>
+                    <label>Buckle Type</label>
+                    <select value={form.buckleType} onChange={(e) => update({ buckleType: e.target.value })}>
+                      <option value="metalSilver">Metal Double-bar — Silver</option>
+                      <option value="metalBlack">Metal Double-bar — Black (+$2)</option>
+                      <option value="plasticQR">Plastic Quick-Release — Black (−$2)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Two-tone (O-ring split)</label>
+                    <select value={form.collarTwoTone ? "yes" : "no"} onChange={(e) => update({ collarTwoTone: e.target.value === "yes" })}>
+                      <option value="no">No</option>
+                      <option value="yes">Yes (+$8)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div>
+                    <label>Metal Hardware Finish</label>
+                    <select
+                      value={form.collarHardwareBlack ? "black" : "silver"}
+                      onChange={(e) => update({ collarHardwareBlack: e.target.value === "black" })}
+                      disabled={form.buckleType === "plasticQR"}
+                    >
+                      <option value="silver">Silver</option>
+                      <option value="black">Black (+$3)</option>
+                    </select>
+                    <div className="small">Applies to metal buckle/D-ring/keeper.</div>
+                  </div>
+
+                  <div>
+                    <label>Collar Style</label>
+                    <select
+                      value={form.collarParacordFishtail ? "fishtail" : "standard"}
+                      onChange={(e) => update({ collarParacordFishtail: e.target.value === "fishtail" })}
+                    >
+                      <option value="standard">Standard Biothane</option>
+                      <option value="fishtail">Paracord Fishtail Overlay (+${COLLAR?.paracordFishtailUpcharge || 0})</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div>
+                    <label>HTV Personalization</label>
+                    <select value={form.htvOption} onChange={(e) => update({ htvOption: e.target.value })}>
+                      <option value="none">None</option>
+                      <option value="name">Name ({htvPriceTag(COLLAR?.htv?.name)})</option>
+                      <option value="namePhone">Name + Phone ({htvPriceTag(COLLAR?.htv?.namePhone)})</option>
+                      <option value="phraseLarge">Phrase / Large ({htvPriceTag(COLLAR?.htv?.phraseLarge)})</option>
+                      <option value="custom">Custom ({htvPriceTag(COLLAR?.htv?.custom)})</option>
+                    </select>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Colors */}
+            {spec?.fields?.colors && (
+              <div className="form-row">
+                <div>
+                  <label>Primary Color</label>
+                  <select
+                    value={form.colorPrimaryId}
+                    onChange={(e) => update({ colorPrimaryId: e.target.value })}
+                  >
+                    <option value="">Select color…</option>
+                    {COLOR_CATALOG.map(c => (
+                      <option key={c.id} value={c.id}>
+                        {c.code} — {c.name}
+                      </option>
+                    ))}
+                  </select>
+                  <p>
+                    <em>
+                      Want to see the full chart?{" "}
+                      <a href="/colors" target="_blank" rel="noopener noreferrer">Open colors in a new tab</a>
+                    </em>
+                  </p>
+                </div>
+
+                <div>
+                  <label>Two-tone</label>
+                  <select
+                    value={form.useTwoTone ? "yes" : "no"}
+                    onChange={(e) => update({ useTwoTone: e.target.value === "yes" })}
+                  >
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                  {!isCollarType && (
+                    <div className="small">
+                      +${isSmallAccessory ? (COLOR?.twoToneSmallAccessory || 0) : (COLOR?.twoToneLeashOrLine || 0)}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {form.useTwoTone && spec?.fields?.colors && (
+              <div className="form-row">
+                <div>
+                  <label>Secondary Color</label>
+                  <select
+                    value={form.colorSecondaryId}
+                    onChange={(e) => update({ colorSecondaryId: e.target.value })}
+                  >
+                    <option value="">Select color…</option>
+                    {COLOR_CATALOG.map(c => (
+                      <option key={c.id} value={c.id}>
+                        {c.code} — {c.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
+
+            {/* HTV personalization — Biothane items only (exclude Paracord strap) */}
+            {(!isCollarType && form.productType !== "safetyStrapParacord") && (
+              <div className="form-row">
+                <div>
+                  <label>HTV Personalization (Biothane)</label>
+                  <select
+                    value={form.htvGearOption}
+                    onChange={(e)=>update({ htvGearOption: e.target.value })}
+                  >
+                    <option value="none">None</option>
+                    <option value="name">Name ({htvPriceTag(HTV?.name)})</option>
+                    <option value="namePhone">Name + Phone ({htvPriceTag(HTV?.namePhone)})</option>
+                    <option value="phraseLarge">Phrase / Large ({htvPriceTag(HTV?.phraseLarge)})</option>
+                    <option value="custom">Custom ({htvPriceTag(HTV?.custom)})</option>
+                  </select>
+
+                  <div className="small">Applied to Biothane surfaces only. Not available on Paracord weaves.</div>
+                </div>
+              </div>
+            )}
+
+            {/* Add-ons */}
+            {spec && (allow("oRing") || allow("dRing") || allow("floatingORing") || allow("stopper")) && (
+              <div className="form-row">
+                <div>
+                  <label>Add-ons</label>
+                  <div className="help">
+                    {allow("oRing") && (
+                      <>
+                        <label><input type="checkbox" checked={form.oRing} onChange={(e) => update({ oRing: e.target.checked })} /> O-ring (+${ADDONS?.oRing || 0})</label>
+                        <div className="addon-explain">Fixed O-ring near the handle or base. Clip a poop bag holder, keys, or a carabiner for quick hands-free.</div>
+                      </>
+                    )}
+                    {allow("dRing") && (
+                      <>
+                        <br />
+                        <label><input type="checkbox" checked={form.dRing} onChange={(e) => update({ dRing: e.target.checked })} /> D-ring (+${ADDONS?.dRing || 0})</label>
+                        <div className="addon-explain">Fixed D-ring (flat side). Handy anchor point near the handle/base.</div>
+                      </>
+                    )}
+                    {allow("floatingORing") && (
+                      <>
+                        <br />
+                        <label><input type="checkbox" checked={form.floatingORing} onChange={(e) => update({ floatingORing: e.target.checked })} /> Floating O-ring (+${ADDONS?.floatingORing || 0})</label>
+                        <div className="addon-explain">Slides along the leash. Great for quick hands-free clips or shortening.</div>
+                      </>
+                    )}
+                    {allow("stopper") && (
+                      <>
+                        <br />
+                        <label><input type="checkbox" checked={form.stopper} onChange={(e) => update({ stopper: e.target.checked })} /> Stopper (+${ADDONS?.stopper || 0})</label>
+                        <div className="addon-explain">Keeps a sliding ring from moving past a set point.</div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* What's included */}
+            {derivedIncluded.length ? (
+              <div className="included">
+                <h4>What’s included</h4>
+                <ul>{derivedIncluded.map((t, i) => <li key={i}>{t}</li>)}</ul>
+              </div>
+            ) : null}
+
+            <div>
+              <label>Notes for Maker</label>
+              <textarea
+                rows={3}
+                value={form.notes}
+                onChange={(e) => update({ notes: e.target.value })}
+                placeholder="Anything special I should know…"
+              />
+            </div>
+          </div>
+
+          <div className="card">
+            <h3>Estimate & Breakdown</h3>
+            <div className="summary">
+              <div className="price-badge">${total.toFixed(2)}</div>
+              <h4>Line items</h4>
+              <ul>{lines.map(([label, amt], i) => (<li key={i}>{label}: ${amt.toFixed(2)}</li>))}</ul>
+
+              <div className="cta-row">
+                <button onClick={goToOrderForm}>Send to Order Page</button>
+                <button className="secondary" onClick={() => window.print()}>Print</button>
+              </div>
+              <br />
+              <p>You’ll receive a custom quote with final pricing after you submit the form.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
+
   );
 } 

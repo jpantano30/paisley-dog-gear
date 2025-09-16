@@ -36,6 +36,17 @@
   letter-spacing:.2px;
 }
 
+/* Put the intro box under the title with nice spacing */
+.options-page .page-intro.under-title {
+  max-width: 950px;
+  margin: 0 auto 2rem;   
+}
+
+/* Optional: slightly different tone for the two small lines under the H1 */
+.options-page .sublead { color: #6c9a8b; }
+.options-page .note { color: #4a4a4a; }
+
+
 .gear-card-list{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));

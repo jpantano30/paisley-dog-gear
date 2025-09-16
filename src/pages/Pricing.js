@@ -1,6 +1,7 @@
 import React from "react";
 import "./Pricing.css";
 import { Link } from "react-router-dom";
+import "../components/page-intro.css";
 
 const Pricing = () => {
   return (
@@ -18,6 +19,25 @@ const Pricing = () => {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pricing | Gear and Training Packages" />
     <meta name="twitter:description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
+
+    <section aria-label="How our pricing works" className="page-intro">
+      <h2>Simple, no-surprise pricing</h2>
+      <p>
+        Gear prices depend on length, width, hardware, and extras (like two-tone or
+        locking carabiners). Shipping is included in your final quote. After you
+        pick options on the <a href="/builder">Gear Builder</a> or the
+        {" "}<a href="/options">Options</a> page, send it to the
+        {" "}<a href="/order">quote form</a>. I’ll review your specs, confirm details,
+        and reply with a total and timeline. Payment happens separately via
+        <strong> Venmo</strong> or <strong>PayPal</strong>.
+      </p>
+      <p>
+        Training has flat rates with optional travel if I come to you. Packages
+        lower the per-session price. A free 15-minute consult is available on the
+        {" "}<a href="/booking">Booking page</a>.
+      </p>
+    </section>
+
 
   
     <div className="pricing-page">

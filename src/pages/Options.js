@@ -2,6 +2,7 @@ import React from "react";
 import GearCard from "../components/GearCard";
 import "./Options.css";
 import { Link } from "react-router-dom";
+import "../components/page-intro.css";
 
 const gearData = [
   {
@@ -197,48 +198,73 @@ const Options = () => {
 
     <>
       {/* SEO tags for Options page */}
-      
-    <title>Colors, Hardware and Sizing Options</title>
-    <meta name="description" content="See color swatches, hardware choices, widths and sizing tips so you order exactly what you need." />
-    <link rel="canonical" href="https://paisleydoggearandtraining.com/options" />
+      <title>Gear Options | Biothane Leashes, Long Lines, Collars & Add-ons</title>
+      <meta
+        name="description"
+        content="See the options for our custom Biothane gear—lengths, widths, hardware finishes, color combinations and add-ons. Browse the sections below, then use the Gear Builder to send your selections for a quote."
+      />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/options" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Colors, Hardware and Sizing Options" />
-    <meta property="og:description" content="See color swatches, hardware choices, widths and sizing tips so you order exactly what you need." />
-    <meta property="og:url" content="https://paisleydoggearandtraining.com/options" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Gear Options | Biothane Leashes, Long Lines, Collars & Add-ons" />
+      <meta
+        property="og:description"
+        content="Browse options for custom Biothane leashes, long lines, collars and accessories: lengths, widths, hardware, colors and upgrades."
+      />
+      <meta property="og:url" content="https://paisleydoggearandtraining.com/options" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Colors, Hardware and Sizing Options" />
-    <meta name="twitter:description" content="See color swatches, hardware choices, widths and sizing tips so you order exactly what you need." />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Gear Options | Biothane Leashes, Long Lines, Collars & Add-ons" />
+      <meta
+        name="twitter:description"
+        content="Browse options for custom Biothane leashes, long lines, collars and accessories: lengths, widths, hardware, colors and upgrades."
+      />
 
+      <div className="options-page">
+        <h1>Gear Options</h1>
+        <p>
+          Explore the products below to see what’s possible—standard leashes, long lines, the
+          Tallulah hands-free system, collars and accessories. Open “Show Custom Options” on
+          any item to view available lengths, widths, hardware, color layouts and
+          upgrades. Open “See Pricing” for typical price ranges.
+        </p>
 
-    <div className="options-page">
-      <h1>Gear Options</h1>
-      <p>
-        All leashes are made with 5/8" Beta Biothane® by default — durable, waterproof, and comfortable in-hand.
-        3/4" and 1" widths available for bigger dogs or wider grip. Each piece is assembled using Chicago screws with threadlock.
-      </p>
-      <p><strong>Note:</strong> Prices vary with options; final quotes confirm shipping and details.</p>
+        {/* Short, business-friendly context kept for SEO */}
+        <section aria-label="About our materials" className="page-intro">
+          <h2>Built for everyday training and adventure</h2>
+          <p>
+            I hand-make gear from Beta Biothane—durable, waterproof and easy to wipe clean. Most
+            items are offered in 5/8″ with wider widths available. Choose classic silver hardware or a
+            black finish (brass available upon request), and mix up to three Biothane colors (two & three-tone adds a small upcharge). When
+            you’re ready, use the <Link to="/builder" >Gear Builder</Link> to pre-fill your selections and
+            send them to the <Link to="/order" >order form</Link> for a custom quote.
+          </p>
+        </section>
 
-      <p>Gear Demo Videos:{" "}
-        <Link to="/videos#gear-demos" className="gear-video-link">Watch Gear Demo Videos</Link>
-      </p>
+        <p>
+          Gear Demo Videos:{" "}
+          <Link to="/videos#gear-demos" className="gear-video-link">
+            Watch Gear Demo Videos
+          </Link>
+        </p>
 
-      <div className="colors-button-wrapper">
-        <Link to="/colors" className="colors-button">🎨 View Color Options</Link>
+        <div className="colors-button-wrapper">
+          <Link to="/colors" className="colors-button">🎨 View Color Options</Link>
+        </div>
+
+        <div className="gear-card-list">
+          {gearData.map((gear, index) => (
+            <GearCard key={index} {...gear} />
+          ))}
+        </div>
+
+        <div className="pricing-button-wrapper">
+          <Link to="/pricing" className="pricing-button2">See Pricing Page</Link>
+        </div>
       </div>
-
-      <div className="gear-card-list">
-        {gearData.map((gear, index) => (
-          <GearCard key={index} {...gear} />
-        ))}
-      </div>
-
-      <div className="pricing-button-wrapper">
-        <Link to="/pricing" className="pricing-button2">See Pricing Page</Link>
-      </div>
-    </div>
     </>
+
+
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { InlineWidget } from "react-calendly";
 import "./Booking.css"; 
+import "../components/page-intro.css"; 
+
 
 export default function Booking() {
   return (
@@ -31,6 +33,15 @@ export default function Booking() {
         "areaServed": "Boston, MA",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       })}</script>
+
+      <section aria-label="Free consult">
+        <h2>Free 15-minute training consult</h2>
+        <p>
+          Not sure where to start? Book a quick call to see if we’re a good fit, ask
+          questions, and plan next steps. The consult is optional—you can also submit
+          the <a href="/training">training request form</a> directly if you’re ready.
+        </p>
+      </section>
 
     
     

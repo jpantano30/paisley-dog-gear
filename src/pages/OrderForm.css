@@ -1,169 +1,130 @@
-.order-form {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: sans-serif;
+:root{
+  --ink:#1f1f1f;
+  --muted:#666;
+  --line:#e6e6e6;
+  --card:#fff;
+  --bg:#f6f3ef;
+  --accent:#111;
+  --accent-teal:#6c9a8b;
+  --accent-coral:#e27d60;
 }
 
-.order-form h1 {
-  margin-bottom: 1rem;
+/* Page background to match other pages */
+body .order-page-bg { background: var(--bg); }
+
+/* Hero */
+.order-hero{
+  max-width: 980px;
+  margin: 24px auto 8px;
+  padding: 8px 16px 0;
   text-align: center;
-  font-size: 2rem;
+}
+.order-hero h1{
+  font-size: clamp(1.9rem, 3.5vw, 2.4rem);
+  color: #5e8f7e; /* same green vibe as Builder */
+  margin: 0 0 6px;
+  font-weight: 800;
+}
+.order-sub{
+  color: #4a4a4a;
+  margin: 0 0 12px;
+}
+.est-badge{
+  display:inline-block;
+  padding: 6px 10px;
+  border: 2px solid #222;
+  border-radius: 8px;
+  font-weight: 700;
+  background:#fff;
 }
 
-.order-form p {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #555;
-  font-size: 1rem;
+/* Intro card (shared look) */
+.page-intro{
+  max-width: 980px;
+  margin: 14px auto 22px;
+  padding: 14px 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fafafa;
+}
+.page-intro h2{
+  margin:0 0 6px;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+}
+.page-intro p{ margin: 8px 0; line-height: 1.6; }
+
+/* Form card */
+.card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.order-form{
+  max-width: 980px;
+  margin: 0 auto 40px;
+  padding: 16px;
+}
+.order-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+@media (max-width: 900px){
+  .order-grid{ grid-template-columns: 1fr; }
 }
 
-.order-form form {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.order-form label {
-  margin-top: 1.2rem;
-  margin-bottom: 0.4rem;
+/* Inputs */
+.order-form label{
+  display:block;
   font-weight: 600;
+  margin: 12px 0 6px;
   color: #222;
-  font-size: 1rem;
 }
-
 .order-form input,
 .order-form select,
-.order-form textarea {
-  padding: 0.6rem;
-  border-radius: 5px;
-  border: 1px solid #aaa;
-  font-size: 1rem;
+.order-form textarea{
   width: 100%;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fff;
 }
-
-.order-form textarea {
-  min-height: 100px;
+.order-form textarea{
+  min-height: 120px;
   resize: vertical;
-  margin-bottom: 1rem;
 }
 
-.order-form input[type="file"] {
-  padding: 0.4rem 0;
-  font-size: 0.95rem;
-}
-
-.order-form button {
-  margin-top: 2rem;
-  padding: 0.8rem;
-  background-color: #111;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 1rem;
+/* Submit */
+.order-form button{
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  background: #222;
+  color: #fff;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: transform .05s ease, background .15s ease;
 }
+.order-form button:hover{ background:#333; transform: translateY(-1px); }
 
-.order-form button:hover {
-  background-color: #444;
-}
-
-/* Confirmation Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Modal */
+.modal{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  display:flex; align-items:center; justify-content:center;
   z-index: 1000;
 }
-
-.modal-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+.modal-content{
+  background:#fff; padding: 22px 20px;
+  border-radius: 10px; width:min(92%, 420px);
+  text-align:center; box-shadow: 0 10px 28px rgba(0,0,0,.22);
 }
-
-.modal-content h2 {
-  margin-bottom: 0.75rem;
-}
-
-.modal-content p {
-  color: #444;
-  font-size: 1rem;
-}
-
-.modal-content button {
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #111;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* ==== RESPONSIVE DESIGN ==== */
-@media (max-width: 768px) {
-  .order-form {
-    padding: 1.5rem 1rem;
-  }
-
-  .order-form form {
-    gap: 0.5rem;
-  }
-
-  .order-form h1 {
-    font-size: 1.6rem;
-    line-height: 1.2;
-  }
-
-  .order-form p {
-    font-size: 0.95rem;
-    padding: 0 0.5rem;
-  }
-
-  .order-form label {
-    font-size: 0.95rem;
-  }
-
-  .order-form input,
-  .order-form select,
-  .order-form textarea {
-    font-size: 0.95rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
-  .order-form textarea {
-    margin-bottom: 1rem;
-  }
-
-  .order-form button {
-    font-size: 0.95rem;
-    padding: 0.7rem;
-  }
-
-  .modal-content {
-    padding: 1.5rem;
-  }
-
-  .modal-content p {
-    font-size: 0.95rem;
-  }
-
-  .modal-content button {
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
-  }
+.modal-content h2{ margin: 0 0 8px; }
+.modal-content p{ margin: 6px 0; color:#333; }
+.modal-content button{
+  margin-top: 12px; padding: 8px 14px;
+  background:#111; color:#fff; border:none; border-radius:8px; cursor:pointer;
 }
