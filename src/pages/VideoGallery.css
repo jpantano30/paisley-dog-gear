@@ -33,17 +33,20 @@
   position: relative;
   width: 100%;
   padding-top: 56.25%; /* 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 8px;
+  border-radius: 12px; 
   overflow: hidden;
 }
 
 .video-wrapper iframe {
   position: absolute;
+  inset: 0;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: 0;
 }
 
 .video-title {
@@ -58,3 +61,25 @@
   font-size: 2rem;
   color: #41b3a3;
 }
+
+@supports not (aspect-ratio: 16 / 9) {
+  .video-wrapper {
+    height: 0;
+    padding-top: 56.25%;    /* 16:9 */
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Optional: tidy card spacing */
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.video-title a { text-decoration: none; }
+.video-title a:hover { text-decoration: underline; }

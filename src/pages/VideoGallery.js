@@ -77,7 +77,7 @@ const VideoGallery = () => {
                   <iframe
                     src={`https://www.youtube.com/embed/${youtubeId}`}
                     title={title}
-                    frameBorder="0"
+                    loading="lazy" 
                     allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                     allowFullScreen
                   />
@@ -105,7 +105,7 @@ const VideoGallery = () => {
                     <iframe
                       src={`https://www.youtube.com/embed/${youtubeId}`}
                       title={title}
-                      frameBorder="0"
+                      loading="lazy" 
                       allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                       allowFullScreen
                     />

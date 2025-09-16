@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { videos } from "../data/Videos";
+import "./VideoGallery.css";
 
 const site = "https://paisleydoggearandtraining.com";
 
@@ -69,7 +70,7 @@ const VideoWatch = () => {
           <iframe
             src={`https://www.youtube.com/embed/${video.youtubeId}`}
             title={video.title}
-            frameBorder="0"
+            loading="lazy" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />
