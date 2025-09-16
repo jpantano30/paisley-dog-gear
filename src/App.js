@@ -33,12 +33,11 @@ function App() {
           <Route path="/training" element={<TrainingForm />} />
           <Route path="/booking" element={<Consult />} />
           <Route path="/videos" element={<VideoGallery />} />
+          <Route path="/videos/:slug" element={<VideoWatch />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/data-deletion" element={<DataDeletion />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/builder" element={<ProductBuilder />} />
-          <Route path="/videos" element={<VideoGallery />} />
-          <Route path="/videos/:slug" element={<VideoWatch />} />
 
         </Routes>
       </main>
