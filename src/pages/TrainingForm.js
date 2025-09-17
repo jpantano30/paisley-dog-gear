@@ -173,6 +173,7 @@ const TrainingForm = () => {
         {/* Pricing */}
         <section className="training-pricing">
           <h2>Training Rates</h2>
+          <p>Pre-payment is required and we request 24-hr cancellation notice.</p>
 
           <div className="pricing-grid training-pricing-grid">
             {/* Day Training */}
