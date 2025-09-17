@@ -8,8 +8,12 @@ const TrainingForm = () => {
     name: "",
     email: "",
     dogName: "",
+    dogAge: "",
+    dogBreed: "",
     goals: "",
-    experience: ""
+    experience: "",
+    referral: "",
+    serviceType: "" // NEW
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -27,9 +31,7 @@ const TrainingForm = () => {
 
     fetch("https://formspree.io/f/mjkrolwr", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
     })
       .then((res) => {
@@ -38,11 +40,6 @@ const TrainingForm = () => {
       })
       .catch(() => alert("Something went wrong. Please try again."));
   };
-
-  // {/* <br /><br />
-  //         I also offer help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach.
-  //         Tools like prong collars or e-collars may be used if needed and are introduced thoughtfully and with consent.
-  //         Training is tailored to each dog and handler — let’s build a plan that fits your goals. */}
 
   return (
     <>
@@ -69,29 +66,45 @@ const TrainingForm = () => {
         content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process."
       />
 
-      {/* FAQ JSON-LD */}
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Do I need a consult first?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A free 15-minute consult is optional—great for quick questions or checking fit. You can also submit the training form directly."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does the training process work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You share your goals, I review and propose a plan, then we schedule sessions. You’ll get clear homework and progress check-ins."
-            }
-          }
-        ]
-      })}</script>
+      {/* FAQ JSON-LD (added Day Training FAQ) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do I need a consult first?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text":
+                    "A free 15-minute consult is optional—great for quick questions or checking fit. You can also submit the training form directly."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does the training process work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text":
+                    "You share your goals, I review and propose a plan, then we schedule sessions. You’ll get clear homework and progress check-ins."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer Day Training?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text":
+                    "Yes. Day Training is a drop-off or pick-up option where your dog spends a structured half or full day with me. We rotate focused training sessions, rest breaks, and real-life field trips to work on your goals. Pick-up/drop-off depends on location and follows the travel policy when applicable."
+                }
+              }
+            ]
+          })
+        }}
+      />
 
       <div className="training-form-container">
         <h1>Dog Training Request</h1>
@@ -99,7 +112,7 @@ const TrainingForm = () => {
           Share the details about your dog and goals—I'll send a plan, pricing, and scheduling options.
         </p>
 
-        {/* Helper box under the heading (like other pages) */}
+        {/* Helper box under the heading */}
         <section aria-label="How quotes and scheduling work" className="page-intro">
           <h2>How training works</h2>
           <p>
@@ -109,7 +122,7 @@ const TrainingForm = () => {
           <p>
             If we decide to move forward, I’ll send a short intake form for additional details. After I receive it, you’ll get a tailored plan with pricing and
             scheduling options. Once you approve, we’ll book your first session. Payment is handled separately through Venmo or PayPal.
-            Prefer to talk first? <Link to="/booking" >Book a free 15-minute consult</Link>.
+            Prefer to talk first? <Link to="/booking">Book a free 15-minute consult</Link>.
           </p>
         </section>
 
@@ -125,6 +138,14 @@ const TrainingForm = () => {
             I also help with <strong>manners, obedience, and behavior</strong> using a balanced,
             communication-focused approach. Training is tailored to each dog and handler—let’s build a
             plan that fits your goals.
+          </p>
+
+          {/* NEW: Day Training blurb */}
+          <p className="notes">
+            <strong>New: Day Training</strong> — Drop off your dog (or I can do pick-up depending on location) for a structured
+            “day care while training.” We’ll rotate focused training sessions and rest, plus field trips to practical places
+            (parks, neighborhood walks, dog-friendly stores) to work on your goals like loose-leash walking, recall,
+            public manners, confidence, and freestyle foundations.
           </p>
 
           <p className="notes">
@@ -154,6 +175,19 @@ const TrainingForm = () => {
           <h2>Training Rates</h2>
 
           <div className="pricing-grid training-pricing-grid">
+            {/* NEW Day Training card */}
+            <div className="price-card">
+              <h3>Day Training (Drop-off / Pick-up)</h3>
+              <ul>
+                <li>Half-day (≈2–3 hours incl. rest): <strong>$75</strong></li>
+                <li>Full day (≈4–5 hours incl. field trip): <strong>$100</strong></li>
+                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores based on your goals.</li>
+                <li>Includes short photo/video updates and a same-day summary.</li>
+                <li>Optional 20–30 min handoff lesson with you: <strong>+$20</strong>.</li>
+                <li>Pick-up / drop-off depends on location; outside Boston follows the travel policy.</li>
+              </ul>
+            </div>
+
             <div className="price-card">
               <h3>Private Training — Meet-Up</h3>
               <ul>
@@ -216,6 +250,16 @@ const TrainingForm = () => {
         <h2 className="form-heading">Tell me about your pup and what you’re looking for</h2>
 
         <form onSubmit={handleSubmit} className="training-form">
+          {/* NEW: Interest selector */}
+          <label>I’m interested in:</label>
+          <select name="serviceType" value={formData.serviceType} onChange={handleChange} required>
+            <option value="">Select…</option>
+            <option value="Day Training">Day Training (drop-off / pick-up)</option>
+            <option value="Private Training">Private Training (meet-up / in-home / park / field trip)</option>
+            <option value="Virtual Coaching">Virtual Coaching (Zoom/Meet)</option>
+            <option value="Not Sure">Not sure yet</option>
+          </select>
+
           <label>Your Name:</label>
           <input type="text" name="name" required onChange={handleChange} value={formData.name} />
 
@@ -254,7 +298,6 @@ const TrainingForm = () => {
         )}
       </div>
     </>
-
   );
 };
 
