@@ -82,7 +82,7 @@ const Home = () => {
           </div>
 
           <div className="dt-media" aria-hidden="true">
-            <img src="/assets/leashpicsNvids/longlinerolled.JPG" alt="Day training field trip" />
+            <img src="/assets/TPJ.jpeg" alt="Day training field trip" />
           </div>
         </div>
       </section>
