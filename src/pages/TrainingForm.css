@@ -311,6 +311,19 @@ h1 {
 }
 
 
+/* ------ */
+.savings-badge {
+  display: inline-block;
+  margin-left: .35rem;
+  padding: .12rem .45rem;
+  border-radius: 999px;
+  background: #eaf6f3;
+  color: #2f6d5c;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+
 
 
 /* ---------- Responsive ---------- */

@@ -13,7 +13,8 @@ const TrainingForm = () => {
     goals: "",
     experience: "",
     referral: "",
-    serviceType: "" // NEW
+    serviceType: "",          // NEW
+    dayTrainingPackage: ""    // NEW
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -41,9 +42,12 @@ const TrainingForm = () => {
       .catch(() => alert("Something went wrong. Please try again."));
   };
 
+  const wantsDayTraining =
+    formData.serviceType === "Day Training" ||
+    formData.serviceType === "Day Training Package";
+
   return (
     <>
-      {/* SEO tags for Training page */}
       <title>Request Dog Training | How Our Training Works</title>
       <meta
         name="description"
@@ -66,7 +70,7 @@ const TrainingForm = () => {
         content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process."
       />
 
-      {/* FAQ JSON-LD (added Day Training FAQ) */}
+      {/* FAQ JSON-LD (includes Day Training) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -112,7 +116,6 @@ const TrainingForm = () => {
           Share the details about your dog and goals—I'll send a plan, pricing, and scheduling options.
         </p>
 
-        {/* Helper box under the heading */}
         <section aria-label="How quotes and scheduling work" className="page-intro">
           <h2>How training works</h2>
           <p>
@@ -126,7 +129,6 @@ const TrainingForm = () => {
           </p>
         </section>
 
-        {/* Intro copy */}
         <section className="training-intro">
           <h2>Dog Training</h2>
           <p className="notes one">
@@ -140,11 +142,10 @@ const TrainingForm = () => {
             plan that fits your goals.
           </p>
 
-          {/* NEW: Day Training blurb */}
           <p className="notes">
             <strong>New: Day Training</strong> — Drop off your dog (or I can do pick-up depending on location) for a structured
-            “day care while training.” We’ll rotate focused training sessions and rest, plus field trips to practical places
-            (parks, neighborhood walks, dog-friendly stores) to work on your goals like loose-leash walking, recall,
+            “day care while training.” We’ll rotate focused sessions and rest, plus field trips to practical places
+            (parks, neighborhood walks, dog-friendly stores) to work goals like loose-leash walking, recall,
             public manners, confidence, and freestyle foundations.
           </p>
 
@@ -163,7 +164,6 @@ const TrainingForm = () => {
           </p>
         </section>
 
-        {/* Videos link */}
         <section className="training-videos">
           <h2>Training Videos</h2>
           <p>See my methods in action.</p>
@@ -175,16 +175,37 @@ const TrainingForm = () => {
           <h2>Training Rates</h2>
 
           <div className="pricing-grid training-pricing-grid">
-            {/* NEW Day Training card */}
+            {/* Day Training */}
             <div className="price-card">
               <h3>Day Training (Drop-off / Pick-up)</h3>
               <ul>
-                <li>Half-day (≈2–3 hours incl. rest): <strong>$75</strong></li>
-                <li>Full day (≈4–5 hours incl. field trip): <strong>$100</strong></li>
-                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores based on your goals.</li>
+                <li>Half-day (≈2–3 hrs incl. rest): <strong>$75</strong></li>
+                <li>Full day (≈4–5 hrs incl. field trip): <strong>$100</strong></li>
+                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores.</li>
                 <li>Includes short photo/video updates and a same-day summary.</li>
                 <li>Optional 20–30 min handoff lesson with you: <strong>+$20</strong>.</li>
                 <li>Pick-up / drop-off depends on location; outside Boston follows the travel policy.</li>
+                <li>Subject to availability and scheduling.</li>
+              </ul>
+            </div>
+
+            {/* NEW: Day Training Packages */}
+            <div className="price-card">
+              <h3>Day Training Packages — Full Day</h3>
+              <ul>
+                <li>
+                  3-Day Pack: <strong>$270</strong> <span className="savings-badge">Save $30</span>
+                  <em> ($90/day)</em>
+                </li>
+                <li>
+                  5-Day Pack: <strong>$425</strong> <span className="savings-badge">Save $75</span>
+                  <em> ($85/day)</em>
+                </li>
+                <li>
+                  10-Day Pack: <strong>$800</strong> <span className="savings-badge">Save $200</span>
+                  <em> ($80/day)</em>
+                </li>
+                <li>Use within 6 months. Can split as half-days (two half-days = one full day).</li>
               </ul>
             </div>
 
@@ -225,15 +246,6 @@ const TrainingForm = () => {
               </ul>
             </div>
 
-            <div className="price-card">
-              <h3>Intro Consult</h3>
-              <ul>
-                <li>Free 15–20 minute call</li>
-                <li>Tell me about your dog and your goals</li>
-                <li>Schedule via the <Link to="/booking">Booking Page</Link></li>
-              </ul>
-            </div>
-
             <div className="price-card policy">
               <h3>Travel Policy (for In-Home, Park, or Field Trip Sessions)</h3>
               <ul>
@@ -250,15 +262,31 @@ const TrainingForm = () => {
         <h2 className="form-heading">Tell me about your pup and what you’re looking for</h2>
 
         <form onSubmit={handleSubmit} className="training-form">
-          {/* NEW: Interest selector */}
           <label>I’m interested in:</label>
           <select name="serviceType" value={formData.serviceType} onChange={handleChange} required>
             <option value="">Select…</option>
             <option value="Day Training">Day Training (drop-off / pick-up)</option>
+            <option value="Day Training Package">Day Training — Package</option>
             <option value="Private Training">Private Training (meet-up / in-home / park / field trip)</option>
             <option value="Virtual Coaching">Virtual Coaching (Zoom/Meet)</option>
             <option value="Not Sure">Not sure yet</option>
           </select>
+
+          {wantsDayTraining && (
+            <>
+              <label>Day Training Package (optional):</label>
+              <select
+                name="dayTrainingPackage"
+                value={formData.dayTrainingPackage}
+                onChange={handleChange}
+              >
+                <option value="">No package selected</option>
+                <option value="3-Day Pack ($270)">3-Day Pack ($270)</option>
+                <option value="5-Day Pack ($425)">5-Day Pack ($425)</option>
+                <option value="10-Day Pack ($800)">10-Day Pack ($800)</option>
+              </select>
+            </>
+          )}
 
           <label>Your Name:</label>
           <input type="text" name="name" required onChange={handleChange} value={formData.name} />

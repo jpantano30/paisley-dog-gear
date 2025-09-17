@@ -1,10 +1,8 @@
-// ===== HOME PAGE =====
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
 
-// ===== HERO IMAGES =====
 const HERO_IMAGES = [
   { src: "/assets/leashpicsNvids/set3.JPG", alt: "Hands-free biothane dog leash" },
   { src: "/assets/leashpicsNvids/red&bluebuckle.JPG", alt: "Biothane buckle dog collar" },
@@ -14,7 +12,6 @@ const HERO_IMAGES = [
 const Home = () => {
   return (
     <>
-     {/* SEO tags for Home page */}
       <title>Custom Biothane Dog Gear | Paisley</title>
       <meta
         name="description"
@@ -22,7 +19,7 @@ const Home = () => {
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/" />
 
-      {/* ===== HERO STRIP (full-bleed under navbar) ===== */}
+      {/* ===== HERO STRIP ===== */}
       <section className="hero-strip" aria-label="Featured photos">
         <div className="hero-grid">
           {HERO_IMAGES.slice(0, 3).map((img, i) => (
@@ -57,9 +54,41 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ===== NEW: DAY TRAINING SPOTLIGHT ===== */}
+      <section className="daytraining-spotlight" aria-label="Day Training">
+        <div className="dt-inner">
+          <div className="dt-copy">
+            <p className="pill">New</p>
+            <h2>Day Training — structured “day care while training”</h2>
+            <p className="dt-sub">
+              Drop-off or pick-up (depending on location). Real-world field trips, focused
+              training blocks, and rest. Great for manners, leash skills, recall, confidence,
+              and freestyle foundations.
+            </p>
+
+            <ul className="dt-highlights">
+              <li><strong>$75</strong> half-day · <strong>$100</strong> full day</li>
+              <li>
+                Packages (full day): <strong>3-Day $270</strong>, <strong>5-Day $425</strong>,
+                <strong> 10-Day $800</strong> <span className="save">save up to $200</span>
+              </li>
+              <li>Optional 20–30 min handoff lesson: <strong>+$20</strong></li>
+            </ul>
+
+            <div className="dt-cta-row">
+              <Link to="/training" className="cta-button cta-primary">Book Day Training</Link>
+              <Link to="/training#rates" className="cta-button cta-secondary">See Rates</Link>
+            </div>
+          </div>
+
+          <div className="dt-media" aria-hidden="true">
+            <img src="/assets/leashpicsNvids/longlinerolled.JPG" alt="Day training field trip" />
+          </div>
+        </div>
+      </section>
+
       {/* ===== MAIN CONTENT ===== */}
       <section className="home">
-        {/* ===== INTRO BLOCK BELOW HERO ===== */}
         <div className="hero">
           <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />
           <h1>Paisley Dog Gear & Training</h1>
@@ -67,7 +96,6 @@ const Home = () => {
           <p>Functional. Custom. Made for Adventure.</p>
         </div>
 
-        {/* ===== ABOUT ===== */}
         <section className="about">
           <h2>About the Maker</h2>
           <p>
@@ -75,7 +103,6 @@ const Home = () => {
           </p>
         </section>
 
-        {/* ===== DOGS ===== */}
         <section className="dogs">
           <h2>Meet the Dogs</h2>
           <div className="dog-profiles">
@@ -109,42 +136,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* ===== FEATURED (kept for later, still commented out) =====
-        <section className="featured">
-          <h2>Featured Gear</h2>
-          <div className="product-grid">
-            <div className="product-card">
-              <img
-                src="/assets/tallulah-sage2.JPG"
-                alt="The Tallulah hands-free leash"
-              />
-              <h3>The Tallulah</h3>
-              <p>
-                Our signature hands-free leash system — versatile, strong, and designed
-                for real life.
-              </p>
-            </div>
-            <div className="product-card">
-              <img
-                src="/assets/leashpicsNvids/ballholder3.JPG"
-                alt="Biothane Ball Holder"
-              />
-              <h3>Biothane Ball Holder</h3>
-              <p>Clips to your gear and fits ChuckIt or standard balls. D-ring or snap clip.</p>
-            </div>
-            <div className="product-card">
-              <img src="/assets/custom-longline.jpg" alt="Custom Biothane Long Line" />
-              <h3>Custom Long Line</h3>
-              <p>
-                Durable, colorful long lines up to 20ft — ideal for recall, hiking, and
-                adventure training.
-              </p>
-            </div>
-          </div>
-        </section>
-        ===== END FEATURED ===== */}
-
-        {/* ===== TRAINING INQUIRY ===== */}
         <section className="training-inquiry">
           <h2>Dog Training Inquiries</h2>
           <p>
@@ -154,18 +145,8 @@ const Home = () => {
           <Link to="/training" className="cta-button cta-secondary">
             Training Request Form
           </Link>
-          <br /><br />
-          {/* <p> Or direct message me on Instagram.</p>
-          <div className="social-links">
-            <a href="https://www.instagram.com/tullytornado" target="_blank" rel="noopener noreferrer">
-              @TullyTornado
-            </a>
-            <br />
-            <a href="https://www.instagram.com/eatwellandeatdessert" target="_blank" rel="noopener noreferrer">
-              @eatwellandeatdessert
-            </a>
-          </div> */}
         </section>
+
         <section aria-label="Quick links" style={{marginTop: 16}} className="page-intro">
           <p>
             Ready to design gear? <a href="/builder">Use the Gear Builder</a>.{" "} <br />
@@ -179,7 +160,6 @@ const Home = () => {
           </p>
         </section>
       </section>
-      
     </>
   );
 };

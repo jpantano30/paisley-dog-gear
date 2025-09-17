@@ -159,6 +159,49 @@
 }
 
 
+/* --- Day Training Spotlight --- */
+.daytraining-spotlight {
+  background: linear-gradient(180deg, #f8fffd 0%, #ffffff 100%);
+  border-top: 1px solid #e7f2ee;
+  border-bottom: 1px solid #e7f2ee;
+}
+.dt-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem;
+  display: grid;
+  grid-template-columns: 1.25fr .9fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+.dt-copy h2 {
+  margin: .2rem 0 .35rem;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: #2f6d5c;
+}
+.dt-sub { margin: 0 0 .6rem; color: #365a51; max-width: 60ch; }
+.dt-highlights { margin: .35rem 0 .8rem; padding-left: 1.1rem; color: #3a3a3a; }
+.dt-highlights li { margin: .25rem 0; }
+.dt-cta-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+.dt-media img {
+  width: 100%; height: 100%; max-height: 240px; object-fit: cover;
+  border-radius: 14px; box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+.pill {
+  display: inline-block; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+  font-size: .72rem; padding: .22rem .5rem; border-radius: 999px; background: #eaf6f3; color: #2f6d5c;
+}
+.save {
+  display: inline-block; margin-left: .3rem; font-weight: 800; color: #e27d60;
+}
+
+@media (max-width: 900px) {
+  .dt-inner { grid-template-columns: 1fr; }
+  .dt-media img { max-height: 200px; }
+}
+
+
+
 /* ===== MAIN CONTENT WRAPPER ===== */
 .home {
   max-width: 1100px;
