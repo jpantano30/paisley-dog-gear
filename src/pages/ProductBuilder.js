@@ -1055,13 +1055,11 @@ export default function ProductBuilder() {
             </div>
           </div>
 
-          {/* RIGHT: Dynamic Builder Guide */}
-          <div className="card">
-            <BuilderGuide form={form} spec={spec} />
-          </div>
+          {/* MIDDLE: Dynamic Builder Guide */}
+          <BuilderGuide form={form} />
 
-          {/* RIGHT (below Guide): Estimate */}
-          <div className="card">
+          {/* RIGHT : Estimate */}
+          <div className="card estimate-card">
             <h3>Estimate & Breakdown</h3>
             <div className="summary">
               <div className="price-badge">${total.toFixed(2)}</div>
