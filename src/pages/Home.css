@@ -423,15 +423,18 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   overflow: hidden;
   transition: transform 0.2s ease;
-  font-size: 20px;
+  font-size: 16px;
 }
 .maker-card:hover { transform: scale(1.03); }
 .maker-card img {
   display: block;
-  width: 100%;
+  width: 80%;
   height: auto;
   display: block;
   border-radius: 0;
+  margin: 1.5rem auto 0;
+  object-fit: contain;
+  border-radius: 5%;
 
 }
 

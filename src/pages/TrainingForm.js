@@ -170,7 +170,7 @@ const TrainingForm = () => {
           </p>
 
           <p className="notes one">
-            <span role="img" aria-label="paw prints">🐾</span> I also help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach. We tailor the plan to your dog and your goals.
+            <span role="img" aria-label="paw prints">🐾</span> I also help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach. I tailor the plan to your dog and your goals.
           </p>
 
           <p className="notes">

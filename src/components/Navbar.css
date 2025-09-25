@@ -17,8 +17,8 @@
   font-family: 'Poppins', sans-serif !important;
   line-height: inherit !important;
   border-radius: 0 !important;
-  appearance: none;
-  /* font-weight: 700; */
+  appearance: none !important;
+  /* font-weight: 400 !important; */
   font-size: 1.29rem;
 }
 
