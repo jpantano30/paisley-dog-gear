@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./TrainingForm.css";
 import { Link } from "react-router-dom";
-import "../components/page-intro.css";
+import Banner from "../components/Banner";
+import "../components/Banner.css";
 
 const TrainingForm = () => {
   const [formData, setFormData] = useState({
+    serviceType: "",
+    dayTrainingPackage: "",
     name: "",
     email: "",
     dogName: "",
@@ -13,48 +16,77 @@ const TrainingForm = () => {
     goals: "",
     experience: "",
     referral: "",
-    serviceType: "",          // NEW
-    dayTrainingPackage: ""    // NEW
+    // honeypot (hidden)
+    company: ""
   });
 
+  const [submitting, setSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    fetch("https://formspree.io/f/mjkrolwr", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData)
-    })
-      .then((res) => {
-        if (res.ok) setShowModal(true);
-        else alert("Something went wrong.");
-      })
-      .catch(() => alert("Something went wrong. Please try again."));
-  };
+  const [errorMsg, setErrorMsg] = useState("");
 
   const wantsDayTraining =
     formData.serviceType === "Day Training" ||
     formData.serviceType === "Day Training Package";
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMsg("");
+
+    // simple spam trap
+    if (formData.company) return;
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/mjkrolwr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!res.ok) {
+        const maybe = await res.json().catch(() => null);
+        throw new Error(maybe?.error || "Submit failed");
+      }
+
+      setShowModal(true);
+      setFormData({
+        serviceType: "",
+        dayTrainingPackage: "",
+        name: "",
+        email: "",
+        dogName: "",
+        dogAge: "",
+        dogBreed: "",
+        goals: "",
+        experience: "",
+        referral: "",
+        company: ""
+      });
+    } catch (_err) {
+      setErrorMsg("Something went wrong. Please try again or email me directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <>
+      <Banner />
+      {/* Keep your SEO style (no Helmet) */}
       <title>Request Dog Training | How Our Training Works</title>
       <meta
         name="description"
-        content="Tell me about your dog and goals, then I’ll follow up with a plan, pricing, and scheduling options. Read how training works and what to expect."
+        content="Tell me about your dog and goals, then I’ll follow up with a plan, pricing, and scheduling options."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
-
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Request Dog Training | How Our Training Works" />
       <meta
@@ -62,7 +94,6 @@ const TrainingForm = () => {
         content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process."
       />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
-
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Request Dog Training | How Our Training Works" />
       <meta
@@ -70,38 +101,38 @@ const TrainingForm = () => {
         content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process."
       />
 
-      {/* FAQ JSON-LD (includes Day Training) */}
+      {/* FAQ JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "Do I need a consult first?",
-                "acceptedAnswer": {
+                name: "Do I need a consult first?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text":
+                  text:
                     "A free 15-minute consult is optional—great for quick questions or checking fit. You can also submit the training form directly."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How does the training process work?",
-                "acceptedAnswer": {
+                name: "How does the training process work?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text":
+                  text:
                     "You share your goals, I review and propose a plan, then we schedule sessions. You’ll get clear homework and progress check-ins."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do you offer Day Training?",
-                "acceptedAnswer": {
+                name: "Do you offer Day Training?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text":
+                  text:
                     "Yes. Day Training is a drop-off or pick-up option where your dog spends a structured half or full day with me. We rotate focused training sessions, rest breaks, and real-life field trips to work on your goals. Pick-up/drop-off depends on location and follows the travel policy when applicable."
                 }
               }
@@ -112,101 +143,93 @@ const TrainingForm = () => {
 
       <div className="training-form-container">
         <h1>Dog Training Request</h1>
-        <p style={{ textAlign: "center", marginTop: "-0.25rem" }}>
-          Share the details about your dog and goals—I'll send a plan, pricing, and scheduling options.
+        <p className="intro-sub">
+          Share the details about your dog and goals. I’ll send a plan, pricing, and scheduling options.
         </p>
 
+        {/* How it works — bullets */}
         <section aria-label="How quotes and scheduling work" className="page-intro">
           <h2>How training works</h2>
-          <p>
-            Share your goals below and I’ll review your information. We’ll connect by email, phone, or a brief video call to confirm fit and discuss whether a
-            package or individual sessions is the best approach.
-          </p>
-          <p>
-            If we decide to move forward, I’ll send a short intake form for additional details. After I receive it, you’ll get a tailored plan with pricing and
-            scheduling options. Once you approve, we’ll book your first session. Payment is handled separately through Venmo or PayPal.
+          <ul className="bulleted">
+            <li>Fill out the form with your goals.</li>
+            <li>I review and send a short intake if we’re a good fit.</li>
+            <li>You get a tailored plan with pricing and scheduling options.</li>
+            <li>Approve → book → train. Payment via Venmo or PayPal.</li>
+          </ul>
+          <p className="inline-cta">
             Prefer to talk first? <Link to="/booking">Book a free 15-minute consult</Link>.
           </p>
         </section>
 
+        {/* Services overview — scannable */}
         <section className="training-intro">
           <h2>Dog Training</h2>
+
           <p className="notes one">
-            I specialize in <strong>freestyle and trick training</strong>—from spins, weaves, and jumps
-            to advanced routines. It’s about movement, creativity, and building a stronger bond through
-            fun and focus.
+            <span className="note-icon" role="img" aria-label="sparkles">✨</span> I specialize in <strong>freestyle and trick training</strong> — spins, weaves, jumps, and full routines. Movement, creativity, and focus that carry into everyday life.
           </p>
+
           <p className="notes one">
-            I also help with <strong>manners, obedience, and behavior</strong> using a balanced,
-            communication-focused approach. Training is tailored to each dog and handler—let’s build a
-            plan that fits your goals.
+            <span role="img" aria-label="paw prints">🐾</span> I also help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach. We tailor the plan to your dog and your goals.
           </p>
 
           <p className="notes">
-            <strong>New: Day Training</strong> — Drop off your dog (or I can do pick-up depending on location) for a structured
-            “day care while training.” We’ll rotate focused sessions and rest, plus field trips to practical places
-            (parks, neighborhood walks, dog-friendly stores) to work goals like loose-leash walking, recall,
-            public manners, confidence, and freestyle foundations.
+            <strong><span role="img" aria-label="school">🏫</span> New — Day Training</strong> — Drop off your dog (or I can pick them up, location permitting). Each session balances focused work and rest, with real-world field trips (parks, neighborhoods, dog-friendly stores) to build leash manners, recall, public behavior, confidence, and freestyle foundations. You’ll get a same-day summary. You can also add a handoff lesson so I walk you through everything and give you tools to carry on training at home.
           </p>
 
-          <p className="notes">
-            <strong>Where we can train:</strong><br />
-            • <strong>In-Home:</strong> Training in your dog’s everyday environment.<br />
-            • <strong>Local Park Meet-Up:</strong> Trick training, recall, leash work, or general skills.<br />
-            • <strong>Field Trips:</strong> Dog-friendly stores (Home Depot/Lowe’s) for focus, manners, and public skills; scenic spots for freestyle.<br />
-            • <strong>Boston Option:</strong> Meet at my Boston training area or public locations.<br />
-            • <strong>Virtual Check-Ins:</strong> 30-minute Zoom/Google Meet for trick tune-ups, routine planning, or behavior Q&amp;A. <em>See rates below.</em>
-          </p>
+          <div className="notes where-notes">
+            <strong>Where we can train:</strong>
+            <ul className="where-list">
+              <li><strong>In-Home</strong> — your dog’s everyday environment</li>
+              <li><strong>Local Park Meet-Up</strong> — recall, leash work, tricks, general skills</li>
+              <li><strong>Field Trips</strong> — Home Depot/Lowe’s for public manners and focus</li>
+              <li><strong>Boston Option</strong> — meet at my Boston training area or public spots</li>
+              <li><strong>Virtual Check-Ins</strong> — 30-min Zoom/Meet for tune-ups, planning, or behavior Q&amp;A</li>
+            </ul>
+          </div>
 
           <p className="notes two">
-            Every dog and owner is different—training is personalized so we set you both up for success,
-            wherever you’re most comfortable.
+            Every dog and person is different. We personalize the plan so you both succeed.
           </p>
         </section>
 
+        {/* Videos */}
         <section className="training-videos">
           <h2>Training Videos</h2>
           <p>See my methods in action.</p>
-          <Link to="/videos" className="nav-link">🎥 Training Videos</Link>
+          <Link to="/videos" className="nav-link" aria-label="See training videos">
+            🎥 Training Videos
+          </Link>
         </section>
 
-        {/* Pricing */}
-        <section className="training-pricing">
+        {/* Rates — grouped + Most popular + collapsible Travel Policy */}
+        <section className="training-pricing" aria-label="Training rates">
           <h2>Training Rates</h2>
-          <p>Pre-payment is required and we request 24-hr cancellation notice.</p>
+          <p>Pre-payment is required. Please give 24-hour cancellation notice.</p>
 
           <div className="pricing-grid training-pricing-grid">
-            {/* Day Training */}
             <div className="price-card">
               <h3>Day Training (Drop-off / Pick-up)</h3>
               <ul>
-                <li>Half-day (≈2–3 hrs incl. rest): <strong>$75</strong></li>
-                <li>Full day (≈4–5 hrs incl. field trip): <strong>$100</strong></li>
-                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores.</li>
-                <li>Includes short photo/video updates and a same-day summary.</li>
-                <li>Optional 20–30 min handoff lesson with you: <strong>+$20</strong>.</li>
-                <li>Pick-up / drop-off depends on location; outside Boston follows the travel policy.</li>
-                <li>Subject to availability and scheduling.</li>
+                <li>Half-day (about 2–3 hrs incl. rest): <strong>$75</strong></li>
+                <li>Full day (about 4–5 hrs incl. field trip): <strong>$100</strong></li>
+                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores</li>
+                <li>Short photo/video updates and a same-day summary</li>
+                <li>Optional 20–30 min handoff lesson: <strong>+$20</strong></li>
+                <li>Pick-up/drop-off depends on location (see travel policy)</li>
               </ul>
             </div>
 
-            {/* NEW: Day Training Packages */}
             <div className="price-card">
               <h3>Day Training Packages — Full Day</h3>
               <ul>
+                <li>3-Day Pack: <strong>$270</strong> <em>($90/day)</em></li>
                 <li>
-                  3-Day Pack: <strong>$270</strong> <span className="savings-badge">Save $30</span>
-                  <em> ($90/day)</em>
+                  5-Day Pack: <strong>$425</strong> <em>($85/day)</em>
+                  <span className="popular-badge" aria-label="Most popular">Most popular</span>
                 </li>
-                <li>
-                  5-Day Pack: <strong>$425</strong> <span className="savings-badge">Save $75</span>
-                  <em> ($85/day)</em>
-                </li>
-                <li>
-                  10-Day Pack: <strong>$800</strong> <span className="savings-badge">Save $200</span>
-                  <em> ($80/day)</em>
-                </li>
-                <li>Use within 6 months. Can split as half-days (two half-days = one full day).</li>
+                <li>10-Day Pack: <strong>$800</strong> <em>($80/day)</em></li>
+                {/* <li>Use within 6 months. Two half-days = one full day.</li> */}
               </ul>
             </div>
 
@@ -214,19 +237,33 @@ const TrainingForm = () => {
               <h3>Private Training — Meet-Up</h3>
               <ul>
                 <li>One 60-min session: <strong>$50</strong></li>
-                <li>No travel fee at Boston spots or other agreed meet-up locations</li>
+                <li>No travel fee at Boston spots or agreed meet-ups</li>
                 <li>Great for freestyle, tricks, recall, or behavior work</li>
               </ul>
             </div>
 
             <div className="price-card">
-              <h3>Private Training — In-Home, Local Park, or Field Trip</h3>
+              <h3>Private Training — In-Home, Park, or Field Trip</h3>
               <ul>
-                <li>One 60-min session: <strong>$50</strong> <em>+ travel (see policy)</em></li>
-                <li>Your home, a local park, or a field trip to Home Depot/Lowe’s</li>
+                <li>One 60-min session: <strong>$50</strong> <em>+ travel</em></li>
+                <li>Your home, a local park, or a Home Depot/Lowe’s field trip</li>
                 <li>Perfect for puppies, behavior work, and real-world practice</li>
               </ul>
             </div>
+
+            <details open className="price-card policy" id="travel-policy">
+              <summary>
+                <span className="summary-title">Travel Policy</span>
+                <span className="summary-hint">First 40 min round-trip free</span>
+              </summary>
+              <ul>
+                <li>First <strong>40 minutes round-trip</strong> included</li>
+                <li>After that: <strong>$0.75 per minute (round-trip)</strong>, billed in 10-min increments</li>
+                <li>Calculated from Boston (North End). Boston meet-ups have <strong>no travel fee</strong>.</li>
+                <li>Example: ~50 min each way ≈ 100 min round-trip → 60 billable × $0.75 = <strong>$45 travel</strong></li>
+              </ul>
+            </details>
+
 
             <div className="price-card">
               <h3>Training Packages</h3>
@@ -234,7 +271,7 @@ const TrainingForm = () => {
                 <li>3 sessions (1 hr each): <strong>$135 total</strong> ($45/session)</li>
                 <li>5 sessions (1 hr each): <strong>$200 total</strong> ($40/session)</li>
                 <li>Includes progress tracking and goal planning</li>
-                <li><strong>Note:</strong> Package discounts apply to training time only; travel is billed per visit if applicable.</li>
+                <li><strong>Note:</strong> Package discounts apply to training time only; travel billed per visit if applicable.</li>
               </ul>
             </div>
 
@@ -242,27 +279,24 @@ const TrainingForm = () => {
               <h3>Virtual Coaching</h3>
               <ul>
                 <li>30-min Zoom/Google Meet: <strong>$30–$45</strong></li>
-                <li>Ideal for trick tune-ups, routines, or behavior Q&amp;A</li>
-                <li>Send videos or questions ahead of time if you’d like</li>
-              </ul>
-            </div>
-
-            <div className="price-card policy">
-              <h3>Travel Policy (for In-Home, Park, or Field Trip Sessions)</h3>
-              <ul>
-                <li>First <strong>40 minutes round-trip</strong> of travel included.</li>
-                <li>After that: <strong>$0.75 per minute (round-trip)</strong>, billed in 10-minute increments.</li>
-                <li>Calculated per visit from Boston (North End). Boston meet-ups have <strong>no travel fee</strong>.</li>
-                <li>Example: ~50 min each way (≈100 min round-trip) → 60 billable minutes × $0.75 = <strong>$45 travel</strong>.</li>
+                <li>Great for trick tune-ups, routines, or behavior Q&amp;A</li>
+                <li>You can send videos/questions in advance</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <br />
         <h2 className="form-heading">Tell me about your pup and what you’re looking for</h2>
 
-        <form onSubmit={handleSubmit} className="training-form">
+        <form onSubmit={handleSubmit} className="training-form" noValidate>
+          {/* hidden honeypot */}
+          <div className="visually-hidden" aria-hidden="true">
+            <label htmlFor="company">Company</label>
+            <input id="company" name="company" value={formData.company} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+          </div>
+
+          {/* Service */}
+          <h3 className="form-section">Service</h3>
           <label>I’m interested in:</label>
           <select name="serviceType" value={formData.serviceType} onChange={handleChange} required>
             <option value="">Select…</option>
@@ -289,39 +323,66 @@ const TrainingForm = () => {
             </>
           )}
 
+          {/* Owner */}
+          <h3 className="form-section">Owner Info</h3>
           <label>Your Name:</label>
-          <input type="text" name="name" required onChange={handleChange} value={formData.name} />
+          <input type="text" name="name" placeholder="First and last name" required onChange={handleChange} value={formData.name} />
 
           <label>Email Address:</label>
-          <input type="email" name="email" required onChange={handleChange} value={formData.email} />
+          <input type="email" name="email" placeholder="you@email.com" required onChange={handleChange} value={formData.email} />
 
+          {/* Dog */}
+          <h3 className="form-section">Dog Info</h3>
           <label>Dog's Name:</label>
-          <input type="text" name="dogName" onChange={handleChange} value={formData.dogName} />
+          <input type="text" name="dogName" placeholder="e.g., Tully" onChange={handleChange} value={formData.dogName} />
 
           <label>Dog's Age:</label>
-          <input type="text" name="dogAge" onChange={handleChange} value={formData.dogAge} />
+          <input type="text" name="dogAge" placeholder="e.g., 11 months" onChange={handleChange} value={formData.dogAge} />
 
           <label>Dog's Breed:</label>
-          <input type="text" name="dogBreed" onChange={handleChange} value={formData.dogBreed} />
+          <input type="text" name="dogBreed" placeholder="e.g., Bordoodle" onChange={handleChange} value={formData.dogBreed} />
 
+          {/* Goals */}
+          <h3 className="form-section">Goals</h3>
           <label>What are your training goals?</label>
-          <textarea name="goals" required onChange={handleChange} value={formData.goals} />
+          <textarea
+            name="goals"
+            required
+            placeholder="e.g., loose-leash walking, recall, tricks/freestyle, puppy basics, confidence in public"
+            onChange={handleChange}
+            value={formData.goals}
+          />
 
           <label>Any prior training experience or notes?</label>
-          <textarea name="experience" onChange={handleChange} value={formData.experience} />
+          <textarea
+            name="experience"
+            placeholder="e.g., puppy class, e-collar experience, triggers, medical notes"
+            onChange={handleChange}
+            value={formData.experience}
+          />
 
           <label>How did you hear about me?</label>
-          <input type="text" name="referral" onChange={handleChange} value={formData.referral} />
+          <input
+            type="text"
+            name="referral"
+            placeholder="Instagram, friend, Nextdoor, Google…"
+            onChange={handleChange}
+            value={formData.referral}
+          />
 
-          <button type="submit">Submit Request</button>
+          {errorMsg && <div className="form-error" role="alert">{errorMsg}</div>}
+
+          <button type="submit" disabled={submitting} aria-busy={submitting}>
+            {submitting ? "Sending…" : "Request a Session"}
+          </button>
         </form>
 
         {showModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <h2>Thank you!</h2>
+          <div className="modal" role="dialog" aria-modal="true" aria-labelledby="thankyou-title">
+            <div className="modal-content" role="document">
+              <h2 id="thankyou-title">Thank you!</h2>
               <p>I’ll follow up with you shortly.</p>
-              <button onClick={() => setShowModal(false)}>Close</button>
+              <button onClick={() => setShowModal(false)} autoFocus>Close</button>
             </div>
           </div>
         )}

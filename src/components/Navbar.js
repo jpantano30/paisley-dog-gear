@@ -1,48 +1,99 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
+import "@fontsource/cormorant-garamond/700.css";
 
-const Navbar = () => {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [gearOpen, setGearOpen] = useState(false);
+  const { pathname } = useLocation();
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  // close panels on route change
+  useEffect(() => {
+    setMenuOpen(false);
+    setGearOpen(false);
+  }, [pathname]);
+
+  // prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => (document.body.style.overflow = "");
+  }, [menuOpen]);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-left">
-        <Link to="/" className="logo-link" onClick={closeMenu}>
-          <img
-            src="/assets/logo.jpg"
-            alt="Paisley Dog Gear Logo"
-            className="nav-logo"
-          />
-          <span className="site-name">Paisley Dog Gear & Training</span>
+    <nav className="navbar" role="navigation" aria-label="Main">
+      <div className="nav-inner">
+        <Link to="/" className="brand" onClick={() => setMenuOpen(false)}>
+          <img src="/assets/logo.jpg" alt="" className="brand-logo" />
+          <span className="brand-name">Paisley Dog Gear & Training</span>
         </Link>
-      </div>
 
-      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-        <li><Link to="/options" onClick={closeMenu}>Gear Options</Link></li>
-        {/* <li><Link to="/colors" onClick={closeMenu}>Colors</Link></li> */}
-        {/* <li><Link to="/pricing" onClick={closeMenu}>Pricing</Link></li> */}
-        <Link to="/builder" onClick={closeMenu}>Builder</Link>
-        <li><Link to="/order" onClick={closeMenu}>Order</Link></li>
-        <li><Link to="/training" onClick={closeMenu}>Training</Link></li>
-        <li><Link to="/gallery" onClick={closeMenu}>Gallery</Link></li>
-      </div>
+        <ul id="primary-links" className={`links ${menuOpen ? "open" : ""}`}>
+          <li>
+            <Link className={`link ${pathname === "/" ? "active" : ""}`} to="/" onClick={() => setMenuOpen(false)}>
+              Home
+            </Link>
+          </li>
 
-      <div
-        className={`hamburger ${menuOpen ? "open" : ""}`}
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-      >
-        <span />
-        <span />
-        <span />
+          {/* Desktop dropdown */}
+          <li className="has-dropdown">
+            <button
+              type="button"
+              className="trigger nav-btn-reset"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Gear <span className="caret">▾</span>
+            </button>
+            <div className="dropdown" role="menu">
+              <Link className="drop-link" role="menuitem" to="/builder">Builder (Custom)</Link>
+              <Link className="drop-link" role="menuitem" to="/quick-order">Quick Order (Presets)</Link>
+              <Link className="drop-link" role="menuitem" to="/options">Gear Options</Link>
+            </div>
+          </li>
+
+          {/* Mobile accordion */}
+          <li className="mobile-accordion">
+            <button
+              type="button"
+              className="accordion-trigger nav-btn-reset"
+              aria-controls="gear-sublist"
+              aria-expanded={gearOpen}
+              onClick={() => setGearOpen(v => !v)}
+            >
+              <span className="accordion-title">Gear</span>
+              <span className={`accordion-caret ${gearOpen ? "open" : ""}`}>▾</span>
+            </button>
+            <ul id="gear-sublist" className={`sublist ${gearOpen ? "open" : ""}`}>
+              <li><Link className="sub-link" to="/builder" onClick={() => setMenuOpen(false)}>Builder (Custom)</Link></li>
+              <li><Link className="sub-link" to="/quick-order" onClick={() => setMenuOpen(false)}>Quick Order (Presets)</Link></li>
+              <li><Link className="sub-link" to="/options" onClick={() => setMenuOpen(false)}>Gear Options</Link></li>
+            </ul>
+          </li>
+
+          <li>
+            <Link className={`link ${pathname === "/training" ? "active" : ""}`} to="/training" onClick={() => setMenuOpen(false)}>
+              Training
+            </Link>
+          </li>
+          <li>
+            <Link className={`link ${pathname === "/gallery" ? "active" : ""}`} to="/gallery" onClick={() => setMenuOpen(false)}>
+              Gallery
+            </Link>
+          </li>
+        </ul>
+
+        <button
+          type="button"
+          className={`hamburger nav-btn-reset ${menuOpen ? "open" : ""}`}
+          aria-label="Toggle menu"
+          aria-controls="primary-links"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(v => !v)}
+        >
+          <span /><span /><span />
+        </button>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

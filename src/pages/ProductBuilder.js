@@ -203,7 +203,7 @@ const PRODUCT_SPEC = {
   },
 
   handsFreeSystem: {
-    label: "Hands-free System / The Tallulah",
+    label: "Hands-Free System (The Tallulah)",
     units: "ft",
     sizePresets: [7, 8, 9, 10, 12],
     sizeBounds: { min: 7, max: 20 },
@@ -211,19 +211,19 @@ const PRODUCT_SPEC = {
       "Multi-point leash (wear crossbody, at waist, or handheld)",
       "Sliding O/D-rings for quick adjustments",
       "Swivel snap (locking carabiner upgrade available)",
-      "Built-in traffic handle (choose location)",
-      "Matching extender 1ft (included)",
       "Silver hardware"
     ],
     fields: {
       width: true, snap: true, gripHandle: false,
-      handsFreeConversion: false,
-      trafficHandleBuiltIn: true, trafficHandleMaterial: true, trafficHandlePlacement: true,
+      handsFreeConversion: false,                // not used here
+      trafficHandleBuiltIn: true,                // OPTIONAL now (not locked)
+      trafficHandleMaterial: true,
+      trafficHandlePlacement: true,
       hardwareFinish: true, colors: true
     },
-    locked: { trafficHandleBuiltIn: true },
     addons: { twoTone: true, oRing: true, dRing: true, floatingORing: true, stopper: true }
   },
+
 
   ballHolder: {
     label: "Ball Holder",
@@ -317,7 +317,7 @@ export default function ProductBuilder() {
   const isSmallAccessory = ["trafficLead", "ballHolder", "leashExtender", "pullTab"].includes(form.productType);
   const isCollarType = ["collarBuckle", "collarQuickRelease"].includes(form.productType);
   const spec = PRODUCT_SPEC[form.productType] || null;
-  const isLocked = (key) => !!spec?.locked?.[key];
+
 
   // Load saved form on mount
   useEffect(() => {
@@ -347,12 +347,6 @@ export default function ProductBuilder() {
     }
   }, [form.productType, form.handsFreeConversion, form.lengthFt]);
 
-  // Enforce locked fields whenever product changes
-  useEffect(() => {
-    if (isLocked("trafficHandleBuiltIn") && !form.trafficHandleBuiltIn) {
-      setForm((f) => ({ ...f, trafficHandleBuiltIn: true }));
-    }
-  }, [form.productType]); // eslint-disable-line
 
   const { total, lines } = useMemo(() => {
     if (!form.productType) return { total: 0, lines: [] };
@@ -400,7 +394,7 @@ export default function ProductBuilder() {
     L.push(["Base", basePrice]); sum += basePrice;
 
     // Length pricing
-    if (["leash", "longLine"].includes(form.productType)) {
+    if (["leash", "longLine", "handsFreeSystem"].includes(form.productType)) {
       const baseFt = BASE_FT?.[form.productType] || 0;
       const ft = Number(form.lengthFt || 0);
       if (ft > baseFt) {
@@ -505,7 +499,6 @@ export default function ProductBuilder() {
   };
 
   const goToOrderForm = () => {
-    const lockedTHB = PRODUCT_SPEC[form.productType]?.locked?.trafficHandleBuiltIn ? true : form.trafficHandleBuiltIn;
 
     const params = new URLSearchParams({
       productType: form.productType,
@@ -528,9 +521,9 @@ export default function ProductBuilder() {
       handsFreeConversion: String(form.handsFreeConversion),
 
       // built-in traffic
-      trafficHandleBuiltIn: String(lockedTHB),
+      trafficHandleBuiltIn: String(form.trafficHandleBuiltIn),     // just the user's choice
       trafficHandleMaterial: form.trafficHandleMaterial,
-      trafficHandlePlacement: lockedTHB ? form.trafficHandlePlacement : "",
+      trafficHandlePlacement: form.trafficHandleBuiltIn ? form.trafficHandlePlacement : "",
 
       // rings & misc
       oRing: String(form.oRing),
@@ -707,6 +700,7 @@ export default function ProductBuilder() {
                   <select value={form.hardware} onChange={(e) => update({ hardware: e.target.value })}>
                     <option value="standard">Silver — Standard</option>
                     <option value="black">Black (+${HW?.black || 0})</option>
+                    <option value="Brass">Brass - special order</option>
                   </select>
                 </div>
               )}
@@ -771,33 +765,23 @@ export default function ProductBuilder() {
               <>
                 <div className="form-row">
                   <div>
-                    {isLocked("trafficHandleBuiltIn") ? (
-                      <label className="locked-option" aria-label="Built-in traffic handle included">
-                        <input type="checkbox" checked disabled />
-                        <span>Built-in Traffic Handle <em>(included)</em></span>
-                      </label>
-                    ) : (
-                      <>
-                        <label>Built-in Traffic Handle</label>
-                        <select
-                          value={form.trafficHandleBuiltIn ? "yes" : "no"}
-                          onChange={(e) => update({ trafficHandleBuiltIn: e.target.value === "yes" })}
-                        >
-                          <option value="no">No</option>
-                          <option value="yes">Yes (+${ADDONS?.trafficHandleBuiltIn || 0})</option>
-                        </select>
-                        {form.trafficHandleBuiltIn && (
-                          <div className="small">
-                            Standard builds do <strong>not</strong> include a traffic handle. Turn this on
-                            to add a close-control handle near the snap. Pick Biothane (flat) or a Paracord
-                            overlay for grip and color, then choose the placement.
-                          </div>
-                        )}
-                      </>
+                    <label>Built-in Traffic Handle</label>
+                    <select
+                      value={form.trafficHandleBuiltIn ? "yes" : "no"}
+                      onChange={(e) => update({ trafficHandleBuiltIn: e.target.value === "yes" })}
+                    >
+                      <option value="no">No</option>
+                      <option value="yes">Yes (+${ADDONS?.trafficHandleBuiltIn || 0})</option>
+                    </select>
+                    {form.trafficHandleBuiltIn && (
+                      <div className="small">
+                        Adds a close-control handle near the snap. Pick Biothane (flat) or a Paracord
+                        overlay for grip and color, then choose the placement.
+                      </div>
                     )}
                   </div>
 
-                  {(form.trafficHandleBuiltIn || isLocked("trafficHandleBuiltIn")) && spec?.fields?.trafficHandleMaterial && (
+                  {form.trafficHandleBuiltIn && spec?.fields?.trafficHandleMaterial && (
                     <div>
                       <label>Traffic Handle Material</label>
                       <select
@@ -812,7 +796,7 @@ export default function ProductBuilder() {
                   )}
                 </div>
 
-                {(form.trafficHandleBuiltIn || isLocked("trafficHandleBuiltIn")) && spec?.fields?.trafficHandlePlacement && (
+                {form.trafficHandleBuiltIn && spec?.fields?.trafficHandlePlacement && (
                   <div className="form-row">
                     <div>
                       <label>Traffic Handle Placement</label>
@@ -825,14 +809,12 @@ export default function ProductBuilder() {
                         <option value="18in">18″ above base</option>
                         <option value="24in">24″ above base</option>
                       </select>
-                      <div className="small">
-                        Choose where you want to grab quickly. “Base” is by the snap; 12″/18″/24″ are higher up for a natural reach.
-                      </div>
                     </div>
                   </div>
                 )}
               </>
             )}
+
 
             {/* Collars */}
             {isCollarType && (

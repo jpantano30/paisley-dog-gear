@@ -3,11 +3,50 @@ import React, { useEffect, useMemo, useState } from "react";
 import "./OrderForm.css";
 import { useSearchParams } from "react-router-dom";
 
+// Add near top of OrderForm_with_prefill.js
+const LABELS = {
+  productType: {
+    leash: "Standard Leash",
+    longLine: "Long Line",
+    handsFreeSystem: "Hands-Free System (The Tallulah)",
+    trafficLead: "Traffic Handle",
+    leashExtender: "Leash Extender",
+    pullTab: "Pull Tab",
+    collarBuckle: "Collar — Buckle",
+    collarQuickRelease: "Collar — Quick Release",
+    ballHolder: "Ball Holder",
+    safetyStrapBiothane: "Safety Strap — Biothane",
+    safetyStrapParacord: "Safety Strap — Paracord Weave",
+    other: "Other"
+  },
+  hardware: {
+    "": "",
+    standard: "Silver",
+    black: "Black",
+    blackPlastic: "Black Plastic (collars)"
+  },
+  snapType: {
+    "": "",
+    lockingCarabiner: "Locking Carabiner",
+    swivelSnap: "Swivel Snap"
+  },
+  handleType: {
+    "": "",
+    loop: "Loop Handle",
+    noHandle: "No Handle + D-ring"
+  }
+};
+
+const asLabel = (group, key) => LABELS[group]?.[key] ?? "";
+
+
+
+
 // Map builder product keys to your public-facing labels
 const PRODUCT_LABELS = {
   leash: "Standard Leash",
   longLine: "Long Line",
-  handsFreeSystem: "The Tallulah (Hands-Free)",
+  handsFreeSystem: "Hands-Free System (The Tallulah)",
   trafficLead: "Traffic Handle",
   leashExtender: "Leash Extender",
   pullTab: "Pull Tab",
@@ -19,10 +58,10 @@ const PRODUCT_LABELS = {
 
 // Normalize builder values to your form’s fields
 function normalizeFromBuilder(params) {
-  const productKey = params.get("productType") || "";
-  const productType = PRODUCT_LABELS[productKey] || "";
+  // Use canonical keys that match your query params and selects
+  const productType = (params.get("productType") || "").trim(); // e.g., 'leash', 'collarBuckle'
 
-  // Length: prefer ft, else inches, else raw length string
+  // Length
   let length = "";
   const lengthFt = params.get("lengthFt");
   const lengthIn = params.get("lengthIn");
@@ -34,19 +73,15 @@ function normalizeFromBuilder(params) {
     .filter(Boolean)
     .join(", ");
 
-  // Hardware (builder uses 'standard'|'black')
-  const hwMap = { standard: "Silver", black: "Black" };
-  const hardware = hwMap[params.get("hardware")] || "";
+  // Hardware: canonical key: 'standard' | 'black' | 'blackPlastic'
+  let hardware = (params.get("hardware") || "").trim();
+  if (hardware === "silver") hardware = "standard"; // alias safety
 
-  // Snap mapping
-  const snapMap = { swivelSnap: "Swivel Snap", lockingCarabiner: "Locking Carabiner" };
-  const snapType = snapMap[params.get("snap")] || "";
+  // Snap/Handle canonical keys
+  const snapType = (params.get("snap") || "").trim();          // 'lockingCarabiner' | 'swivelSnap'
+  const handleType = (params.get("gripHandle") || "").trim();  // 'loop' | 'noHandle'
 
-  // Handle mapping: builder grip only
-  const gripMap = { loop: "Loop Handle", noHandle: "No Handle + D-ring" };
-  const handleType = gripMap[params.get("gripHandle")] || "";
-
-  // Notes: assemble special flags so they carry over
+  // Notes (same logic, kept intact)
   const notesPieces = [];
   if (params.get("handsFreeConversion") === "true") notesPieces.push("Hands-free conversion.");
   if (params.get("trafficHandleBuiltIn") === "true") {
@@ -60,8 +95,7 @@ function normalizeFromBuilder(params) {
   if (params.get("floatingORing") === "true") notesPieces.push("Add floating O-ring.");
   if (params.get("stopper") === "true") notesPieces.push("Add stopper.");
 
-  // Collar flags
-  if (productKey === "collarBuckle") {
+  if (productType === "collarBuckle") {
     const collarSize = params.get("collarSize");
     const collarWidth = params.get("collarWidth");
     const buckleType = params.get("buckleType");
@@ -90,6 +124,7 @@ function normalizeFromBuilder(params) {
 
   return { productType, length, colors, hardware, snapType, handleType, notes, estPrice };
 }
+
 
 export default function OrderForm_with_prefill() {
   const [searchParams] = useSearchParams();

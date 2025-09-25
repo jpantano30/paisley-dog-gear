@@ -1,0 +1,33 @@
+.site-banner{
+  width:100%; 
+  background:#e27d60; 
+  color:#fff; 
+  text-align:center;
+  font-size:.95rem; 
+  padding:.6rem .8rem; 
+  display:flex; 
+  gap:.8rem; 
+  justify-content:center; 
+  flex-wrap:wrap;
+}
+.site-banner a{ 
+  color:#9dddc8; 
+  text-decoration:underline; 
+}
+.site-banner a:hover{  
+  /* text-decoration:none;  */
+  color: #516e64;
+}
+.site-banner-pill{
+  display:inline-block; 
+  padding:.1rem .5rem; 
+  border-radius:999px; 
+  background:#fff; 
+  color:#516e64; 
+  font-weight:800; 
+  text-transform:uppercase; 
+  font-size:.74rem;
+}
+.site-banner-link{ 
+  margin-left:.4rem; 
+}

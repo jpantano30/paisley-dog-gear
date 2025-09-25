@@ -5,7 +5,8 @@ const PRICING = {
   // What base length covers (for ft-based items)
   baseLengthFt: {
     leash: 6,        // base covers up to 6 ft
-    longLine: 10     // base covers up to 10 ft
+    longLine: 10,     // base covers up to 10 ft
+    handsFreeSystem: 7 // base covers up to 7 ft (adjustable)
   },
 
   // Base prices (menu-facing)
@@ -16,7 +17,7 @@ const PRICING = {
     leashExtender: 12,         // 6" base
     safetyStrapBiothane: 12,   // 3" base
     safetyStrapParacord: 20,   // 3" base
-    handsFreeSystem: 65,       // Tallulah base
+    handsFreeSystem: 47,       // Tallulah base
     collarBuckle: 20,          // not used directly (we do size-based below)
     collarQuickRelease: 22,    // not used directly (we do size-based below)
     ballHolder: 12,
@@ -26,7 +27,8 @@ const PRICING = {
   // Per-foot over base for ft items
   perFoot: {
     leash: 2,
-    longLine: 2.5
+    longLine: 2.5,
+    handsFreeSystem: 2
   },
 
   // Inch-based items: base lengths & overage rates

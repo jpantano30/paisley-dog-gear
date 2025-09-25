@@ -5,7 +5,7 @@ import "./BuilderGuide.css";
 /** Images live in /public/assets/...  */
 const PRODUCT_MEDIA = {
   leash: {
-    src: "/assets/pinkblackleash_ocean.jpg",
+    src: "/assets/leashpicsNvids/b&pstandard.JPG",
     alt: "Custom biothane leash with swivel snap and loop handle",
     credit: "Leash example",
   },
@@ -68,7 +68,6 @@ const StandardList = ({ productType }) => {
     return (
       <ul className="guide-list">
         <li>Width: <strong>5/8″</strong></li>
-        <li>Traffic handle: <strong>Included</strong></li>
         <li>Adjusters: <strong>Sliding O/D-rings</strong></li>
         <li>Carry: <strong>Handheld / cross-body / waist</strong></li>
         <li>Two-tone: <strong>Optional</strong></li>

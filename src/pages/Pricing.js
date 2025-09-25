@@ -75,11 +75,11 @@ const Pricing = () => {
           </div>
 
           <div className="price-card" id="tallulah">
-            <h3>The Tallulah</h3>
+            <h3>Hands-Free System (The Tallulah)</h3>
             <ul>
-              <li>Multi-functional hands-free system: $65–$85</li>
-              <li>Includes sliding O-ring, D-rings, custom traffic handles</li>
-              <li>Fully customizable layout</li>
+              <li>Base system: <strong>from $47</strong> (base 7ft) </li>
+              <li>Sliding rings & multiple attachment points</li>
+              <li>Optional: traffic handle, extender, two-tone, black hardware</li>
             </ul>
           </div>
 

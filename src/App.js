@@ -16,6 +16,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/dataDeletion.js";
 import ProductBuilder from "./pages/ProductBuilder";
 import VideoWatch from "./pages/VideoWatch";
+import QuickOrder from "./pages/QuickOrder";
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
           <Route path="/options" element={<Options />} />
           <Route path="/colors" element={<Colors />} />
           <Route path="/pricing" element={<Pricing />} /> 
-          <Route path="/order" element={<OrderForm />} />
+          <Route path="/quick-order" element={<QuickOrder />} />
+          <Route path="/order" element={<OrderForm />} /> 
           <Route path="/training" element={<TrainingForm />} />
           <Route path="/booking" element={<Consult />} />
           <Route path="/videos" element={<VideoGallery />} />

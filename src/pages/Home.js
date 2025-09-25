@@ -2,6 +2,9 @@ import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
+import "@fontsource/cormorant-garamond/700.css";
+import Banner from "../components/Banner";
+import "../components/Banner.css";
 
 const HERO_IMAGES = [
   { src: "/assets/leashpicsNvids/set3.JPG", alt: "Hands-free biothane dog leash" },
@@ -9,9 +12,12 @@ const HERO_IMAGES = [
   { src: "/assets/leashpicsNvids/ballholder3.JPG", alt: "Biothane ball holder" },
 ];
 
+const YT_ID = "wJ6vECs0Cu4"; // Shorts id
+
 const Home = () => {
   return (
     <>
+      <Banner />
       <title>Custom Biothane Dog Gear | Paisley</title>
       <meta
         name="description"
@@ -46,49 +52,18 @@ const Home = () => {
             </div>
 
             <div className="hero-actions">
-              <Link to="/builder" className="cta-button cta-primary">Design Your Own</Link>
-              <Link to="/training" className="cta-button cta-ghost">Training</Link>
-              <Link to="/options" className="cta-button cta-ghost">View Options</Link>
+              <Link to="/builder" className="cta-button cta-primary" id="herobtn">Design Your Own</Link>
+              <Link to="/training" className="cta-button cta-ghost" id="herobtn">Training</Link>
+              <Link to="/options" className="cta-button cta-ghost" id="herobtn">View Options</Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== NEW: DAY TRAINING SPOTLIGHT ===== */}
-      <section className="daytraining-spotlight" aria-label="Day Training">
-        <div className="dt-inner">
-          <div className="dt-copy">
-            <p className="pill">New</p>
-            <h2>Day Training — structured “day care while training”</h2>
-            <p className="dt-sub">
-              Drop-off or pick-up (depending on location). Real-world field trips, focused
-              training blocks, and rest. Great for manners, leash skills, recall, confidence,
-              and freestyle foundations.
-            </p>
-
-            <ul className="dt-highlights">
-              <li><strong>$75</strong> half-day · <strong>$100</strong> full day</li>
-              <li>
-                Packages (full day): <strong>3-Day $270</strong>, <strong>5-Day $425</strong>,
-                <strong> 10-Day $800</strong> <span className="save">save up to $200</span>
-              </li>
-              <li>Optional 20–30 min handoff lesson: <strong>+$20</strong></li>
-            </ul>
-
-            <div className="dt-cta-row">
-              <Link to="/training" className="cta-button cta-primary">Book Day Training</Link>
-              <Link to="/training#rates" className="cta-button cta-secondary">See Rates</Link>
-            </div>
-          </div>
-
-          <div className="dt-media" aria-hidden="true">
-            <img src="/assets/TPJ.jpeg" alt="Day training field trip" />
           </div>
         </div>
       </section>
 
       {/* ===== MAIN CONTENT ===== */}
       <section className="home">
+
+        {/* Site intro (kept) */}
         <div className="hero">
           <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />
           <h1>Paisley Dog Gear & Training</h1>
@@ -96,13 +71,41 @@ const Home = () => {
           <p>Functional. Custom. Made for Adventure.</p>
         </div>
 
-        <section className="about">
+        {/* NEW: Video in main content (responsive) */}
+        <section className="intro-video" aria-label="Tully video">
+          <div className="video-frame">
+            <iframe
+              title="Tully tricks"
+              src={`https://www.youtube.com/embed/${YT_ID}?autoplay=0&mute=0&controls=1&loop=0&playsinline=1&modestbranding=1`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          {/* <p className="video-caption">A quick look at the fun, practical training style I use.</p> */}
+        </section>
+        
+        
+        {/* NEW: Maker image card ABOVE About the Maker (styled like dog cards) */}
+        <section className="maker" aria-label="About the maker photo">
           <h2>About the Maker</h2>
-          <p>
-            Hi, I’m Jena, maker, dog trainer, software engineer, and former pastry chef. I started Paisley Dog Gear & Training to build gear that actually works. My first service dog, Paisley, still inspires everything I make, and Tallulah, my energetic Bordoodle, service dog in training, and demo dog, helps field-test it in freestyle and service work. Every piece is designed to be functional, comfortable, and good-looking.
-          </p>
+          <div className="dog-card maker-card">
+            <img
+              src="/assets/Jena_hero.jpg"
+              alt="Jena holding her dog by the water"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="maker-info">
+              <h3 className="maker-name">Jena Pantano</h3>
+              <p className="maker-bio">
+                Hi, I’m Jena, maker, dog trainer, software engineer, and former pastry chef. I started Paisley Dog Gear & Training to build gear that actually works. My first service dog, Paisley, still inspires everything I make, and Tallulah, my energetic Bordoodle, service dog in training, and demo dog, helps field-test it in freestyle and service work. Every piece is designed to be functional, comfortable, and good-looking.
+              </p>
+            </div>
+          </div>
         </section>
 
+        {/* Dogs (kept) */}
         <section className="dogs">
           <h2>Meet the Dogs</h2>
           <div className="dog-profiles">
@@ -136,6 +139,7 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Training CTA (kept) */}
         <section className="training-inquiry">
           <h2>Dog Training Inquiries</h2>
           <p>
@@ -147,7 +151,8 @@ const Home = () => {
           </Link>
         </section>
 
-        <section aria-label="Quick links" style={{marginTop: 16}} className="page-intro">
+        {/* Quick links (kept) */}
+        <section aria-label="Quick links" style={{ marginTop: 16 }} className="page-intro">
           <p>
             Ready to design gear? <a href="/builder">Use the Gear Builder</a>.{" "} <br />
             Know what you want? <a href="/order">Request a quote</a>.{" "}

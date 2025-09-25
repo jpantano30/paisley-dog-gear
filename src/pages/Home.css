@@ -35,7 +35,7 @@
   transform: translateZ(0); /* paints smoother on iOS */
 }
 
-/* ----- Bottom copy bar (opposite side of Strange Tails) ----- */
+/* ----- Bottom copy bar  ----- */
 .hero-bottombar {
   position: absolute;
   left: 0;
@@ -75,9 +75,10 @@
 
 .hero-heading {
   margin: 0;
-  font-weight: 800;
-  line-height: 1.15;
-  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-family: "Cormorant Garamond", serif !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  font-size: clamp(1.75rem, 5vw, 3.25rem) !important;
   color: #9dddc8 !important;
 }
 
@@ -94,6 +95,8 @@
   flex-wrap: wrap;
   margin-bottom: .25rem; /* align to bottom baseline */
 }
+
+
 
 /* Ghost/outline variant on dark images */
 .cta-ghost {
@@ -246,7 +249,7 @@
 .cta-button {
   background-color: var(--brand-coral);
   color: white;
-  padding: 0.72rem 1.2rem;
+  padding: 0.52rem 1rem;
   border-radius: 10px;
   font-weight: 700;
   display: inline-block;
@@ -255,9 +258,26 @@
   border: 2px solid transparent;
   box-shadow: 0 10px 24px rgba(0,0,0,.18);
 }
+
+#herobtn {
+  background-color: var(--brand-coral);
+  color: white;
+  padding: 0.32rem .6rem;
+  border-radius: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform .06s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
 .cta-button:hover {
   background-color: var(--brand-teal) !important;
   color: white !important;
+  text-decoration: none;
 }
 .cta-button:active { transform: translateY(1px); }
 
@@ -347,4 +367,92 @@
   .about, .featured, .training-inquiry { padding: 0 1rem; }
   .hero-logo { height: 120px; width: 120px; }
   .training-inquiry .cta-button { width: 100%; padding: 0.9rem; font-size: 1rem; }
+  .hero-actions .cta-button { font-size: 1rem; padding: .55rem .9rem; }
 }
+
+
+/* ===== Video section (inside main content) ===== */
+.intro-video {
+  max-width: 900px;
+  margin: 1.25rem auto 1.75rem;
+  text-align: center;
+  padding: 0 12px;
+}
+.video-frame {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 760px;           /* cap width so it doesn’t dominate */
+  aspect-ratio: 16 / 9;       /* compact landscape */
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  position: relative;
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-caption {
+  margin-top: .45rem;
+  color: #555;
+  font-size: .95rem;
+}
+
+/* Fallback for browsers without aspect-ratio support */
+@supports not (aspect-ratio: 16/9) {
+  .video-frame { padding-top: 56.25%; } /* 16:9 */
+  .video-frame iframe { position: absolute; inset: 0; }
+}
+
+
+/* ===== Maker image card (matching dog-card look) ===== */
+.maker {
+  max-width: 1000px;
+  margin: 1.75rem auto 1.5rem;
+  text-align: center;
+}
+.maker-card {
+  display: inline-block;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  font-size: 20px;
+}
+.maker-card:hover { transform: scale(1.03); }
+.maker-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+
+}
+
+.maker-info {
+  margin: 10px 15px 20px 15px;
+}
+
+/* ===== Maker image card (same look as dog cards) ===== */
+/* .maker {
+  max-width: 1000px;
+  margin: 1.75rem auto 1.25rem;
+  text-align: center;
+  padding: 0 12px;
+}
+.maker-card {
+  max-width: 250px;           
+  margin: 0 auto;
+}
+.maker-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+} */
+

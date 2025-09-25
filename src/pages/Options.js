@@ -7,7 +7,7 @@ import "../components/page-intro.css";
 const gearData = [
   {
     title: "Standard Leashes",
-    image: "/assets/leashpicsNvids/leashes.JPG",
+    image: "/assets/leashpicsNvids/b&pstandard.JPG",
     anchor: "leashes",
     description: "Custom everyday leashes made to fit your walk style. Choose the length, snap type, and color combo that works best for you.",
     bestFor: "Everyday walking • City environments • Training",
@@ -64,10 +64,10 @@ const gearData = [
     ]
   },
   {
-    title: "The Tallulah",
+    title: "Hands-Free System (The Tallulah)",
     image: "/assets/tallulah-sage2.JPG",
     anchor: "tallulah",
-    description: "A hands-free leash system for training, multitasking, and public access work. Wear it crossbody, at your waist, or handheld.",
+    description: "A hands-free leash system for training, multitasking, and everyday use. Wear it crossbody, at your waist, handheld, or even shorten it for a custom fit.",
     bestFor: "Hands-free walking • Training • Public access work",
     items: [
       "**Description**",
@@ -75,20 +75,19 @@ const gearData = [
       "- Wear crossbody, around waist, or handheld",
       "**Features**",
       "- Sliding D/O-rings and multiple fixed D-rings",
-      "- Built-in traffic handle",
-      "- Includes matching extender",
+      "- Optional built-in traffic handle (location + material)",
+      "- Optional matching extender",
       "**Customization**",
       "- Color layout, length, and hardware placement"
     ],
     pricing: [
-      "Base system: $65–$85",
-      "Includes extender, traffic handle, sliding rings",
-      "Upgrades (two-tone, black hardware): add-on"
+      "Base system: $47 (base 7ft)",
+      "Upgrades (traffic handle, extender, two-tone, black hardware): add-on"
     ]
   },
   {
     title: "Collars",
-    image: "/assets/leashpicsNvids/IMG_5129.JPG",
+    image: "/assets/collars_custom.JPG",
     anchor: "collars",
     description: "Strong, stylish, and built for comfort. Choose your size band, width, buckle, and optional two-tone or HTV.",
     bestFor: "Daily wear • Personalized fit",
@@ -115,9 +114,9 @@ const gearData = [
   },
   {
     title: "Traffic Handles",
-    image: "/assets/leashpicsNvids/traffichandleedit.JPG",
+    image: "/assets/pink_purple_traffic_handle.jpg",
     anchor: "accessories",
-    description: "Short grab handles for quick control in tight spaces. Choose Biothane or a paracord weave.",
+    description: "Short grab handles for quick control in tight spaces or quick grab tab for off leash use. Choose Biothane or a paracord weave.",
     bestFor: "Heel work • Crowded areas • Large dogs",
     items: [
       "**Sizes**",

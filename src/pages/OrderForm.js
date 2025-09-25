@@ -7,7 +7,7 @@ import "../components/page-intro.css";
 const PRODUCT_LABELS = {
   leash: "Standard Leash",
   longLine: "Long Line",
-  handsFreeSystem: "The Tallulah",
+  handsFreeSystem: "Hands-Free System (The Tallulah)",
   trafficLead: "Traffic Handle",
   leashExtender: "Leash Extender",
   pullTab: "Pull Tab",
@@ -20,7 +20,7 @@ const PRODUCT_LABELS = {
 
 // Normalize builder values to your form’s fields
 function normalizeFromBuilder(params) {
-  const productKey = params.get("productType") || "";
+  const productKey = (params.get("productType") || "").trim();
   const productType = PRODUCT_LABELS[productKey] || "";
 
   // Length: prefer ft, else inches, else raw length string
@@ -217,13 +217,13 @@ export default function OrderForm() {
         "paymentAccepted": "PayPal, Venmo"
       })}</script>
 
-      {/* Hero */}
       <div className="order-hero">
         <h1>Custom Order Request</h1>
         <p className="order-sub">
           Share the details for your custom gear and I’ll send a quote. If you used the Builder, your selections will
           appear below automatically.
         </p>
+        <p><em>Need help? Check out the <a href="/builder" target="_blank" rel="noopener noreferrer">Builder</a>.</em></p>
         <div className="est-badge">
           Estimated from Builder:{" "}
           <strong>{formData.estPrice ? `$${formData.estPrice}` : "—"}</strong>
@@ -256,7 +256,7 @@ export default function OrderForm() {
               <option value="">-- Select --</option>
               <option>Standard Leash</option>
               <option>Long Line</option>
-              <option>The Tallulah</option>
+              <option>Hands-Free System (The Tallulah)</option>
               <option>Safety Strap — Biothane</option>
               <option>Safety Strap — Paracord Weave</option>
               <option>Leash Extender</option>
@@ -285,6 +285,12 @@ export default function OrderForm() {
               onChange={handleChange}
               value={formData.colors}
             />
+            <p>
+                    <em>
+                      Want to see the full chart?{" "}
+                      <a href="/colors" target="_blank" rel="noopener noreferrer">Open colors in a new tab</a>
+                    </em>
+                  </p>
           </div>
 
           {/* Column B */}

@@ -6,12 +6,23 @@ import "../components/page-intro.css";
 const galleryImages = [
   { filename: "paisley_leashCollar_ocean.jpeg", caption: "Paisley wearing her custom leash and two tone collar!", type: "image" },
   { filename: "painted.JPG", caption: "Custom Painted Collar", type: "image" },
+  { filename: "navy_brown.JPG", caption: "Deep Sea and Brown Standard Leash", type: "image" },
+  { filename: "/hands-free-coral_Navy.JPG", caption: "Hands-free system in coral and deep sea with brass hardware", type: "image" },
+
   { filename: "tallulah-sage.JPG", caption: "The Tallulah in Sage & White", type: "image" },
   { filename: "handsfree-redandblack2.JPG", caption: "Hands-free standard red and black", type: "image" },
   { filename: "Turbo_gym.JPEG", caption: "Custom Collar with Name Plate", type: "image" },
   { filename: "/leashpicsNvids/IMG_5191.JPG", caption: "Custom 2 Tone Collar", type: "image" },
+
+  { filename: "JetTug.jpeg", caption: "Jet showing how durable his red and black leash is!", type: "image" },
+
   { filename: "PurpleTrafficNCollar_ocean.jpg", caption: "Amythest Purple traffic handle/ pull tab and collar.", type: "image" },
   { filename: "/leashpicsNvids/rwb.jpg", caption: "Hands-free 8ft red, white and blue (3-tone) leash and matching adjustable collar", type: "image" },
+
+  { filename: "rolled_coral.JPG", caption: "The Tallulah in Coral & Navy", type: "image" },
+
+  { filename: "littleone1.jpeg", caption: "Little One in her matching collar and leash set", type: "image" },
+
   { filename: "collars_custom.JPG", caption: "Custom Collars", type: "image" },
   { filename: "leashextender.jpg", caption: "Leash extender (sage & white with black hardware)", type: "image" },
   { filename: "/leashpicsNvids/bella.jpg", caption: "Custom hands-free leash in amethyst purple and violet", type: "image" },
