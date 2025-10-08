@@ -27,7 +27,7 @@ const PRICING = {
   // Per-foot over base for ft items
   perFoot: {
     leash: 2,
-    longLine: 2.5,
+    longLine: 2,
     handsFreeSystem: 2
   },
 

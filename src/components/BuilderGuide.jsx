@@ -52,7 +52,7 @@ const PRODUCT_MEDIA = {
 };
 
 const StandardList = ({ productType }) => {
-  if (productType === "longLine" || productType === "leash") {
+  if (productType === "leash") {
     return (
       <ul className="guide-list">
         <li>Width: <strong>5/8″</strong></li>
@@ -60,6 +60,19 @@ const StandardList = ({ productType }) => {
         <li>Grip: <strong>Loop handle</strong></li>
         <li>Hardware: <strong>Silver</strong></li>
         <li>Two-tone: <strong>Off</strong></li>
+      </ul>
+    );
+  }
+
+  if (productType === "longLine") {
+    return (
+      <ul className="guide-list">
+        <li>Width: <strong>5/8″</strong></li>
+        <li>Snap: <strong>Swivel snap</strong></li>
+        <li>Grip: <strong>Loop handle</strong></li>
+        <li>Hardware: <strong>Silver</strong></li>
+        <li>Two-tone: <strong>Off</strong></li>
+        <li>Base length: <strong>10 ft</strong></li>
       </ul>
     );
   }

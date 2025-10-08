@@ -483,14 +483,29 @@ export default function ProductBuilder() {
   }, [form, isInchItem, isCollarType, isSmallAccessory, spec]);
 
   // Centralized updater that also enforces locked fields
+  // Centralized updater that also enforces locked fields + product defaults
   const update = (patch) =>
     setForm((prev) => {
       const next = { ...prev, ...patch };
+
+      // If product type changed, apply sensible defaults
+      if (patch.productType && patch.productType !== prev.productType) {
+        if (patch.productType === "longLine") {
+          // Always start a Long Line at its base length of 10 ft
+          next.lengthFt = 10;
+        } else if (patch.productType === "leash") {
+          // keep your existing leash default
+          next.lengthFt = next.lengthFt || 6;
+        }
+      }
+
+      // honor any locked fields defined in PRODUCT_SPEC
       if (PRODUCT_SPEC[next.productType]?.locked?.trafficHandleBuiltIn) {
         next.trafficHandleBuiltIn = true;
       }
       return next;
     });
+
 
   const setPreset = (val) => {
     if (!spec) return;
