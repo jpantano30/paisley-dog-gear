@@ -57,8 +57,7 @@ const VideoGallery = () => {
             they’re useful.
           </p>
           <p>
-            If a demo helps you decide, you can <a href="/builder">build your gear</a>{" "}
-            and then <a href="/order">request a quote</a>.
+            If a demo helps you decide, you can <Link to="/builder">build your gear</Link>{" "} and then <Link to="/order">request a quote</Link>.
           </p>
         </section>
 

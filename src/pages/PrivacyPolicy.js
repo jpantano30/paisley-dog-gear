@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       {/* SEO tags for Privacy Policy page */}
       <title>Privacy Policy | Paisley Dog Gear & Training</title>
       <meta name="description" content="How we collect, use and protect your information when you browse, order or book training." />
-      <link rel="canonical" href="https://paisleydoggearandtraining.com/privacy" />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/privacy-policy" />
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Privacy Policy | Paisley Dog Gear & Training" />

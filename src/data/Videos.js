@@ -7,7 +7,7 @@ export const videos = [
     type: "training",
     slug: "tully-freestyle-backwards-weave",
     uploadDate: "2025-09-01",
-    duration: "PT1M16S" // 1:10 — adjust if needed
+    duration: "PT1M16S" 
   },
   {
     youtubeId: "wJ6vECs0Cu4",
