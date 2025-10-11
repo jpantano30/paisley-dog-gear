@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./ProductBuilder.css";
 import PRICING from "../components/pricingConfig";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../components/page-intro.css";
 import BuilderGuide from "../components/BuilderGuide";
 
@@ -677,6 +677,9 @@ export default function ProductBuilder() {
       <div className="builder-container">
         <header className="builder-header">
           <h1>Build Your Gear</h1>
+          <p className="inline-cta">
+            Ready to order? <Link to="/order">Request a custom quote</Link>
+          </p>
           <p>Start by choosing a product type. The available options and add-ons will update automatically.</p>
         </header>
 
@@ -1074,6 +1077,11 @@ export default function ProductBuilder() {
               <br />
               <p>You’ll receive a custom quote with final pricing after you submit the form.</p>
             </div>
+            <section className="page-intro">
+              <h2>Get your quote</h2>
+              <p>Finished choosing sizes, colors, and hardware? Send it to me and I’ll reply with timing and a final quote.</p>
+              <p><Link to="/order" className="btn">Request a Quote</Link></p>
+            </section>
           </div>
         </div>
       </div>

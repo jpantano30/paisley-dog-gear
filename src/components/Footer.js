@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { FaPaw, FaInstagram, FaFacebook } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -32,6 +32,10 @@ const Footer = () => {
             <a className="mini-link" href="/boston-dog-trainer-north-end">Boston Dog Trainer (North End)</a>
             <span aria-hidden="true"> · </span>
             <a className="mini-link" href="/biothane-dog-leashes-boston">Biothane Leashes &amp; Collars</a>
+            <p className="footer-mini-links">
+              <Link to="/order">Request a Quote</Link>
+            </p>
+
           </nav>
 
         </div>

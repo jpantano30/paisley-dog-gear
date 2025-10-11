@@ -50,37 +50,34 @@ export default function VideoWatch() {
     canonical.setAttribute("href", pageUrl);
 
     // Open Graph
-    const og = (p, c) => {
-      const sel = `meta[property="${p}"]`;
-      const el = setOrCreate(sel, () => {
-        const m = document.createElement("meta");
-        m.setAttribute("property", p);
-        return m;
-      });
-      el.setAttribute("content", c);
-      return el;
-    };
-    const ogTitle = og("og:title", video.title);
-    const ogDesc  = og("og:description", video.description);
-    const ogType  = og("og:type", "video.other");
-    const ogUrl   = og("og:url", pageUrl);
-    const ogImg   = og("og:image", thumb);
+    // const og = (p, c) => {
+    //   const sel = `meta[property="${p}"]`;
+    //   const el = setOrCreate(sel, () => {
+    //     const m = document.createElement("meta");
+    //     m.setAttribute("property", p);
+    //     return m;
+    //   });
+    //   el.setAttribute("content", c);
+    //   return el;
+    // };
+    // const ogTitle = og("og:title", video.title);
+    // const ogDesc  = og("og:description", video.description);
+    // const ogType  = og("og:type", "video.other");
+    // const ogUrl   = og("og:url", pageUrl);
+    // const ogImg   = og("og:image", thumb);
 
     // Twitter
-    const tw = (n, c) => {
-      const sel = `meta[name="${n}"]`;
-      const el = setOrCreate(sel, () => {
-        const m = document.createElement("meta");
-        m.setAttribute("name", n);
-        return m;
-      });
-      el.setAttribute("content", c);
-      return el;
-    };
-    const twCard  = tw("twitter:card", "player");
-    const twTitle = tw("twitter:title", video.title);
-    const twDesc  = tw("twitter:description", video.description);
-    const twImg   = tw("twitter:image", thumb);
+    // const tw = (n, c) => {
+    //   const sel = `meta[name="${n}"]`;
+    //   const el = setOrCreate(sel, () => {
+    //     const m = document.createElement("meta");
+    //     m.setAttribute("name", n);
+    //     return m;
+    //   });
+    //   el.setAttribute("content", c);
+    //   return el;
+    // };
+    
 
     // JSON-LD VideoObject — replace any prior instance
     const existing = document.getElementById("video-jsonld");

@@ -124,6 +124,8 @@
 }
 
 
+.footer-mini-links { margin-top: .5rem; font-size:.95rem; }
+.footer-mini-links a { text-decoration: underline; }
 
 
 /* Responsive */
