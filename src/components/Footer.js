@@ -20,6 +20,20 @@ const Footer = () => {
           >
             paisleygearandtraining@gmail.com
           </a>
+          <br />
+          <br />
+          <address>
+            <strong>Paisley Dog Gear &amp; Training</strong><br />
+            15 Stillman St, Boston, MA 02113<br />
+            {/* <a href="tel:+16178721749">(617) 872-1749</a> */}
+          </address>
+          {/* SEO/UX: quiet text links to important pages */}
+          <nav className="footer-mini" aria-label="Quick links">
+            <a className="mini-link" href="/boston-dog-trainer-north-end">Boston Dog Trainer (North End)</a>
+            <span aria-hidden="true"> · </span>
+            <a className="mini-link" href="/biothane-dog-leashes-boston">Biothane Leashes &amp; Collars</a>
+          </nav>
+
         </div>
 
         <nav className="social-row" aria-label="Social links">
@@ -75,6 +89,8 @@ const Footer = () => {
           <strong>International Association of Canine Professionals</strong>
         </p>
       </div>
+
+      
     </footer>
   );
 };

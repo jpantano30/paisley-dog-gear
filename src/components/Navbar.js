@@ -36,19 +36,26 @@ export default function Navbar() {
           </li>
 
           {/* Desktop dropdown */}
-          <li className="has-dropdown">
+          <li
+            className={`has-dropdown ${gearOpen ? "open" : ""}`}
+            onMouseEnter={() => setGearOpen(true)} // hover opens
+          >
             <button
               type="button"
               className="trigger nav-btn-reset"
               aria-haspopup="true"
-              aria-expanded="false"
+              aria-expanded={gearOpen}
+              onClick={() => setGearOpen(v => !v)}
+              onTouchMove={() => setGearOpen(v => !v)}   // click also toggles
+              onMouseLeave={() => setGearOpen(false)} // hover closes
             >
               Gear <span className="caret">▾</span>
             </button>
-            <div className="dropdown" role="menu">
-              <Link className="drop-link" role="menuitem" to="/builder">Builder (Custom)</Link>
-              <Link className="drop-link" role="menuitem" to="/quick-order">Quick Order (Presets)</Link>
-              <Link className="drop-link" role="menuitem" to="/options">Gear Options</Link>
+            <div className="dropdown" role="menu" onClick={() => setGearOpen(false)}>
+              <Link className="drop-link" role="menuitem" to="/builder" onClick={() => setMenuOpen(false)}>Builder (Custom)</Link>
+              <Link className="drop-link" role="menuitem" to="/quick-order" onClick={() => setMenuOpen(false)}>Quick Order (Presets)</Link>
+              <Link className="drop-link" role="menuitem" to="/options" onClick={() => setMenuOpen(false)}>Gear Options</Link>
+              {/* <Link className="drop-link" role="menuitem" to="/biothane-dog-leashes-boston" onClick={() => setMenuOpen(false)}>Biothane Hub</Link> */}
             </div>
           </li>
 
@@ -81,6 +88,20 @@ export default function Navbar() {
               Gallery
             </Link>
           </li>
+          {/* <li>
+            <Link className={`link ${pathname === "/boston-dog-trainer-north-end" ? "active" : ""}`}
+                  to="/boston-dog-trainer-north-end" onClick={() => setMenuOpen(false)}>
+              Boston
+            </Link>
+          </li>
+
+          <li>
+            <Link className={`link ${pathname === "/biothane-dog-leashes-boston" ? "active" : ""}`}
+                  to="/biothane-dog-leashes-boston" onClick={() => setMenuOpen(false)}>
+              Biothane
+            </Link>
+          </li> */}
+
         </ul>
 
         <button

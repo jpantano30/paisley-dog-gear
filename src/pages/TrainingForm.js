@@ -80,26 +80,23 @@ const TrainingForm = () => {
   return (
     <>
       <Banner />
-      {/* Keep your SEO style (no Helmet) */}
-      <title>Request Dog Training | How Our Training Works</title>
+      {/*  SEO style (no Helmet) */}
+      <title>Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training</title>
       <meta
         name="description"
-        content="Tell me about your dog and goals, then I’ll follow up with a plan, pricing, and scheduling options."
+        content="Private sessions in Boston: puppy foundations, obedience & manners, trick training, and leash skills."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
+
+      {/* Social previews */}
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Request Dog Training | How Our Training Works" />
-      <meta
-        property="og:description"
-        content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process."
-      />
+      <meta property="og:title" content="Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training" />
+      <meta property="og:description" content="Private sessions in Boston: puppy foundations, obedience & manners, trick training, and leash skills." />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
+
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Request Dog Training | How Our Training Works" />
-      <meta
-        name="twitter:description"
-        content="Share your goals, get a tailored plan and pricing. Read the step-by-step training process."
-      />
+      <meta name="twitter:title" content="Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training" />
+      <meta name="twitter:description" content="Private sessions in Boston: puppy foundations, obedience & manners, trick training, and leash skills." />
 
       {/* FAQ JSON-LD */}
       <script
@@ -142,6 +139,7 @@ const TrainingForm = () => {
       />
 
       <div className="training-form-container">
+        
         <h1>Dog Training Request</h1>
         <p className="intro-sub">
           Share the details about your dog and goals. I’ll send a plan, pricing, and scheduling options.
@@ -183,7 +181,7 @@ const TrainingForm = () => {
               <li><strong>In-Home</strong> — your dog’s everyday environment</li>
               <li><strong>Local Park Meet-Up</strong> — recall, leash work, tricks, general skills</li>
               <li><strong>Field Trips</strong> — Home Depot/Lowe’s for public manners and focus</li>
-              <li><strong>Boston Option</strong> — meet at my Boston training area or public spots</li>
+              <li><strong><Link to="/boston-dog-trainer-north-end">Boston (North End)</Link></strong> — meet at our training area or nearby public spots</li>
               <li><strong>Virtual Check-Ins</strong> — 30-min Zoom/Meet for tune-ups, planning, or behavior Q&amp;A</li>
             </ul>
           </div>
@@ -192,6 +190,48 @@ const TrainingForm = () => {
             Every dog and person is different. We personalize the plan so you both succeed.
           </p>
         </section>
+
+        {/* Trainer Credentials — visible trust section */}
+        <section className="trainer-credentials" aria-label="Trainer credentials and affiliations">
+          {/*<h2>Trainer Credentials</h2>
+
+          <ul className="cred-list">
+            <li>Member, International Association of Canine Professionals (IACP)</li>
+            <li>Member, Association of Professional Dog Trainers (APDT)</li>
+          </ul>
+
+          <p className="cred-note">
+            I’m committed to continuing education and staying current on best practices. Here’s what I’m working on:
+          </p>
+          <ul className="cred-list">
+            <li>
+              <strong>Working toward:</strong> CPDT-KA (Certified Professional Dog Trainer – Knowledge Assessed (CCPDT®))
+              <span className="cred-note">— actively logging hours and study time</span>
+            </li>
+            <li>
+              <strong>Planned:</strong> IACP Certified Dog Trainer (CDT) and Prong Collar Knowledge Assessment (PCKA)
+            </li>
+            <li>
+              <strong>Future:</strong> AKC Canine Good Citizen & Trick Dog Evaluator  */}
+              {/* (eligible in ~1.5 years) */}
+            {/* </li> */}
+            {/* <li>
+              <strong>Pending:</strong> Pet First Aid &amp; CPR Certification
+            </li> */}
+          {/* </ul> */}
+
+          <p className="cred-disclaimer">
+            I follow standards recognized by CCPDT, IACP, and AKC and tailor plans to your dog’s learning style. If you have questions about methods, feel free to email me at paisleygearandtraining@gmail.com.
+          </p>
+
+          {/* Optional: add small logo badges when you have assets */}
+          {/* <div className="cred-logos" aria-hidden="true">
+            <img src="/images/logos/ccpdt.png" alt="" />
+            <img src="/images/logos/iacp.png" alt="" />
+            <img src="/images/logos/akc.png" alt="" />
+          </div> */}
+        </section>
+
 
         {/* Videos */}
         <section className="training-videos">

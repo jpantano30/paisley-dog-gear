@@ -17,6 +17,8 @@ import DataDeletion from "./pages/dataDeletion.js";
 import ProductBuilder from "./pages/ProductBuilder";
 import VideoWatch from "./pages/VideoWatch";
 import QuickOrder from "./pages/QuickOrder";
+import Boston from "./pages/Boston";
+import BiothaneHub from "./pages/BiothaneHub.jsx"; 
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
       <Navbar />
       <main>
         <Routes>
+          <Route path="/boston-dog-trainer-north-end" element={<Boston />} />
+          <Route path="/biothane-dog-leashes-boston" element={<BiothaneHub />} />
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/options" element={<Options />} />

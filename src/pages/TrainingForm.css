@@ -168,6 +168,59 @@ h1 {
   font-weight: 800;
 }
 
+/* Trainer Credentials */
+.trainer-credentials {
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.trainer-credentials h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.cred-list {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.2rem;
+}
+
+.cred-list li {
+  margin: 0.4rem 0;
+}
+
+.cred-note {
+  display: inline-block;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-left: 0.25rem;
+}
+
+.cred-disclaimer {
+  margin-top: 0.75rem;
+  font-size: 0.98rem;
+  opacity: 0.9;
+}
+
+.cred-logos {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.6rem;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.cred-logos img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(25%);
+}
+
+
 /* ---------- Videos ---------- */
 .training-videos { text-align:center; color:var(--accent-brown); margin-bottom: 2rem; }
 .training-videos h2 { color: var(--accent-coral); }

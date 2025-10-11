@@ -15,15 +15,26 @@ const HERO_IMAGES = [
 const YT_ID = "wJ6vECs0Cu4"; // Shorts id
 
 const Home = () => {
+
+  const orgLD = {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Paisley Dog Gear & Training",
+    "url":"https://paisleydoggearandtraining.com",
+    "logo":"https://paisleydoggearandtraining.com/assets/logo.jpg",
+    "sameAs":["https://www.facebook.com/PaisleyGearandTraining/"]
+  };
+
   return (
     <>
       <Banner />
-      <title>Custom Biothane Dog Gear | Paisley</title>
-      <meta
-        name="description"
-        content="Handmade biothane leashes and collars plus private training. Build your gear, request a quote, or book a free 15-minute consult."
-      />
+      <title>Boston Dog Trainer & Custom Biothane Leashes | Paisley Dog Gear & Training</title>
+      <meta name="description"
+            content="Handmade Biothane leashes & collars plus private dog training in Boston’s North End: puppy foundations, manners & trick training." />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/" />
+      {/* Structured Data */}
+      <script type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLD) }} />
 
       {/* ===== HERO STRIP ===== */}
       <section className="hero-strip" aria-label="Featured photos">
@@ -65,6 +76,7 @@ const Home = () => {
 
         {/* Site intro (kept) */}
         <div className="hero">
+          <p className="links-container1"><a href="/boston-dog-trainer-north-end">Boston</a> <a href="/biothane-dog-leashes-boston">Biothane</a></p>
           <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />
           <h1>Paisley Dog Gear & Training</h1>
           <h2 className="tagline">Custom Biothane Dog Gear & Trick Training in Boston, MA</h2>
@@ -164,6 +176,17 @@ const Home = () => {
             <a href="/options">options</a>, and <a href="/videos">videos</a>.
           </p>
         </section>
+        <div className="disclaimer">
+          <h4>Disclaimer</h4>
+          <p>
+            * All gear is made to order. Colors and styles may vary slightly from
+            photos. Please allow 1-2 weeks for production plus shipping time.
+          </p>
+          <p>
+            ** Training services are provided in Boston’s North End and nearby
+            neighborhoods. Training outside of these areas are subject to travel policy. Virtual sessions are available nationwide.
+          </p>
+        </div>
       </section>
     </>
   );

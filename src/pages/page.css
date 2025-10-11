@@ -1,0 +1,96 @@
+/* page.css (scoped) */
+.page-scope{
+  --ink:#0f172a;        /* slate-900 */
+  --muted:#475569;      /* slate-600 */
+  --line:#e5e7eb;       /* gray-200 */
+  --accent:#2563eb;     /* blue-600 */
+  --accent-ink:#ffffff;
+}
+
+/* Layout */
+.page-scope .container{
+  max-width: 880px;
+  margin-inline: auto;
+  padding: 28px 16px;
+  text-align: center;
+}
+.page-scope .stack-xs{ display:flex; flex-direction:column; gap:6px; }
+.page-scope .stack-sm{ display:flex; flex-direction:column; gap:12px; }
+.page-scope .stack-md{ display:flex; flex-direction:column; gap:16px; }
+.page-scope .stack-lg{ display:flex; flex-direction:column; gap:24px; }
+.page-scope .stack-xl{ display:flex; flex-direction:column; gap:32px; }
+
+/* Headings & text */
+.page-scope h1{
+  font-size: clamp(1.875rem, 2.5vw + 1rem, 2.375rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+.page-scope h2{
+  font-size: clamp(1.25rem, 1.2vw + 1rem, 1.5rem);
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.page-scope h3{
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--ink);
+}
+.page-scope p{ margin: 0; color: var(--muted); }
+
+/* Buttons + subtle separator */
+.page-scope .btn{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-decoration:none;
+  font-weight:600;
+}
+.page-scope .btn:hover{ filter: brightness(0.95); }
+.page-scope .btn.ghost{
+  background: transparent;
+  color: var(--accent);
+}
+.page-scope .subtle{ color: var(--muted); }
+
+/* Lists */
+.page-scope .bulleted, 
+.page-scope .numbered{ 
+  text-align: left; 
+  margin: 0; 
+  padding-left: 1.15rem; 
+  color: var(--muted);
+}
+.page-scope .bulleted li, 
+.page-scope .numbered li{ margin: 6px 0; }
+.page-scope .note{
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  border-left: 3px solid var(--line);
+  padding-left: 10px;
+}
+
+/* Grid 2-up that collapses on mobile */
+.page-scope .grid-2{
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 760px){
+  .page-scope .grid-2{ grid-template-columns: 1fr 1fr; }
+}
+
+/* Service cards */
+.page-scope .service{
+  text-align: left;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}

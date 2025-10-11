@@ -1,0 +1,5 @@
+.page-hero { text-align:center; }
+.page-hero .btn { margin: 0 .25rem; }
+.faq details { border:1px solid #e5e7eb; border-radius:10px; padding:.6rem .8rem; }
+.faq details + details { margin-top:.6rem; }
+.faq summary { cursor:pointer; font-weight:600; }
