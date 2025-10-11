@@ -344,6 +344,11 @@ h1 {
   border-color: var(--accent-teal);
 }
 
+.links-container1 {
+  text-align: center;
+  margin: 0;
+}
+
 /* Badges */
 .savings-badge {
   display: inline-block;

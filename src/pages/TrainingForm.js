@@ -141,6 +141,9 @@ const TrainingForm = () => {
       <div className="training-form-container">
         
         <h1>Dog Training Request</h1>
+        <p className="links-container1">
+          <Link to="/boston-dog-trainer-north-end">Boston Training</Link>
+        </p>
         <p className="intro-sub">
           Share the details about your dog and goals. I’ll send a plan, pricing, and scheduling options.
         </p>
