@@ -80,21 +80,31 @@ const Footer = () => {
           </a>
         </nav>
       </div>
-
-      {/* IACP membership */}
-      <div className="iacp-membership">
-        <img
-          src="/assets/IACP-2024-logo.png"
-          alt="IACP Member Logo"
-          className="iacp-logo"
-        />
-        <p className="iacp-text">
-          Associate Member of the{" "}
-          <strong>International Association of Canine Professionals</strong>
-        </p>
+      <div className="membership-badges">
+        {/* IACP membership */}
+        <div className="iacp-membership">
+          <img
+            src="/assets/IACP-2024-logo.png"
+            alt="IACP Member Logo"
+            className="iacp-logo"
+          />
+          <p className="iacp-text">
+            Associate Member of the{" "}
+            <strong>International Association of Canine Professionals</strong>
+          </p>
+        </div>
+        {/* APDT membership */}
+        <div className="apdt-membership">
+          <img
+            src="/assets/APDT-Badge.png"
+            alt="APDT Member Badge"
+            className="apdt-logo"
+          />
+          <p className="apdt-text">
+            Member of the <strong>Association of Professional Dog Trainers (APDT)</strong>
+          </p>
+        </div>
       </div>
-
-      
     </footer>
   );
 };

@@ -111,7 +111,15 @@ const Home = () => {
             <div className="maker-info">
               <h3 className="maker-name">Jena Pantano</h3>
               <p className="maker-bio">
-                Hi, I’m Jena, maker, dog trainer, software engineer, and former pastry chef. I started Paisley Dog Gear & Training to build gear that actually works. My first service dog, Paisley, still inspires everything I make, and Tallulah, my energetic Bordoodle, service dog in training, and demo dog, helps field-test it in freestyle and service work. Every piece is designed to be functional, comfortable, and good-looking.
+                Hi, I’m Jena! Maker, dog trainer, and former pastry chef turned software engineer. 
+                My background in psychology and behavioral science naturally led me to dog training, 
+                where I combine structure, communication, and creativity to help dogs and their people thrive. 
+                <br /><br />
+                I founded <strong>Paisley Dog Gear &amp; Training</strong> to design gear that actually works and 
+                supports real training goals. My first service dog, Paisley, still inspires everything I make, 
+                and Tallulah, my Bordoodle and service dog in training, helps test it in trick, freestyle, and task work.
+                <br /><br />
+                I’m a member of the <strong>Association of Professional Dog Trainers (APDT)</strong> and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I’m currently pursuing my <strong>CPDT-KA certification</strong> and continuing education in behavior and learning theory to better serve dogs and their people.
               </p>
             </div>
           </div>
@@ -139,7 +147,7 @@ const Home = () => {
               <img src="/assets/paisley.jpg" alt="Paisley the Cavachon" />
               <h3>Paisley</h3>
               <p>
-                The OG service dog. Sweet, calm, and retired — but still the inspiration behind it all. My first dog ever and the reason I fell in love with training, canine communication, and the power of a true bond. Paisley supported me through some of the hardest years of my life. She worked with quiet confidence, always by my side, always steady. Though she’s now enjoying retirement (and plenty of naps), her legacy lives on in every leash I make and every dog I help train. None of this would exist without her.
+                The OG service dog. Sweet, calm, and retired... but still the inspiration behind it all. My first dog ever and the reason I fell in love with training, canine communication, and the power of a true bond. Paisley supported me through some of the hardest years of my life. She worked with quiet confidence, always by my side, always steady. Though she’s now enjoying retirement (and plenty of naps), her legacy lives on in every leash I make and every dog I help train. None of this would exist without her.
                 <br /><br />
                 Follow her journey on Instagram:
                 <br />
