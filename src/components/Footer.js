@@ -33,7 +33,9 @@ const Footer = () => {
             <span aria-hidden="true"> · </span>
             <a className="mini-link" href="/biothane-dog-leashes-boston">Biothane Leashes &amp; Collars</a>
             <p className="footer-mini-links">
-              <Link to="/order">Request a Quote</Link>
+              <Link to="/order">Biothane Gear: Request a Quote</Link>
+              <br />
+              <Link to="/training">Dog Training Services</Link>
             </p>
 
           </nav>
@@ -83,11 +85,13 @@ const Footer = () => {
       <div className="membership-badges">
         {/* IACP membership */}
         <div className="iacp-membership">
-          <img
-            src="/assets/IACP-2024-logo.png"
-            alt="IACP Member Logo"
-            className="iacp-logo"
-          />
+          <a href="https://iacpdogs.org/" target="_blank" rel="noreferrer">
+            <img
+              src="/assets/IACP-2024-logo.png"
+              alt="IACP Member Logo"
+              className="iacp-logo"
+            />
+          </a>
           <p className="iacp-text">
             Associate Member of the{" "}
             <strong>International Association of Canine Professionals</strong>
@@ -95,11 +99,13 @@ const Footer = () => {
         </div>
         {/* APDT membership */}
         <div className="apdt-membership">
-          <img
-            src="/assets/APDT-Badge.png"
-            alt="APDT Member Badge"
-            className="apdt-logo"
-          />
+          <a href="https://apdt.com/" target="_blank" rel="noreferrer">
+            <img
+              src="/assets/APDT-Badge.png"
+              alt="APDT Member Badge"
+              className="apdt-logo"
+            />
+          </a>
           <p className="apdt-text">
             Member of the <strong>Association of Professional Dog Trainers (APDT)</strong>
           </p>
