@@ -93,12 +93,20 @@
   gap: 1.2rem;
 }
 
+.commitment-text {
+  font-size: .95rem;
+  max-width: 480px;
+  color: #333;
+  margin: 1rem auto 0;
+  line-height: 1.45;
+}
+
 /* IACP */
 .iacp-membership {
   display: grid;
   justify-items: center;
   gap: .4rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 .iacp-logo {
   width: 86px;

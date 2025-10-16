@@ -119,7 +119,9 @@ const Home = () => {
                 supports real training goals. My first service dog, Paisley, still inspires everything I make, 
                 and Tallulah, my Bordoodle and service dog in training, helps test it in trick, freestyle, and task work.
                 <br /><br />
-                I’m a member of the <strong>Association of Professional Dog Trainers (APDT)</strong> and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I’m currently pursuing my <strong>CPDT-KA certification</strong> and continuing education in behavior and learning theory to better serve dogs and their people.
+                I’m a member of the <strong>Association of Professional Dog Trainers (APDT)</strong> and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I’m working on continuing education in behavior and learning theory to better serve dogs and their people.
+
+                 {/* I’m currently pursuing my <strong>CPDT-KA certification</strong> and continuing education in behavior and learning theory to better serve dogs and their people. */}
               </p>
             </div>
           </div>

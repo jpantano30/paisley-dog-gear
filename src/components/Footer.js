@@ -82,6 +82,7 @@ const Footer = () => {
           </a>
         </nav>
       </div>
+      
       <div className="membership-badges">
         {/* IACP membership */}
         <div className="iacp-membership">
@@ -111,6 +112,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      {/* Commitment to standards text */}
+      <p className="commitment-text">Committed to ongoing education and professional standards across the dog training industry.</p>
     </footer>
   );
 };

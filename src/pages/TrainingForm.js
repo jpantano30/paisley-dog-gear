@@ -224,7 +224,8 @@ const TrainingForm = () => {
           {/* </ul> */}
 
           <p className="cred-disclaimer">
-            I follow standards recognized by CCPDT, IACP, and AKC and tailor plans to your dog’s learning style. If you have questions about methods, feel free to email me at paisleygearandtraining@gmail.com.
+            {/* I follow standards recognized by CCPDT, IACP, and AKC and tailor plans to your dog’s learning style.  */}
+            Member of multiple professional training organizations, including the IACP and APDT, and committed to continued education and high ethical standards in dog training. I tailor each program to the dog’s individual learning style. If you have questions about methods, feel free to email me at paisleygearandtraining@gmail.com.
           </p>
 
           {/* Optional: add small logo badges when you have assets */}
