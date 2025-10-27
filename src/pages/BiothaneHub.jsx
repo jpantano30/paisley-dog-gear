@@ -57,6 +57,36 @@ export default function BiothaneHub() {
             </ul>
           </section>
 
+          <section className="stack-md">
+            <h2>Hardware Options</h2>
+            <p>
+              Choose from several hardware finishes to match your dog’s lifestyle and your style.
+            </p>
+            <ul className="bulleted">
+              <li>
+                <strong>Stainless Steel:</strong> Extremely durable and rust-resistant—great for beach days,
+                swimming, or rough play. 
+                {/* (Note: Quick-release buckles and lobster clasps in this finish use
+                nickel/chrome plating.) */}
+              </li>
+              <li>
+                <strong>Solid Brass:</strong> A timeless choice that resists corrosion and develops a
+                natural patina with age. Ideal for dogs who explore rain, mud, or snow. (Note: Brass does tarnish when worn in saltwater. Rinse after exposure.)
+              </li>
+              <li>
+                <strong>Matte Black:</strong> Sleek and modern, made from coated steel. Best for light to
+                moderate use and for those who prefer a fashion-forward look.
+              </li>
+            </ul>
+            <p className="subtle">
+              <em>
+                Tip: Stainless steel and brass are your best bets for long-term durability, especially for
+                high-energy dogs. Fashion finishes like black are better for casual wear.
+              </em>
+            </p>
+          </section>
+
+
           <section className="grid-2 stack-md">
             <div>
               <h2>Why trainers like it</h2>

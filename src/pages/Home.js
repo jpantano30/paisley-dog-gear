@@ -12,6 +12,8 @@ const HERO_IMAGES = [
   { src: "/assets/leashpicsNvids/ballholder3.JPG", alt: "Biothane ball holder" },
 ];
 
+const Parade_IMG = "/assets/Show.jpeg";
+
 const YT_ID = "wJ6vECs0Cu4"; // Shorts id
 
 const Home = () => {
@@ -81,6 +83,8 @@ const Home = () => {
           <h1>Paisley Dog Gear & Training</h1>
           <h2 className="tagline">Custom Biothane Dog Gear & Trick Training in Boston, MA</h2>
           <p>Functional. Custom. Made for Adventure.</p>
+          <img src={Parade_IMG} alt="Parade" className="parade-img" />
+          <p className="featured-in">Featured in The Boston Globe October 2025</p>
         </div>
 
         {/* NEW: Video in main content (responsive) */}

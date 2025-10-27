@@ -287,6 +287,28 @@
 .cta-secondary { background-color: var(--brand-teal); }
 .cta-secondary:hover { background-color: #369f91; }
 
+
+.parade-img {
+  margin-top: 1rem;
+  max-width: 60%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.1);
+}
+.parade-img:hover {
+  box-shadow: 0 10px 24px rgba(170, 110, 110, 0.951);
+  transform: scale(1.02);
+
+}
+
+
+.featured-in {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
 /* ===== GENERIC SECTIONS ===== */
 .about, .featured, .training-inquiry {
   max-width: 800px;
