@@ -48,7 +48,7 @@ const PRICING = {
   width: {
     '5/8"': 0,
     '3/4"': 2,
-    '1"': 8
+    '1"': 6
   },
 
   // Hardware finish (non-collar)
@@ -87,12 +87,12 @@ const PRICING = {
     floatingORing: 3,
     stopper: 2,
 
-    htv: { name: 5, namePhone: 8, phraseLarge: 10, custom: null }
+    htv: { name: 5, namePhone: 7, phraseLarge: 10, custom: null }
   },
 
   // Color & personalization
   color: {
-    twoToneLeashOrLine: 5,
+    twoToneLeashOrLine: 4,
     twoToneSmallAccessory: 3
   },
 
@@ -104,14 +104,14 @@ const PRICING = {
   collar: {
     // base price by size (5/8" width, metal double-bar silver)
     sizeBase: {
-      xs: 22, // 8–11"
-      s: 24,  // 10–13"
-      m: 26,  // 12–16"
-      l: 28,  // 15–20"
-      xl: 32  // 20–25"
+      xs: 20, // 8–11"
+      s: 22,  // 10–13"
+      m: 24,  // 12–16"
+      l: 26,  // 15–20"
+      xl: 30  // 20–25"
     },
     // width upcharge for collars
-    widthUpcharge: { '5/8"': 0, '1"': 8 },
+    widthUpcharge: { '5/8"': 0, '1"': 6 },
 
     // buckle styles
     buckleTypeAdj: {
@@ -124,10 +124,10 @@ const PRICING = {
     blackHardwareSurcharge: 3,
 
     // Two-tone via O-ring split
-    twoToneORingSplit: 8,
+    twoToneORingSplit: 6,
 
     // HTV options
-    htv: { name: 5, namePhone: 8, phraseLarge: 10 , custom: null},
+    htv: { name: 5, namePhone: 7, phraseLarge: 10 , custom: null},
 
     // NEW: paracord fishtail overlay (labor)
     paracordFishtailUpcharge: 15
