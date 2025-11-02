@@ -1,140 +1,192 @@
+// src/pages/Pricing.jsx
 import React from "react";
-import "./Pricing.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
+import "./Pricing.css";
+import PRICING from "../components/pricingConfig";
 
 const Pricing = () => {
+  // LEASHES
+  const leashBaseFt = PRICING.baseLengthFt.leash; // 4
+  const leashBasePrice = PRICING.base.leash; // 25
+  const leash6ft = leashBasePrice + Math.max(0, 6 - leashBaseFt) * PRICING.perFoot.leash; // 29
+  const leash8ft = leashBasePrice + Math.max(0, 8 - leashBaseFt) * PRICING.perFoot.leash; // 33
+  const leash10ft = leashBasePrice + Math.max(0, 10 - leashBaseFt) * PRICING.perFoot.leash; // 37
+
+  // LONG LINES
+  const llBaseFt = PRICING.baseLengthFt.longLine; // 12
+  const llBasePrice = PRICING.base.longLine; // 37
+  const ll15ft = llBasePrice + Math.max(0, 15 - llBaseFt) * PRICING.perFoot.longLine; // 41.5 -> 42
+  const ll20ft = llBasePrice + Math.max(0, 20 - llBaseFt) * PRICING.perFoot.longLine; // 49
+  const ll30ft = llBasePrice + Math.max(0, 30 - llBaseFt) * PRICING.perFoot.longLine; // 64
+
+  // TRAFFIC HANDLE (8 in base)
+  const thBaseIn = PRICING.baseLengthIn.trafficLead; // 8
+  const thBasePrice = PRICING.base.trafficLead; // 14
+  const th12in = thBasePrice + Math.max(0, 12 - thBaseIn) * PRICING.perInch.trafficLead; // 16
+  const th18in = thBasePrice + Math.max(0, 18 - thBaseIn) * PRICING.perInch.trafficLead; // 19
+
+  // LEASH EXTENDER
+  const leBaseIn = PRICING.baseLengthIn.leashExtender; // 6
+  const leBasePrice = PRICING.base.leashExtender; // 12
+  const le12in = leBasePrice + Math.max(0, 12 - leBaseIn) * PRICING.perInch.leashExtender; // 15
+  const le24in = leBasePrice + Math.max(0, 24 - leBaseIn) * PRICING.perInch.leashExtender; // 21
+
+  // SAFETY STRAPS
+  const ssBaseIn = PRICING.baseLengthIn.safetyStrap; // 3
+  const ssBioBase = PRICING.base.safetyStrapBiothane; // 12
+  const ssBio6in =
+    ssBioBase + Math.max(0, 6 - ssBaseIn) * PRICING.perInch.safetyStrapBiothane; // ≈14
+  const ssParaBase = PRICING.base.safetyStrapParacord; // 20
+  const ssPara6in =
+    ssParaBase + Math.max(0, 6 - ssBaseIn) * PRICING.perInch.safetyStrapParacord; // ≈25
+
+  // COLLARS (menu says size based)
+  const collar = PRICING.collar;
+
   return (
     <>
-    {/* SEO tags for Pricing page */}
-    <title>Pricing | Gear and Training Packages</title>
-    <meta name="description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
-    <link rel="canonical" href="https://paisleydoggearandtraining.com/pricing" />
+      <title>Pricing | Gear and Training Packages</title>
+      <meta
+        name="description"
+        content="Current pricing for custom Biothane gear and dog training. All numbers below come from the live pricing config."
+      />
+      <link rel="canonical" href="https://paisleydoggearandtraining.com/pricing" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Pricing | Gear and Training Packages" />
-    <meta property="og:description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
-    <meta property="og:url" content="https://paisleydoggearandtraining.com/pricing" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pricing | Gear and Training Packages" />
-    <meta name="twitter:description" content="Straightforward prices for custom biothane gear and training packages. Quality materials and honest work." />
-
-    <section aria-label="How our pricing works" className="page-intro">
-      <h2>Simple, no-surprise pricing</h2>
-      <p>
-        Gear prices depend on length, width, hardware, and extras (like two-tone or
-        locking carabiners). Shipping is included in your final quote. After you
-        pick options on the <a href="/builder">Gear Builder</a> or the
-        {" "}<a href="/options">Options</a> page, send it to the
-        {" "}<a href="/order">quote form</a>. I’ll review your specs, confirm details,
-        and reply with a total and timeline. Payment happens separately via
-        <strong> Venmo</strong> or <strong>PayPal</strong>.
-      </p>
-      <p>
-        Training has flat rates with optional travel if I come to you. Packages
-        lower the per-session price. A free 15-minute consult is available on the
-        {" "}<a href="/booking">Booking page</a>.
-      </p>
-    </section>
-
-
-  
-    <div className="pricing-page">
-      <h1>Pricing</h1>
-
-      <section className="pricing-section">
-        <h2>Custom Biothane Gear</h2>
-        <p className="notes">
-          Most items are made with 5/8″ standard Beta Biothane. 1″ width available upon request and may affect price and shipping time. <br />
-          Shipping is included in your custom quote from me. USPS rates typically range from $5–$9 depending on size and destination. Pick up is available in the local area (Boston, MA) for free. I also do drop offs for a small fee if you're in the area. <br />
+      <section aria-label="How our pricing works" className="page-intro">
+        <h2>Simple, no surprise pricing</h2>
+        <p>
+          These numbers come straight from my pricing config. Gear cost is mostly:
+          length, width, hardware, and add-ons. If you send a quote with these exact
+          options, this is what I will use.
         </p>
-
-        <div className="pricing-grid">
-          <div className="price-card" id="leashes">
-            <h3>Standard Leashes</h3>
-            <ul>
-              <li>4–6 ft: $30–$35</li>
-              <li>8–10 ft: $38–$42</li>
-              <li>15–20 ft: $45–$55</li>
-              <li>Convertible + O-Ring (hands-free): +$10</li>
-              <li>Built-in Traffic Handle: +$5</li>
-              <li>Paracord Fishtail Handle: +$10-$18</li>
-            </ul>
-          </div>
-
-          <div className="price-card" id="longlines">
-            <h3>Long Lines</h3>
-            <ul>
-              <li>10–15 ft: $45–$65</li>
-              <li>20 ft: $55–$75</li>
-              <li>Traffic Handle Add-on: +$8</li>
-              <li>Hands-free System Add-on: +$10</li>
-              <li>Custom lengths available</li>
-            </ul>
-          </div>
-
-          <div className="price-card" id="tallulah">
-            <h3>Hands-Free System (The Tallulah)</h3>
-            <ul>
-              <li>Base system: <strong>from $47</strong> (base 7ft) </li>
-              <li>Sliding rings & multiple attachment points</li>
-              <li>Optional: traffic handle, extender, two-tone, black hardware</li>
-            </ul>
-          </div>
-
-          <div className="price-card" id="collars">
-            <h3>Collars</h3>
-            <ul>
-              <li><span>Basic Buckle (Brass, 5/8″):</span> $20–$25</li>
-              <li><span>Plastic Buckle (Black, 5/8″):</span> $18–$22</li>
-              <li><span>Quick Release (Brass, 5/8″):</span> $22–$30</li>
-              <li className="upgrade-option"><span className="upgrade">Upgrade to 1″ width:</span> +$8</li>
-              <li className="upgrade-option">O-Ring Split for Two-tone: +$8</li>
-            </ul>
-          </div>
-
-          <div className="price-card" id="accessories">
-            <h3>Accessories</h3>
-            <ul>
-              <li>Ball Holder: $15–$20</li>
-              <li>Safety Strap (Biothane): $12–$15</li>
-              <li>Safety Strap (Paracord Weave): $20–$30</li>
-              <li>Leash Extender: $15–$22</li>
-              <li>Traffic Handle: $14–$20</li>
-              <li>Paracord Traffic Handle (Fishtail or Weaved): +$10+</li>
-            </ul>
-          </div>
-
-          <div className="price-card" id="addons">
-            <h3>Add-ons</h3>
-            <ul>
-              <li>Two-tone or Three-tone Colors: +$8–$15</li>
-              <li>HTV Name / Phrase Customization: +$5–$10</li>
-              <li>Extra D-Rings or O-Rings: +$2–$5 each</li>
-            </ul>
-          </div>
-
-          {/* <div className="price-card" id="harnesses">
-            <h3>Harnesses</h3>
-            <ul>
-              <li>Basic: $55–$75</li>
-              <li>Custom Fit / Service Dog: $70–$160+</li>
-              <li>Reach out for design options</li>
-            </ul>
-          </div> */}
-
-          <div className="price-card" id="bundles">
-            <h3>Starter Set</h3>
-            <ul>
-              <li>Includes: Collar + Leash + Ball Holder</li>
-              <li>Starting at $60–$80 depending on options</li>
-              <li>Custom layouts, colors, and handle styles available</li>
-            </ul>
-          </div>
-        </div>
+        <p>
+          If you want a really long leash (20 ft or more) I price it as a long line
+          so it is not more expensive than the long line version.
+        </p>
       </section>
 
+      <div className="pricing-page">
+        <h1>Pricing</h1>
+
+        <section className="pricing-section">
+          <h2>Custom Biothane Gear</h2>
+          <p className="notes">
+            Base is 5/8 inch Beta. 3/4 and 1 inch add the width upcharge from the config.
+            Black hardware is usually +${PRICING.hardware.black}. Shipping is added to the
+            quote but local pickup in Boston is free.
+          </p>
+
+          <div className="pricing-grid">
+            {/* LEASHES */}
+            <div className="price-card" id="leashes">
+              <h3>Standard Leashes</h3>
+              <ul>
+                <li>4 ft (base): ${leashBasePrice}</li>
+                <li>6 ft: ${leash6ft}</li>
+                <li>8 ft: ${leash8ft}</li>
+                <li>10 ft: ${leash10ft}</li>
+                <li>
+                  Add hands-free conversion: +${PRICING.addons.handsFreeConversion}
+                </li>
+                <li>
+                  Add built-in traffic handle: +${PRICING.addons.trafficHandleBuiltIn}
+                </li>
+                <li>Two-tone leash: +${PRICING.color.twoToneLeashOrLine}</li>
+              </ul>
+              <p>
+                For 15–20 ft leashes, I treat it as a long line so the price does not jump.
+              </p>
+            </div>
+
+            {/* LONG LINES */}
+            <div className="price-card" id="longlines">
+              <h3>Long Lines</h3>
+              <ul>
+                <li>12 ft (base): ${llBasePrice}</li>
+                <li>15 ft: ${Math.round(ll15ft)}</li>
+                <li>20 ft: ${ll20ft}</li>
+                <li>30 ft: ${ll30ft}</li>
+                <li>Traffic handle add-on: +${PRICING.addons.trafficHandleBuiltIn}</li>
+                <li>Floating O-ring or D-ring: +${PRICING.addons.floatingORing}</li>
+              </ul>
+            </div>
+
+            {/* HANDS FREE */}
+            <div className="price-card" id="tallulah">
+              <h3>Hands-Free System (The Tallulah)</h3>
+              <ul>
+                <li>Base system (up to {PRICING.baseLengthFt.handsFreeSystem} ft): ${PRICING.base.handsFreeSystem}</li>
+                <li>Extra feet over base: +${PRICING.perFoot.handsFreeSystem} per ft</li>
+                <li>Two-tone: +${PRICING.color.twoToneLeashOrLine}</li>
+              </ul>
+            </div>
+
+            {/* COLLARS */}
+            <div className="price-card" id="collars">
+              <h3>Collars</h3>
+              <ul>
+                <li>XS: ${collar.sizeBase.xs}</li>
+                <li>S: ${collar.sizeBase.s}</li>
+                <li>M: ${collar.sizeBase.m}</li>
+                <li>L: ${collar.sizeBase.l}</li>
+                <li>XL: ${collar.sizeBase.xl}</li>
+                <li>1 inch width add: +${collar.widthUpcharge['1"']}</li>
+                <li>Plastic quick release: {collar.buckleTypeAdj.plasticQR >= 0 ? "+" : ""}{collar.buckleTypeAdj.plasticQR}</li>
+                <li>Black metal hardware set: +${collar.blackHardwareSurcharge}</li>
+                <li>Two-tone O-ring split: +${collar.twoToneORingSplit}</li>
+              </ul>
+            </div>
+
+            {/* ACCESSORIES */}
+            <div className="price-card" id="accessories">
+              <h3>Accessories</h3>
+              <ul>
+                <li>Ball holder: ${PRICING.base.ballHolder}</li>
+                <li>
+                  Safety strap (Biothane): ${ssBioBase} to ${Math.ceil(ssBio6in)}
+                </li>
+                <li>
+                  Safety strap (Paracord): ${ssParaBase} to ${Math.ceil(ssPara6in)}
+                </li>
+                <li>
+                  Leash extender 6 in: ${leBasePrice}
+                </li>
+                <li>
+                  Leash extender 12 in: ${le12in}
+                </li>
+                <li>
+                  Leash extender 24 in: ${le24in}
+                </li>
+                <li>
+                  Traffic handle 8 in: ${thBasePrice}
+                </li>
+                <li>
+                  Traffic handle 12 in: ${th12in}
+                </li>
+                <li>
+                  Traffic handle 18 in: ${th18in}
+                </li>
+              </ul>
+            </div>
+
+            {/* ADD ONS */}
+            <div className="price-card" id="addons">
+              <h3>Add-ons</h3>
+              <ul>
+                <li>Two-tone leash/line: +${PRICING.color.twoToneLeashOrLine}</li>
+                <li>Two-tone small accessory: +${PRICING.color.twoToneSmallAccessory}</li>
+                <li>Extra O-ring or D-ring: +${PRICING.addons.oRing}</li>
+                <li>HTV name: +${PRICING.addons.htv.name}</li>
+                <li>HTV name + phone: +${PRICING.addons.htv.namePhone}</li>
+                <li>Large phrase: +${PRICING.addons.htv.phraseLarge}</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Training section stays the same */}
+        {/* ... your training pricing from before ... */}
       <section className="training-pricing">
               <h2>Training Rates</h2>
       

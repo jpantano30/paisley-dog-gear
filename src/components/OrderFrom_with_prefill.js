@@ -4,57 +4,57 @@ import "./OrderForm.css";
 import { useSearchParams } from "react-router-dom";
 
 // Add near top of OrderForm_with_prefill.js
-const LABELS = {
-  productType: {
-    leash: "Standard Leash",
-    longLine: "Long Line",
-    handsFreeSystem: "Hands-Free System (The Tallulah)",
-    trafficLead: "Traffic Handle",
-    leashExtender: "Leash Extender",
-    pullTab: "Pull Tab",
-    collarBuckle: "Collar — Buckle",
-    collarQuickRelease: "Collar — Quick Release",
-    ballHolder: "Ball Holder",
-    safetyStrapBiothane: "Safety Strap — Biothane",
-    safetyStrapParacord: "Safety Strap — Paracord Weave",
-    other: "Other"
-  },
-  hardware: {
-    "": "",
-    standard: "Silver",
-    black: "Black",
-    blackPlastic: "Black Plastic (collars)"
-  },
-  snapType: {
-    "": "",
-    lockingCarabiner: "Locking Carabiner",
-    swivelSnap: "Swivel Snap"
-  },
-  handleType: {
-    "": "",
-    loop: "Loop Handle",
-    noHandle: "No Handle + D-ring"
-  }
-};
+// const LABELS = {
+//   productType: {
+//     leash: "Standard Leash",
+//     longLine: "Long Line",
+//     handsFreeSystem: "Hands-Free System (The Tallulah)",
+//     trafficLead: "Traffic Handle",
+//     leashExtender: "Leash Extender",
+//     pullTab: "Pull Tab",
+//     collarBuckle: "Collar — Buckle",
+//     collarQuickRelease: "Collar — Quick Release",
+//     ballHolder: "Ball Holder",
+//     safetyStrapBiothane: "Safety Strap — Biothane",
+//     safetyStrapParacord: "Safety Strap — Paracord Weave",
+//     other: "Other"
+//   },
+//   hardware: {
+//     "": "",
+//     standard: "Silver",
+//     black: "Black",
+//     blackPlastic: "Black Plastic (collars)"
+//   },
+//   snapType: {
+//     "": "",
+//     lockingCarabiner: "Locking Carabiner",
+//     swivelSnap: "Swivel Snap"
+//   },
+//   handleType: {
+//     "": "",
+//     loop: "Loop Handle",
+//     noHandle: "No Handle + D-ring"
+//   }
+// };
 
-const asLabel = (group, key) => LABELS[group]?.[key] ?? "";
+// const asLabel = (group, key) => LABELS[group]?.[key] ?? "";
 
 
 
 
 // Map builder product keys to your public-facing labels
-const PRODUCT_LABELS = {
-  leash: "Standard Leash",
-  longLine: "Long Line",
-  handsFreeSystem: "Hands-Free System (The Tallulah)",
-  trafficLead: "Traffic Handle",
-  leashExtender: "Leash Extender",
-  pullTab: "Pull Tab",
-  collarBuckle: "Collar",
-  ballHolder: "Ball Holder",
-  safetyStrapBiothane: "Safety Strap — Biothane",
-  safetyStrapParacord: "Safety Strap — Paracord Weave"
-};
+// const PRODUCT_LABELS = {
+//   leash: "Standard Leash",
+//   longLine: "Long Line",
+//   handsFreeSystem: "Hands-Free System (The Tallulah)",
+//   trafficLead: "Traffic Handle",
+//   leashExtender: "Leash Extender",
+//   pullTab: "Pull Tab",
+//   collarBuckle: "Collar",
+//   ballHolder: "Ball Holder",
+//   safetyStrapBiothane: "Safety Strap — Biothane",
+//   safetyStrapParacord: "Safety Strap — Paracord Weave"
+// };
 
 // Normalize builder values to your form’s fields
 function normalizeFromBuilder(params) {
