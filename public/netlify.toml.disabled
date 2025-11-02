@@ -1,5 +1,38 @@
 # netlify.toml (project root)
 
+# 1. Force HTTPS apex
+[[redirects]]
+from = "http://paisleydoggearandtraining.com/*"
+to = "https://paisleydoggearandtraining.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://www.paisleydoggearandtraining.com/*"
+to = "https://paisleydoggearandtraining.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.paisleydoggearandtraining.com/*"
+to = "https://paisleydoggearandtraining.com/:splat"
+status = 301
+force = true
+
+# 2. (optional) kill trailing slash on quick-order
+[[redirects]]
+from = "/quick-order/"
+to = "/quick-order"
+status = 301
+force = true
+
+# 3. SPA fallback
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+
 # React Router SPA fallback so deep links like /videos/:slug work
 [[redirects]]
 from = "/*"
@@ -16,9 +49,9 @@ status = 200
 # force = true
 
 # Auto-generate sitemap at deploy
-[[plugins]]
-package = "@netlify/plugin-sitemap"
-  [plugins.inputs]
-  buildDir = "build"        # your React build output (Create React App/Vite)
-  prettyURLs = true
+# [[plugins]]
+# package = "@netlify/plugin-sitemap"
+#   [plugins.inputs]
+#   buildDir = "build"        # your React build output (Create React App/Vite)
+#   prettyURLs = true
   # ignorePaths = ["/404"]  # optional: exclude 404 page

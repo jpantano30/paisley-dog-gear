@@ -83,8 +83,8 @@ const PRODUCT_SPEC = {
   leash: {
     label: "Leash",
     units: "ft",
-    sizePresets: [4, 5, 6, 8, 10, 15, 20],
-    sizeBounds: { min: 2, max: 50 },
+    sizePresets: [4, 5, 6, 8, 10],
+    sizeBounds: { min: 2, max: 10 },
     include: [
       '5/8" Beta Biothane (standard width)',
       "Swivel snap (locking carabiner upgrade available)",
@@ -108,8 +108,8 @@ const PRODUCT_SPEC = {
   longLine: {
     label: "Long Line",
     units: "ft",
-    sizePresets: [10, 12, 15, 20, 25, 30],
-    sizeBounds: { min: 10, max: 50 },
+    sizePresets: [12, 15, 20, 25, 30],
+    sizeBounds: { min: 12, max: 50 },
     include: [
       '5/8" Beta Biothane (standard width)',
       "Swivel snap (locking carabiner upgrade available)",
@@ -148,7 +148,7 @@ const PRODUCT_SPEC = {
     label: "Leash Extender",
     units: "in",
     sizePresets: [6, 12, 18, 24],
-    sizeBounds: { min: 6, max: 30 },
+    sizeBounds: { min: 6, max: 50 },
     include: [
       "Biothane strap with snap on one end and O-ring on the other",
       "Silver hardware",
@@ -401,7 +401,8 @@ export default function ProductBuilder() {
         const per = PER_FT?.[form.productType] || 0;
         const over = ft - baseFt;
         const add = over * per;
-        L.push([`Length over ${baseFt} ft (${over} ft @ $${per}/ft)`, add]); sum += add;
+        // L.push([`Length over ${baseFt} ft (${over} ft @ $${per}/ft)`, add]); sum += add;
+        L.push([`Length over ${baseFt} ft (${over} ft)`, add]); sum += add;
       }
     } else if (isInchItem) {
       const baseIn =
@@ -495,7 +496,8 @@ export default function ProductBuilder() {
           next.lengthFt = 10;
         } else if (patch.productType === "leash") {
           // keep your existing leash default
-          next.lengthFt = next.lengthFt || 6;
+          const curr = next.lengthFt || 6;
+          next.lengthFt = Math.min(curr, 10);
         }
       }
 

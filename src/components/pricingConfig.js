@@ -4,15 +4,15 @@
 const PRICING = {
   // What base length covers (for ft-based items)
   baseLengthFt: {
-    leash: 6,        // base covers up to 6 ft
-    longLine: 10,     // base covers up to 10 ft
+    leash: 4,        // base covers up to 4 ft
+    longLine: 12,     // base covers up to 12 ft
     handsFreeSystem: 7 // base covers up to 7 ft (adjustable)
   },
 
   // Base prices (menu-facing)
   base: {
-    leash: 30,                 // 4–6 ft leash
-    longLine: 45,              // 10 ft line
+    leash: 25,                 // 4 ft leash
+    longLine: 37,              // 12 ft line
     trafficLead: 14,           // standalone traffic handle (Biothane) at 8"
     leashExtender: 12,         // 6" base
     safetyStrapBiothane: 12,   // 3" base
@@ -27,7 +27,7 @@ const PRICING = {
   // Per-foot over base for ft items
   perFoot: {
     leash: 2,
-    longLine: 2,
+    longLine: 1.5,
     handsFreeSystem: 2
   },
 
