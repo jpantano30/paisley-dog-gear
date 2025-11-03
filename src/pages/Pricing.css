@@ -33,6 +33,16 @@
 }
 
 /* Sections */
+
+.page-intro{
+  max-width: 980px;
+  margin: 14px auto 22px;
+  padding: 14px 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
 .pricing-section h2,
 .training-pricing h2 {
   font-size: 2rem;

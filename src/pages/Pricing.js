@@ -54,17 +54,16 @@ const Pricing = () => {
       <link rel="canonical" href="https://paisleydoggearandtraining.com/pricing" />
 
       <section aria-label="How our pricing works" className="page-intro">
-        <h2>Simple, no surprise pricing</h2>
+        <h2>Custom gear, clear pricing</h2>
         <p>
-          These numbers come straight from my pricing config. Gear cost is mostly:
-          length, width, hardware, and add-ons. If you send a quote with these exact
-          options, this is what I will use.
+          Leash and long-line prices are based on length, width, hardware, and any add-ons.
+          The price you see in your quote is the price you pay – no surprise fees.
         </p>
         <p>
-          If you want a really long leash (20 ft or more) I price it as a long line
-          so it is not more expensive than the long line version.
+          Standard leashes go up to 10 ft; anything 12 ft and up counts as a long line.
         </p>
       </section>
+
 
       <div className="pricing-page">
         <h1>Pricing</h1>
@@ -95,8 +94,10 @@ const Pricing = () => {
                 <li>Two-tone leash: +${PRICING.color.twoToneLeashOrLine}</li>
               </ul>
               <p>
-                For 15–20 ft leashes, I treat it as a long line so the price does not jump.
+                Standard leashes cover 4–10 ft. Anything 12 ft or longer is priced as a long line,
+                so check the long line section for those lengths.
               </p>
+
             </div>
 
             {/* LONG LINES */}

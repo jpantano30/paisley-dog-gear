@@ -12,7 +12,7 @@ const PRICING = {
   // Base prices (menu-facing)
   base: {
     leash: 25,                 // 4 ft leash
-    longLine: 37,              // 12 ft line
+    longLine: 42,              // 12 ft line
     trafficLead: 14,           // standalone traffic handle (Biothane) at 8"
     leashExtender: 12,         // 6" base
     safetyStrapBiothane: 12,   // 3" base

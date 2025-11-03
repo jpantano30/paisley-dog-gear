@@ -16,7 +16,6 @@ const gearData = [
       "- 4ft: City walks / high-traffic areas",
       "- 5–6ft: Everyday walks / training",
       "- 8–10ft: Relaxed walks, hiking, recall",
-      "- 15–20ft: Training (open spaces only)",
       "**Colors**",
       "- 1–3 solid colors",
       "- Two-tone: +$8",
@@ -33,7 +32,6 @@ const gearData = [
     pricing: [
       "4–6 ft: $30–$35",
       "8–10 ft: $38–$42",
-      "15–20 ft: $45–$55",
       "Two-tone: +$8 • Locking: +$8 • Traffic: +$5 • Hands-free: +$10"
     ]
   },
@@ -45,7 +43,7 @@ const gearData = [
     bestFor: "Recall training • Hiking • Decompression walks",
     items: [
       "**Length Options**",
-      "- 10ft, 12ft, 15ft, 20ft, 25ft, 30ft",
+      "- 12ft, 15ft, 20ft, 25ft, 30ft",
       "**Colors**",
       "- 1–3 solid colors",
       "- Two-tone: +$8",

@@ -72,10 +72,11 @@ const StandardList = ({ productType }) => {
         <li>Grip: <strong>Loop handle</strong></li>
         <li>Hardware: <strong>Silver</strong></li>
         <li>Two-tone: <strong>Off</strong></li>
-        <li>Base length: <strong>10 ft</strong></li>
+        <li>Base length: <strong>12 ft</strong></li>
       </ul>
     );
   }
+
 
   if (productType === "handsFreeSystem") {
     return (

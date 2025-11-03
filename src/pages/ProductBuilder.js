@@ -492,14 +492,15 @@ export default function ProductBuilder() {
       // If product type changed, apply sensible defaults
       if (patch.productType && patch.productType !== prev.productType) {
         if (patch.productType === "longLine") {
-          // Always start a Long Line at its base length of 10 ft
-          next.lengthFt = 10;
+          // Long lines start at 12 ft and go up from there
+          next.lengthFt = 12;
         } else if (patch.productType === "leash") {
-          // keep your existing leash default
+          // Leashes go up to 10 ft max
           const curr = next.lengthFt || 6;
           next.lengthFt = Math.min(curr, 10);
         }
       }
+
 
       // honor any locked fields defined in PRODUCT_SPEC
       if (PRODUCT_SPEC[next.productType]?.locked?.trafficHandleBuiltIn) {
