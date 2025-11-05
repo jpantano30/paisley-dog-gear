@@ -15,12 +15,12 @@ const PRODUCT_MEDIA = {
     credit: "Long line example",
   },
   handsFreeSystem: {
-    src: "/assets/handsfree-redandblack2.JPG",
+    src: "/assets/hands-free-coral_Navy.JPG",
     alt: "Hands-free leash system - Standard",
     credit: "Hands-free leash system - Standard",
   },
   trafficLead: {
-    src: "/assets/PurpleTrafficNCollar_ocean.jpg",
+    src: "/assets/duke.JPG",
     alt: "Traffic handle / short lead",
     credit: "Traffic handle example",
   },
