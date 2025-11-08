@@ -435,33 +435,49 @@
 .maker {
   max-width: 1000px;
   margin: 1.75rem auto 1.5rem;
-  text-align: center;
+  text-align: left;        /* let the text be left-aligned */
+  padding: 0 12px;
 }
+
 .maker-card {
-  display: inline-block;
-  max-width: 420px;
+  max-width: 1000px;       /* much wider */
+  margin: 0 auto;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  overflow: hidden;
-  transition: transform 0.2s ease;
-  font-size: 16px;
+  padding: 1.5rem 1.75rem;
 }
+
+.maker-layout {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+}
+
 .maker-card:hover { transform: scale(1.03); }
 .maker-card img {
-  display: block;
-  width: 80%;
+  width: 260px;
+  max-width: 35%;
   height: auto;
+  border-radius: 12px;
+  object-fit: cover;
   display: block;
-  border-radius: 0;
-  margin: 1.5rem auto 0;
-  object-fit: contain;
-  border-radius: 5%;
-
+  margin: 0 auto;        /* centers it in its column */
 }
 
 .maker-info {
-  margin: 10px 15px 20px 15px;
+  flex: 1;
+}
+
+.maker-name {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.maker-bio {
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 .disclaimer {
@@ -501,3 +517,22 @@
   display: block;
 } */
 
+@media (max-width: 800px) {
+  .maker-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .maker-card img {
+    max-width: 70%;
+    width: 70%;
+  }
+
+  .maker {
+    text-align: center;
+  }
+
+  .maker-info {
+    text-align: left;      /* or center if you prefer */
+  }
+}

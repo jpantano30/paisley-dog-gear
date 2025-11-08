@@ -104,32 +104,32 @@ const Home = () => {
         
         {/* NEW: Maker image card ABOVE About the Maker (styled like dog cards) */}
         <section className="maker" aria-label="About the maker photo">
-          <h2>About the Maker</h2>
-          <div className="dog-card maker-card">
-            <img
-              src="/assets/Jena_hero.jpg"
-              alt="Jena holding her dog by the water"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="maker-info">
-              <h3 className="maker-name">Jena Pantano</h3>
-              <p className="maker-bio">
-                Hi, I’m Jena! Maker, dog trainer, and former pastry chef turned software engineer. 
-                My background in psychology and behavioral science naturally led me to dog training, 
-                where I combine structure, communication, and creativity to help dogs and their people thrive. 
+          {/* <h2>About the Maker</h2> */}
+          <div className="maker-card">
+            <div className="maker-layout">
+              <img
+                src="/assets/Jena_hero.jpg"
+                alt="Jena holding her dog by the water"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="maker-info">
+                <h3 className="maker-name">About the Maker</h3>
+                <p className="maker-bio">
+                Hi, I am Jena, a dog trainer and the founder of Paisley Dog Gear &amp; Training in Boston. I focus on practical, real world skills like puppy foundations, manners and obedience, leash skills, behavior support, and trick and freestyle training.
                 <br /><br />
-                I founded <strong>Paisley Dog Gear &amp; Training</strong> to design gear that actually works and 
-                supports real training goals. My first service dog, Paisley, still inspires everything I make, 
-                and Tallulah, my Bordoodle and service dog in training, helps test it in trick, freestyle, and task work.
+                My education in health sciences and psychology gives me a strong foundation in behavior, learning, and stress. I use that background to create clear, step by step training plans that support both the dog and the person on the other end of the leash.
                 <br /><br />
-                I’m a member of the <strong>Association of Professional Dog Trainers (APDT)</strong> and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I’m working on continuing education in behavior and learning theory to better serve dogs and their people.
-
-                 {/* I’m currently pursuing my <strong>CPDT-KA certification</strong> and continuing education in behavior and learning theory to better serve dogs and their people. */}
+                The relationship between the dog and human is always the priority. My goal is to help teams build better communication, confidence, and trust so everyday life feels easier and you actually enjoy working together. Training is not just about skills. It is about a stronger bond.
+                <br /><br />
+                I started Paisley Dog Gear &amp; Training to combine thoughtful training with durable, functional gear that is tested daily by my own dogs, Paisley (retired service dog) and Tallulah (Bordoodle and service dog in training). My background as a pastry chef means I am used to precision, aesthetics, and working with my hands, and that now goes into every leash, long line, and tab I make: strong materials, secure hardware, and creative color pairings that still make sense for real training. The goal is gear that feels good in your hands, holds up to daily use, and reflects your dog’s personality.
+                <br /><br />
+                I am a member of the <strong>Association of Professional Dog Trainers (APDT)</strong> and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>, and I am actively working toward CPDT-KA certification. I am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
               </p>
-            </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
         {/* Dogs (kept) */}
         <section className="dogs">

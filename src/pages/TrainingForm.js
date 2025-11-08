@@ -152,10 +152,10 @@ const TrainingForm = () => {
         <section aria-label="How quotes and scheduling work" className="page-intro">
           <h2>How training works</h2>
           <ul className="bulleted">
-            <li>Fill out the form with your goals.</li>
-            <li>I review and send a short intake if we’re a good fit.</li>
-            <li>You get a tailored plan with pricing and scheduling options.</li>
-            <li>Approve → book → train. Payment via Venmo or PayPal.</li>
+            <li> Fill out the form with your goals.</li>
+            <li> I review and send a short intake if we’re a good fit.</li>
+            <li> You get a tailored plan with pricing and scheduling options.</li>
+            <li> Approve → book → train. Payment via Venmo or PayPal.</li>
           </ul>
           <p className="inline-cta">
             Prefer to talk first? <Link to="/booking">Book a free 15-minute consult</Link>.
@@ -196,46 +196,20 @@ const TrainingForm = () => {
 
         {/* Trainer Credentials — visible trust section */}
         <section className="trainer-credentials" aria-label="Trainer credentials and affiliations">
-          {/*<h2>Trainer Credentials</h2>
-
-          <ul className="cred-list">
-            <li>Member, International Association of Canine Professionals (IACP)</li>
-            <li>Member, Association of Professional Dog Trainers (APDT)</li>
-          </ul>
-
-          <p className="cred-note">
-            I’m committed to continuing education and staying current on best practices. Here’s what I’m working on:
-          </p>
-          <ul className="cred-list">
-            <li>
-              <strong>Working toward:</strong> CPDT-KA (Certified Professional Dog Trainer – Knowledge Assessed (CCPDT®))
-              <span className="cred-note">— actively logging hours and study time</span>
-            </li>
-            <li>
-              <strong>Planned:</strong> IACP Certified Dog Trainer (CDT) and Prong Collar Knowledge Assessment (PCKA)
-            </li>
-            <li>
-              <strong>Future:</strong> AKC Canine Good Citizen & Trick Dog Evaluator  */}
-              {/* (eligible in ~1.5 years) */}
-            {/* </li> */}
-            {/* <li>
-              <strong>Pending:</strong> Pet First Aid &amp; CPR Certification
-            </li> */}
-          {/* </ul> */}
+          <h2 className="cred">Experience, Education, and Approach</h2>
 
           <p className="cred-disclaimer">
-            {/* I follow standards recognized by CCPDT, IACP, and AKC and tailor plans to your dog’s learning style.  */}
-            Member of multiple professional training organizations, including the IACP and APDT, and committed to continued education and high ethical standards in dog training. I tailor each program to the dog’s individual learning style. If you have questions about methods, feel free to email me at paisleygearandtraining@gmail.com.
+            I have been working hands on with dogs for years, from walking and pet sitting,
+            to training my own service dog and trick and freestyle demo dog, to helping
+            clients with puppies, obedience, behavior, and sport foundations. I am an
+            active member of professional training organizations, including IACP and APDT,
+            and I am currently working toward the CPDT-KA certification. I stay current on
+            modern, science informed training through courses, workshops, and mentorship,
+            and I tailor each plan to the dog in front of me and the goals you care about most.
+            If you have questions about methods or whether your dog is a good fit, feel free
+            to email me at paisleygearandtraining@gmail.com.
           </p>
-
-          {/* Optional: add small logo badges when you have assets */}
-          {/* <div className="cred-logos" aria-hidden="true">
-            <img src="/images/logos/ccpdt.png" alt="" />
-            <img src="/images/logos/iacp.png" alt="" />
-            <img src="/images/logos/akc.png" alt="" />
-          </div> */}
         </section>
-
 
         {/* Videos */}
         <section className="training-videos">

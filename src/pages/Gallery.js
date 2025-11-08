@@ -6,6 +6,7 @@ import "../components/page-intro.css";
 const galleryImages = [
   { filename: "paisley_leashCollar_ocean.jpeg", caption: "Paisley wearing her custom leash and two tone collar!", type: "image" },
   { filename: "painted.JPG", caption: "Custom Painted Collar", type: "image" },
+  { filename: "customhandlecollar.JPG ", caption: "Custom handle Collar", type: "image" },
   { filename: "navy_brown.JPG", caption: "Deep Sea and Brown Standard Leash", type: "image" },
   { filename: "/hands-free-coral_Navy.JPG", caption: "Hands-free system in coral and deep sea with brass hardware", type: "image" },
   { filename: "b3.jpg", caption: "Custom Collar", type: "image" },

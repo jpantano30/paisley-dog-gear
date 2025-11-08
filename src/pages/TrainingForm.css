@@ -205,6 +205,13 @@ h1 {
   opacity: 0.9;
 }
 
+.cred {
+  color: var(--accent-brown);
+  font-size: 1.85rem;
+  margin-bottom: .6rem;
+  text-align: center;
+}
+
 .cred-logos {
   display: flex;
   gap: 10px;
