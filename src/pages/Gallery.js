@@ -90,44 +90,66 @@ export default function Gallery() {
   const openModal = (index) => setModalIndex(index);
   const closeModal = () => setModalIndex(null);
 
+  // total slides = all gallery images + 4 hardware slides
+  const totalSlides = galleryImages.length + 4;
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (modalIndex !== null) {
-        if (e.key === "ArrowRight") setModalIndex((modalIndex + 1) % (galleryImages.length + 2));
-        else if (e.key === "ArrowLeft") setModalIndex((modalIndex - 1 + galleryImages.length + 2) % (galleryImages.length + 2));
-        else if (e.key === "Escape") setModalIndex(null);
+        if (e.key === "ArrowRight") {
+          setModalIndex((modalIndex + 1) % totalSlides);
+        } else if (e.key === "ArrowLeft") {
+          setModalIndex((modalIndex - 1 + totalSlides) % totalSlides);
+        } else if (e.key === "Escape") {
+          setModalIndex(null);
+        }
       }
     };
+
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [modalIndex]);
+  }, [modalIndex, totalSlides]);
 
   return (
     <>
       {/* SEO */}
       <title>Gallery | Biothane Gear and Training</title>
-      <meta name="description" content="Real dogs using our custom biothane gear plus training clips and before and after moments." />
+      <meta
+        name="description"
+        content="Real dogs using our custom biothane gear plus training clips and before and after moments."
+      />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/gallery" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Gallery | Biothane Gear and Training" />
-      <meta property="og:description" content="Real dogs using our custom biothane gear plus training clips and before and after moments." />
+      <meta
+        property="og:description"
+        content="Real dogs using our custom biothane gear plus training clips and before and after moments."
+      />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/gallery" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Gallery | Biothane Gear and Training" />
-      <meta name="twitter:description" content="Real dogs using our custom biothane gear plus training clips and before and after moments." />
+      <meta
+        name="twitter:description"
+        content="Real dogs using our custom biothane gear plus training clips and before and after moments."
+      />
 
       <div className="gallery-page">
         <h1>Gallery</h1>
-        <p>See real customer builds—leashes, long lines, The Tallulah system, collars, traffic handles, and small accessories.</p>
-        <p>Want more? Visit the <Link to="/videos">video gallery</Link>.</p>
+        <p>
+          See real customer builds—leashes, long lines, The Tallulah system, collars, traffic handles, and small
+          accessories.
+        </p>
+        <p>
+          Want more? Visit the <Link to="/videos">video gallery</Link>.
+        </p>
 
         {/* Moved helper box below the heading to match other pages */}
         <section aria-label="How to use this gallery" className="page-intro compact">
           <h2>How to use this gallery</h2>
           <p>
-            Click any photo to enlarge. Note widths, snap styles, and color pairings. When you’re ready,
-            recreate your favorite setup in the <Link to="/builder" >Gear Builder</Link> or request a quote on the{" "}
-            <Link to="/order" >order page</Link>.
+            Click any photo to enlarge. Note widths, snap styles, and color pairings. When you’re ready, recreate your
+            favorite setup in the <Link to="/builder">Gear Builder</Link> or request a quote on the{" "}
+            <Link to="/order">order page</Link>.
           </p>
         </section>
 
@@ -165,53 +187,68 @@ export default function Gallery() {
             <img src="/assets/brasshardware.JPG" alt="Brass Hardware" />
             <p>Brass Hardware</p>
           </div>
+          <div className="gallery-item" onClick={() => openModal(galleryImages.length + 3)}>
+            <img src="/assets/hardware.JPG" alt="All swivel snap / locking carabiner options" />
+            <p>All swivel snap / locking carabiner options</p>
+          </div>
         </div>
 
         {modalIndex !== null && (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={closeModal}>✕</button>
+              <button className="modal-close" onClick={closeModal}>
+                ✕
+              </button>
 
               <button
                 className="modal-arrow left"
-                onClick={() =>
-                  setModalIndex((modalIndex - 1 + galleryImages.length + 2) % (galleryImages.length + 2))
-                }
+                onClick={() => setModalIndex((modalIndex - 1 + totalSlides) % totalSlides)}
               >
                 ❮
               </button>
 
-              <img
-                src={
-                  modalIndex < galleryImages.length
-                    ? `/assets/${galleryImages[modalIndex].filename}`
-                    : modalIndex === galleryImages.length
-                    ? "/assets/silverharware.jpg"
-                    : "/assets/blackhardware.jpg"
+              {(() => {
+                let src = "";
+                let alt = "";
+                let caption = "";
+
+                if (modalIndex < galleryImages.length) {
+                  const item = galleryImages[modalIndex];
+                  src = `/assets/${item.filename}`;
+                  alt = item.caption || "Custom biothane gear";
+                  caption = item.caption || "Custom biothane gear";
+                } else if (modalIndex === galleryImages.length) {
+                  src = "/assets/silverharware.jpg";
+                  alt = "Silver Hardware";
+                  caption = "Silver Hardware";
+                } else if (modalIndex === galleryImages.length + 1) {
+                  src = "/assets/blackhardware.jpg";
+                  alt = "Black Hardware";
+                  caption = "Black Hardware";
+                } else if (modalIndex === galleryImages.length + 2) {
+                  src = "/assets/brasshardware.JPG";
+                  alt = "Brass Hardware";
+                  caption = "Brass Hardware";
+                } else {
+                  src = "/assets/hardware.JPG";
+                  alt = "All swivel snap and locking carabiner options";
+                  caption = "All swivel snap and locking carabiner options";
                 }
-                alt={
-                  modalIndex < galleryImages.length
-                    ? galleryImages[modalIndex].caption || "Custom biothane gear"
-                    : modalIndex === galleryImages.length
-                    ? "Silver Hardware"
-                    : "Black Hardware"
-                }
-              />
+
+                return (
+                  <>
+                    <img src={src} alt={alt} />
+                    <p className="modal-caption">{caption}</p>
+                  </>
+                );
+              })()}
 
               <button
                 className="modal-arrow right"
-                onClick={() => setModalIndex((modalIndex + 1) % (galleryImages.length + 2))}
+                onClick={() => setModalIndex((modalIndex + 1) % totalSlides)}
               >
                 ❯
               </button>
-
-              <p className="modal-caption">
-                {modalIndex < galleryImages.length
-                  ? galleryImages[modalIndex].caption || "Custom biothane gear"
-                  : modalIndex === galleryImages.length
-                  ? "Silver Hardware"
-                  : "Black Hardware"}
-              </p>
             </div>
           </div>
         )}
