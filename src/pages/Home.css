@@ -1,6 +1,6 @@
 /* ===== HOME PAGE STYLES ===== */
 
-/* ---------- Hero sizing knob (change once, affects all breakpoints) ---------- */
+/* ---------- Global knobs ---------- */
 :root {
   --hero-height: clamp(260px, 42vh, 480px);
   --brand-coral: #e27d60;
@@ -14,25 +14,28 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #fff; /* remove black bleed */
+  background: #fff;
 }
 
 /* 3-up grid with no seams */
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;                     /* no black lines between images */
+  gap: 0;
   height: var(--hero-height);
   grid-auto-rows: 1fr;
 }
 
-.hero-tile { position: relative; overflow: hidden; }
+.hero-tile {
+  position: relative;
+  overflow: hidden;
+}
 .hero-tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: translateZ(0); /* paints smoother on iOS */
+  transform: translateZ(0);
 }
 
 /* ----- Bottom copy bar  ----- */
@@ -41,22 +44,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-
-  /* soft gradient that fades up from the bottom */
   background: linear-gradient(to top, rgba(0,0,0,.55) 45%, rgba(0,0,0,0) 100%);
-  padding: 0.75rem 0; /* vertical padding only; inner handles sides */
-  pointer-events: none; /* buttons re-enable clicks below */
+  padding: 0.75rem 0;
+  pointer-events: none; /* inner re-enables */
 }
 
 .hero-bar-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.25rem;          /* side gutters */
+  padding: 0 1.25rem;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
-  pointer-events: auto;        /* clickable buttons */
+  pointer-events: auto;
 }
 
 .hero-bar-text {
@@ -85,18 +86,23 @@
 .hero-sub {
   margin: .35rem 0 0 0;
   font-size: clamp(.9rem, 1.4vw, 1rem);
-  /* opacity: .95; */
 }
 
-/* Hero CTAs (right side on desktop) */
+/* ===== HERO CTAs ===== */
+
+/* 2x2 cluster on the right */
 .hero-actions {
   display: flex;
-  gap: .6rem;
-  flex-wrap: wrap;
-  margin-bottom: .25rem; /* align to bottom baseline */
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  margin-bottom: 0.25rem;
 }
 
-
+.hero-actions-row {
+  display: flex;
+  gap: 0.6rem;
+}
 
 /* Ghost/outline variant on dark images */
 .cta-ghost {
@@ -116,16 +122,14 @@
 
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-grid .hero-tile:nth-child(3) { grid-column: 1 / -1; } /* third spans both */
+  .hero-grid .hero-tile:nth-child(3) { grid-column: 1 / -1; }
 }
 
 @media (max-width: 640px) {
-  /* show more photo behind the bar on phones */
   :root { --hero-height: clamp(260px, 52vh, 520px); }
 
   .hero-grid { grid-template-columns: 1fr; }
 
-  /* slimmer bottom bar, lighter gradient */
   .hero-bottombar {
     background: linear-gradient(to top, rgba(0,0,0,.45) 28%, rgba(0,0,0,0) 100%);
     padding: .5rem 0;
@@ -139,28 +143,33 @@
     padding: 0 .75rem;
   }
 
-  /* smaller headline + copy so it doesn’t stack forever */
-  .hero-heading { font-size: clamp(1rem, 5.2vw, 1.35rem); line-height: 1.12; }
+  .hero-heading {
+    font-size: clamp(1rem, 5.2vw, 1.35rem);
+    line-height: 1.12;
+  }
   .hero-kicker  { font-size: .72rem; letter-spacing: .12em; }
   .hero-sub     { font-size: .9rem; opacity: .92; margin-top: .25rem; }
 
-  /* compact buttons, keep them side-by-side (not full-width) */
+  /* buttons: compact, centered 2x2 cluster */
   .hero-actions {
-    width: auto;
-    flex-direction: row;
-    justify-content: center;
-    gap: .5rem;
-    margin-bottom: .1rem;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.1rem;
   }
+
+  .hero-actions-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
   .hero-actions .cta-button {
-    width: auto !important;
-    padding: .55rem .9rem;
-    font-size: .95rem;
+    font-size: 1rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 8px;
     box-shadow: 0 6px 14px rgba(0,0,0,.18);
   }
 }
-
 
 /* --- Day Training Spotlight --- */
 .daytraining-spotlight {
@@ -182,28 +191,52 @@
   font-size: clamp(1.2rem, 2.4vw, 1.6rem);
   color: #2f6d5c;
 }
-.dt-sub { margin: 0 0 .6rem; color: #365a51; max-width: 60ch; }
-.dt-highlights { margin: .35rem 0 .8rem; padding-left: 1.1rem; color: #3a3a3a; }
+.dt-sub {
+  margin: 0 0 .6rem;
+  color: #365a51;
+  max-width: 60ch;
+}
+.dt-highlights {
+  margin: .35rem 0 .8rem;
+  padding-left: 1.1rem;
+  color: #3a3a3a;
+}
 .dt-highlights li { margin: .25rem 0; }
-.dt-cta-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+.dt-cta-row {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
 .dt-media img {
-  width: 100%; height: 100%; max-height: 240px; object-fit: cover;
-  border-radius: 14px; box-shadow: 0 10px 22px rgba(0,0,0,.08);
+  width: 100%;
+  height: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
 }
 .pill {
-  display: inline-block; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
-  font-size: .72rem; padding: .22rem .5rem; border-radius: 999px; background: #eaf6f3; color: #2f6d5c;
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  padding: .22rem .5rem;
+  border-radius: 999px;
+  background: #eaf6f3;
+  color: #2f6d5c;
 }
 .save {
-  display: inline-block; margin-left: .3rem; font-weight: 800; color: #e27d60;
+  display: inline-block;
+  margin-left: .3rem;
+  font-weight: 800;
+  color: #e27d60;
 }
 
 @media (max-width: 900px) {
   .dt-inner { grid-template-columns: 1fr; }
   .dt-media img { max-height: 200px; }
 }
-
-
 
 /* ===== MAIN CONTENT WRAPPER ===== */
 .home {
@@ -234,7 +267,14 @@
   margin: 0 auto;
 }
 
-.hero-logo { transition: transform 0.2s ease; }
+.hero-logo {
+  height: 150px;
+  width: 150px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
 .hero-logo:hover { transform: scale(1.05); }
 
 .tagline {
@@ -262,16 +302,17 @@
 #herobtn {
   background-color: var(--brand-coral);
   color: white;
-  padding: 0.32rem .6rem;
+  padding: 0.32rem 0.9rem;
   border-radius: 10px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   display: inline-block;
   text-decoration: none;
   transition: background-color 0.2s ease, transform .06s ease;
   border: 2px solid transparent;
   box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  white-space: nowrap; /* keep text on one line */
 }
 
 .cta-button:hover {
@@ -287,7 +328,7 @@
 .cta-secondary { background-color: var(--brand-teal); }
 .cta-secondary:hover { background-color: #369f91; }
 
-
+/* ===== Parade image ===== */
 .parade-img {
   margin-top: 1rem;
   max-width: 60%;
@@ -298,9 +339,7 @@
 .parade-img:hover {
   box-shadow: 0 10px 24px rgba(170, 110, 110, 0.951);
   transform: scale(1.02);
-
 }
-
 
 .featured-in {
   font-size: 0.95rem;
@@ -310,16 +349,31 @@
 }
 
 /* ===== GENERIC SECTIONS ===== */
-.about, .featured, .training-inquiry {
+.about,
+.featured,
+.training-inquiry {
   max-width: 800px;
   margin: 3rem auto;
   text-align: center;
 }
 
 /* ===== DOGS ===== */
-.dogs { max-width: 1000px; margin: 3rem auto; text-align: center; }
-.dogs h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #333; }
-.dog-profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+.dogs {
+  max-width: 1000px;
+  margin: 3rem auto;
+  text-align: center;
+}
+.dogs h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+.dog-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
 .dog-card {
   max-width: 250px;
   text-align: center;
@@ -330,9 +384,12 @@
   transition: transform 0.2s ease;
 }
 .dog-card:hover { transform: scale(1.03); }
-.dog-card img { width: 100%; border-radius: 0; }
+.dog-card img {
+  width: 100%;
+  border-radius: 0;
+}
 
-/* ===== FEATURED (kept for later) ===== */
+/* ===== FEATURED PRODUCTS ===== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -348,9 +405,21 @@
   transition: transform 0.2s ease;
 }
 .product-card:hover { transform: translateY(-4px); }
-.product-card img { width: 100%; height: 180px; object-fit: cover; }
-.product-card h3 { font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #222; }
-.product-card p { font-size: 0.95rem; color: #666; padding: 0 1rem 1rem; }
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem;
+  color: #222;
+}
+.product-card p {
+  font-size: 0.95rem;
+  color: #666;
+  padding: 0 1rem 1rem;
+}
 
 /* ===== TRAINING CTA ===== */
 .training-inquiry a {
@@ -366,34 +435,51 @@
 }
 .training-inquiry a:hover { background-color: #369f91; }
 
-.hero-logo {
-  height: 150px; width: 150px; margin-bottom: 1rem;
-  object-fit: contain; border-radius: 50%;
-}
-
 /* ===== UTILITIES ===== */
-.social-links { font-size: 0.95rem; margin-top: 0.5rem; color: #f6f3f3; }
-.social-links a { color: white; font-weight: 600; text-decoration: underline; }
+.social-links {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #f6f3f3;
+}
+.social-links a {
+  color: white;
+  font-weight: 600;
+  text-decoration: underline;
+}
 .social-links a:hover { color: var(--brand-coral); }
+
 .about p { margin-bottom: 1.25rem; }
 
-/* ===== SMALL SCREENS ===== */
+/* ===== SMALL SCREENS (general content) ===== */
 @media (max-width: 700px) {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
   .tagline { font-size: 0.9rem; }
+
   .product-card img { height: 150px; }
   .dog-profiles { flex-direction: column; align-items: center; }
   .dog-card { max-width: 90%; }
-  .product-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .about, .featured, .training-inquiry { padding: 0 1rem; }
-  .hero-logo { height: 120px; width: 120px; }
-  .training-inquiry .cta-button { width: 100%; padding: 0.9rem; font-size: 1rem; }
-  .hero-actions .cta-button { font-size: 1rem; padding: .55rem .9rem; }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .about,
+  .featured,
+  .training-inquiry { padding: 0 1rem; }
+
+  .hero-logo {
+    height: 120px;
+    width: 120px;
+  }
+
+  .training-inquiry .cta-button {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
 }
 
-
-/* ===== Video section (inside main content) ===== */
+/* ===== Video section ===== */
 .intro-video {
   max-width: 900px;
   margin: 1.25rem auto 1.75rem;
@@ -403,8 +489,8 @@
 .video-frame {
   margin: 0 auto;
   width: 100%;
-  max-width: 760px;           /* cap width so it doesn’t dominate */
-  aspect-ratio: 16 / 9;       /* compact landscape */
+  max-width: 760px;
+  aspect-ratio: 16 / 9;
   background: #000;
   border-radius: 14px;
   overflow: hidden;
@@ -424,29 +510,29 @@
   font-size: .95rem;
 }
 
-/* Fallback for browsers without aspect-ratio support */
 @supports not (aspect-ratio: 16/9) {
-  .video-frame { padding-top: 56.25%; } /* 16:9 */
+  .video-frame { padding-top: 56.25%; }
   .video-frame iframe { position: absolute; inset: 0; }
 }
 
-
-/* ===== Maker image card (matching dog-card look) ===== */
+/* ===== Maker card ===== */
 .maker {
   max-width: 1000px;
   margin: 1.75rem auto 1.5rem;
-  text-align: left;        /* let the text be left-aligned */
+  text-align: left;
   padding: 0 12px;
 }
 
 .maker-card {
-  max-width: 1000px;       /* much wider */
+  max-width: 1000px;
   margin: 0 auto;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem 1.75rem;
+  transition: transform 0.2s ease;
 }
+.maker-card:hover { transform: scale(1.03); }
 
 .maker-layout {
   display: flex;
@@ -454,7 +540,6 @@
   align-items: center;
 }
 
-.maker-card:hover { transform: scale(1.03); }
 .maker-card img {
   width: 260px;
   max-width: 35%;
@@ -462,12 +547,10 @@
   border-radius: 12px;
   object-fit: cover;
   display: block;
-  margin: 0 auto;        /* centers it in its column */
+  margin: 0 auto;
 }
 
-.maker-info {
-  flex: 1;
-}
+.maker-info { flex: 1; }
 
 .maker-name {
   margin-top: 0;
@@ -480,6 +563,7 @@
   line-height: 1.6;
 }
 
+/* ===== Footer / disclaimer ===== */
 .disclaimer {
   font-size: 0.85rem;
   color: #777;
@@ -488,6 +572,7 @@
   text-align: center;
 }
 
+/* ===== Small text links above logo ===== */
 .links-container1 {
   margin-bottom: 1rem;
 }
@@ -498,25 +583,12 @@
   text-decoration: none;
   font-weight: 100;
 }
-.links-container1 a:hover { text-decoration: none; color: var(--brand-teal); }
-
-/* ===== Maker image card (same look as dog cards) ===== */
-/* .maker {
-  max-width: 1000px;
-  margin: 1.75rem auto 1.25rem;
-  text-align: center;
-  padding: 0 12px;
+.links-container1 a:hover {
+  text-decoration: none;
+  color: var(--brand-teal);
 }
-.maker-card {
-  max-width: 250px;           
-  margin: 0 auto;
-}
-.maker-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-} */
 
+/* Maker layout on small screens */
 @media (max-width: 800px) {
   .maker-layout {
     flex-direction: column;
@@ -533,6 +605,6 @@
   }
 
   .maker-info {
-    text-align: left;      /* or center if you prefer */
+    text-align: left;
   }
 }

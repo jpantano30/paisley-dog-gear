@@ -65,10 +65,26 @@ const Home = () => {
             </div>
 
             <div className="hero-actions">
-              <Link to="/builder" className="cta-button cta-primary" id="herobtn">Design Your Own</Link>
-              <Link to="/training" className="cta-button cta-ghost" id="herobtn">Training</Link>
-              <Link to="/options" className="cta-button cta-ghost" id="herobtn">View Options</Link>
+              <div className="hero-actions-row">
+                <Link to="/builder" className="cta-button cta-primary" id="herobtn">
+                  Design Your Own
+                </Link>
+                <Link to="/training" className="cta-button cta-ghost" id="herobtn">
+                  Training
+                </Link>
+              </div>
+
+              <div className="hero-actions-row">
+                <Link to="/options" className="cta-button cta-ghost" id="herobtn">
+                  View Options
+                </Link>
+                <Link to="/gallery" className="cta-button cta-ghost" id="herobtn">
+                  Gallery
+                </Link>
+              </div>
             </div>
+
+
           </div>
         </div>
       </section>
@@ -81,7 +97,7 @@ const Home = () => {
           <p className="links-container1"><a href="/boston-dog-trainer-north-end">Boston</a> <a href="/biothane-dog-leashes-boston">Biothane</a></p>
           <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />
           <h1>Paisley Dog Gear & Training</h1>
-          <h2 className="tagline">Custom Biothane Dog Gear & Trick Training in Boston, MA</h2>
+          <h2 className="tagline">Custom Biothane Dog Gear & Training in Boston, MA</h2>
           <p>Functional. Custom. Made for Adventure.</p>
           <img src={Parade_IMG} alt="Parade" className="parade-img" />
           <p className="featured-in">Featured in The Boston Globe October 2025</p>

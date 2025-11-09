@@ -9,14 +9,14 @@
 /* === GALLERY PAGE === */
 .gallery-page {
   padding: 3rem 2rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: var(--bg-light);
   color: var(--text-dark);
   text-align: center;
 }
 
 .gallery-page h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2.5rem;
   color: var(--accent-brown);
   margin-bottom: 0.5rem;
@@ -42,22 +42,6 @@
   padding: 1rem 0;
 }
 
-.gallery-grid img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-/* === GALLERY CARD WRAPPER (for future captions if needed) === */
 .gallery-card {
   display: flex;
   flex-direction: column;
@@ -72,18 +56,52 @@
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-card img:hover {
   transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
-.caption {
-  margin-top: 0.5rem;
+/* ===== GEAR CAPTION CARD ===== */
+.caption-card {
+  margin-top: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  max-width: 220px;
+}
+
+.caption-item {
   font-size: 0.95rem;
-  color: var(--accent-teal);
+  font-weight: 700;
+  color: var(--accent-brown);
+  margin: 0 0 0.35rem !important
+}
+
+.caption-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+.caption-list li + li {
+  margin-top: 0.15rem;
+}
+
+.caption-label {
   font-weight: 600;
+  color: var(--accent-teal);
+}
+
+.caption-value {
+  font-weight: 400;
 }
 
 /* === SECTION HEADERS (like "Hardware Colors") === */
@@ -160,6 +178,15 @@
   z-index: 9999;
 }
 
+/* Wrap image + caption so widths match in the modal */
+.modal-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 520px;           /* keeps things from getting too wide */
+  width: 100%;
+}
+
 /* === MODAL CONTENT WITH CENTERED IMAGE & TEXT === */
 .modal-content {
   max-width: 90vw;
@@ -170,7 +197,7 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;        /* ensures .modal-media is centered */
   justify-content: center;
   position: relative;
   text-align: center;
@@ -183,13 +210,19 @@
   margin-bottom: 1rem;
 }
 
+/* reuse caption card inside modal but give more width / softer look */
+/* Caption container just adds spacing and lets the card fill width */
 .modal-caption {
-  color: var(--accent-brown);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
+  width: 100%;
+}
+
+/* Make the caption card flatter/softer in the modal specifically */
+.modal-caption .caption-card {
   max-width: 100%;
-  word-wrap: break-word;
+  box-shadow: none;
+  background: #faf9f6;
+  border-radius: 12px;
 }
 
 /* === CLOSE BUTTON === */
@@ -205,6 +238,7 @@
   cursor: pointer;
 }
 
+/* === ARROWS === */
 .modal-arrow {
   position: absolute;
   top: 50%;
@@ -251,9 +285,22 @@
   color: var(--accent-coral);
 }
 
-
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 600px) {
+  .gallery-page {
+    padding: 2rem 1.25rem;
+  }
+
+  .gallery-card img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .caption-card {
+    max-width: 180px;
+    padding: 0.6rem 0.75rem;
+  }
+
   .modal-content {
     padding: 1rem;
   }
@@ -265,6 +312,10 @@
   }
 
   .modal-caption {
-    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .modal-caption .caption-card {
+    font-size: 0.9rem;
   }
 }
