@@ -202,7 +202,7 @@ const TrainingForm = () => {
             I’ve been working hands-on with dogs for over 10 years, from walking and pet sitting
             to training. I started by training my first service dog, then my second service dog,
             who is also my trick and freestyle demo dog. Now I help clients with puppies,
-            obedience, behavior, and sport foundations. My style is balanced training, with a
+            obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced training, with a
             focus on clear communication, building a strong dog and owner relationship, and
             setting both up for real world success. I’m an active member of professional training
             organizations, including IACP and APDT, and I’m currently working toward my CPDT-KA

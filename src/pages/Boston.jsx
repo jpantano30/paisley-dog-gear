@@ -81,7 +81,7 @@ export default function Boston() {
           <header className="stack-sm">
             <h1>Dog Trainer in Boston’s North End</h1>
             <p>
-              Work with us at our North End location, at your home in Boston, or at nearby public spots that fit your goals. Travel time is billed for in-home visits.
+              Work with us at our North End location, at your home in Boston, or at nearby public spots that fit your goals.
             </p>
             <p>
               <Link className="btn" to="/training">Tell me about your dog</Link>
@@ -98,7 +98,7 @@ export default function Boston() {
                 <li><strong>Puppy foundations</strong>: house training, socialization plans, crate/alone-time, calm focus.</li>
                 <li><strong>Obedience &amp; manners</strong>: sit/down, place, recall, loose-leash, polite greetings.</li>
                 <li><strong>Trick training / freestyle</strong>: confidence, teamwork, short routines.</li>
-                <li><strong>Leash skills &amp; reactivity</strong>: equipment, handling skills, safe setups.</li>
+                <li><strong>Leash skills &amp; Light reactivity</strong>: equipment, handling skills, safe setups.</li>
               </ul>
             </div>
             <div>
@@ -117,6 +117,15 @@ export default function Boston() {
             <h2>Service details</h2>
 
             <article className="stack-xs service">
+              <h3>Trick Training / Canine Freestyle (Dog Dance)</h3>
+              <p>
+                Trick training and canine freestyle that deepen your bond while building confidence, focus, and body awareness.
+                We teach targeting, perch and pivot, heel work, spins, weaves, and prop work, progressing to short routines for
+                enrichment, teamwork, and stronger results in other areas of training.
+              </p>
+            </article>
+
+            <article className="stack-xs service">
               <h3>Puppy Foundations</h3>
               <p>
                 Build strong foundations with reward-based training: social skills, house and crate manners, name recognition,
@@ -129,15 +138,6 @@ export default function Boston() {
               <p>
                 Balanced obedience and real-life manners: heel, stay, leave it/drop it, place with duration, door and greeting
                 manners, leash skills, handling confidence, car/house manners, and distraction proofing for calm, reliable behavior anywhere.
-              </p>
-            </article>
-
-            <article className="stack-xs service">
-              <h3>Trick Training / Canine Freestyle</h3>
-              <p>
-                Trick training and canine freestyle that deepen your bond while building confidence, focus, and body awareness.
-                We teach targeting, perch and pivot, heel work, spins, weaves, and prop work, progressing to short routines for
-                enrichment, teamwork, and stronger results in other areas of training.
               </p>
             </article>
 
