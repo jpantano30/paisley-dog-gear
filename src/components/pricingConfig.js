@@ -54,7 +54,7 @@ const PRICING = {
   // Hardware finish (non-collar)
   hardware: {
     standard: 0, // Silver
-    black: 3     // set to 2–5 as you like
+    black: 1     // set to 2–5 as you like
   },
 
   // Snap types for leashes/long lines
@@ -92,8 +92,8 @@ const PRICING = {
 
   // Color & personalization
   color: {
-    twoToneLeashOrLine: 4,
-    twoToneSmallAccessory: 3
+    twoToneLeashOrLine: 2,
+    twoToneSmallAccessory: 1
   },
 
   personalization: {
@@ -121,7 +121,7 @@ const PRICING = {
     },
 
     // metal hardware set in black (buckle/D-ring/loop)
-    blackHardwareSurcharge: 3,
+    blackHardwareSurcharge: 2,
 
     // Two-tone via O-ring split
     twoToneORingSplit: 6,

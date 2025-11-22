@@ -92,7 +92,7 @@ const Home = () => {
       {/* ===== MAIN CONTENT ===== */}
       <section className="home">
 
-        {/* Site intro (kept) */}
+        {/* Site intro */}
         <div className="hero">
           <p className="links-container1"><a href="/boston-dog-trainer-north-end">Boston</a> <a href="/biothane-dog-leashes-boston">Biothane</a></p>
           <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />

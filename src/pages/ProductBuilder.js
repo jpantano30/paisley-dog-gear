@@ -887,7 +887,7 @@ export default function ProductBuilder() {
                       disabled={form.buckleType === "plasticQR"}
                     >
                       <option value="silver">Silver</option>
-                      <option value="black">Black (+$3)</option>
+                      <option value="black">Black (+$2)</option>
                     </select>
                     <div className="small">Applies to metal buckle/D-ring/keeper.</div>
                   </div>

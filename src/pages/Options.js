@@ -18,9 +18,9 @@ const gearData = [
       "- 8–10ft: Relaxed walks, hiking, recall",
       "**Colors**",
       "- 1–3 solid colors",
-      "- Two-tone: +$8",
+      "- Two-tone: +$2",
       "**Hardware**",
-      "- Silver or Black (+$3)",
+      "- Silver or Black (+$1)",
       "- Snaps: Locking Carabiner (+$8) or Swivel Snap",
       "**Handle Styles**",
       "- Loop Handle (standard) or No Handle",
@@ -30,9 +30,9 @@ const gearData = [
       "- Paracord handle upgrade: +$10–$18"
     ],
     pricing: [
-      "4–6 ft: $30–$35",
-      "8–10 ft: $38–$42",
-      "Two-tone: +$8 • Locking: +$8 • Traffic: +$5 • Hands-free: +$10"
+      "4–6 ft: $25–$30",
+      "8–10 ft: $33–$40",
+      "Two-tone: +$2 • Locking: +$8 • Traffic: +$5 • Hands-free: +$10"
     ]
   },
   {
@@ -46,9 +46,9 @@ const gearData = [
       "- 12ft, 15ft, 20ft, 25ft, 30ft",
       "**Colors**",
       "- 1–3 solid colors",
-      "- Two-tone: +$8",
+      "- Two-tone: +$2",
       "**Hardware**",
-      "- Silver or Black (+$3)",
+      "- Silver or Black (+$1)",
       "- Snaps: Locking Carabiner (+$8) or Swivel Snap",
       "**Add-ons**",
       "- Built-in grab/traffic handle (+$5; paracord +$10–$12)",
@@ -56,9 +56,9 @@ const gearData = [
       "- Custom lengths available"
     ],
     pricing: [
-      "10–15 ft: $45–$65",
-      "20–30 ft: $55–$75",
-      "Two-tone: +$8 • Locking: +$8 • Handle: +$5 (+paracord)"
+      "12–15 ft: $42–$47",
+      "20–30 ft: $55–$70",
+      "Two-tone: +$2 • Locking: +$8 • Handle: +$5 (+paracord)"
     ]
   },
   {
@@ -91,19 +91,19 @@ const gearData = [
     bestFor: "Daily wear • Personalized fit",
     items: [
       "**Sizes (measured fit)**",
-      "- XS: 8–11\" — from $22",
-      "- S: 10–13\" — from $24",
-      "- M: 12–16\" — from $26",
-      "- L: 15–20\" — from $28",
-      "- XL: 20–25\" — from $32",
+      "- XS: 8–11\" — from $20",
+      "- S: 10–13\" — from $22",
+      "- M: 12–16\" — from $24",
+      "- L: 15–20\" — from $26",
+      "- XL: 20–25\" — from $30",
       "**Buckle Options**",
       "- Metal double-bar (Silver or Black +$2)",
       "- Plastic quick-release (Black, −$2)",
       "**Width**",
       "- 5/8\" standard • 1\" +$8",
       "**Style Upgrades**",
-      "- Two-tone O-ring split: +$8",
-      "- Black metal hardware set: +$3",
+      "- Two-tone O-ring split: +$2",
+      "- Black metal hardware set: +$2",
       "- HTV: Name $5 • Name+Phone $8 • Large $10"
     ],
     pricing: [
@@ -122,12 +122,12 @@ const gearData = [
       "**Styles**",
       "- Biothane (standard) or Paracord (fishtail/weave)",
       "**Colors & Hardware**",
-      "- 1–2 colors • Two-tone +$5",
-      "- Silver hardware (Black +$3)"
+      "- 1–2 colors • Two-tone +$2",
+      "- Silver hardware (Black +$1)"
     ],
     pricing: [
       "Biothane: $12–$18 • Paracord: +$10–$12",
-      "Two-tone: +$5"
+      "Two-tone: +$2"
     ]
   },
   {
@@ -142,11 +142,11 @@ const gearData = [
       "**Includes**",
       "- Snap + attachment ring",
       "**Upgrades**",
-      "- Two-tone +$5 • Black hardware +$3"
+      "- Two-tone +$2 • Black hardware +$1"
     ],
     pricing: [
       "Base: $12–$16 depending on size",
-      "Two-tone: +$5"
+      "Two-tone: +$2"
     ]
   },
   {
@@ -162,11 +162,11 @@ const gearData = [
       "**Includes**",
       "- Ring/clip attachment • Silver hardware",
       "**Options**",
-      "- Two-tone +$5 • Black hardware +$3"
+      "- Two-tone +$2 • Black hardware +$1"
     ],
     pricing: [
       "Standard: $12–$15",
-      "Two-tone: +$5"
+      "Two-tone: +$2"
     ]
   },
   {
@@ -185,7 +185,7 @@ const gearData = [
     ],
     pricing: [
       "Biothane: $12–$15 • Paracord: $20–$30",
-      "Two-tone: +$5"
+      "Two-tone: +$2"
     ]
   }
 ];
