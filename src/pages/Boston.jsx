@@ -116,7 +116,7 @@ export default function Boston() {
           <section className="stack-md">
             <h2>Service details</h2>
 
-            <article className="stack-xs service">
+            <article className="stack-xs service" id="tricks">
               <h3>Trick Training / Canine Freestyle (Dog Dance)</h3>
               <p>
                 Trick training and canine freestyle that deepen your bond while building confidence, focus, and body awareness.
@@ -125,7 +125,7 @@ export default function Boston() {
               </p>
             </article>
 
-            <article className="stack-xs service">
+            <article className="stack-xs service" id="puppy">
               <h3>Puppy Foundations</h3>
               <p>
                 Build strong foundations with reward-based training: social skills, house and crate manners, name recognition,
@@ -133,7 +133,7 @@ export default function Boston() {
               </p>
             </article>
 
-            <article className="stack-xs service">
+            <article className="stack-xs service" id="behavior">
               <h3>Obedience &amp; Manners</h3>
               <p>
                 Balanced obedience and real-life manners: heel, stay, leave it/drop it, place with duration, door and greeting
@@ -141,7 +141,7 @@ export default function Boston() {
               </p>
             </article>
 
-            <article className="stack-xs service">
+            <article className="stack-xs service" id="leash">
               <h3>Leash Skills</h3>
               <p>
                 We cover equipment selection and fit, handler mechanics, step by step setups, and conditioning for loose leash,

@@ -166,11 +166,11 @@ const TrainingForm = () => {
         <section className="training-intro">
           <h2>Dog Training</h2>
 
-          <p className="notes one">
+          <p className="notes one" id="tricks">
             <span className="note-icon" role="img" aria-label="sparkles">✨</span> I specialize in <strong>freestyle and trick training</strong> — spins, weaves, jumps, and full routines. Movement, creativity, and focus that carry into everyday life.
           </p>
 
-          <p className="notes one">
+          <p className="notes one" id="behavior">
             <span role="img" aria-label="paw prints">🐾</span> I also help with <strong>manners, obedience, and behavior</strong> using a balanced, communication-focused approach. I tailor the plan to your dog and your goals.
           </p>
 
