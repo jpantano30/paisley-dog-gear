@@ -155,8 +155,7 @@ const Home = () => {
               <img src="/assets/tully.jpeg" alt="Tallulah the Bordoodle" />
               <h3>Tallulah</h3>
               <p>
-                My energetic SDiT and demo dog. Smart, sassy, and training in freestyle
-                and service work.
+                My energetic SDiT and demo dog. Smart, sassy, and training in freestyle and service work. She has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles.
                 <br /><br />
                 Follow her adventures on Instagram:
                 <br />

@@ -5,7 +5,7 @@ import "./BuilderGuide.css";
 /** Images live in /public/assets/...  */
 const PRODUCT_MEDIA = {
   leash: {
-    src: "/assets/leashpicsNvids/b&pstandard.JPG",
+    src: "/assets/IMG_0088.JPG",
     alt: "Custom biothane leash with swivel snap and loop handle",
     credit: "Leash example",
   },
@@ -40,7 +40,7 @@ const PRODUCT_MEDIA = {
     credit: "Collar example",
   },
   safetyStrapBiothane: {
-    src: "/assets/saftystrapparacord.jpeg",
+    src: "/assets/IMG_0111.JPG",
     alt: "Biothane safety strap",
     credit: "Safety strap (Biothane)",
   },
