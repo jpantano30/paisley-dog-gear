@@ -199,17 +199,7 @@ const TrainingForm = () => {
           <h2 className="cred">Experience, Education, and Approach</h2>
 
           <p className="cred-disclaimer">
-            I’ve been working hands-on with dogs for over 10 years, from walking and pet sitting
-            to training. I started by training my first service dog, then my second service dog,
-            who is also my trick and freestyle demo dog. Now I help clients with puppies,
-            obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced training, with a
-            focus on clear communication, building a strong dog and owner relationship, and
-            setting both up for real world success. I’m an active member of professional training
-            organizations, including IACP and APDT, and I’m currently working toward my CPDT-KA
-            certification. I stay current on modern, science-informed training through courses,
-            workshops, and mentorship, and I tailor each plan to the dog in front of me and the
-            goals you care about most. If you have questions about methods or whether your dog is
-            a good fit, feel free to email me at paisleygearandtraining@gmail.com.
+            I’ve been working hands-on with dogs for over 10 years, from walking and pet sitting to training. I started by training my first service dog, then my second service dog, Tallulah (Tully), who is also my trick and freestyle demo dog and has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles. Now I help clients with puppies, obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced training, with a focus on clear communication, building a strong dog and owner relationship, and setting both up for real world success. I’m an active member of professional training organizations, including IACP and APDT, and I’m currently working toward my CPDT-KA certification. I stay current on modern, science informed training through courses, workshops, and mentorship, and I tailor each plan to the dog in front of me and the goals you care about most. If you have questions about methods or whether your dog is a good fit, feel free to email me at paisleygearandtraining@gmail.com.
           </p>
         </section>
 
