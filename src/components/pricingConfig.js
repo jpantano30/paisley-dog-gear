@@ -124,7 +124,7 @@ const PRICING = {
     blackHardwareSurcharge: 2,
 
     // Two-tone via O-ring split
-    twoToneORingSplit: 6,
+    twoToneORingSplit: 3,
 
     // HTV options
     htv: { name: 5, namePhone: 7, phraseLarge: 10 , custom: null},

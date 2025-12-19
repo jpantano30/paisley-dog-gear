@@ -6,9 +6,15 @@ import "../components/page-intro.css";
 const galleryImages = [
   { filename: "paisley_leashCollar_ocean.jpeg", caption: "Item: Custom leash + two-tone collar set | Width: 5/8 in | Colors: Sage & White leash, matching two-tone collar | Hardware: silver", type: "image" },
   { filename: "painted.JPG", caption: "Item: Custom hand-painted collar | Width: 1 in with 5/8 in buckle | Colors: Deep Sea base with hand-painted mountain landscape | Hardware: silver | Custom: Hand-painted design sealed for durability", type: "image" },
-  { filename: "customhandlecollar.JPG ", caption: "Item: Custom collar with built-in handle | Width: collar – 1 in, handle – 5/8 in | Colors: Black base with hot-pink accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, plus name detail", type: "image" },
-  { filename: "navy_brown.JPG", caption: "Item: Classic two-tone leash | Length: 8 ft | Width: 5/8 in | Colors: Deep Sea & Brown 522 | Hardware: silver", type: "image" },
   { filename: "/hands-free-coral_Navy.JPG", caption: "Item: Hands-free system | Length: 7 ft | Width: 5/8 in | Colors: Coral & Deep Sea | Hardware: solid brass", type: "image" },
+  { filename: "customhandlecollar.JPG ", caption: "Item: Custom collar with built-in handle | Width: collar – 1 in, handle – 5/8 in | Colors: Black base with hot-pink accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, plus name detail", type: "image" },
+
+  { filename: "IMG_0517.JPG", caption: "Item: Utility Belt and matching ball holder | Size: XXL (custom) | Width: 1 in | Colors: Deep Sea & Brown 522 | Hardware: Black", type: "image" },
+
+  { filename: "IMG_0088.JPG", caption: "Item: Classic two-tone leash | Length: 6 ft | Width: 5/8 in | Colors: Red & Brown 52 | Hardware: solid brass", type: "image" },
+
+  { filename: "IMG_0489.JPG", caption: "Item: Utility Belt | Size: XXL (custom) | Width: 1 in | Colors: Deep Sea & Brown 522 | Hardware: Black", type: "image" },
+
   { filename: "b3.jpg", caption: "Item: Custom buckle collar | Width: 1 in | Colors: Orange 522 | Hardware: silver | Custom: Personalized name and phone; made with holes for an invisible-fence attachment", type: "image" },
   { filename: "tallulah-sage.JPG", caption: "Item: The Tallulah / hands-free leash system | Length: 7 ft | Width: 5/8 in | Colors: Sage & White | Hardware: silver | Custom: Built-in traffic handle at base and matching leash extender", type: "image" },
   { filename: "duke.JPG", caption: "Item: Traffic handle / grab tab | Length: 13 in | Width: 5/8 in | Colors: Brown 523 | Hardware: brass | Custom: Short control handle for close work", type: "image" },
@@ -21,10 +27,12 @@ const galleryImages = [
   { filename: "/leashpicsNvids/IMG_5191.JPG", caption: "Item: Two-tone collar | Width: 5/8 in | Colors: Red & Black | Hardware: black | Custom: HTV name and phrase", type: "image" },
   { filename: "b1.jpg",  caption: "Item: Custom buckle collar | Width: 1 in | Colors: Orange 522 | Hardware: silver | Custom: Personalized name and phone; made with holes for an invisible-fence attachment", type: "image" },
   { filename: "IMG_8753.JPG", caption: "Item: Ball holder + leash set | Width: 5/8 in | Colors: Deep Sea & Brown 522 with matching ball holder | Hardware: silver", type: "image" },
-  { filename: "IMG_0088.JPG", caption: "Item: Classic two-tone leash | Length: 6 ft | Width: 5/8 in | Colors: Red & Brown 52 | Hardware: solid brass", type: "image" },
   { filename: "JetTug.jpeg", caption: "Item: Custom tether leash | Width: 5/8 in | Colors: Red | Hardware: black | Custom: Made for a gym setup to tether multiple dogs", type: "image" },
   { filename: "brasshardware.JPG", caption: "Item: Hardware options | Details: Solid brass snaps and Chicago screws | Use: Upgrade any item to brass hardware for extra durability and style", type: "image" },
   { filename: "PurpleTrafficNCollar_ocean.jpg", caption: "Item: Traffic handle + collar set | Width: 5/8 in | Colors: Amethyst Purple & Pink 521 | Hardware: silver | Custom: Matching pull tab and collar for quick control", type: "image" },
+
+  { filename: "navy_brown.JPG", caption: "Item: Classic two-tone leash | Length: 8 ft | Width: 5/8 in | Colors: Deep Sea & Brown 522 | Hardware: silver", type: "image" },
+
   { filename: "/leashpicsNvids/rwb.jpg", caption: "Item: Hands-free 8 ft leash + adjustable collar | Length: 8 ft (leash) | Width: 5/8 in | Colors: Red, White & Blue (Deep Sea) 3-tone | Hardware: silver | Custom: Patriotic set with matching adjustable collar", type: "image" },
   { filename: "IMG_84080.JPG", caption: "Item: Trick training – hoop jump | Details: Tully demoing freestyle ‘circle’ trick", type: "image" },
   { filename: "rolled_coral.JPG", caption: "Item: Hands-free system | Length: 7 ft | Width: 5/8 in | Colors: Coral & Deep Sea | Hardware: solid brass | Custom: Multi-way system shown rolled for storage", type: "image" },
