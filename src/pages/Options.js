@@ -7,7 +7,7 @@ import "../components/page-intro.css";
 const gearData = [
   {
     title: "Standard Leashes",
-    image: "/assets/leashpicsNvids/b&pstandard.JPG",
+    image: "/assets/IMG_0088.JPG",
     anchor: "leashes",
     description: "Custom everyday leashes made to fit your walk style. Choose the length, snap type, and color combo that works best for you.",
     bestFor: "Everyday walking • City environments • Training",
