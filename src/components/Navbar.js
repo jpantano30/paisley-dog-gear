@@ -73,9 +73,29 @@ export default function Navbar() {
               <span className={`accordion-caret ${gearOpen ? "open" : ""}`}>▾</span>
             </button>
             <ul id="gear-sublist" className={`sublist ${gearOpen ? "open" : ""}`}>
-              <li><Link className="sub-link" to="/builder" onClick={() => setMenuOpen(false)}>Builder (Custom)</Link></li>
-              <li><Link className="sub-link" to="/quick-order" onClick={() => setMenuOpen(false)}>Quick Order (Presets)</Link></li>
-              <li><Link className="sub-link" to="/options" onClick={() => setMenuOpen(false)}>Gear Options</Link></li>
+              <li>
+                <Link className="sub-link" to="/builder" onClick={() => setMenuOpen(false)}>Builder (Custom)
+                </Link>
+              </li>
+              <li>
+                <Link className="sub-link" to="/quick-order" onClick={() => setMenuOpen(false)}>Quick Order (Presets)
+                </Link>
+              </li>
+              <li>
+                <Link className="sub-link" to="/options" onClick={() => setMenuOpen(false)}>Gear Options
+                </Link>
+              </li>
+              <li>
+                <a
+                  className="sub-link etsy"
+                  href="https://www.etsy.com/shop/PaisleyDogGear?ref=seller-platform-mcnav"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Shop on Etsy!
+                </a>
+              </li>
             </ul>
           </li>
 

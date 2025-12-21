@@ -133,7 +133,13 @@
   .sublist.open{ display:block; }
   .sub-link{ display:block; padding:.55rem 0; font-size:1.05rem; color:var(--ink); }
   .sub-link:hover, .sub-link:focus{ color:var(--brand-coral); background:transparent; }
+  
+  .sub-link.etsy {
+    font-weight: 700;
+    color: var(--brand-coral);
+  }
 }
+
 
 .accordion-title {
   margin-left: 24px;
