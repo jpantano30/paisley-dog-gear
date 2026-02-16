@@ -462,6 +462,39 @@ h1 {
 .training-form button:hover,
 .training-form button:focus { background-color: #cf6f56; }
 
+
+.skipline {
+  text-align: center;
+}
+.skip-to-form {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sticky-cta {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #e6775a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+@media (min-width: 900px) {
+  .sticky-cta { display: none; }
+}
+
+
 /* ---------- Modal ---------- */
 .modal {
   position: fixed;
@@ -503,6 +536,221 @@ h1 {
   .training-pricing .price-card { padding: 1.05rem .95rem; }
 }
 
+/* ------------- form cards--------- */
+.service-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.service-legend {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.service-left {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.service-left input[type="radio"] {
+  margin-top: 4px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  
+}
+
+.form-header-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  margin-bottom: 0;
+}
+
+
+@media (min-width: 860px) {
+  .card-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.service-card {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.service-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+}
+
+.service-card input[type="radio"] {
+  margin-top: 4px;
+}
+
+.service-card:focus-within {
+  outline: 3px solid rgba(108,154,139,0.25);
+  outline-offset: 2px;
+}
+
+.service-card.is-selected {
+  border-color: rgba(108,154,139,0.8);
+  box-shadow: 0 12px 30px rgba(108,154,139,0.15);
+}
+
+
+.service-icon {
+  font-size: 20px;
+  line-height: 1;
+  padding-right: 10px;
+}
+
+.service-title {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.service-desc {
+  display: block;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.form-row-2, .form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 860px) {
+  .form-row-2 { grid-template-columns: 1fr 1fr; }
+  .form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.field-help {
+  margin: -6px 0 6px;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+/* errors */
+.field-error {
+  margin-top: 6px;
+  font-weight: 700;
+  color: #b00020;
+}
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #b00020;
+  box-shadow: 0 0 0 4px rgba(176,0,32,0.10);
+}
+
+/* ---------- Success card ("Got it!") ---------- */
+.success-card {
+  margin: 18px auto 0;
+  padding: 22px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(108,154,139,0.28);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  max-width: 720px;
+}
+
+.success-card h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--accent-brown);
+  text-align: center;
+}
+
+.success-card p {
+  margin: 0 0 10px 0;
+  color: #444;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.success-card a {
+  color: var(--accent-coral);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.success-card a:hover,
+.success-card a:focus {
+  text-decoration-thickness: 2px;
+}
+
+.success-card button {
+  display: block;
+  margin: 8px auto 0; /* centers it */
+  padding: 0.85rem 1.1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #1f1f1f;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+
+.success-card button:hover,
+.success-card button:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+  background: #121212;
+}
+
+@media (max-width: 600px) {
+  .success-card {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+  .success-card h2 {
+    font-size: 1.45rem;
+  }
+  .success-card button {
+    width: 100%;
+  }
+}
+
+
+.loading-bar {
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.08);
+  margin: 12px 0;
+  position: relative;
+}
+.loading-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-60%);
+  background: rgba(0,0,0,0.25);
+  animation: slide 900ms infinite ease-in-out;
+}
+@keyframes slide {
+  0% { transform: translateX(-60%); }
+  100% { transform: translateX(60%); }
+}
 
 
 /* --- Select (dropdown) polish --- */
@@ -532,3 +780,5 @@ h1 {
 
 /* iOS fix so the chevron doesn't get clipped */
 .training-form select::-ms-expand { display: none; }
+
+
