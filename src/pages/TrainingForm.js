@@ -3,6 +3,8 @@ import "./TrainingForm.css";
 import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import "../components/Banner.css";
+import formHeader from "../background.png";
+
 
 const TrainingForm = () => {
   const [formData, setFormData] = useState({
@@ -17,28 +19,71 @@ const TrainingForm = () => {
     experience: "",
     referral: "",
     // honeypot (hidden)
-    company: ""
+    hpField: ""
   });
 
   const [submitting, setSubmitting] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
 
   const wantsDayTraining =
     formData.serviceType === "Day Training" ||
     formData.serviceType === "Day Training Package";
+  
+  const serviceOptions = [
+    { value: "Day Training", icon: "🏫", title: "Day Training", desc: "Drop off or pick up. Structured training plus rest plus real-world practice." },
+    { value: "Day Training Package", icon: "📦", title: "Day Training Package", desc: "Discounted multi-day full-day packs." },
+    { value: "Private Training", icon: "🐾", title: "Private Training", desc: "Meet-up, in-home, park, or field trip." },
+    { value: "Virtual Coaching", icon: "💻", title: "Virtual Coaching", desc: "Zoom/Meet. Great for plans, Q&A, trick tune-ups." },
+    { value: "Not Sure", icon: "✨", title: "Not sure yet", desc: "Tell me what’s going on and I’ll guide you." }
+  ];
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validate = (data) => {
+    const next = {};
+
+    if (!data.serviceType) next.serviceType = "Please choose a service.";
+    if (!data.name.trim()) next.name = "Please enter your name.";
+    if (!data.email.trim()) next.email = "Please enter your email.";
+
+    // very basic email check
+    if (data.email && !/^\S+@\S+\.\S+$/.test(data.email)) next.email = "Please enter a valid email.";
+
+    if (!data.goals.trim()) next.goals = "Tell me what you want help with.";
+
+    return next;
+  };
+
+  const markTouched = (field) => setTouched((p) => ({ ...p, [field]: true }));
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const nextErrors = validate(formData);
+    setErrors(nextErrors);
+    setTouched({ serviceType: true, name: true, email: true, goals: true });
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrorMsg("Please fix the highlighted fields.");
+      return;
+    }
+
     setErrorMsg("");
 
-    // simple spam trap
-    if (formData.company) return;
+    // spam trap
+    if (formData.hpField && formData.hpField.trim() !== "") {
+      setErrorMsg("Please refresh and try again (spam filter triggered). If this keeps happening, email me directly.");
+      return;
+    }
 
     setSubmitting(true);
     try {
@@ -56,7 +101,7 @@ const TrainingForm = () => {
         throw new Error(maybe?.error || "Submit failed");
       }
 
-      setShowModal(true);
+      setShowSuccess(true);
       setFormData({
         serviceType: "",
         dayTrainingPackage: "",
@@ -68,9 +113,10 @@ const TrainingForm = () => {
         goals: "",
         experience: "",
         referral: "",
-        company: ""
+        hpField: ""
       });
     } catch (_err) {
+      console.error("Form submit error:", _err);
       setErrorMsg("Something went wrong. Please try again or email me directly.");
     } finally {
       setSubmitting(false);
@@ -147,6 +193,10 @@ const TrainingForm = () => {
         <p className="intro-sub">
           Share the details about your dog and goals. I’ll send a plan, pricing, and scheduling options.
         </p>
+        <p className="skipline">
+          <a className="skip-to-form" href="#training-form">Skip to the request form</a>
+        </p>
+
 
         {/* How it works — bullets */}
         <section aria-label="How quotes and scheduling work" className="page-intro">
@@ -215,7 +265,8 @@ const TrainingForm = () => {
         {/* Rates — grouped + Most popular + collapsible Travel Policy */}
         <section className="training-pricing" aria-label="Training rates">
           <h2>Training Rates</h2>
-          <p>Pre-payment is required. Please give 24-hour cancellation notice.</p>
+          <p>Pre-payment is required.</p>
+          <h4>Cancellation Policy: A 24 hour notice is required to cancel or reschedule. Late cancellations and no shows count as a used session and cannot be rescheduled.</h4>
 
           <div className="pricing-grid training-pricing-grid">
             <div className="price-card">
@@ -296,106 +347,235 @@ const TrainingForm = () => {
           </div>
         </section>
 
-        <h2 className="form-heading">Tell me about your pup and what you’re looking for</h2>
-
-        <form onSubmit={handleSubmit} className="training-form" noValidate>
-          {/* hidden honeypot */}
-          <div className="visually-hidden" aria-hidden="true">
-            <label htmlFor="company">Company</label>
-            <input id="company" name="company" value={formData.company} onChange={handleChange} tabIndex={-1} autoComplete="off" />
-          </div>
-
-          {/* Service */}
-          <h3 className="form-section">Service</h3>
-          <label>I’m interested in:</label>
-          <select name="serviceType" value={formData.serviceType} onChange={handleChange} required>
-            <option value="">Select…</option>
-            <option value="Day Training">Day Training (drop-off / pick-up)</option>
-            <option value="Day Training Package">Day Training — Package</option>
-            <option value="Private Training">Private Training (meet-up / in-home / park / field trip)</option>
-            <option value="Virtual Coaching">Virtual Coaching (Zoom/Meet)</option>
-            <option value="Not Sure">Not sure yet</option>
-          </select>
-
-          {wantsDayTraining && (
-            <>
-              <label>Day Training Package (optional):</label>
-              <select
-                name="dayTrainingPackage"
-                value={formData.dayTrainingPackage}
-                onChange={handleChange}
-              >
-                <option value="">No package selected</option>
-                <option value="3-Day Pack ($270)">3-Day Pack ($270)</option>
-                <option value="5-Day Pack ($425)">5-Day Pack ($425)</option>
-                <option value="10-Day Pack ($800)">10-Day Pack ($800)</option>
-              </select>
-            </>
-          )}
-
-          {/* Owner */}
-          <h3 className="form-section">Owner Info</h3>
-          <label>Your Name:</label>
-          <input type="text" name="name" placeholder="First and last name" required onChange={handleChange} value={formData.name} />
-
-          <label>Email Address:</label>
-          <input type="email" name="email" placeholder="you@email.com" required onChange={handleChange} value={formData.email} />
-
-          {/* Dog */}
-          <h3 className="form-section">Dog Info</h3>
-          <label>Dog's Name:</label>
-          <input type="text" name="dogName" placeholder="e.g., Tully" onChange={handleChange} value={formData.dogName} />
-
-          <label>Dog's Age:</label>
-          <input type="text" name="dogAge" placeholder="e.g., 11 months" onChange={handleChange} value={formData.dogAge} />
-
-          <label>Dog's Breed:</label>
-          <input type="text" name="dogBreed" placeholder="e.g., Bordoodle" onChange={handleChange} value={formData.dogBreed} />
-
-          {/* Goals */}
-          <h3 className="form-section">Goals</h3>
-          <label>What are your training goals?</label>
-          <textarea
-            name="goals"
-            required
-            placeholder="e.g., loose-leash walking, recall, tricks/freestyle, puppy basics, confidence in public"
-            onChange={handleChange}
-            value={formData.goals}
+        {/* Only show the header image when the form is visible */}
+        {!showSuccess && (
+          <img
+            src={formHeader}
+            alt="Tell me about your pup"
+            className="form-header-image"
           />
+        )}
 
-          <label>Any prior training experience or notes?</label>
-          <textarea
-            name="experience"
-            placeholder="e.g., puppy class, e-collar experience, triggers, medical notes"
-            onChange={handleChange}
-            value={formData.experience}
-          />
+        {/* <h2 className="form-heading" id="training-form">
+          Tell me about your pup and what you’re looking for
+        </h2> */}
 
-          <label>How did you hear about me?</label>
-          <input
-            type="text"
-            name="referral"
-            placeholder="Instagram, friend, Nextdoor, Google…"
-            onChange={handleChange}
-            value={formData.referral}
-          />
-
-          {errorMsg && <div className="form-error" role="alert">{errorMsg}</div>}
-
-          <button type="submit" disabled={submitting} aria-busy={submitting}>
-            {submitting ? "Sending…" : "Request a Session"}
-          </button>
-        </form>
-
-        {showModal && (
-          <div className="modal" role="dialog" aria-modal="true" aria-labelledby="thankyou-title">
-            <div className="modal-content" role="document">
-              <h2 id="thankyou-title">Thank you!</h2>
-              <p>I’ll follow up with you shortly.</p>
-              <button onClick={() => setShowModal(false)} autoFocus>Close</button>
+        {submitting && <div className="loading-bar" aria-hidden="true" />}
+        {!showSuccess && (
+          <form id="training-form" onSubmit={handleSubmit} className="training-form" noValidate>
+            {/* hidden honeypot */}
+            <div className="visually-hidden" aria-hidden="true">
+              <label htmlFor="hpField">Leave this field blank</label>
+              <input 
+                id="hpField" 
+                name="hpField" 
+                value={formData.hpField} 
+                onChange={handleChange} 
+                tabIndex={-1} 
+                autoComplete="new-password"
+                inputMode="none"
+              />
             </div>
+
+            {/* Service */}
+            <h3 className="form-section">Service</h3>
+            <fieldset
+              className="service-fieldset"
+              role="radiogroup"
+              aria-invalid={touched.serviceType && !!errors.serviceType}
+              aria-describedby={touched.serviceType && errors.serviceType ? "serviceType-error" : undefined}
+            >
+
+              <legend className="service-legend">I’m interested in:</legend>
+              <p className="helper">Pick one. You can change it later.</p>
+
+              {touched.serviceType && errors.serviceType && (
+                <div className="field-error" id="serviceType-error" role="alert">
+                  {errors.serviceType}
+                </div>
+              )}
+
+
+              <div className="card-grid">
+                {serviceOptions.map((opt) => (
+                  <label
+                    key={opt.value}
+                    className={`service-card ${formData.serviceType === opt.value ? "is-selected" : ""}`}
+                  >
+                    <span className="service-left">
+                      <input
+                        type="radio"
+                        name="serviceType"
+                        value={opt.value}
+                        checked={formData.serviceType === opt.value}
+                        onChange={(e) => {
+                          handleChange(e);
+                          markTouched("serviceType");
+                        }}
+                      />
+                      <span className="service-icon" aria-hidden="true">{opt.icon}</span>
+                    </span>
+
+                    <span className="service-text">
+                      <span className="service-title">{opt.title}</span>
+                      <span className="service-desc">{opt.desc}</span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+
+            </fieldset>
+
+
+            {wantsDayTraining && (
+              <>
+                <label>Day Training Package (optional):</label>
+                <select
+                  name="dayTrainingPackage"
+                  value={formData.dayTrainingPackage}
+                  onChange={handleChange}
+                >
+                  <option value="">No package selected</option>
+                  <option value="3-Day Pack ($270)">3-Day Pack ($270)</option>
+                  <option value="5-Day Pack ($425)">5-Day Pack ($425)</option>
+                  <option value="10-Day Pack ($800)">10-Day Pack ($800)</option>
+                </select>
+              </>
+            )}
+
+            {/* Owner */}
+            <h3 className="form-section">Owner Info</h3>
+
+            <div className="form-row-2">
+              <div>
+                <label>Your Name:</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  onBlur={() => markTouched("name")}
+                  onChange={handleChange}
+                  value={formData.name}
+                  aria-invalid={!!(touched.name && errors.name)}
+                />
+                {touched.name && errors.name && <div className="field-error">{errors.name}</div>}
+
+              </div>
+
+              <div>
+                <label>Email Address:</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@email.com"
+                  required
+                  onBlur={() => markTouched("email")}
+                  onChange={handleChange}
+                  value={formData.email}
+                  aria-invalid={!!(touched.email && errors.email)}
+                  aria-describedby={touched.email && errors.email ? "email-error" : undefined}
+                />
+                {touched.email && errors.email && (
+                  <div className="field-error" id="email-error">
+                    {errors.email}
+                  </div>
+                )}
+              </div>
+
+            </div>
+
+
+            {/* Dog */}
+            <h3 className="form-section">Dog Info</h3>
+
+            <div className="form-row-3">
+              <div>
+                <label>Dog's Name:</label>
+                <input type="text" name="dogName" placeholder="e.g., Tully" onChange={handleChange} value={formData.dogName} />
+              </div>
+
+              <div>
+                <label>Dog's Age:</label>
+                <input type="text" name="dogAge" placeholder="e.g., 11 months" onChange={handleChange} value={formData.dogAge} />
+              </div>
+
+              <div>
+                <label>Dog's Breed:</label>
+                <input type="text" name="dogBreed" placeholder="e.g., Bordoodle" onChange={handleChange} value={formData.dogBreed} />
+              </div>
+            </div>
+
+
+            {/* Goals */}
+            <h3 className="form-section">Goals</h3>
+            <label>What are your training goals?</label>
+            <p className="field-help" id="goals-help">
+              Examples: loose leash walking, recall, puppy basics, jumping, reactivity, confidence in public, tricks and freestyle.
+            </p>
+
+            <textarea
+              name="goals"
+              required
+              aria-describedby={[
+                "goals-help",
+                touched.goals && errors.goals ? "goals-error" : null
+              ].filter(Boolean).join(" ")}
+              placeholder="Tell me what you want to work on"
+              onBlur={() => markTouched("goals")}
+              onChange={handleChange}
+              value={formData.goals}
+              aria-invalid={!!(touched.goals && errors.goals)}
+            />
+
+            {touched.goals && errors.goals && (
+              <div className="field-error" id="goals-error">
+                {errors.goals}
+              </div>
+            )}
+
+
+
+            <label>Any prior training experience or notes?</label>
+            <textarea
+              name="experience"
+              placeholder="e.g., puppy class, e-collar experience, triggers, medical notes"
+              onChange={handleChange}
+              value={formData.experience}
+            />
+
+            <label>How did you hear about me?</label>
+            <input
+              type="text"
+              name="referral"
+              placeholder="Instagram, friend, Nextdoor, Google…"
+              onChange={handleChange}
+              value={formData.referral}
+            />
+
+            {errorMsg && <div className="form-error" role="alert">{errorMsg}</div>}
+
+            <button type="submit" disabled={submitting} aria-busy={submitting}>
+              {submitting ? "Sending…" : "Request a Session"}
+            </button>
+          </form>
+        )}
+        {showSuccess && (
+          <div className="success-card" role="status" aria-live="polite">
+            <h2>Got it!</h2>
+            <p>I’ll follow up shortly with a plan, pricing, and scheduling options.</p>
+            <p>
+              Want to talk first? <Link to="/booking">Book a free 15-minute consult</Link>.
+            </p>
+            <button type="button" onClick={() => setShowSuccess(false)}>
+              Send another request
+            </button>
           </div>
         )}
+
+        <a className="sticky-cta" href="#training-form">
+          Request a session
+        </a>
+
       </div>
     </>
   );
