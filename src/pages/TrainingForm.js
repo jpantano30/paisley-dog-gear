@@ -265,53 +265,11 @@ const TrainingForm = () => {
         {/* Rates — grouped + Most popular + collapsible Travel Policy */}
         <section className="training-pricing" aria-label="Training rates">
           <h2>Training Rates</h2>
-          <p>Pre-payment is required.</p>
-          <h4>Cancellation Policy: A 24 hour notice is required to cancel or reschedule. Late cancellations and no shows count as a used session and cannot be rescheduled.</h4>
+          <p id="prepayment">Pre-payment is required.</p>
+          <h4 id="cancellationPolicy"><span className="titleCancel">Cancellation Policy:</span> <br></br>
+            Please provide at least 24 hours’ notice to cancel or reschedule. Late cancellations and no-shows are counted as a used session and cannot be rescheduled unless there is a true last-minute emergency. With 5- and 10-session packages, you receive one makeup session.</h4>
 
           <div className="pricing-grid training-pricing-grid">
-            <div className="price-card">
-              <h3>Day Training (Drop-off / Pick-up)</h3>
-              <ul>
-                <li>Half-day (about 2–3 hrs incl. rest): <strong>$75</strong></li>
-                <li>Full day (about 4–5 hrs incl. field trip): <strong>$100</strong></li>
-                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores</li>
-                <li>Short photo/video updates and a same-day summary</li>
-                <li>Optional 20–30 min handoff lesson: <strong>+$20</strong></li>
-                <li>Pick-up/drop-off depends on location (see travel policy)</li>
-              </ul>
-            </div>
-
-            <div className="price-card">
-              <h3>Day Training Packages — Full Day</h3>
-              <ul>
-                <li>3-Day Pack: <strong>$270</strong> <em>($90/day)</em></li>
-                <li>
-                  5-Day Pack: <strong>$425</strong> <em>($85/day)</em>
-                  <span className="popular-badge" aria-label="Most popular">Most popular</span>
-                </li>
-                <li>10-Day Pack: <strong>$800</strong> <em>($80/day)</em></li>
-                {/* <li>Use within 6 months. Two half-days = one full day.</li> */}
-              </ul>
-            </div>
-
-            <div className="price-card">
-              <h3>Private Training — Meet-Up</h3>
-              <ul>
-                <li>One 60-min session: <strong>$50</strong></li>
-                <li>No travel fee at Boston spots or agreed meet-ups</li>
-                <li>Great for freestyle, tricks, recall, or behavior work</li>
-              </ul>
-            </div>
-
-            <div className="price-card">
-              <h3>Private Training — In-Home, Park, or Field Trip</h3>
-              <ul>
-                <li>One 60-min session: <strong>$50</strong> <em>+ travel</em></li>
-                <li>Your home, a local park, or a Home Depot/Lowe’s field trip</li>
-                <li>Perfect for puppies, behavior work, and real-world practice</li>
-              </ul>
-            </div>
-
             <details open className="price-card policy" id="travel-policy">
               <summary>
                 <span className="summary-title">Travel Policy</span>
@@ -327,14 +285,79 @@ const TrainingForm = () => {
 
 
             <div className="price-card">
+              <h3>Private Training — Meet-Up</h3>
+              <ul>
+                <li>One 60-min session: <strong>$75</strong></li>
+                <li>No travel fee at Boston spots or agreed meet-ups</li>
+                <li>Great for freestyle, tricks, recall, or behavior work</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Private Training — In-Home, Park, or Field Trip</h3>
+              <ul>
+                <li>One 60-min session: <strong>$75</strong> <em>+ travel</em></li>
+                <li>Your home, a local park, or a Home Depot/Lowe’s field trip</li>
+                <li>Perfect for older puppies, behavior work, and real-world practice</li>
+              </ul>
+            </div>
+
+
+            <div className="price-card">
               <h3>Training Packages</h3>
               <ul>
-                <li>3 sessions (1 hr each): <strong>$135 total</strong> ($45/session)</li>
-                <li>5 sessions (1 hr each): <strong>$200 total</strong> ($40/session)</li>
+                <li>3 sessions (1 hr each): <strong>$220 total</strong> (~$73/session)</li>
+                <li>5 sessions (1 hr each): <strong>$350 total</strong> ($70/session)</li>
                 <li>Includes progress tracking and goal planning</li>
                 <li><strong>Note:</strong> Package discounts apply to training time only; travel billed per visit if applicable.</li>
               </ul>
             </div>
+
+            <div className="price-card">
+              <h3>Puppy Training</h3>
+              <ul>
+                <li>One 30-min session (recommended for puppies ~8 weeks–6 months): <strong>$50</strong> + travel</li>
+                <li>No travel fee at spots located in Boston proper or at agreed nearby meet-ups</li>
+                <li>Perfect for foundational manners, early socialization, handling comfort, and focus building</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Puppy Training Packages</h3>
+              <ul>
+                <li>3 sessions (30 min each): <strong>$135 total</strong> (~$45/session)</li>
+                <li>5 sessions (30 min each): <strong>$210 total</strong> (~$42/session)</li>
+                <li>Includes progress tracking, homework, tailored growth goals, and support between sessions</li>
+                <li><strong>Note:</strong> Package discounts apply to training time only; travel billed per visit if applicable.</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Day Training (Drop-off / Pick-up)</h3>
+              <ul>
+                <li>Half-day (about 3–4 hrs incl. rest): <strong>$90</strong></li>
+                <li>Full day (about 6–9 hrs incl. field trip): <strong>$130</strong></li>
+                <li>Real-world practice at parks, neighborhoods, or dog-friendly stores</li>
+                <li>Short photo/video updates and a same-day summary</li>
+                <li>Optional 20–30 min handoff lesson: <strong>+$30</strong></li>
+                <li>Pick-up/drop-off depends on location (see travel policy)</li>
+              </ul>
+            </div>
+
+            <div className="price-card">
+              <h3>Day Training Packages — Full Day</h3>
+              <ul>
+                <li>3-Day Pack: <strong>$330</strong> <em>(15% off @ $110/day)</em></li>
+                <li>
+                  5-Day Pack: <strong>$500</strong> <em>(23% off @ $100/day)</em>
+                  <span className="popular-badge" aria-label="Most popular">Most popular</span>
+                </li>
+                <li>10-Day Pack: <strong>$950</strong> <em>(27% off @ $95/day)</em></li>
+                <li>Two half-days = one full day.</li>
+              </ul>
+            </div>
+
+            
 
             <div className="price-card">
               <h3>Virtual Coaching</h3>

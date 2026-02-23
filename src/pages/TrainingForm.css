@@ -105,6 +105,20 @@ h1 {
   margin-bottom: .6rem;
 }
 
+#prepayment {
+  font-weight: 1000 !important;
+  font-size: 20px;
+}
+
+#cancellationPolicy { 
+  color: #fc0723;
+  text-align: center;
+}
+.titleCancel {
+  text-decoration: underline;
+  font-size: larger;
+}
+
 .training-intro .notes {
   display: block;
   background: #fff;

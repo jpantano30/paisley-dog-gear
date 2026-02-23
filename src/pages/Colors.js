@@ -202,6 +202,31 @@ const Colors = () => {
           </div>
         )}
       </div>
+      <div className="colors-photo-strip">
+        <h2>Color Swatches</h2>
+        <div className="colors-photo-grid">
+          <img
+            src="/assets/new/colorsnewetsy.jpg"
+            alt="Biothane color lineup 5/8in"
+            onClick={() => setModalImg("/assets/new/colorsnewetsy.jpg")}
+          />
+          <img
+            src="/assets/new/1inchcolors.jpg"
+            alt="Biothane color line up 1in"
+            onClick={() => setModalImg("/assets/new/1inchcolors.jpg")}
+          />
+          <img
+            src="/assets/new/paracord.png"
+            alt="Paracord Colors"
+            onClick={() => setModalImg("/assets/new/paracord.png")}
+          />
+          <img
+            src="/assets/new/colorsnonames.jpg"
+            alt="Finished gear example using color combinations"
+            onClick={() => setModalImg("/assets/new/colorsnonames.jpg")}
+          />
+        </div>
+      </div>
     </>
 
 

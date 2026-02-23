@@ -4,6 +4,26 @@ import { Link } from "react-router-dom";
 import "../components/page-intro.css";
 
 const galleryImages = [
+  {  filename: "/new/ball1.jpg", caption: "Item: Three Large Ball holders | Width: 5/8 in | Colors: Green & White, Teal & white | Hardware: silver", type: "image" },
+  { filename: "/new/bluebraid.jpg", caption: "Item: Custom braided leash & matching keychain  | Width: 5/8 in | Colors: Sage & Perwinkle Blue | Hardware: brass", type: "image" },
+  { filename: "/new/braidRWB.jpg", caption: "Item: Special Custom braided leash - for Westminster Dog Show| Width: 5/8 in | Colors: Red, White, and Deep Sea Blue | Hardware: Silver", type: "image" },
+  { filename: "/new/braidrolled.jpg", caption: "Item: Custom braided leash | Width: 5/8 in | Colors: Red & Brown | Hardware: brass", type: "image" },
+  { filename: "/new/hotpinkblue.jpg", caption: "Item: Custom braided leash | Width: 5/8 in | Colors: Hot Pink & Light Blue | Hardware: brass", type: "image" },
+  { filename: "/new/braidback.jpg", caption: "Back side of braided leash before & after sealing | Width: 5/8 in | Colors: Hot Pink & Light Blue | Hardware: brass", type: "image" },
+  { filename: "/new/coralteal.jpg", caption: "Item: Custom braided leash | Width: 5/8 in | Colors: Coral & Teal | Hardware: brass", type: "image" },
+  { filename: "/new/mando.jpg", caption: "Item: Custom 3-color hands free leash | Width: 5/8 in | Colors: Black, Brown, & Royal Blue | Hardware: Silver", type: "image" },
+  { filename: "/new/willow1.jpg", caption: "Item: Custom 2-Tone O-Ring Split Collar | Width: 5/8 in | Colors: Coral & Teal | Hardware: Brass", type: "image" },
+  { filename: "/new/willow2.jpg", caption: "Item: Custom 2-Tone O-Ring Split Collar | Width: 5/8 in | Colors: Coral & Teal | Hardware: Brass", type: "image" },
+  { filename: "/new/TH2.jpg", caption: "Item: Custom Leash Extender with Built in Traffic Hanlde and Paracord Weaved Handle | Width: 5/8 in | Colors: Coral & Teal | Hardware: Brass", type: "image" },
+  { filename: "/new/TH1.jpg", caption: "Item: Custom Leash Extender with Built in Traffic Hanlde and Paracord Weaved Handle | Width: 5/8 in | Colors: Coral & Teal | Hardware: Brass", type: "image" },
+  { filename: "/new/2layer1.jpg", caption: "Item: Custom 2 Layer Collar with Detachable Handle | Width: collar – 1in & 5/8in, handle – 5/8 in | Colors: Orange base (1in) with Yellow accent (5/8in) | Hardware: Silver | Custom: Integrated control handle for extra grip or quick grab, plus name detail", type: "image" },
+  { filename: "/new/2layer2.jpg", caption: "Item: Custom 2 Layer Collar with Detachable Handle | Width: collar – 1in & 5/8in, handle – 5/8 in | Colors: Orange base (1in) with Yellow accent (5/8in) | Hardware: Silver | Custom: Integrated control handle for extra grip or quick grab, plus name detail", type: "image" },
+  { filename: "/new/2layer3.jpg", caption: "Item: Custom 2 Layer Collar with Detachable Handle | Width: collar – 1in & 5/8in, handle – 5/8 in | Colors: Orange base (1in) with Yellow accent (5/8in) | Hardware: Silver | Custom: Integrated control handle for extra grip or quick grab, plus name detail", type: "image" },
+  { filename: "/new/2layer4.jpg", caption: "Item: Custom 2 Layer Collar with Detachable Handle | Width: collar – 1in & 5/8in, handle – 5/8 in | Colors: Orange base (1in) with Yellow accent (5/8in) | Hardware: Silver | Custom: Integrated control handle for extra grip or quick grab, plus name detail", type: "image" },
+  { filename: "/new/hfcoral.jpg", caption: "Item: Custom braided hands free leash | Width: 5/8 in | Colors: Coral & Teal | Hardware: brass", type: "image" },
+  { filename: "/new/braid3color.jpg", caption: "Item: Custom braided leash | Width: 5/8 in | Colors: Sage, Dark Brown, & Wine | Hardware: brass", type: "image" },
+  { filename: "/new/bdbbraid.jpg", caption: "Item: Custom braided hands free leash | Width: 5/8 in | Colors: Black & Dark Brown | Hardware: Silver", type: "image" },
+
   { filename: "paisley_leashCollar_ocean.jpeg", caption: "Item: Custom leash + two-tone collar set | Width: 5/8 in | Colors: Sage & White leash, matching two-tone collar | Hardware: silver", type: "image" },
   { filename: "painted.JPG", caption: "Item: Custom hand-painted collar | Width: 1 in with 5/8 in buckle | Colors: Deep Sea base with hand-painted mountain landscape | Hardware: silver | Custom: Hand-painted design sealed for durability", type: "image" },
   { filename: "/hands-free-coral_Navy.JPG", caption: "Item: Hands-free system | Length: 7 ft | Width: 5/8 in | Colors: Coral & Deep Sea | Hardware: solid brass", type: "image" },
@@ -86,6 +106,54 @@ const galleryImages = [
   { filename: "Turbo_collar.jpg", caption: "Item: Custom collar and tether leash set | Width: 1 in collar & 5/8 in leash | Colors: Deep Sea & Blue 52H | Hardware: silver | Custom: Turbo’s everyday custom collar with HTV name plate", type: "image" },
 ];
 
+const hardwareSlides = [
+  {
+    src: "/assets/new/buckles1.jpg",
+    alt: "Bar buckles hardware options",
+    title: "Bar Buckles",
+    caption: "Item: Bar Buckles | Details: Black, Silver & Black in 1in or 5/8in",
+  },
+  {
+    src: "/assets/new/buckles2.jpg",
+    alt: "Side and quick release buckles",
+    title: "Side/Quick Release Buckles",
+    caption: "Item: Side/Quick Release Buckles | Details: Black, Silver & Black in 1in or 5/8in",
+  },
+  {
+    src: "/assets/new/screws.jpg",
+    alt: "Screws and rivets hardware options",
+    title: "Screws & Rivets",
+    caption: "Item: Screws and Rivets | Details: Black, Silver & Black (Powder coated)",
+  },
+  {
+    src: "/assets/new/clips.jpg",
+    alt: "Snap clip options",
+    title: "All Snap Options",
+    caption: "Item: Swivel Snaps, Locking Carabiner, and Frog Clip options | Details: Standard, small, and locking carabiner choices",
+  },
+];
+
+const htvFontSlides = [
+  {
+    src: "/assets/new/fonts1.jpg",
+    alt: "HTV font options sheet one",
+    title: "Font Options 1",
+    caption: "Item: HTV Font Options | Details: Font style reference chart (set 1)",
+  },
+  {
+    src: "/assets/new/fonts2.jpg",
+    alt: "HTV font options sheet two",
+    title: "Font Options 2",
+    caption: "Item: HTV Font Options | Details: Font style reference chart (set 2)",
+  },
+  {
+    src: "/assets/new/fonts3.jpg",
+    alt: "HTV font options sheet three",
+    title: "Font Options 3",
+    caption: "Item: HTV Font Options | Details: Font style reference chart (set 3)",
+  },
+];
+
 /**
  * Breaks a pipe-separated caption into a small info card:
  * Item name on top, then Width / Colors / Hardware / Custom as a list.
@@ -127,8 +195,8 @@ export default function Gallery() {
   const openModal = (index) => setModalIndex(index);
   const closeModal = () => setModalIndex(null);
 
-  // total slides = all gallery images + 4 hardware slides
-  const totalSlides = galleryImages.length + 4;
+  const extraSlides = [...hardwareSlides, ...htvFontSlides];
+  const totalSlides = galleryImages.length + extraSlides.length;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -211,22 +279,36 @@ export default function Gallery() {
         </div>
 
         <div className="hardware-colors">
-          <div className="gallery-item" onClick={() => openModal(galleryImages.length)}>
-            <img src="/assets/silverharware.jpg" alt="Silver Hardware" />
-            <p>Silver Hardware</p>
-          </div>
-          <div className="gallery-item" onClick={() => openModal(galleryImages.length + 1)}>
-            <img src="/assets/blackhardware.jpg" alt="Black Hardware" />
-            <p>Black Hardware</p>
-          </div>
-          <div className="gallery-item" onClick={() => openModal(galleryImages.length + 2)}>
-            <img src="/assets/brasshardware.JPG" alt="Brass Hardware" />
-            <p>Brass Hardware</p>
-          </div>
-          <div className="gallery-item" onClick={() => openModal(galleryImages.length + 3)}>
-            <img src="/assets/hardware.JPG" alt="All swivel snap / locking carabiner options" />
-            <p>All swivel snap / locking carabiner options</p>
-          </div>
+          {hardwareSlides.map((slide, index) => (
+            <div
+              className="gallery-item"
+              key={slide.src}
+              onClick={() => openModal(galleryImages.length + index)}
+            >
+              <img src={slide.src} alt={slide.alt} />
+              <p>{slide.title}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="section-divider">
+          <h2>HTV Font Options</h2>
+          <p className="section-note">
+            Choose a font style for the HTV writing add-on. Click to enlarge and compare options.
+          </p>
+        </div>
+
+        <div className="hardware-colors">
+          {htvFontSlides.map((slide, index) => (
+            <div
+              className="gallery-item"
+              key={slide.src}
+              onClick={() => openModal(galleryImages.length + hardwareSlides.length + index)}
+            >
+              <img src={slide.src} alt={slide.alt} />
+              <p>{slide.title}</p>
+            </div>
+          ))}
         </div>
 
         {modalIndex !== null && (
@@ -253,22 +335,11 @@ export default function Gallery() {
                   src = `/assets/${item.filename}`;
                   alt = item.caption || "Custom biothane gear";
                   caption = item.caption || "Custom biothane gear";
-                } else if (modalIndex === galleryImages.length) {
-                  src = "/assets/silverharware.jpg";
-                  alt = "Silver Hardware";
-                  caption = "Item: Silver hardware | Details: Standard silver snaps, buckles, and rings";
-                } else if (modalIndex === galleryImages.length + 1) {
-                  src = "/assets/blackhardware.jpg";
-                  alt = "Black Hardware";
-                  caption = "Item: Black hardware | Details: Matte black snaps, buckles, and rings";
-                } else if (modalIndex === galleryImages.length + 2) {
-                  src = "/assets/brasshardware.JPG";
-                  alt = "Brass Hardware";
-                  caption = "Item: Brass hardware | Details: Solid brass snaps, buckles, and rings";
                 } else {
-                  src = "/assets/hardware.JPG";
-                  alt = "All swivel snap and locking carabiner options";
-                  caption = "Item: Swivel snap and carabiner options | Details: Standard, small, and locking carabiner choices";
+                  const extraSlide = extraSlides[modalIndex - galleryImages.length];
+                  src = extraSlide?.src || "";
+                  alt = extraSlide?.alt || "Gallery item";
+                  caption = extraSlide?.caption || "Gallery item";
                 }
 
                 return (
