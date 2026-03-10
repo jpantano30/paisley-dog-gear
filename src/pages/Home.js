@@ -132,7 +132,7 @@ const Home = () => {
               <div className="maker-info">
                 <h3 className="maker-name">About the Maker</h3>
                 <p className="maker-bio">
-                Hi, I am Jena, a dog trainer and the founder of Paisley Dog Gear &amp; Training in Boston. I focus on practical, real world skills like puppy foundations, manners and obedience, leash skills, behavior support, and trick and freestyle training.
+                Hi, I’m Jena, the founder of Paisley Dog Gear &amp; Training in Boston. I’m a dog trainer with a special focus on trick training and canine freestyle, and I also work on the real-life skills dogs need every day. From puppy foundations and manners to leash skills, obedience, behavior support, and confidence-building tricks, my goal is to help dogs thrive both at home and out in the world.
                 <br /><br />
                 My education in health sciences and psychology gives me a strong foundation in behavior, learning, and stress. I use that background to create clear, step by step training plans that support both the dog and the person on the other end of the leash.
                 <br /><br />
