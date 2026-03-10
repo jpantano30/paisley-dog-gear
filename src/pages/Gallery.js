@@ -48,7 +48,6 @@ const galleryImages = [
   { filename: "b1.jpg",  caption: "Item: Custom buckle collar | Width: 1 in | Colors: Orange 522 | Hardware: silver | Custom: Personalized name and phone; made with holes for an invisible-fence attachment", type: "image" },
   { filename: "IMG_8753.JPG", caption: "Item: Ball holder + leash set | Width: 5/8 in | Colors: Deep Sea & Brown 522 with matching ball holder | Hardware: silver", type: "image" },
   { filename: "JetTug.jpeg", caption: "Item: Custom tether leash | Width: 5/8 in | Colors: Red | Hardware: black | Custom: Made for a gym setup to tether multiple dogs", type: "image" },
-  { filename: "brasshardware.JPG", caption: "Item: Hardware options | Details: Solid brass snaps and Chicago screws | Use: Upgrade any item to brass hardware for extra durability and style", type: "image" },
   { filename: "PurpleTrafficNCollar_ocean.jpg", caption: "Item: Traffic handle + collar set | Width: 5/8 in | Colors: Amethyst Purple & Pink 521 | Hardware: silver | Custom: Matching pull tab and collar for quick control", type: "image" },
 
   { filename: "navy_brown.JPG", caption: "Item: Classic two-tone leash | Length: 8 ft | Width: 5/8 in | Colors: Deep Sea & Brown 522 | Hardware: silver", type: "image" },
@@ -76,7 +75,6 @@ const galleryImages = [
   { filename: "Leash_extender_ocean.jpg", caption: "Item: Leash extender | Width: 5/8 in | Colors: White & Sage | Hardware: silver", type: "image" },
   { filename: "pinkblackleash_ocean.jpg", caption: "Item: Standard leash | Length: 8 ft | Width: 5/8 in | Colors: Pink & Black | Hardware: black", type: "image" },
   { filename: "rwb_ocean2.jpg", caption: "Item: Hands-free leash | Length: 8 ft | Width: 5/8 in | Colors: Red, White & Blue (Deep Sea) 3-tone | Hardware: silver | Custom: Convertible patriotic hands-free setup", type: "image" },
-  { filename: "/leashpicsNvids/hardware.JPG", caption: "Item: Hardware options | Details: Small black and standard silver snaps, D-rings, and O-rings | Use: Mix and match hardware finishes to customize any build", type: "image" },
   { filename: "saftystrapparacord.jpeg", caption: "Item: Safety strap | Material: paracord weave | Colors: Hot Pink & Black | Hardware: silver | Custom: Backup connection between collar and prong collar", type: "image" },
   { filename: "/leashpicsNvids/leashes.jpg", caption: "Item: Sample leash collection | Widths: 5/8 in | Colors: Multiple | Hardware: mixed | Custom: Examples of standard leashes and hands-free setups", type: "image" },
   { filename: "tallulah-sage2.JPG", caption: "Item: The Tallulah / hands-free leash system | Length: 7 ft | Width: 5/8 in | Colors: Sage & White | Hardware: silver | Custom: Built-in traffic handle at base and matching leash extender", type: "image" },
