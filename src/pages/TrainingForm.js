@@ -425,7 +425,7 @@ const TrainingForm = () => {
 
         <section className="training-pricing" aria-label="Training rates">
           <h2>Training Rates</h2>
-          <p id="prepayment">Pre-payment is required.</p>
+          <p id="prepayment">Payment is due before or at the start of each session.</p>
 
           <h4 id="cancellationPolicy">
             <span className="titleCancel">Cancellation Policy:</span> <br />
@@ -492,6 +492,11 @@ const TrainingForm = () => {
                   <strong>Note:</strong> Package discounts apply to training time only; travel billed per visit if
                   applicable.
                 </li>
+                <li>
+                  To help keep training consistent, 3- and 5-session packages should be
+                  used within <strong>2 months</strong> of purchase. Any unused sessions
+                  expire after that.
+                </li>
               </ul>
             </div>
 
@@ -519,6 +524,11 @@ const TrainingForm = () => {
                 <li>
                   <strong>Note:</strong> Package discounts apply to training time only; travel billed per visit if
                   applicable.
+                </li>
+                <li>
+                  To help keep training consistent, 3- and 5-session packages should be
+                  used within <strong>2 months</strong> of purchase. Any unused sessions
+                  expire after that.
                 </li>
               </ul>
             </div>
@@ -557,6 +567,13 @@ const TrainingForm = () => {
                   10-Day Pack: <strong>$950</strong> <em>(27% off @ $95/day)</em>
                 </li>
                 <li>Two half-days = one full day.</li>
+                <li>
+                  To help keep progress consistent, day training packages should be used
+                  within the following timeframes from purchase: <strong>3-day packages
+                  within 2 months</strong>, <strong>5-day packages within 3 months</strong>,
+                  and <strong>10-day packages within 6 months</strong>. Any unused sessions
+                  expire after that.
+                </li>
               </ul>
             </div>
 
@@ -653,9 +670,9 @@ const TrainingForm = () => {
                   onChange={handleChange}
                 >
                   <option value="">No package selected</option>
-                  <option value="3-Day Pack ($270)">3-Day Pack ($270)</option>
-                  <option value="5-Day Pack ($425)">5-Day Pack ($425)</option>
-                  <option value="10-Day Pack ($800)">10-Day Pack ($800)</option>
+                  <option value="3-Day Pack ($330)">3-Day Pack ($330)</option>
+                  <option value="5-Day Pack ($500)">5-Day Pack ($500)</option>
+                  <option value="10-Day Pack ($950)">10-Day Pack ($950)</option>
                 </select>
               </>
             )}
