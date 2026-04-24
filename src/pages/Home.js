@@ -198,8 +198,7 @@ const Home = () => {
             Ready to design gear? <a href="/builder">Use the Gear Builder</a>.{" "} <br />
             Know what you want? <a href="/order">Request a quote</a>.{" "}
             <br />
-            Want help with behavior or tricks? <a href="/training">Request training</a>{" "}
-            or <a href="/booking">book a free 15-minute consult</a>.{" "}
+            Want help with behavior or tricks? <a href="/training">Request training.</a>{" "}
             <br />
             Explore our <a href="/gallery">gallery</a>, <a href="/colors">colors</a>,{" "}
             <a href="/options">options</a>, and <a href="/videos">videos</a>.

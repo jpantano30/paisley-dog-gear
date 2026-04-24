@@ -77,10 +77,8 @@
 
 /* Grid 2-up that collapses on mobile */
 .page-scope .grid-2{
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 1fr;
-  align-items: start;
+  text-align: center;
+  
 }
 @media (min-width: 760px){
   .page-scope .grid-2{ grid-template-columns: 1fr 1fr; }

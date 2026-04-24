@@ -85,8 +85,6 @@ export default function Boston() {
             </p>
             <p>
               <Link className="btn" to="/training">Tell me about your dog</Link>
-              <span className="subtle"> · </span>
-              <Link className="btn ghost" to="/booking">Book a free 15-min consult</Link>
             </p>
           </header>
 
@@ -100,15 +98,6 @@ export default function Boston() {
                 <li><strong>Trick training / freestyle</strong>: confidence, teamwork, short routines.</li>
                 <li><strong>Leash skills &amp; Light reactivity</strong>: equipment, handling skills, safe setups.</li>
               </ul>
-            </div>
-            <div>
-              <h2>How sessions work</h2>
-              <ol className="numbered">
-                <li><strong>Quick consult</strong> (optional) to set goals.</li>
-                <li><strong>Initial session</strong> with a clear written plan.</li>
-                <li><strong>Progress sessions</strong>—North End, your neighborhood, or field trips.</li>
-              </ol>
-              <p className="note">In-home visits include travel time. Boston meet-ups have no travel fee.</p>
             </div>
           </section>
 
@@ -160,7 +149,7 @@ export default function Boston() {
           <section className="stack-md">
             <h2>Ready to get started?</h2>
             <p>
-              Go straight to the <Link to="/training">training request form</Link> or <Link to="/booking">book a quick consult</Link>.
+              Go straight to the <Link to="/training">training request form</Link>!
             </p>
           </section>
         </div>

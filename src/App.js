@@ -10,7 +10,6 @@ import Colors from "./pages/Colors";
 import TrainingForm from "./pages/TrainingForm";
 import Pricing from "./pages/Pricing"; 
 import './App.css'; 
-import Consult from "./pages/Booking";
 import VideoGallery from "./pages/VideoGallery.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataDeletion from "./pages/dataDeletion.js";
@@ -37,7 +36,6 @@ function App() {
           <Route path="/quick-order" element={<QuickOrder />} />
           <Route path="/order" element={<OrderForm />} /> 
           <Route path="/training" element={<TrainingForm />} />
-          <Route path="/booking" element={<Consult />} />
           <Route path="/videos" element={<VideoGallery />} />
           <Route path="/videos/:slug" element={<VideoWatch />} />
           <Route path="*" element={<NotFound />} />

@@ -12,8 +12,8 @@ const PRESETS = [
   },
   {
     name: "Hands-Free System",
-    desc: 'Base 7 ft adjustable cross-body · 2 swivel snaps · Silver hardware',
-    qp: "productType=handsFreeSystem&lengthFt=7&snap=swivelSnap&hardware=standard",
+    desc: 'Base 6 ft adjustable cross-body · swivel snap · Silver hardware',
+    qp: "productType=handsFreeSystem&lengthFt=6&snap=swivelSnap&hardware=standard",
     img: "/assets/handsfree-redandblack2.JPG"
   },
   {
@@ -24,14 +24,14 @@ const PRESETS = [
   },
   {
     name: "Collar — Buckle",
-    desc: 'Size M · 5/8" · Silver hardware',
-    qp: "productType=collarBuckle&collarSize=m&collarWidth=5/8&hardware=standard",
+    desc: 'Size M · 5/8" · Plastic quick-release',
+    qp: "productType=collarBuckle&collarSize=m&collarWidth=5%2F8%22&buckleType=plasticQR",
     img: "/assets/leashpicsNvids/red&bluebuckle.JPG"
   },
   {
     name: "Ball Holder",
-    desc: "Standard size · D-ring attachment",
-    qp: "productType=ballHolder&hardware=standard",
+    desc: "Medium 2.5 in holder only",
+    qp: "productType=ballHolder&ballHolderSize=medium&ballHolderIncludesBall=false&hardware=standard",
     img: "/assets/leashpicsNvids/ballholder3.JPG"
   }
 ];
@@ -114,11 +114,18 @@ function calcEstimateFromParams(p) {
       total += PRICING.collar.sizeBase[size] ?? PRICING.collar.sizeBase.m;
       const cw = p.collarWidth || '5/8"';
       total += PRICING.collar.widthUpcharge[cw] ?? 0;
-      total += PRICING.collar.buckleTypeAdj.metalSilver ?? 0;
+      const buckleType = p.buckleType || "plasticQR";
+      total += PRICING.collar.buckleTypeAdj[buckleType] ?? 0;
       break;
     }
     case "ballHolder": {
-      total += PRICING.base.ballHolder;
+      const size = p.ballHolderSize || "medium";
+      const row = PRICING.ballHolderMenu?.[size];
+      if (row) {
+        total += (p.ballHolderIncludesBall === "true") ? row.withBall : row.holderOnly;
+      } else {
+        total += PRICING.base.ballHolder;
+      }
       break;
     }
     case "pullTab": {

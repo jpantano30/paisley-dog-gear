@@ -126,8 +126,8 @@ const StandardList = ({ productType }) => {
   if (productType === "ballHolder") {
     return (
       <ul className="guide-list">
-        <li>Fits: <strong>Standard ChuckIt ball</strong></li>
-        <li>Attach: <strong>D-ring + carabiner</strong></li>
+        <li>Sizes: <strong>2" to 3.5" ball options</strong></li>
+        <li>Choose: <strong>Holder only</strong> or <strong>holder + ball</strong></li>
         <li>Width: <strong>5/8″</strong></li>
         <li>Two-tone: <strong>Optional</strong></li>
       </ul>
@@ -137,7 +137,8 @@ const StandardList = ({ productType }) => {
   if (productType === "collarBuckle") {
     return (
       <ul className="guide-list">
-        <li>Buckle: <strong>Metal double-bar</strong> (black or silver)</li>
+        <li>Base style: <strong>Plastic quick-release</strong></li>
+        <li>Upgrades: <strong>Metal double-bar</strong> (black or silver)</li>
         <li>Widths: <strong>5/8″</strong> or <strong>1″</strong></li>
         <li>Options: <strong>Two-tone</strong>, <strong>HTV name/phone</strong></li>
       </ul>

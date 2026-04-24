@@ -71,7 +71,8 @@ const PER_FT = PRICING?.perFoot || {};
 const BASE_IN = PRICING?.baseLengthIn || {};
 const PER_IN = PRICING?.perInch || {};
 // HTV options (used for non-collar Biothane gear)
-const HTV = PRICING?.htv || { name: 5, namePhone: 8, phraseLarge: 10, custom: null };
+const HTV = PRICING?.addons?.htv || { name: 5, namePhone: 7, phraseLarge: 10, custom: null };
+const BALL_HOLDER_MENU = PRICING?.ballHolderMenu || {};
 // For dropdown labels: show “+$5” or “quote” (when price is null/undefined)
 const htvPriceTag = (v) => (v == null ? "quote" : `+$${v}`);
 const COLLAR = PRICING?.collar || { htv: {}, sizeBase: {}, widthUpcharge: {}, buckleTypeAdj: {} };
@@ -127,7 +128,7 @@ const PRODUCT_SPEC = {
   trafficLead: {
     label: "Traffic Handle (standalone)",
     units: "in",
-    sizePresets: [8, 10, 12, 15, 18],
+    sizePresets: [8, 10, 12, 15, 18, 20, 22, 24],
     sizeBounds: { min: 6, max: 24 },
     include: [
       "Short, easy-grab handle",
@@ -147,7 +148,7 @@ const PRODUCT_SPEC = {
   leashExtender: {
     label: "Leash Extender",
     units: "in",
-    sizePresets: [6, 12, 18, 24],
+    sizePresets: [6, 12, 18, 24, 30, 36, 42],
     sizeBounds: { min: 6, max: 50 },
     include: [
       "Biothane strap with snap on one end and O-ring on the other",
@@ -205,8 +206,8 @@ const PRODUCT_SPEC = {
   handsFreeSystem: {
     label: "Hands-Free System (The Tallulah)",
     units: "ft",
-    sizePresets: [7, 8, 9, 10, 12],
-    sizeBounds: { min: 7, max: 20 },
+    sizePresets: [6, 7, 8, 9, 10, 12, 15],
+    sizeBounds: { min: 6, max: 20 },
     include: [
       "Multi-point leash (wear crossbody, at waist, or handheld)",
       "Sliding O/D-rings for quick adjustments",
@@ -229,9 +230,9 @@ const PRODUCT_SPEC = {
     label: "Ball Holder",
     units: "none",
     include: [
-      "Holds a standard ChuckIt ball",
-      "D-ring + carabiner for attachment",
-      "Silver hardware",
+      "Choose your ball size below",
+      "Holder-only or holder + ball",
+      "Silver, brass, or black hardware",
       '5/8" width'
     ],
     fields: {
@@ -246,7 +247,7 @@ const PRODUCT_SPEC = {
   collarBuckle: {
     label: "Collar",
     units: "none",
-    include: ["Biothane collar", "Metal double-bar buckle", "Silver hardware"],
+    include: ["Custom Biothane collar", "Choose buckle style below", "Price updates automatically as you change options"],
     fields: { colors: true }
   }
 };
@@ -301,10 +302,14 @@ export default function ProductBuilder() {
     // biothane gear personalization (non-collar)
     htvGearOption: "none",
 
+    // ball holder
+    ballHolderSize: "medium",
+    ballHolderIncludesBall: false,
+
     // collar-only
     collarSize: "m",
     collarWidth: '5/8"',
-    buckleType: "metalSilver",
+    buckleType: "plasticQR",
     collarTwoTone: false,
     collarHardwareBlack: false,
     htvOption: "none",
@@ -365,11 +370,6 @@ export default function ProductBuilder() {
       const buckleAdj = col.buckleTypeAdj?.[form.buckleType] || 0;
       if (buckleAdj) { L.push(["Buckle type", buckleAdj]); sum += buckleAdj; }
 
-      const isMetal = form.buckleType === "metalSilver" || form.buckleType === "metalBlack";
-      if (isMetal && form.collarHardwareBlack) {
-        const hw = col.blackHardwareSurcharge || 0;
-        if (hw) { L.push(["Black hardware (metal set)", hw]); sum += hw; }
-      }
 
       if (form.collarTwoTone) {
         const two = col.twoToneORingSplit || 0;
@@ -387,6 +387,16 @@ export default function ProductBuilder() {
       }
 
       return { total: money(sum), lines: L };
+    }
+
+    // Ball holder uses exact Etsy size pricing instead of the generic builder math
+    if (form.productType === "ballHolder") {
+      const chosen = BALL_HOLDER_MENU?.[form.ballHolderSize];
+      if (chosen) {
+        const price = form.ballHolderIncludesBall ? chosen.withBall : chosen.holderOnly;
+        L.push([`Ball holder — ${chosen.label}${form.ballHolderIncludesBall ? " with ball" : " holder only"}`, price]);
+        return { total: money(price), lines: L };
+      }
     }
 
     // Base for non-collar items
@@ -440,7 +450,7 @@ export default function ProductBuilder() {
     if (form.productType === "leash" && g) { L.push([`Grip ${form.gripHandle}`, g]); sum += g; }
 
     // Built-in traffic handle
-    if (["leash", "longLine"].includes(form.productType) && form.trafficHandleBuiltIn) {
+    if (["leash", "longLine", "handsFreeSystem"].includes(form.productType) && form.trafficHandleBuiltIn) {
       const baseAdd = ADDONS?.trafficHandleBuiltIn || 0;
       if (baseAdd) { L.push(["Built-in traffic handle", baseAdd]); sum += baseAdd; }
 
@@ -498,6 +508,8 @@ export default function ProductBuilder() {
           // Leashes go up to 10 ft max
           const curr = next.lengthFt || 6;
           next.lengthFt = Math.min(curr, 10);
+        } else if (patch.productType === "handsFreeSystem") {
+          next.lengthFt = Math.max(next.lengthFt || 6, 6);
         }
       }
 
@@ -552,6 +564,10 @@ export default function ProductBuilder() {
       // two-tone
       twoTone: String(form.useTwoTone),
 
+      // ball holder
+      ballHolderSize: form.productType === "ballHolder" ? form.ballHolderSize : "",
+      ballHolderIncludesBall: form.productType === "ballHolder" ? String(form.ballHolderIncludesBall) : "",
+
       // HTV on gear (non-collar)
       htvGearOption: !isCollarType ? form.htvGearOption : "",
 
@@ -560,7 +576,6 @@ export default function ProductBuilder() {
       collarWidth: isCollarType ? form.collarWidth : "",
       buckleType: isCollarType ? form.buckleType : "",
       collarTwoTone: isCollarType ? String(form.collarTwoTone) : "",
-      collarHardwareBlack: isCollarType ? String(form.collarHardwareBlack) : "",
       htvOption: isCollarType ? form.htvOption : "",
 
       // summary
@@ -650,8 +665,8 @@ export default function ProductBuilder() {
     if (form.productType === "longLine" && form.trafficHandleBuiltIn) {
       base.push(`Built-in traffic handle (${form.trafficHandleMaterial === "biothane" ? "Biothane" : "Paracord"})`);
     }
-    if (form.productType === "handsFreeSystem") {
-      base.push("Built-in traffic handle (included)");
+    if (form.productType === "handsFreeSystem" && form.trafficHandleBuiltIn) {
+      base.push(`Built-in traffic handle (${form.trafficHandleMaterial === "biothane" ? "Biothane" : "Paracord"})`);
     }
     return base;
   }, [spec, form.productType, form.trafficHandleBuiltIn, form.trafficHandleMaterial]);
@@ -719,9 +734,9 @@ export default function ProductBuilder() {
                 <div>
                   <label>Hardware </label>
                   <select value={form.hardware} onChange={(e) => update({ hardware: e.target.value })}>
-                    <option value="standard">Silver — Standard</option>
-                    <option value="black">Black (+${HW?.black || 0})</option>
-                    <option value="Brass">Brass - special order</option>
+                    <option value="standard">Silver</option>
+                    <option value="black">Black{HW?.black ? ` (+$${HW.black})` : ""}</option>
+                    <option value="brass">Brass</option>
                   </select>
                 </div>
               )}
@@ -731,9 +746,8 @@ export default function ProductBuilder() {
                 <div>
                   <label>Width </label>
                   <select value={form.width} onChange={(e) => update({ width: e.target.value })}>
-                    <option>5/8" - Standard</option>
-                    <option>3/4"</option>
-                    <option>1"</option>
+                    <option value={'5/8"'}>5/8" - Standard</option>
+                    <option value={'1"'}>1"</option>
                   </select>
                 </div>
               )}
@@ -741,6 +755,35 @@ export default function ProductBuilder() {
 
             {/* Size */}
             {spec && <SizePicker />}
+
+            {form.productType === "ballHolder" && (
+              <div className="form-row">
+                <div>
+                  <label>Ball Size</label>
+                  <select
+                    value={form.ballHolderSize}
+                    onChange={(e) => update({ ballHolderSize: e.target.value })}
+                  >
+                    {Object.entries(BALL_HOLDER_MENU).map(([key, option]) => (
+                      <option key={key} value={key}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label>Include Ball</label>
+                  <select
+                    value={form.ballHolderIncludesBall ? "yes" : "no"}
+                    onChange={(e) => update({ ballHolderIncludesBall: e.target.value === "yes" })}
+                  >
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </div>
+              </div>
+            )}
 
             {/* Snaps / Grip / Hands-free */}
             {spec?.fields?.snap && (
@@ -750,6 +793,9 @@ export default function ProductBuilder() {
                   <select value={form.snap} onChange={(e) => update({ snap: e.target.value })}>
                     <option value="swivelSnap">Swivel Snap — Standard</option>
                     <option value="lockingCarabiner">Locking Carabiner (+${SNAP?.lockingCarabiner || 0})</option>
+                    <option value="frogClip">
+                      Frog Clip (+${SNAP?.frogClip || 0})
+                    </option>
                   </select>
                 </div>
                 {spec?.fields?.gripHandle && (
@@ -849,6 +895,7 @@ export default function ProductBuilder() {
                       <option value="m">M (12–16")</option>
                       <option value="l">L (15–20")</option>
                       <option value="xl">XL (20–25")</option>
+                      <option value="xxl">XXL (25–29")</option>
                     </select>
                   </div>
                   <div>
@@ -864,9 +911,9 @@ export default function ProductBuilder() {
                   <div>
                     <label>Buckle Type</label>
                     <select value={form.buckleType} onChange={(e) => update({ buckleType: e.target.value })}>
-                      <option value="metalSilver">Metal Double-bar — Silver</option>
-                      <option value="metalBlack">Metal Double-bar — Black (+$2)</option>
-                      <option value="plasticQR">Plastic Quick-Release — Black (−$2)</option>
+                      <option value="plasticQR">Plastic Quick-Release — Black</option>
+                      <option value="metalSilver">Metal Double-bar — Silver (+$3)</option>
+                      <option value="metalBlack">Metal Double-bar — Black (+$4)</option>
                     </select>
                   </div>
                   <div>
@@ -879,19 +926,6 @@ export default function ProductBuilder() {
                 </div>
 
                 <div className="form-row">
-                  <div>
-                    <label>Metal Hardware Finish</label>
-                    <select
-                      value={form.collarHardwareBlack ? "black" : "silver"}
-                      onChange={(e) => update({ collarHardwareBlack: e.target.value === "black" })}
-                      disabled={form.buckleType === "plasticQR"}
-                    >
-                      <option value="silver">Silver</option>
-                      <option value="black">Black (+$2)</option>
-                    </select>
-                    <div className="small">Applies to metal buckle/D-ring/keeper.</div>
-                  </div>
-
                   <div>
                     <label>Collar Style</label>
                     <select

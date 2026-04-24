@@ -130,7 +130,7 @@ const TrainingForm = () => {
       value: "Day Training",
       icon: <SchoolIcon />,
       title: "Day Training",
-      desc: "Drop off or pick up. Structured training plus rest plus real-world practice."
+      desc: "Owner drop-off and pick-up. Structured training plus rest plus real-world practice."
     },
     {
       value: "Day Training Package",
@@ -279,15 +279,6 @@ const TrainingForm = () => {
             mainEntity: [
               {
                 "@type": "Question",
-                name: "Do I need a consult first?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text:
-                    "A free 15-minute consult is optional—great for quick questions or checking fit. You can also submit the training form directly."
-                }
-              },
-              {
-                "@type": "Question",
                 name: "How does the training process work?",
                 acceptedAnswer: {
                   "@type": "Answer",
@@ -301,7 +292,7 @@ const TrainingForm = () => {
                 acceptedAnswer: {
                   "@type": "Answer",
                   text:
-                    "Yes. Day Training is a drop-off or pick-up option where your dog spends a structured half or full day with me. We rotate focused training sessions, rest breaks, and real-life field trips to work on your goals. Pick-up/drop-off depends on location and follows the travel policy when applicable."
+                    "Yes. Day Training is primarily an owner drop-off service where your dog spends a structured half or full day with me. We rotate focused training sessions, rest breaks, and real-life field trips to work on your goals. Owners are responsible for drop-off and pick-up. For North End day training packages, pick-up may be available."
                 }
               }
             ]
@@ -334,9 +325,6 @@ const TrainingForm = () => {
             <li>You get a tailored plan with pricing and scheduling options.</li>
             <li>Approve → book → train. Payment via Venmo or PayPal.</li>
           </ul>
-          <p className="inline-cta">
-            Prefer to talk first? <Link to="/booking">Book a free 15-minute consult</Link>.
-          </p>
         </section>
 
         <section className="training-intro">
@@ -365,10 +353,7 @@ const TrainingForm = () => {
               </span>{" "}
               New — Day Training
             </strong>{" "}
-            — Drop off your dog (or I can pick them up, location permitting). Each session balances focused work and
-            rest, with real-world field trips (parks, neighborhoods, dog-friendly stores) to build leash manners,
-            recall, public behavior, confidence, and freestyle foundations. You’ll get a same-day summary. You can
-            also add a handoff lesson so I walk you through everything and give you tools to carry on training at home.
+              — Owners drop off and pick up their dog for a structured half or full day of training. Each session balances focused work and rest, with real-world field trips (parks, neighborhoods, dog-friendly stores) to build leash manners, recall, public behavior, confidence, and freestyle foundations. You’ll get a same-day summary. You can also add a handoff lesson so I walk you through everything and give you tools to carry on training at home. For North End day training packages, pick-up may be available. 
           </p>
 
           <div className="notes where-notes">
@@ -425,9 +410,12 @@ const TrainingForm = () => {
 
         <section className="training-pricing" aria-label="Training rates">
           <h2>Training Rates</h2>
-          <p id="prepayment">Payment is due before or at the start of each session.</p>
+            <p id="prepayment">Payment is due before or at the start of each session.</p>
+            <p className="policy-note">
+              Day training package pricing is only available when the full package is purchased upfront. Single day training sessions are charged at the regular day training rate.
+            </p>
 
-          <h4 id="cancellationPolicy">
+            <h4 id="cancellationPolicy">
             <span className="titleCancel">Cancellation Policy:</span> <br />
             Please provide at least 24 hours’ notice to cancel or reschedule. Late cancellations and no-shows are
             counted as a used session and cannot be rescheduled unless there is a true last-minute emergency. With 5-
@@ -534,7 +522,7 @@ const TrainingForm = () => {
             </div>
 
             <div className="price-card">
-              <h3>Day Training (Drop-off / Pick-up)</h3>
+              <h3>Day Training</h3>
               <ul>
                 <li>
                   Half-day (about 3–4 hrs incl. rest): <strong>$90</strong>
@@ -547,7 +535,7 @@ const TrainingForm = () => {
                 <li>
                   Optional 20–30 min handoff lesson: <strong>+$30</strong>
                 </li>
-                <li>Pick-up/drop-off depends on location (see travel policy)</li>
+                <li>Owners are responsible for drop-off and pick-up. For North End day training packages, pick-up may be available.</li>
               </ul>
             </div>
 
@@ -567,6 +555,7 @@ const TrainingForm = () => {
                   10-Day Pack: <strong>$950</strong> <em>(27% off @ $95/day)</em>
                 </li>
                 <li>Two half-days = one full day.</li>
+                <li>Package pricing is only available when the full package is purchased upfront. Single day training sessions are charged at the regular day training rate.</li>
                 <li>
                   To help keep progress consistent, day training packages should be used
                   within the following timeframes from purchase: <strong>3-day packages
@@ -574,6 +563,7 @@ const TrainingForm = () => {
                   and <strong>10-day packages within 6 months</strong>. Any unused sessions
                   expire after that.
                 </li>
+                <li>For clients in the North End who purchase a day training package, pick-up and drop-off may be available.</li>
               </ul>
             </div>
 
@@ -674,6 +664,10 @@ const TrainingForm = () => {
                   <option value="5-Day Pack ($500)">5-Day Pack ($500)</option>
                   <option value="10-Day Pack ($950)">10-Day Pack ($950)</option>
                 </select>
+
+                <p className="field-help">
+                  Package pricing is only available when the full package is purchased upfront. Individual day training sessions are billed at the regular day training rate.
+                </p>
               </>
             )}
 
@@ -812,9 +806,6 @@ const TrainingForm = () => {
           <div className="success-card" role="status" aria-live="polite">
             <h2>Got it!</h2>
             <p>I’ll follow up shortly with a plan, pricing, and scheduling options.</p>
-            <p>
-              Want to talk first? <Link to="/booking">Book a free 15-minute consult</Link>.
-            </p>
             <button type="button" onClick={() => setShowSuccess(false)}>
               Send another request
             </button>

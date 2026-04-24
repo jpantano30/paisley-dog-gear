@@ -3,7 +3,6 @@ import "./GearCard.css";
 
 const GearCard = ({ title, image, items, anchor, description, bestFor, pricing }) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [showPricing, setShowPricing] = useState(false);
 
   return (
     <div className="gear-card">
@@ -25,18 +24,6 @@ const GearCard = ({ title, image, items, anchor, description, bestFor, pricing }
               <li key={i}>{item}</li>
             )
           )}
-        </ul>
-      )}
-
-      <button className="pricing-button" onClick={() => setShowPricing(!showPricing)}>
-        {showPricing ? "Hide Pricing" : "See Pricing"}
-      </button>
-
-      {showPricing && (
-        <ul className="gear-pricing-list">
-          {pricing?.map((price, i) => (
-            <li key={i}>{price}</li>
-          ))}
         </ul>
       )}
     </div>
