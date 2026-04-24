@@ -243,6 +243,77 @@ const PRODUCT_SPEC = {
     addons: { twoTone: true }
   },
 
+    braidedLeash: {
+    label: "Braided Leash",
+    units: "ft",
+    sizePresets: [4, 6, 8, 10, 12],
+    sizeBounds: { min: 4, max: 12 },
+    include: [
+      'Braided 5/8" BioThane leash',
+      "Swivel snap standard",
+      "Silver, brass, or black hardware",
+      "Loop handle"
+    ],
+    fields: {
+      width: false,
+      snap: true,
+      gripHandle: true,
+      handsFreeConversion: false,
+      trafficHandleBuiltIn: false,
+      trafficHandleMaterial: false,
+      trafficHandlePlacement: false,
+      hardwareFinish: true,
+      colors: true
+    },
+    addons: { twoTone: true, oRing: true, dRing: true, floatingORing: false, stopper: false }
+  },
+
+  braidedHandsFreeSystem: {
+    label: "Braided Hands-Free Leash",
+    units: "ft",
+    sizePresets: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    sizeBounds: { min: 5, max: 15 },
+    include: [
+      'Braided 5/8" BioThane hands-free system',
+      "Wear crossbody, around the waist, or handheld",
+      "Silver, brass, or black hardware"
+    ],
+    fields: {
+      width: false,
+      snap: true,
+      gripHandle: false,
+      handsFreeConversion: false,
+      trafficHandleBuiltIn: false,
+      trafficHandleMaterial: false,
+      trafficHandlePlacement: false,
+      hardwareFinish: true,
+      colors: true
+    },
+    addons: { twoTone: true, oRing: true, dRing: true, floatingORing: true, stopper: true }
+  },
+
+  utilityBelt: {
+    label: "Utility Belt",
+    units: "none",
+    include: [
+      "BioThane utility belt",
+      "Choose width and size",
+      "Optional quick-release buckle"
+    ],
+    fields: {
+      width: true,
+      snap: false,
+      gripHandle: false,
+      handsFreeConversion: false,
+      trafficHandleBuiltIn: false,
+      trafficHandleMaterial: false,
+      trafficHandlePlacement: false,
+      hardwareFinish: true,
+      colors: true
+    },
+    addons: { twoTone: true }
+  },
+
   // Single collar product
   collarBuckle: {
     label: "Collar",
@@ -254,12 +325,15 @@ const PRODUCT_SPEC = {
 
 const PRODUCT_TYPES = [
   { value: "leash", label: PRODUCT_SPEC.leash.label },
+  { value: "braidedLeash", label: PRODUCT_SPEC.braidedLeash.label },
   { value: "longLine", label: PRODUCT_SPEC.longLine.label },
   { value: "trafficLead", label: PRODUCT_SPEC.trafficLead.label },
   { value: "leashExtender", label: PRODUCT_SPEC.leashExtender.label },
+  { value: "utilityBelt", label: PRODUCT_SPEC.utilityBelt.label },
   { value: "safetyStrapBiothane", label: PRODUCT_SPEC.safetyStrapBiothane.label },
   { value: "safetyStrapParacord", label: PRODUCT_SPEC.safetyStrapParacord.label },
   { value: "handsFreeSystem", label: PRODUCT_SPEC.handsFreeSystem.label },
+  { value: "braidedHandsFreeSystem", label: PRODUCT_SPEC.braidedHandsFreeSystem.label },
   { value: "collarBuckle", label: "Collar" },
   { value: "ballHolder", label: PRODUCT_SPEC.ballHolder.label }
 ];
@@ -314,7 +388,11 @@ export default function ProductBuilder() {
     collarHardwareBlack: false,
     htvOption: "none",
     collarParacordFishtail: false,
-    collarParacordWeave: false
+    collarParacordWeave: false,
+
+    //belt 
+    utilityBeltSize: 'XS 22-30"',
+    utilityBeltQuickRelease: false,
   });
 
   // helpers
@@ -397,6 +475,53 @@ export default function ProductBuilder() {
         L.push([`Ball holder — ${chosen.label}${form.ballHolderIncludesBall ? " with ball" : " holder only"}`, price]);
         return { total: money(price), lines: L };
       }
+    }
+
+        // Exact Etsy-style pricing for braided leash
+    if (form.productType === "braidedLeash") {
+      const price = PRICING.exactMenus?.braidedLeash?.lengthFt?.[Number(form.lengthFt)] || 0;
+      L.push([`Braided leash (${form.lengthFt} ft)`, price]);
+      sum += price;
+
+      const snapAdd = SNAP?.[form.snap] || 0;
+      if (snapAdd) {
+        L.push([`Snap ${form.snap}`, snapAdd]);
+        sum += snapAdd;
+      }
+
+      return { total: money(sum), lines: L };
+    }
+
+    // Exact Etsy-style pricing for braided hands-free leash
+    if (form.productType === "braidedHandsFreeSystem") {
+      const price = PRICING.exactMenus?.braidedHandsFreeSystem?.lengthFt?.[Number(form.lengthFt)] || 0;
+      L.push([`Braided hands-free leash (${form.lengthFt} ft)`, price]);
+      sum += price;
+
+      const snapAdd = SNAP?.[form.snap] || 0;
+      if (snapAdd) {
+        L.push([`Snap ${form.snap}`, snapAdd]);
+        sum += snapAdd;
+      }
+
+      return { total: money(sum), lines: L };
+    }
+
+    // Exact Etsy-style pricing for utility belt
+    if (form.productType === "utilityBelt") {
+      const beltPrice =
+        PRICING.exactMenus?.utilityBelt?.byWidth?.[form.width]?.[form.utilityBeltSize] || 0;
+
+      L.push([`Utility belt (${form.width}, ${form.utilityBeltSize})`, beltPrice]);
+      sum += beltPrice;
+
+      if (form.utilityBeltQuickRelease) {
+        const qr = PRICING.exactMenus?.utilityBelt?.addOns?.quickReleaseBuckle || 0;
+        L.push(["Quick-release buckle", qr]);
+        sum += qr;
+      }
+
+      return { total: money(sum), lines: L };
     }
 
     // Base for non-collar items
@@ -781,6 +906,37 @@ export default function ProductBuilder() {
                   >
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
+                  </select>
+                </div>
+              </div>
+            )}
+
+                        {form.productType === "utilityBelt" && (
+              <div className="form-row">
+                <div>
+                  <label>Belt Size</label>
+                  <select
+                    value={form.utilityBeltSize}
+                    onChange={(e) => update({ utilityBeltSize: e.target.value })}
+                  >
+                    {Object.keys(PRICING.exactMenus?.utilityBelt?.byWidth?.[form.width] || {}).map((size) => (
+                      <option key={size} value={size}>
+                        {size}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label>Quick-Release Buckle</label>
+                  <select
+                    value={form.utilityBeltQuickRelease ? "yes" : "no"}
+                    onChange={(e) => update({ utilityBeltQuickRelease: e.target.value === "yes" })}
+                  >
+                    <option value="no">No</option>
+                    <option value="yes">
+                      Yes (+${PRICING.exactMenus?.utilityBelt?.addOns?.quickReleaseBuckle || 0})
+                    </option>
                   </select>
                 </div>
               </div>

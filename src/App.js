@@ -18,6 +18,7 @@ import VideoWatch from "./pages/VideoWatch";
 import QuickOrder from "./pages/QuickOrder";
 import Boston from "./pages/Boston";
 import BiothaneHub from "./pages/BiothaneHub.jsx"; 
+import TrainingGallery from "./pages/TrainingGallery.js";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/biothane-dog-leashes-boston" element={<BiothaneHub />} />
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/training-gallery" element={<TrainingGallery />} />
           <Route path="/options" element={<Options />} />
           <Route path="/colors" element={<Colors />} />
           <Route path="/pricing" element={<Pricing />} /> 

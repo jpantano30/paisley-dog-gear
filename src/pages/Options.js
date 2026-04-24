@@ -36,6 +36,27 @@ const gearData = [
     ]
   },
   {
+    title: "Braided Leashes",
+    image: "/assets/new/bluebraid.jpg",
+    anchor: "braided-leashes",
+    description: "A more decorative leash style with a braided BioThane design. Strong, waterproof, and easy to clean, but with a more detailed custom look.",
+    bestFor: "Everyday walking • Stylish custom gear • Matching sets",
+    items: [
+      "**Length Options**",
+      "- 4ft, 6ft, 8ft, 10ft, 12ft",
+      "**Width**",
+      '- 5/8" BioThane',
+      "**Colors**",
+      "- Choose your main color and braid accent colors",
+      "**Hardware**",
+      "- Silver, brass, or black hardware",
+      "- Swivel snap standard",
+      "- Locking carabiner or frog clip upgrade available",
+      "**Handle Styles**",
+      "- Loop handle standard"
+    ]
+  },
+  {
     title: "Long Lines",
     image: "/assets/leashpicsNvids/longlinerolled.JPG",
     anchor: "longlines",
@@ -81,6 +102,29 @@ const gearData = [
     pricing: [
       "Base system: $47 (base 7ft)",
       "Upgrades (traffic handle, extender, two-tone, black hardware): add-on"
+    ]
+  },
+  {
+    title: "Braided Hands-Free Leash",
+    image: "/assets/new/braidedhandsfree.jpeg",
+    anchor: "braided-hands-free",
+    description: "A braided version of the Tallulah hands-free leash system. It can be worn crossbody, around the waist, handheld, or adjusted shorter for training.",
+    bestFor: "Hands-free walking • Stylish custom gear • Training • Public access work",
+    items: [
+      "**Length Options**",
+      "- 5ft through 15ft",
+      "**Width**",
+      '- 5/8" BioThane',
+      "**Features**",
+      "- Multi-functional hands-free design",
+      "- Wear crossbody, around waist, or handheld",
+      "- Sliding rings and clip points for adjustability",
+      "**Colors**",
+      "- Choose your main color and braid accent colors",
+      "**Hardware**",
+      "- Silver, brass, or black hardware",
+      "- Swivel snap standard",
+      "- Locking carabiner or frog clip upgrade available"
     ]
   },
   {
@@ -147,6 +191,32 @@ const gearData = [
     pricing: [
       "Base: $12–$16 depending on size",
       "Two-tone: +$2"
+    ]
+  },
+  {
+    title: "Utility Belts",
+    image: "/assets/new/5.8inbelt.jpg",
+    anchor: "utility-belts",
+    description: "A BioThane utility belt for carrying treat pouches, ball holders, keys, leash attachments, and other training gear.",
+    bestFor: "Training sessions • Day training • Dog sports • Hands-free carrying",
+    items: [
+      "**Size Options**",
+      '- XS: 22–30"',
+      '- S: 28–37"',
+      '- M: 35–45"',
+      '- L: 43–53"',
+      '- XL: 51–61"',
+      '- XXL: 59–70"',
+      "**Width Options**",
+      '- 5/8"',
+      '- 1"',
+      "**Colors**",
+      "- Choose from available BioThane colors",
+      "- Two-tone options available",
+      "**Hardware**",
+      "- Silver, brass, or black hardware",
+      "**Add-ons**",
+      "- Optional quick-release buckle"
     ]
   },
   {

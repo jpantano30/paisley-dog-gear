@@ -9,6 +9,11 @@ const PRODUCT_MEDIA = {
     alt: "Custom biothane leash with swivel snap and loop handle",
     credit: "Leash example",
   },
+  braidedLeash: {
+    src: "/assets/new/bluebraid.jpg",
+    alt: "Braided BioThane leash",
+    credit: "Braided leash example",
+  },
   longLine: {
     src: "/assets/leashpicsNvids/longlinerolled.JPG",
     alt: "Long line example",
@@ -19,6 +24,11 @@ const PRODUCT_MEDIA = {
     alt: "Hands-free leash system - Standard",
     credit: "Hands-free leash system - Standard",
   },
+  braidedHandsFreeSystem: {
+    src: "/assets/new/braidedhandsfree.jpeg",
+    alt: "Braided hands-free leash system",
+    credit: "Braided hands-free example",
+  },
   trafficLead: {
     src: "/assets/duke.JPG",
     alt: "Traffic handle / short lead",
@@ -28,6 +38,11 @@ const PRODUCT_MEDIA = {
     src: "/assets/leashextender.jpg",
     alt: "Leash extender with snap and ring",
     credit: "Leash extender example",
+  },
+  utilityBelt: {
+    src: "/assets/new/5.8inbelt.jpg",
+    alt: "BioThane utility belt",
+    credit: "Utility belt example",
   },
   ballHolder: {
     src: "/assets/leashpicsNvids/ballholder3.JPG",
@@ -64,6 +79,18 @@ const StandardList = ({ productType }) => {
     );
   }
 
+  if (productType === "braidedLeash") {
+    return (
+      <ul className="guide-list">
+        <li>Width: <strong>5/8″</strong></li>
+        <li>Style: <strong>Braided BioThane</strong></li>
+        <li>Snap: <strong>Swivel snap</strong></li>
+        <li>Grip: <strong>Loop handle</strong></li>
+        <li>Hardware: <strong>Silver</strong></li>
+      </ul>
+    );
+  }
+
   if (productType === "longLine") {
     return (
       <ul className="guide-list">
@@ -89,6 +116,18 @@ const StandardList = ({ productType }) => {
     );
   }
 
+  if (productType === "braidedHandsFreeSystem") {
+    return (
+      <ul className="guide-list">
+        <li>Width: <strong>5/8″</strong></li>
+        <li>Style: <strong>Braided BioThane</strong></li>
+        <li>Carry: <strong>Cross-body / waist / handheld</strong></li>
+        <li>Adjusters: <strong>Sliding O/D-rings</strong></li>
+        <li>Hardware: <strong>Silver</strong></li>
+      </ul>
+    );
+  }
+
   if (productType === "trafficLead") {
     return (
       <ul className="guide-list">
@@ -108,6 +147,18 @@ const StandardList = ({ productType }) => {
         <li>Use: <strong>Extend leash / quick hands-free</strong></li>
         <li>Typical length: <strong>6–18″</strong></li>
         <li>Two-tone: <strong>Optional</strong></li>
+      </ul>
+    );
+  }
+
+  if (productType === "utilityBelt") {
+    return (
+      <ul className="guide-list">
+        <li>Widths: <strong>5/8″ or 1″</strong></li>
+        <li>Use: <strong>Hands-free carrying</strong></li>
+        <li>Pairs with: <strong>Ball holder / leash clips / treat pouch</strong></li>
+        <li>Optional: <strong>Quick-release buckle</strong></li>
+        <li>Hardware: <strong>Silver</strong></li>
       </ul>
     );
   }
@@ -209,7 +260,12 @@ export default function BuilderGuide({ form }) {
         </p>
       </section>
 
-      {(type === "leash" || type === "longLine" || type === "handsFreeSystem" || type === "leashExtender") && (
+      {(type === "leash" ||
+        type === "longLine" ||
+        type === "handsFreeSystem" ||
+        type === "braidedHandsFreeSystem" ||
+        type === "leashExtender" ||
+        type === "utilityBelt") && (
         <section className="guide-section">
           <h5>Rings & Extras</h5>
           <p>
