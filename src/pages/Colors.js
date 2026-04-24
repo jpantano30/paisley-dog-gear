@@ -2,47 +2,48 @@ import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 import "./Colors.css";
 import "../components/page-intro.css";
+import { COLOR_INVENTORY } from "../data/colorInventory";
 
-const colorData = [
-  { name: "amethyst-orchid-purple-524", category: "purple" },
-  { name: "beta-gold-521", category: "yellow" },
-  { name: "black-520", category: "neutral" },
-  { name: "blue-522", category: "blue" },
-  { name: "blue-52f", category: "blue" },
-  { name: "blue-52h", category: "blue" },
-  { name: "blue-521", category: "blue" },
-  { name: "brown-521", category: "brown" },
-  { name: "brown-522", category: "brown" },
-  { name: "brown-523", category: "brown" },
-  { name: "chili-red-523", category: "red" },
-  { name: "coyote-brown-521", category: "brown" },
-  { name: "deep-sea-523", category: "blue" },
-  { name: "dusty-turquoise-tu521", category: "teal" },
-  { name: "grape-pu527", category: "purple" },
-  { name: "green-52k", category: "green" },
-  { name: "green-522", category: "green" },
-  { name: "green-525", category: "green" },
-  { name: "green-528", category: "green" },
-  { name: "grey-523", category: "neutral" },
-  { name: "magenta-pink-526", category: "pink" },
-  { name: "olive-drab-521", category: "green" },
-  { name: "orange-522", category: "orange" },
-  { name: "orange-529", category: "orange" },
-  { name: "periwinkle-bu525", category: "blue" },
-  { name: "pink-521", category: "pink" },
-  { name: "pink-523", category: "pink" },
-  { name: "pink-coral-524", category: "pink" },
-  { name: "purple-522", category: "purple" },
-  { name: "red-522", category: "red" },
-  { name: "sagegreen-527", category: "green" },
-  { name: "tan-525", category: "neutral" },
-  { name: "teal-521", category: "teal" },
-  { name: "violet-521", category: "purple" },
-  { name: "white-521", category: "neutral" },
-  { name: "wine-521", category: "red" },
-  { name: "yellow-521", category: "yellow" },
-  { name: "yellow-527", category: "yellow" },
-];
+// const colorData = [
+//   { name: "amethyst-orchid-purple-524", category: "purple" },
+//   { name: "beta-gold-521", category: "yellow" },
+//   { name: "black-520", category: "neutral" },
+//   { name: "blue-522", category: "blue" },
+//   { name: "blue-52f", category: "blue" },
+//   { name: "blue-52h", category: "blue" },
+//   { name: "blue-521", category: "blue" },
+//   { name: "brown-521", category: "brown" },
+//   { name: "brown-522", category: "brown" },
+//   { name: "brown-523", category: "brown" },
+//   { name: "chili-red-523", category: "red" },
+//   { name: "coyote-brown-521", category: "brown" },
+//   { name: "deep-sea-523", category: "blue" },
+//   { name: "dusty-turquoise-tu521", category: "teal" },
+//   { name: "grape-pu527", category: "purple" },
+//   { name: "green-52k", category: "green" },
+//   { name: "green-522", category: "green" },
+//   { name: "green-525", category: "green" },
+//   { name: "green-528", category: "green" },
+//   { name: "grey-523", category: "neutral" },
+//   { name: "magenta-pink-526", category: "pink" },
+//   { name: "olive-drab-521", category: "green" },
+//   { name: "orange-522", category: "orange" },
+//   { name: "orange-529", category: "orange" },
+//   { name: "periwinkle-bu525", category: "blue" },
+//   { name: "pink-521", category: "pink" },
+//   { name: "pink-523", category: "pink" },
+//   { name: "pink-coral-524", category: "pink" },
+//   { name: "purple-522", category: "purple" },
+//   { name: "red-522", category: "red" },
+//   { name: "sagegreen-527", category: "green" },
+//   { name: "tan-525", category: "neutral" },
+//   { name: "teal-521", category: "teal" },
+//   { name: "violet-521", category: "purple" },
+//   { name: "white-521", category: "neutral" },
+//   { name: "wine-521", category: "red" },
+//   { name: "yellow-521", category: "yellow" },
+//   { name: "yellow-527", category: "yellow" },
+// ];
 
 const formatName = (str) =>
   str.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -73,7 +74,7 @@ const Colors = () => {
     setSelectedColors([]);
   };
 
-  const categories = ["all", ...new Set(colorData.map((c) => c.category))];
+  const categories = ["all", ...new Set(COLOR_INVENTORY.map((c) => c.category))];
 
   return (
     
@@ -133,7 +134,7 @@ const Colors = () => {
         </div>
 
         <div className="swatch-grid">
-          {colorData
+          {COLOR_INVENTORY
             .filter((c) => selectedCategory === "all" || c.category === selectedCategory)
             .map((color, i) => (
               <div
@@ -148,9 +149,12 @@ const Colors = () => {
                     setModalImg(`/assets/colors/${color.name}.png`);
                   }}
                 >
-                  <img src={`/assets/colors/${color.name}.png`} alt={formatName(color.name)} />
+                  <img src={`/assets/colors/${color.image}`} alt={`${color.name} ${color.code}`} />
                 </div>
-                <span>{formatName(color.name)}</span>
+                <span>
+                  {color.name} ({color.code})
+                  <small className="width-note">Available in: {color.widths.join(", ")}</small>
+                </span>
                 <button
                   className={`favorite-btn ${
                     favorites.includes(color.name) ? "favorited" : ""
@@ -173,9 +177,19 @@ const Colors = () => {
           <div className="preview-section">
             <h2>Your Color Selection</h2>
             <div className="selected-colors">
-              {selectedColors.map((name, index) => (
-                <img key={index} src={`/assets/colors/${name}.png`} alt={formatName(name)} />
-              ))}
+              {selectedColors.map((name, index) => {
+                const color = COLOR_INVENTORY.find((c) => c.id === name);
+
+                if (!color) return null;
+
+                return (
+                  <img
+                    key={index}
+                    src={`/assets/colors/${color.image}`}
+                    alt={color.name}
+                  />
+                );
+              })}
             </div>
             <button className="clear-btn" onClick={clearSelection}>
               Clear Selection
@@ -187,9 +201,19 @@ const Colors = () => {
           <div className="favorites-preview-section">
             <h2>Preview These Together</h2>
             <div className="selected-colors">
-              {favorites.map((name, index) => (
-                <img key={index} src={`/assets/colors/${name}.png`} alt={formatName(name)} />
-              ))}
+              {favorites.map((name, index) => {
+                const color = COLOR_INVENTORY.find((c) => c.id === name);
+
+                if (!color) return null;
+
+                return (
+                  <img
+                    key={index}
+                    src={`/assets/colors/${color.image}`}
+                    alt={color.name}
+                  />
+                );
+              })}
             </div>
           </div>
         )}

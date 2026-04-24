@@ -5,55 +5,55 @@ import PRICING from "../components/pricingConfig";
 import { useNavigate, Link } from "react-router-dom";
 import "../components/page-intro.css";
 import BuilderGuide from "../components/BuilderGuide";
+import { COLOR_INVENTORY, getColorById, getColorsByWidth } from "../data/colorInventory";
 
 
 // Simple in-file color catalog
-const COLOR_CATALOG = [
-  { id: "purple-524", code: "Amethyst Orchid Purple 524", name: "Amethyst Orchid Purple / Medium Purple (524)"},
-  { id: "grape-pu527", code: "Grape Pu527", name: "Grape Purple (Pu527)" },
-  { id: "purple-522", code: "Purple 522", name: "Light Purple (522)" },
-  { id: "violet-521", code: "Violet 521", name: "Violet / Dark Purple (521)" },
-  { id: "gold-521", code: "Beta Gold 521", name: "Gold (521)" },
-  { id: "yellow-521", code: "Yellow 521", name: "Yellow (521)" },
-  { id: "yellow-527", code: "Yellow 527", name: "Bright/Neon Yellow (527)" },
-  { id: "black-520", code: "Black 520", name: "Black (520)" },
-  { id: "grey-523", code: "Grey 523", name: "Grey (523)" },
-  { id: "tan-525", code: "Tan 525", name: "Tan (525)" },
-  { id: "white-521", code: "White 521", name: "White (521)" },
-  { id: "deep-sea-523", code: "Deep Sea 523", name: "Deep Sea/ Dark Blue (523)" },
-  { id: "blue-522", code: "Blue 522", name: "Royal Blue (522)" },
-  { id: "periwinkle-bu525", code: "Periwinkle Bu525", name: "Periwinkle Blue (Bu525)" },
-  { id: "blue-521", code: "Blue 521", name: "Classic Blue (521)" },
-  { id: "blue-52h", code: "Blue 52h", name: "Sky Blue (52h)" },
-  { id: "blue-52f", code: "Blue 52f", name: "Turquoise Blue (52f)" },
-  { id: "dusty-turquoise-tu521", code: "Dusty Turquoise Tu521", name: "Dusty Turquoise (Tu521)" },
-  { id: "teal-521", code: "Teal 521", name: "Teal (521)" },
-  { id: "green-52k", code: "Green 52k", name: "Aqua Green (52K)" },
-  { id: "green-522", code: "Green 522", name: "Forest Green (522)" },
-  { id: "green-525", code: "Green 525", name: "Lime Green (525)" },
-  { id: "green-528", code: "Green 528", name: "Bright Green (528)" },
-  { id: "olive-drab-521", code: "Olive Drab 521", name: "Olive Drab (521)" },
-  { id: "sagegreen-527", code: "Sagegreen 527", name: "Sage Green (527)" },
-  { id: "orange-522", code: "Orange 522", name: "Bright/Neon Orange (522)" },
-  { id: "orange-529", code: "Orange 529", name: "Light Orange (529)" },
-  { id: "pink-521", code: "Pink 521", name: "Light Pink (521)" },
-  { id: "pink-523", code: "Pink 523", name: "Medium Pink (523)" },
-  { id: "pink-coral-524", code: "Pink Coral 524", name: "Coral Pink (524)" },
-  { id: "magenta-pink-526", code: "Magenta Pink 526", name: "Magenta Pink (526)" },
-  { id: "brown-521", code: "Brown 521", name: "Light Brown (521)" },
-  { id: "brown-522", code: "Brown 522", name: "Medium Brown (522)" },
-  { id: "brown-523", code: "Brown 523", name: "Dark Brown (523)" },
-  { id: "coyote-brown-521", code: "Coyote Brown 521", name: "Coyote Brown (521)" },
-  { id: "red-522", code: "Red 522", name: "Red (522)" },
-  { id: "chili-red-523", code: "Chili Red 523", name: "Chili Red (523)" },
-  { id: "wine-521", code: "Wine 521", name: "Wine / Maroon (521)" },
-];
+// const COLOR_CATALOG = [
+//   { id: "purple-524", code: "Amethyst Orchid Purple 524", name: "Amethyst Orchid Purple / Medium Purple (524)"},
+//   { id: "grape-pu527", code: "Grape Pu527", name: "Grape Purple (Pu527)" },
+//   { id: "purple-522", code: "Purple 522", name: "Light Purple (522)" },
+//   { id: "violet-521", code: "Violet 521", name: "Violet / Dark Purple (521)" },
+//   { id: "gold-521", code: "Beta Gold 521", name: "Gold (521)" },
+//   { id: "yellow-521", code: "Yellow 521", name: "Yellow (521)" },
+//   { id: "yellow-527", code: "Yellow 527", name: "Bright/Neon Yellow (527)" },
+//   { id: "black-520", code: "Black 520", name: "Black (520)" },
+//   { id: "grey-523", code: "Grey 523", name: "Grey (523)" },
+//   { id: "tan-525", code: "Tan 525", name: "Tan (525)" },
+//   { id: "white-521", code: "White 521", name: "White (521)" },
+//   { id: "deep-sea-523", code: "Deep Sea 523", name: "Deep Sea/ Dark Blue (523)" },
+//   { id: "blue-522", code: "Blue 522", name: "Royal Blue (522)" },
+//   { id: "periwinkle-bu525", code: "Periwinkle Bu525", name: "Periwinkle Blue (Bu525)" },
+//   { id: "blue-521", code: "Blue 521", name: "Classic Blue (521)" },
+//   { id: "blue-52h", code: "Blue 52h", name: "Sky Blue (52h)" },
+//   { id: "blue-52f", code: "Blue 52f", name: "Turquoise Blue (52f)" },
+//   { id: "dusty-turquoise-tu521", code: "Dusty Turquoise Tu521", name: "Dusty Turquoise (Tu521)" },
+//   { id: "teal-521", code: "Teal 521", name: "Teal (521)" },
+//   { id: "green-52k", code: "Green 52k", name: "Aqua Green (52K)" },
+//   { id: "green-522", code: "Green 522", name: "Forest Green (522)" },
+//   { id: "green-525", code: "Green 525", name: "Lime Green (525)" },
+//   { id: "green-528", code: "Green 528", name: "Bright Green (528)" },
+//   { id: "olive-drab-521", code: "Olive Drab 521", name: "Olive Drab (521)" },
+//   { id: "sagegreen-527", code: "Sagegreen 527", name: "Sage Green (527)" },
+//   { id: "orange-522", code: "Orange 522", name: "Bright/Neon Orange (522)" },
+//   { id: "orange-529", code: "Orange 529", name: "Light Orange (529)" },
+//   { id: "pink-521", code: "Pink 521", name: "Light Pink (521)" },
+//   { id: "pink-523", code: "Pink 523", name: "Medium Pink (523)" },
+//   { id: "pink-coral-524", code: "Pink Coral 524", name: "Coral Pink (524)" },
+//   { id: "magenta-pink-526", code: "Magenta Pink 526", name: "Magenta Pink (526)" },
+//   { id: "brown-521", code: "Brown 521", name: "Light Brown (521)" },
+//   { id: "brown-522", code: "Brown 522", name: "Medium Brown (522)" },
+//   { id: "brown-523", code: "Brown 523", name: "Dark Brown (523)" },
+//   { id: "coyote-brown-521", code: "Coyote Brown 521", name: "Coyote Brown (521)" },
+//   { id: "red-522", code: "Red 522", name: "Red (522)" },
+//   { id: "chili-red-523", code: "Chili Red 523", name: "Chili Red (523)" },
+//   { id: "wine-521", code: "Wine 521", name: "Wine / Maroon (521)" },
+// ];
 
 // Fast lookups
-const COLOR_BY_ID = Object.fromEntries(COLOR_CATALOG.map(c => [c.id, c]));
 const colorLabel = (id) => {
-  const c = COLOR_BY_ID[id];
-  return c ? `${c.code} — ${c.name}` : "";
+  const c = getColorById(id);
+  return c ? `${c.name} (${c.code})` : "";
 };
 
 const money = (n) => Math.round(n * 100) / 100;
@@ -748,6 +748,7 @@ export default function ProductBuilder() {
                   <select value={form.width} onChange={(e) => update({ width: e.target.value })}>
                     <option value={'5/8"'}>5/8" - Standard</option>
                     <option value={'1"'}>1"</option>
+                    <option value={'1.5"'}>1.5"</option>
                   </select>
                 </div>
               )}
@@ -963,9 +964,9 @@ export default function ProductBuilder() {
                     onChange={(e) => update({ colorPrimaryId: e.target.value })}
                   >
                     <option value="">Select color…</option>
-                    {COLOR_CATALOG.map(c => (
+                    {getColorsByWidth(form.width || '5/8"').map(c => (
                       <option key={c.id} value={c.id}>
-                        {c.code} — {c.name}
+                        {c.name} ({c.code}) — {c.widths.join(", ")}
                       </option>
                     ))}
                   </select>
@@ -1004,9 +1005,9 @@ export default function ProductBuilder() {
                     onChange={(e) => update({ colorSecondaryId: e.target.value })}
                   >
                     <option value="">Select color…</option>
-                    {COLOR_CATALOG.map(c => (
+                    {getColorsByWidth(form.width || '5/8"').map(c => (
                       <option key={c.id} value={c.id}>
-                        {c.code} — {c.name}
+                        {c.name} ({c.code}) — {c.widths.join(", ")}
                       </option>
                     ))}
                   </select>

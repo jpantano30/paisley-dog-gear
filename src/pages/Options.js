@@ -221,9 +221,8 @@ const Options = () => {
         <h1>Gear Options</h1>
         <p>
           Explore the products below to see what’s possible—standard leashes, long lines, the
-          Tallulah hands-free system, collars and accessories. Open “Show Custom Options” on
-          any item to view available lengths, widths, hardware, color layouts and
-          upgrades. Open “See Pricing” for typical price ranges.
+          Tallulah hands-free system, collars and accessories. Open “Show Custom Options” on any item to view available lengths, widths, hardware, color layouts, and upgrades.
+          For current pricing, visit the pricing page or use the Gear Builder for an estimate.
         </p>
 
         {/* Short, business-friendly context kept for SEO */}
