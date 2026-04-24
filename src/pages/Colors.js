@@ -45,8 +45,8 @@ import { COLOR_INVENTORY } from "../data/colorInventory";
 //   { name: "yellow-527", category: "yellow" },
 // ];
 
-const formatName = (str) =>
-  str.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+// const formatName = (str) =>
+//   str.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 const Colors = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");

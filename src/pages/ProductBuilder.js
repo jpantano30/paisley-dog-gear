@@ -5,7 +5,7 @@ import PRICING from "../components/pricingConfig";
 import { useNavigate, Link } from "react-router-dom";
 import "../components/page-intro.css";
 import BuilderGuide from "../components/BuilderGuide";
-import { COLOR_INVENTORY, getColorById, getColorsByWidth } from "../data/colorInventory";
+import { getColorById, getColorsByWidth } from "../data/colorInventory";
 
 
 // Simple in-file color catalog
