@@ -448,7 +448,7 @@ const TrainingForm = () => {
               <h3>Private Training — Meet-Up</h3>
               <ul>
                 <li>
-                  One 60-min session: <strong>$75</strong>
+                  One 60-min session: <strong>$90</strong>
                 </li>
                 <li>No travel fee at Boston spots or agreed meet-ups</li>
                 <li>Great for freestyle, tricks, recall, or behavior work</li>
@@ -459,7 +459,7 @@ const TrainingForm = () => {
               <h3>Private Training — In-Home, Park, or Field Trip</h3>
               <ul>
                 <li>
-                  One 60-min session: <strong>$75</strong> <em>+ travel</em>
+                  One 60-min session: <strong>$90</strong> <em>+ travel</em>
                 </li>
                 <li>Your home, a local park, or a Home Depot/Lowe’s field trip</li>
                 <li>Perfect for older puppies, behavior work, and real-world practice</li>
@@ -470,10 +470,10 @@ const TrainingForm = () => {
               <h3>Training Packages</h3>
               <ul>
                 <li>
-                  3 sessions (1 hr each): <strong>$220 total</strong> (~$73/session)
+                  3 sessions (1 hr each): <strong>$265 total</strong> (~$88/session)
                 </li>
                 <li>
-                  5 sessions (1 hr each): <strong>$350 total</strong> ($70/session)
+                  5 sessions (1 hr each): <strong>$425 total</strong> ($85/session)
                 </li>
                 <li>Includes progress tracking and goal planning</li>
                 <li>
@@ -525,15 +525,15 @@ const TrainingForm = () => {
               <h3>Day Training</h3>
               <ul>
                 <li>
-                  Half-day (about 3–4 hrs incl. rest): <strong>$90</strong>
+                  Half-day (about 3–4 hrs incl. rest): <strong>$120</strong>
                 </li>
                 <li>
-                  Full day (about 6–9 hrs incl. field trip): <strong>$130</strong>
+                  Full day (about 6–9 hrs incl. field trip): <strong>$240</strong>
                 </li>
                 <li>Real-world practice at parks, neighborhoods, or dog-friendly stores</li>
                 <li>Short photo/video updates and a same-day summary</li>
                 <li>
-                  Optional 20–30 min handoff lesson: <strong>+$30</strong>
+                  Optional 20–30 min handoff lesson: <strong>+$40</strong>
                 </li>
                 <li>Owners are responsible for drop-off and pick-up. For North End day training packages, pick-up may be available.</li>
               </ul>
@@ -543,16 +543,16 @@ const TrainingForm = () => {
               <h3>Day Training Packages — Full Day</h3>
               <ul>
                 <li>
-                  3-Day Pack: <strong>$330</strong> <em>(15% off @ $110/day)</em>
+                  3-Day Pack: <strong>$575</strong> <em>(20% off @ ~$192/day)</em>
                 </li>
                 <li>
-                  5-Day Pack: <strong>$500</strong> <em>(23% off @ $100/day)</em>
+                  5-Day Pack: <strong>$840</strong> <em>(30% off @ $168/day)</em>
                   <span className="popular-badge" aria-label="Most popular">
                     Most popular
                   </span>
                 </li>
                 <li>
-                  10-Day Pack: <strong>$950</strong> <em>(27% off @ $95/day)</em>
+                  10-Day Pack: <strong>$1,440</strong> <em>(40% off @ $144/day)</em>
                 </li>
                 <li>Two half-days = one full day.</li>
                 <li>Package pricing is only available when the full package is purchased upfront. Single day training sessions are charged at the regular day training rate.</li>
@@ -564,6 +564,9 @@ const TrainingForm = () => {
                   expire after that.
                 </li>
                 <li>For clients in the North End who purchase a day training package, pick-up and drop-off may be available.</li>
+                <li>
+                  A limited sliding scale may be available for day training packages on a case-by-case basis. Please reach out before booking if cost is a barrier, and I will let you know what options are currently available.
+                </li>
               </ul>
             </div>
 
@@ -571,7 +574,7 @@ const TrainingForm = () => {
               <h3>Virtual Coaching</h3>
               <ul>
                 <li>
-                  30-min Zoom/Google Meet: <strong>$30–$45</strong>
+                  20-min Zoom/Google Meet: <strong>$30–$45</strong>
                 </li>
                 <li>Great for trick tune-ups, routines, or behavior Q&amp;A</li>
                 <li>You can send videos/questions in advance</li>
