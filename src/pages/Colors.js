@@ -146,7 +146,7 @@ const Colors = () => {
                   className="swatch-img-wrapper"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setModalImg(`/assets/colors/${color.name}.png`);
+                    setModalImg(`/assets/colors/${color.image}`)
                   }}
                 >
                   <img src={`/assets/colors/${color.image}`} alt={`${color.name} ${color.code}`} />
