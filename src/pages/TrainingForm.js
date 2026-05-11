@@ -543,16 +543,16 @@ const TrainingForm = () => {
               <h3>Day Training Packages — Full Day</h3>
               <ul>
                 <li>
-                  3-Day Pack: <strong>$575</strong> <em>(20% off @ ~$192/day)</em>
+                  3-Day Pack: <strong>$650</strong> <em>(~10% off @ ~$217/day)</em>
                 </li>
                 <li>
-                  5-Day Pack: <strong>$840</strong> <em>(30% off @ $168/day)</em>
+                  5-Day Pack: <strong>$1,020</strong> <em>(15% off @ $204/day)</em>
                   <span className="popular-badge" aria-label="Most popular">
                     Most popular
                   </span>
                 </li>
                 <li>
-                  10-Day Pack: <strong>$1,440</strong> <em>(40% off @ $144/day)</em>
+                  10-Day Pack: <strong>$1,920</strong> <em>(20% off @ $192/day)</em>
                 </li>
                 <li>Two half-days = one full day.</li>
                 <li>Package pricing is only available when the full package is purchased upfront. Single day training sessions are charged at the regular day training rate.</li>
