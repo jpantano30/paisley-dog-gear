@@ -230,24 +230,24 @@ const Colors = () => {
         <h2>Color Swatches</h2>
         <div className="colors-photo-grid">
           <img
-            src="/assets/new/colorsnewetsy.jpg"
-            alt="Biothane color lineup 5/8in"
-            onClick={() => setModalImg("/assets/new/colorsnewetsy.jpg")}
+            src="/assets/new/58colors.png"
+            alt="Biothane color lineup 5/8 in"
+            onClick={() => setModalImg("/assets/new/58colors.png")}
           />
           <img
-            src="/assets/new/1inchcolors.jpg"
-            alt="Biothane color line up 1in"
-            onClick={() => setModalImg("/assets/new/1inchcolors.jpg")}
+            src="/assets/new/ColorsInStock1Width.png"
+            alt="Biothane color line up 1 in"
+            onClick={() => setModalImg("/assets/new/ColorsInStock1Width.png")}
+          />
+          <img
+            src="/assets/new/Black.png"
+            alt="Biothane color line up 1.5 in"
+            onClick={() => setModalImg("/assets/new/Black.png")}
           />
           <img
             src="/assets/new/paracord.png"
             alt="Paracord Colors"
             onClick={() => setModalImg("/assets/new/paracord.png")}
-          />
-          <img
-            src="/assets/new/colorsnonames.jpg"
-            alt="Finished gear example using color combinations"
-            onClick={() => setModalImg("/assets/new/colorsnonames.jpg")}
           />
         </div>
       </div>
