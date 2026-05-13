@@ -386,6 +386,22 @@ const TrainingForm = () => {
         <section className="trainer-credentials" aria-label="Trainer credentials and affiliations">
           <h2 className="cred">Experience, Education, and Approach</h2>
 
+          <div className="credential-highlight-card">
+            <img
+              src="/assets/PEE-logo-certified.png"
+              alt="Pet Emergency Education Certified Pet CPR and First Aid logo"
+              className="credential-cpr-logo"
+            />
+
+            <div className="credential-highlight-copy">
+              <h3>Pet CPR &amp; First Aid Certified</h3>
+              <p>
+                Certified in Canine &amp; Feline CPR and First Aid through Pet Emergency Education.
+                Completed May 2026.
+              </p>
+            </div>
+          </div>
+
           <p className="cred-disclaimer">
             I’ve been working hands-on with dogs for over 10 years, from walking and pet sitting to training. I started
             by training my first service dog, then my second service dog, Tallulah (Tully), who is also my trick and
@@ -393,10 +409,11 @@ const TrainingForm = () => {
             clients with puppies, obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced
             training, with a focus on clear communication, building a strong dog and owner relationship, and setting
             both up for real world success. I’m an active member of professional training organizations, including IACP
-            and APDT, and I’m currently working toward my CPDT-KA certification. I stay current on modern, science
-            informed training through courses, workshops, and mentorship, and I tailor each plan to the dog in front of
-            me and the goals you care about most. If you have questions about methods or whether your dog is a good fit,
-            feel free to email me at paisleygearandtraining@gmail.com.
+            and APDT, Pet CPR &amp; First Aid certified through Pet Emergency Education, and I’m currently working toward
+            my CPDT-KA certification. I stay current on modern, science informed training through courses, workshops,
+            and mentorship, and I tailor each plan to the dog in front of me and the goals you care about most. If you
+            have questions about methods or whether your dog is a good fit, feel free to email me at
+            paisleygearandtraining@gmail.com.
           </p>
         </section>
 

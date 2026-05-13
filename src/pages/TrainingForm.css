@@ -249,6 +249,54 @@ h1 {
   filter: grayscale(25%);
 }
 
+
+.credential-highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1.5px solid rgba(108, 154, 139, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.credential-cpr-logo {
+  width: 96px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.credential-highlight-copy {
+  text-align: left;
+}
+
+.credential-highlight-copy h3 {
+  margin: 0 0 0.35rem;
+  color: var(--accent-teal);
+  font-size: 1.15rem;
+}
+
+.credential-highlight-copy p {
+  margin: 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .credential-highlight-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .credential-highlight-copy {
+    text-align: center;
+  }
+}
+
 /* ---------- Videos ---------- */
 .training-videos {
   text-align: center;

@@ -90,7 +90,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   gap: 1.2rem;
+  margin-top: 1.2rem;
 }
 
 .commitment-text {
@@ -164,6 +166,27 @@
 .footer-mini-links { margin-top: .5rem; font-size:.95rem; }
 .footer-mini-links a { text-decoration: underline; }
 
+/* Pet CPR & First Aid */
+.pet-cpr-membership {
+  display: grid;
+  justify-items: center;
+  gap: .4rem;
+  margin-top: 0.5rem;
+}
+
+.pet-cpr-logo {
+  width: 96px;
+  height: auto;
+  object-fit: contain;
+}
+
+.pet-cpr-text {
+  font-size: .92rem;
+  max-width: 440px;
+  color: #333;
+  margin: 0 auto;
+  line-height: 1.45;
+}
 
 /* Responsive */
 @media (max-width: 520px) {

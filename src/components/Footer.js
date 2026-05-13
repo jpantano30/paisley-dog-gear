@@ -111,6 +111,26 @@ const Footer = () => {
             Member of the <strong>Association of Professional Dog Trainers (APDT)</strong>
           </p>
         </div>
+        {/* Pet CPR & First Aid Certification */}
+        <div className="pet-cpr-membership">
+          <a
+            href="https://petemergencyeducation.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/assets/PEE-logo-certified.png"
+              alt="Pet Emergency Education Certified Pet CPR and First Aid logo"
+              className="pet-cpr-logo"
+            />
+          </a>
+
+          <p className="pet-cpr-text">
+            <strong>Pet CPR &amp; First Aid Certified</strong>
+            <br />
+            Certified in Canine &amp; Feline CPR and First Aid through Pet Emergency Education
+          </p>
+        </div>
       </div>
       {/* Commitment to standards text */}
       <p className="commitment-text">Committed to ongoing education and professional standards across the dog training industry.</p>
