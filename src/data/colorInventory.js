@@ -15,7 +15,7 @@ export const COLOR_INVENTORY = [
     code: "PU527",
     category: "purple",
     image: "grape-pu527.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "purple-522",
@@ -48,7 +48,7 @@ export const COLOR_INVENTORY = [
     code: "523",
     category: "pink",
     image: "pink-523.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "pink-coral-524",
@@ -64,7 +64,7 @@ export const COLOR_INVENTORY = [
     code: "526",
     category: "pink",
     image: "magenta-pink-526.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
 
   {
@@ -81,7 +81,7 @@ export const COLOR_INVENTORY = [
     code: "523",
     category: "red",
     image: "chili-red-523.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "wine-521",
@@ -106,7 +106,7 @@ export const COLOR_INVENTORY = [
     code: "529",
     category: "orange",
     image: "orange-529.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
 
   {
@@ -123,7 +123,7 @@ export const COLOR_INVENTORY = [
     code: "527",
     category: "yellow",
     image: "yellow-527.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "beta-gold-521",
@@ -131,7 +131,7 @@ export const COLOR_INVENTORY = [
     code: "521",
     category: "yellow",
     image: "beta-gold-521.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
 
   {
@@ -148,7 +148,7 @@ export const COLOR_INVENTORY = [
     code: "521",
     category: "green",
     image: "olive-drab-521.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "green-522",
@@ -172,11 +172,11 @@ export const COLOR_INVENTORY = [
     code: "528",
     category: "green",
     image: "green-528.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "green-52k",
-    name: "Aqua Green",
+    name: "Mint Green",
     code: "52K",
     category: "green",
     image: "green-52k.png",
@@ -197,7 +197,7 @@ export const COLOR_INVENTORY = [
     code: "TU521",
     category: "teal",
     image: "dusty-turquoise-tu521.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
 
   {
@@ -222,7 +222,7 @@ export const COLOR_INVENTORY = [
     code: "521",
     category: "blue",
     image: "blue-521.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "blue-52h",
@@ -238,7 +238,7 @@ export const COLOR_INVENTORY = [
     code: "52F",
     category: "blue",
     image: "blue-52f.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "periwinkle-bu525",
@@ -271,7 +271,7 @@ export const COLOR_INVENTORY = [
     code: "525",
     category: "neutral",
     image: "tan-525.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "brown-521",
@@ -295,7 +295,7 @@ export const COLOR_INVENTORY = [
     code: "521",
     category: "brown",
     image: "coyote-brown-521.png",
-    widths: ['5/8"']
+    widths: ['for order']
   },
   {
     id: "black-520",
