@@ -19,6 +19,7 @@ import QuickOrder from "./pages/QuickOrder";
 import Boston from "./pages/Boston";
 import BiothaneHub from "./pages/BiothaneHub.jsx"; 
 import TrainingGallery from "./pages/TrainingGallery.js";
+import TrickFreestyleTraining from "./pages/TrickFreestyleTraining";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/quick-order" element={<QuickOrder />} />
           <Route path="/order" element={<OrderForm />} /> 
           <Route path="/training" element={<TrainingForm />} />
+          <Route path="/trick-freestyle-training" element={<TrickFreestyleTraining />} />
           <Route path="/videos" element={<VideoGallery />} />
           <Route path="/videos/:slug" element={<VideoWatch />} />
           <Route path="*" element={<NotFound />} />

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./TrainingForm.css";
 import { Link } from "react-router-dom";
-import Banner from "../components/Banner";
-import "../components/Banner.css";
+// import Banner from "../components/Banner";
+// import "../components/Banner.css";
 import formHeader from "../background.png";
 
 const SchoolIcon = () => (
@@ -99,11 +99,13 @@ const SparkleIcon = () => (
     />
   </svg>
 );
-
 const TrainingForm = () => {
   const [formData, setFormData] = useState({
     serviceType: "",
-    dayTrainingPackage: "",
+    dayTrainingWaitlistType: "",
+    preferredDays: "",
+    preferredStart: "",
+    scheduleFlexibility: "",
     name: "",
     email: "",
     dogName: "",
@@ -120,29 +122,35 @@ const TrainingForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [lastSubmittedService, setLastSubmittedService] = useState("")
 
-  const wantsDayTraining =
-    formData.serviceType === "Day Training" ||
-    formData.serviceType === "Day Training Package";
+  const wantsDayTrainingWaitlist =
+    formData.serviceType === "Day Training Waitlist";
 
   const serviceOptions = [
     {
-      value: "Day Training",
+      value: "Day Training Waitlist",
       icon: <SchoolIcon />,
-      title: "Day Training",
-      desc: "Owner drop-off and pick-up. Structured training plus rest plus real-world practice."
+      title: "Day Training Waitlist",
+      desc: "Day training is currently full. Join the waitlist for future openings."
     },
-    {
-      value: "Day Training Package",
-      icon: <PackageIcon />,
-      title: "Day Training Package",
-      desc: "Discounted multi-day full-day packs."
-    },
+    // {
+    //   value: "Day Training Package",
+    //   icon: <PackageIcon />,
+    //   title: "Day Training Package",
+    //   desc: "Discounted multi-day full-day packs."
+    // },
     {
       value: "Private Training",
       icon: <PawIcon />,
       title: "Private Training",
       desc: "Meet-up, in-home, park, or field trip."
+    },
+    {
+      value: "Trick & Freestyle Training",
+      icon: <SparkleIcon />,
+      title: "Trick & Freestyle Training",
+      desc: "Reward-based tricks, body awareness, freestyle foundations, routines, and title prep."
     },
     {
       value: "Virtual Coaching",
@@ -215,11 +223,14 @@ const TrainingForm = () => {
         const maybe = await res.json().catch(() => null);
         throw new Error(maybe?.error || "Submit failed");
       }
-
+      setLastSubmittedService(formData.serviceType);
       setShowSuccess(true);
       setFormData({
         serviceType: "",
-        dayTrainingPackage: "",
+        dayTrainingWaitlistType: "",
+        preferredDays: "",
+        preferredStart: "",
+        scheduleFlexibility: "",
         name: "",
         email: "",
         dogName: "",
@@ -240,7 +251,7 @@ const TrainingForm = () => {
 
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
 
       <title>Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training</title>
       <meta
@@ -327,6 +338,23 @@ const TrainingForm = () => {
           </ul>
         </section>
 
+        <section className="availability-notice" aria-label="Current training availability">
+          <div className="availability-badge">Currently full</div>
+
+          <div>
+            <h2>Day Training is currently full</h2>
+            <p>
+              I am not taking new Day Training clients right now, but you can join the waitlist
+              for future openings. Private training, trick and freestyle training, and virtual
+              coaching may still be available.
+            </p>
+
+            <a href="#training-form" className="availability-link">
+              Join the Day Training waitlist
+            </a>
+          </div>
+        </section>
+
         <section className="training-intro">
           <h2>Dog Training</h2>
 
@@ -338,6 +366,20 @@ const TrainingForm = () => {
             Movement, creativity, and focus that carry into everyday life.
           </p>
 
+          <div className="trick-page-link-card">
+            <div>
+              <h3>New: Trick & Freestyle Foundations</h3>
+              <p>
+                A reward-based program for confidence, focus, body awareness, beginner tricks,
+                trick chains, and freestyle foundations.
+              </p>
+            </div>
+
+            <Link to="/trick-freestyle-training" className="trick-page-link">
+              Learn about trick training
+            </Link>
+          </div>
+
           <p className="notes one" id="behavior">
             <span role="img" aria-label="paw prints">
               🐾
@@ -346,14 +388,17 @@ const TrainingForm = () => {
             communication-focused approach. I tailor the plan to your dog and your goals.
           </p>
 
-          <p className="notes">
+          <p className="notes day-training-full-note">
             <strong>
               <span role="img" aria-label="school">
                 🏫
               </span>{" "}
-              New — Day Training
+              Day Training — Currently Full
             </strong>{" "}
-              — Owners drop off and pick up their dog for a structured half or full day of training. Each session balances focused work and rest, with real-world field trips (parks, neighborhoods, dog-friendly stores) to build leash manners, recall, public behavior, confidence, and freestyle foundations. You’ll get a same-day summary. You can also add a handoff lesson so I walk you through everything and give you tools to carry on training at home. For North End day training packages, pick-up may be available. 
+            — Day Training is currently full for new clients. You can still join the waitlist
+            for future openings. When spots are available, Day Training is an owner drop-off
+            and pick-up service with structured training, rest breaks, and real-world practice
+            at parks, neighborhoods, and dog-friendly stores.
           </p>
 
           <div className="notes where-notes">
@@ -671,24 +716,59 @@ const TrainingForm = () => {
               </div>
             </fieldset>
 
-            {wantsDayTraining && (
-              <>
-                <label>Day Training Package (optional):</label>
+            {wantsDayTrainingWaitlist && (
+              <section className="waitlist-fields" aria-label="Day Training waitlist details">
+                <h3 className="form-section">Day Training Waitlist Details</h3>
+
+                <p className="waitlist-helper">
+                  Day Training is currently full. Fill this out so I can contact you when a spot
+                  opens or if your dog may be a good fit for a future day training package.
+                </p>
+
+                <label>What type of Day Training are you interested in?</label>
                 <select
-                  name="dayTrainingPackage"
-                  value={formData.dayTrainingPackage}
+                  name="dayTrainingWaitlistType"
+                  value={formData.dayTrainingWaitlistType}
                   onChange={handleChange}
                 >
-                  <option value="">No package selected</option>
-                  <option value="3-Day Pack ($330)">3-Day Pack ($330)</option>
-                  <option value="5-Day Pack ($500)">5-Day Pack ($500)</option>
-                  <option value="10-Day Pack ($950)">10-Day Pack ($950)</option>
+                  <option value="">Select one</option>
+                  <option value="Half-day">Half-day</option>
+                  <option value="Full day">Full day</option>
+                  <option value="Package">Package</option>
+                  <option value="Not sure">Not sure yet</option>
                 </select>
 
-                <p className="field-help">
-                  Package pricing is only available when the full package is purchased upfront. Individual day training sessions are billed at the regular day training rate.
-                </p>
-              </>
+                <label>Preferred days or times:</label>
+                <input
+                  type="text"
+                  name="preferredDays"
+                  placeholder="e.g., Mondays, weekdays, mornings, flexible"
+                  value={formData.preferredDays}
+                  onChange={handleChange}
+                />
+
+                <label>When would you ideally like to start?</label>
+                <input
+                  type="text"
+                  name="preferredStart"
+                  placeholder="e.g., ASAP, next month, summer, flexible"
+                  value={formData.preferredStart}
+                  onChange={handleChange}
+                />
+
+                <label>How flexible is your schedule?</label>
+                <select
+                  name="scheduleFlexibility"
+                  value={formData.scheduleFlexibility}
+                  onChange={handleChange}
+                >
+                  <option value="">Select one</option>
+                  <option value="Very flexible">Very flexible</option>
+                  <option value="Somewhat flexible">Somewhat flexible</option>
+                  <option value="Specific days only">Specific days only</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
+              </section>
             )}
 
             <h3 className="form-section">Owner Info</h3>
@@ -825,7 +905,16 @@ const TrainingForm = () => {
         {showSuccess && (
           <div className="success-card" role="status" aria-live="polite">
             <h2>Got it!</h2>
-            <p>I’ll follow up shortly with a plan, pricing, and scheduling options.</p>
+
+            {lastSubmittedService === "Day Training Waitlist" ? (
+              <p>
+                You’re on the Day Training waitlist. I’ll reach out if a spot opens or if
+                your dog may be a good fit for a future day training package.
+              </p>
+            ) : (
+              <p>I’ll follow up shortly with a plan, pricing, and scheduling options.</p>
+            )}
+
             <button type="button" onClick={() => setShowSuccess(false)}>
               Send another request
             </button>

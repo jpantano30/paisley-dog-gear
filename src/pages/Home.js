@@ -3,7 +3,7 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
 import "@fontsource/cormorant-garamond/700.css";
-import Banner from "../components/Banner";
+// import Banner from "../components/Banner";
 import "../components/Banner.css";
 
 const HERO_IMAGES = [
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
       <title>Boston Dog Trainer & Custom Biothane Leashes | Paisley Dog Gear & Training</title>
       <meta name="description"
             content="Handmade Biothane leashes & collars plus private dog training in Boston’s North End: puppy foundations, manners & trick training." />
