@@ -31,6 +31,7 @@ const SchoolIcon = () => (
   </svg>
 );
 
+// eslint-disable-next-line no-unused-vars
 const PackageIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path
