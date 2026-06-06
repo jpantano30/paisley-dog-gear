@@ -7,7 +7,7 @@ import "../components/page-intro.css";
 const gearData = [
   {
     title: "Standard Leashes",
-    image: "/assets/IMG_0088.JPG",
+    image: "/assets/new2/teal1.jpg",
     anchor: "leashes",
     description: "Custom everyday leashes made to fit your walk style. Choose the length, snap type, and color combo that works best for you.",
     bestFor: "Everyday walking • City environments • Training",
@@ -37,7 +37,7 @@ const gearData = [
   },
   {
     title: "Braided Leashes",
-    image: "/assets/new/bluebraid.jpg",
+    image: "/assets/new2/sagenperi1.jpg",
     anchor: "braided-leashes",
     description: "A more decorative leash style with a braided BioThane design. Strong, waterproof, and easy to clean, but with a more detailed custom look.",
     bestFor: "Everyday walking • Stylish custom gear • Matching sets",
@@ -58,7 +58,7 @@ const gearData = [
   },
   {
     title: "Long Lines",
-    image: "/assets/leashpicsNvids/longlinerolled.JPG",
+    image: "/assets/new2/prupleandperi1.jpg",
     anchor: "longlines",
     description: "Perfect for recall training, hiking, or decompression walks. Choose your length and extras like rings or a grab handle.",
     bestFor: "Recall training • Hiking • Decompression walks",
@@ -84,7 +84,7 @@ const gearData = [
   },
   {
     title: "Hands-Free System (The Tallulah)",
-    image: "/assets/tallulah-sage2.JPG",
+    image: "/assets/new2/cNs1.JPG",
     anchor: "tallulah",
     description: "A hands-free leash system for training, multitasking, and everyday use. Wear it crossbody, at your waist, handheld, or even shorten it for a custom fit.",
     bestFor: "Hands-free walking • Training • Public access work",
@@ -106,7 +106,7 @@ const gearData = [
   },
   {
     title: "Braided Hands-Free Leash",
-    image: "/assets/new/braidedhandsfree.jpeg",
+    image: "/assets/new2/coral1.jpg",
     anchor: "braided-hands-free",
     description: "A braided version of the Tallulah hands-free leash system. It can be worn crossbody, around the waist, handheld, or adjusted shorter for training.",
     bestFor: "Hands-free walking • Stylish custom gear • Training • Public access work",
@@ -129,7 +129,7 @@ const gearData = [
   },
   {
     title: "Collars",
-    image: "/assets/collars_custom.JPG",
+    image: "/assets/new2/workingk92.jpg",
     anchor: "collars",
     description: "Strong, stylish, and built for comfort. Choose your size band, width, buckle, and optional two-tone or HTV.",
     bestFor: "Daily wear • Personalized fit",
@@ -156,7 +156,7 @@ const gearData = [
   },
   {
     title: "Traffic Handles",
-    image: "/assets/pink_purple_traffic_handle.jpg",
+    image: "/assets/new2/manz1.jpg",
     anchor: "accessories",
     description: "Short grab handles for quick control in tight spaces or quick grab tab for off leash use. Choose Biothane or a paracord weave.",
     bestFor: "Heel work • Crowded areas • Large dogs",
@@ -176,7 +176,7 @@ const gearData = [
   },
   {
     title: "Leash Extenders",
-    image: "/assets/leashextender.jpg",
+    image: "/assets/new2/exten1.jpg",
     anchor: "extenders",
     description: "Add length or create double-dog setups. Comes with a snap and ring.",
     bestFor: "Adding length • Double-dog walking",

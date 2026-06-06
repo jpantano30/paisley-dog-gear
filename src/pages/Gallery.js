@@ -23,9 +23,33 @@ const galleryImages = [
     type: "image",
   },
   {
+    filename: "/new2/sd3.jpg",
+    caption:
+      'Item: Service Dog Collar - 2 layer style with handle add on | Width: 1.5" base 1" overlay | Colors: Sage Green and Black | Hardware: Black',
+    type: "image",
+  },
+  {
+    filename: "/new2/sd4.jpg",
+    caption:
+      'Item: Service Dog Collar - 2 layer style with handle add on | Width: 1.5" base 1" overlay | Colors: Sage Green and Black | Hardware: Black',
+    type: "image",
+  },
+  {
+    filename: "/new2/sd1.jpg",
+    caption:
+      'Item: Service Dog Collar - 2 layer style with handle add on | Width: 1.5" base 1" overlay | Colors: Sage Green and Black | Hardware: Black',
+    type: "image",
+  },
+  {
     filename: "/new/braidrolled.jpg",
     caption:
       "Item: Custom braided leash | Width: 5/8 in | Colors: Red & Brown | Hardware: brass",
+    type: "image",
+  },
+  {
+    filename: "/new2/sagenperi1.jpg",
+    caption:
+      "Item: Custom braided leash | Width: 5/8 in | Colors: Sage & Periwinkle Blue | Hardware: brass",
     type: "image",
   },
   {
@@ -41,7 +65,25 @@ const galleryImages = [
     type: "image",
   },
   {
+    filename: "/new2/bird1.jpg",
+    caption:
+      "Item: Custom braided leash made to look like Zebra Finch | Width: 5/8 in | Colors: Orange, Light brown with custom white painted dots, Dark Brown, and Gray | Hardware: brass",
+    type: "image",
+  },
+  {
+    filename: "/new2/bird2.jpg",
+    caption:
+      "Item: Custom braided leash made to look like Zebra Finch | Width: 5/8 in | Colors: Orange, Light brown with custom white painted dots, Dark Brown, and Gray | Hardware: brass",
+    type: "image",
+  },
+  {
     filename: "/new/coralteal.jpg",
+    caption:
+      "Item: Custom braided leash | Width: 5/8 in | Colors: Coral & Teal | Hardware: brass",
+    type: "image",
+  },
+  {
+    filename: "/new2/peachnteal1.jpg",
     caption:
       "Item: Custom braided leash | Width: 5/8 in | Colors: Coral & Teal | Hardware: brass",
     type: "image",
@@ -52,6 +94,20 @@ const galleryImages = [
       "Item: Custom utility belt | Details: Example custom belt setup with multiple attachment points",
     type: "image",
   },
+
+  {
+    filename: "/new2/auggie1.jpg",
+    caption:
+      "Item: Custom 2-layer collar | Width: Collar is 1 in & 5/8 in| Colors: Black base with Royal Blue accent | Hardware: silver",
+    type: "image",
+  },
+  {
+    filename: "/new2/auggie2.jpg",
+    caption:
+      "Item: Custom 2-layer collar | Width: Collar is 1 in & 5/8 in| Colors: Black base with Royal Blue accent | Hardware: silver",
+    type: "image",
+  },
+
   {
     filename: "/new/5.8inbelt.jpg",
     caption:
@@ -68,6 +124,42 @@ const galleryImages = [
     filename: "/new/CustombeltwBuckle.JPG",
     caption:
       "Item: Utility belt with buckle | Details: Example buckle configuration",
+    type: "image",
+  },
+  {
+    filename: "/new2/workingk91.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Green (525) accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar and handle",
+    type: "image",
+  },
+  {
+    filename: "/new2/workingk92.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Green (525) accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar and handle",
+    type: "image",
+  },
+  {
+    filename: "/new2/workingk93.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Green (525) accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar and handle",
+    type: "image",
+  },
+  {
+    filename: "/new2/workingk94.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Green (525) accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar and handle",
+    type: "image",
+  },
+  {
+    filename: "/new2/workingk95.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Green (525) accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar and handle",
+    type: "image",
+  },
+  {
+    filename: "/new2/workingk96.jpg",
+    caption:
+      "Item: Detachable Handle for Two Layer Collar | Width: 5/8 in | Colors: Black base with Green (525) accent | Hardware: black | Custom: HTV details",
     type: "image",
   },
   {
@@ -92,6 +184,18 @@ const galleryImages = [
     filename: "/new/willow2.jpg",
     caption:
       "Item: Custom 2-tone O-ring split collar | Width: 5/8 in | Colors: Coral & Teal | Hardware: brass",
+    type: "image",
+  },
+  {
+    filename: "/new2/donottouch1.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Light Blue accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar",
+    type: "image",
+  },
+  {
+    filename: "/new2/donottouch2.jpg",
+    caption:
+      "Item: Custom 2-layer collar with detachable handle | Width: Collar is 1 in & 5/8 in, handle is 5/8 in | Colors: Black base with Light Blue accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, HTV details on collar",
     type: "image",
   },
   {
@@ -131,7 +235,7 @@ const galleryImages = [
     type: "image",
   },
   {
-    filename: "/new/hfcoral.jpg",
+    filename: "/new2/coral1.jpg",
     caption:
       "Item: Custom braided hands-free leash | Width: 5/8 in | Colors: Coral & Teal | Hardware: brass",
     type: "image",
@@ -155,6 +259,42 @@ const galleryImages = [
     type: "image",
   },
   {
+    filename: "/new2/teal1.jpg",
+    caption:
+      "Item: Custom 2-Tone leash | Width: 5/8 in | Colors:  Teal and Violet | Hardware: silver",
+    type: "image",
+  },
+  {
+    filename: "/new2/lulu1.jpg",
+    caption:
+      "Item: Custom Side Release Buckle Collar | Width: 1 in | Colors: Pink Coral | Hardware: Black | Custom: Personalized name ",
+    type: "image",
+  },
+  {
+    filename: "/new2/lulu2.jpg",
+    caption:
+    "Item: Custom Side Release Buckle Collar | Width: 1 in | Colors: Pink Coral | Hardware: Black | Custom: Personalized name ",
+    type: "image",
+  },
+  {
+    filename: "/new2/lulu3.jpg",
+    caption:
+    "Item: Custom Side Release Buckle Collar | Width: 1 in | Colors: Pink Coral | Hardware: Black | Custom: Personalized name ",
+    type: "image",
+  },
+  {
+    filename: "/new2/lulu4.jpg",
+    caption:
+    "Item: Custom Side Release Buckle Collar | Width: 1 in | Colors: Pink Coral | Hardware: Black | Custom: Personalized name ",
+    type: "image",
+  },
+  {
+    filename: "/new2/lulu4.jpeg",
+    caption:
+    "Item: Custom Side Release Buckle Collar | Width: 1 in | Colors: Pink Coral | Hardware: Black | Custom: Personalized name ",
+    type: "image",
+  },
+  {
     filename: "painted.JPG",
     caption:
       "Item: Custom hand-painted collar | Width: 1 in with 5/8 in buckle | Colors: Deep Sea base with hand-painted mountain landscape | Hardware: silver | Custom: Hand-painted design sealed for durability",
@@ -167,7 +307,7 @@ const galleryImages = [
     type: "image",
   },
   {
-    filename: "customhandlecollar.JPG",
+    filename: "/new2/tully1.jpg",
     caption:
       "Item: Custom collar with built-in handle | Width: Collar is 1 in, handle is 5/8 in | Colors: Black base with hot-pink accent | Hardware: black | Custom: Integrated control handle for extra grip or quick grab, plus name detail",
     type: "image",
@@ -185,6 +325,18 @@ const galleryImages = [
     type: "image",
   },
   {
+    filename: "/new2/blue1.jpg",
+    caption:
+      "Item: Custom 5/8 in Collar with Quick Release Buckle | Width: 5/8 in | Colors: light blue | Hardware: black",
+    type: "image",
+  },
+  {
+    filename: "/new2/blue3.jpg",
+    caption:
+      "Item: Custom 5/8 in Collar with Quick Release Buckle | Width: 5/8 in | Colors: light blue | Hardware: black",
+    type: "image",
+  },
+  {
     filename: "IMG_0489.JPG",
     caption:
       "Item: Utility belt | Size: XXL custom | Width: 1 in | Colors: Deep Sea & Brown 522 | Hardware: black",
@@ -197,6 +349,12 @@ const galleryImages = [
     type: "image",
   },
   {
+    filename: "/new2/prupleandperi1.jpg",
+    caption:
+      "Item: Custom two-tone leash with built in traffic handle | Width: 5/8 in | Colors: Amethyst and Perwinkle | Hardware: silver",
+    type: "image",
+  },
+  {
     filename: "tallulah-sage.JPG",
     caption:
       "Item: The Tallulah / hands-free leash system | Length: 7 ft | Width: 5/8 in | Colors: Sage & White | Hardware: silver | Custom: Built-in traffic handle at base and matching leash extender",
@@ -206,6 +364,12 @@ const galleryImages = [
     filename: "duke.JPG",
     caption:
       "Item: Traffic handle / grab tab | Length: 13 in | Width: 5/8 in | Colors: Brown 523 | Hardware: brass | Custom: Short control handle for close work",
+    type: "image",
+  },
+  {
+    filename: "/new2/ketchupNmustard1.jpg",
+    caption:
+      "Item: Custom braided hands-free leash | Width: 5/8 in | Colors: Red and Yellow | Hardware: brass",
     type: "image",
   },
   {
