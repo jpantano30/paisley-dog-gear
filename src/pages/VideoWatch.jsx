@@ -148,12 +148,12 @@ export default function VideoWatch() {
         <section aria-label="About this video" style={{ marginTop: "1rem" }}>
           <h2>About</h2>
           <p>
-            This dedicated watch page helps search engines index the video.
-            Want more like this? Explore the full gallery or build your gear.
+            This video shows how the hands-free leash system works in real life, including
+            how to wear it, adjust the setup, and use the different connection points.
           </p>
           <p>
             <Link to="/videos">See more videos</Link> ·{" "}
-            <Link to="/builder">Build your gear</Link> ·{" "}
+            <Link to="/builder">Build your leash</Link> ·{" "}
             <Link to="/order">Request a quote</Link>
           </p>
         </section>

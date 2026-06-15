@@ -30,6 +30,16 @@ export const videos = [
     duration: "PT0M52S"
   },
   {
+    youtubeId: "Y4E4o7WYllQ",
+    title: "How to Use the Hands-Free Leash System",
+    description:
+      "A full demo showing how to wear, adjust, and use the hands-free leash system for walking, training, and switching between different leash setups.",
+    type: "gear",
+    slug: "how-to-use-hands-free-leash-system",
+    uploadDate: "2026-06-15",
+    duration: "PT6M38S"
+  },
+  {
     youtubeId: "lmv88apu7RM",
     title: "How the Gear Works: Ball Holder",
     description:
