@@ -55,7 +55,7 @@ export default function Navbar() {
               <Link className="drop-link" role="menuitem" to="/builder" onClick={() => setMenuOpen(false)}>Builder (Custom)</Link>
               <Link className="drop-link" role="menuitem" to="/quick-order" onClick={() => setMenuOpen(false)}>Quick Order (Presets)</Link>
               <Link className="drop-link" role="menuitem" to="/options" onClick={() => setMenuOpen(false)}>Gear Options</Link>
-              <Link className="drop-link" role="menuitem" to="https://www.etsy.com/shop/PaisleyDogGear?ref=seller-platform-mcnav" onClick={() => setMenuOpen(false)}>Shop on Etsy!</Link>
+              <Link className="drop-link" role="menuitem" to="https://paisleydoggear.etsy.com" onClick={() => setMenuOpen(false)}>Shop on Etsy!</Link>
               {/* <Link className="drop-link" role="menuitem" to="/biothane-dog-leashes-boston" onClick={() => setMenuOpen(false)}>Biothane Hub</Link> */}
             </div>
           </li>
