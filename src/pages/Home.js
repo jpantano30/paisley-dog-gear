@@ -18,13 +18,39 @@ const YT_ID = "wJ6vECs0Cu4"; // Shorts id
 
 const Home = () => {
 
-  const orgLD = {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Paisley Dog Gear & Training",
-    "url":"https://paisleydoggearandtraining.com",
-    "logo":"https://paisleydoggearandtraining.com/assets/logo.jpg",
-    "sameAs":["https://www.facebook.com/PaisleyGearandTraining/"]
+  const businessLD = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://paisleydoggearandtraining.com/#business",
+    "name": "Paisley Dog Gear & Training",
+    "url": "https://paisleydoggearandtraining.com/",
+    "logo": "https://paisleydoggearandtraining.com/logoPng.png",
+    "image": "https://paisleydoggearandtraining.com/logoPng.png",
+    "telephone": "+1-617-872-1749",
+    "email": "paisleygearandtraining@gmail.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Boston",
+      "addressRegion": "MA",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Boston, MA",
+      "Cambridge, MA",
+      "Somerville, MA",
+      "Medford, MA",
+      "Brookline, MA",
+      "Everett, MA",
+      "Winchester, MA",
+      "Woburn, MA",
+      "Newton, MA"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/PaisleyGearandTraining/",
+      "https://www.instagram.com/tullytornado/",
+      "https://www.etsy.com/shop/PaisleyDogGear"
+    ]
   };
 
   return (
@@ -32,11 +58,11 @@ const Home = () => {
       {/* <Banner /> */}
       <title>Boston Dog Trainer & Custom Biothane Leashes | Paisley Dog Gear & Training</title>
       <meta name="description"
-            content="Handmade Biothane leashes & collars plus private dog training in Boston’s North End: puppy foundations, manners & trick training." />
+            content="Private dog training in Boston and nearby communities, plus handmade waterproof BioThane leashes and collars. Puppy training, manners, tricks, and canine freestyle." />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/" />
       {/* Structured Data */}
       <script type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLD) }} />
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLD) }} />
 
       {/* ===== HERO STRIP ===== */}
       <section className="hero-strip" aria-label="Featured photos">

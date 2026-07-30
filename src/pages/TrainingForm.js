@@ -254,32 +254,78 @@ const TrainingForm = () => {
     <>
       {/* <Banner /> */}
 
-      <title>Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training</title>
+      <title>Boston Dog Trainer | Private, Puppy & Trick Training</title>
       <meta
         name="description"
-        content="Private sessions in Boston: puppy foundations, obedience & manners, trick training, and leash skills."
+        content="Private dog training in Boston and nearby communities for puppies, obedience, leash manners, confidence, tricks, and canine freestyle. View rates and request training."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
 
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content="Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training"
+        content="Boston Dog Trainer | Private, Puppy & Trick Training"
       />
       <meta
         property="og:description"
-        content="Private sessions in Boston: puppy foundations, obedience & manners, trick training, and leash skills."
+        content="Private dog training in Boston and nearby communities for puppies, obedience, leash manners, confidence, tricks, and canine freestyle."
       />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="Dog Trainer in Boston (North End) | Puppy Foundations, Obedience, Trick Training"
+        content="Boston Dog Trainer | Private, Puppy & Trick Training"
       />
       <meta
         name="twitter:description"
-        content="Private sessions in Boston: puppy foundations, obedience & manners, trick training, and leash skills."
+        content="Private dog training in Boston and nearby communities for puppies, obedience, leash manners, confidence, tricks, and canine freestyle."
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://paisleydoggearandtraining.com/training#service",
+            name: "Private Dog Training",
+            serviceType: "Private dog training",
+            url: "https://paisleydoggearandtraining.com/training",
+            provider: {
+              "@id": "https://paisleydoggearandtraining.com/#business"
+            },
+            areaServed: [
+              "Boston, MA",
+              "Cambridge, MA",
+              "Somerville, MA",
+              "Medford, MA",
+              "Brookline, MA",
+              "Everett, MA",
+              "Winchester, MA",
+              "Woburn, MA",
+              "Newton, MA"
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Dog Training Services",
+              itemListElement: [
+                "Puppy foundations",
+                "Obedience and manners",
+                "Leash skills",
+                "Trick training",
+                "Canine freestyle",
+                "Virtual coaching"
+              ].map((name) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name
+                }
+              }))
+            }
+          })
+        }}
       />
 
       <script
@@ -320,7 +366,10 @@ const TrainingForm = () => {
         </p>
 
         <p className="intro-sub">
-          Share the details about your dog and goals. I’ll send a plan, pricing, and scheduling options.
+          Private dog training is available in Boston, Cambridge, Somerville,
+          Medford, Brookline, Everett, Winchester, Woburn, Newton, and nearby
+          communities. Share your dog’s needs and goals, and I’ll send a
+          personalized plan, pricing, and scheduling options.
         </p>
 
         <p className="skipline">

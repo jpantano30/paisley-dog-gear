@@ -4,24 +4,28 @@ import "./page.css";
 export default function Boston() {
   const localLD = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://paisleydoggearandtraining.com/#business",
     "name": "Paisley Dog Gear & Training",
     "url": "https://paisleydoggearandtraining.com/",
+    "telephone": "+1-617-872-1749",
+    "email": "paisleygearandtraining@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "15 Stillman St",
       "addressLocality": "Boston",
       "addressRegion": "MA",
-      "postalCode": "02113",
       "addressCountry": "US"
     },
     "areaServed": [
-      { "@type": "City", "name": "Boston" },
-      "North End",
-      "West End",
-      "Waterfront",
-      "Beacon Hill",
-      "Charlestown"
+      "Boston, MA",
+      "Cambridge, MA",
+      "Somerville, MA",
+      "Medford, MA",
+      "Brookline, MA",
+      "Everett, MA",
+      "Winchester, MA",
+      "Woburn, MA",
+      "Newton, MA"
     ],
     "priceRange": "$$",
     "makesOffer": [
@@ -62,10 +66,10 @@ export default function Boston() {
 
   return (
     <>
-      <title>Boston Dog Trainer — North End | Obedience, Manners, Puppy Foundations</title>
+      <title>Boston Dog Trainer | Private Puppy, Obedience & Trick Training</title>
       <meta
         name="description"
-        content="Private dog training at our North End location or at your home in Boston. Puppy foundations, manners, trick training & leash skills. Travel time billed for in-home visits."
+        content="Private dog training in Boston and nearby communities. Puppy foundations, obedience, leash manners, confidence building, tricks, and canine freestyle."
       />
       <link
         rel="canonical"
@@ -79,9 +83,10 @@ export default function Boston() {
       <main className="page-scope">
         <div className="container stack-lg">
           <header className="stack-sm">
-            <h1>Dog Trainer in Boston’s North End</h1>
+            <h1>Private Dog Trainer in Boston</h1>
             <p>
-              Work with us at our North End location, at your home in Boston, or at nearby public spots that fit your goals.
+              Reward-based private training is available at your home, a local park,
+              or another agreed meet-up location in Boston and nearby communities.
             </p>
             <p>
               <Link className="btn" to="/training">Tell me about your dog</Link>
@@ -142,7 +147,10 @@ export default function Boston() {
 
           <section className="stack-md">
             <h2>Areas we cover</h2>
-            <p>North End, West End, Waterfront, Beacon Hill, Charlestown, South End, South Boston, Back Bay, and nearby neighborhoods.</p>
+            <p>
+              Boston, Cambridge, Somerville, Medford, Brookline, Everett,
+              Winchester, Woburn, Newton, and nearby communities.
+            </p>
             <p>Not in Boston? <Link to="/training">See our travel policy</Link> or inquire about virtual coaching.</p>
           </section>
 
