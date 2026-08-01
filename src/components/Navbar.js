@@ -105,6 +105,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
+            <Link className={`link book-training-link ${pathname === "/booking" ? "active" : ""}`} to="/booking" onClick={() => setMenuOpen(false)}>
+              Book Training
+            </Link>
+          </li>
+          <li>
             <Link className={`link ${pathname === "/gallery" ? "active" : ""}`} to="/gallery" onClick={() => setMenuOpen(false)}>
               Gallery
             </Link>

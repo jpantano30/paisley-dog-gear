@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./TrainingForm.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { trackEvent } from "../utils/analytics";
 // import Banner from "../components/Banner";
 // import "../components/Banner.css";
 import formHeader from "../background.png";
@@ -101,6 +102,10 @@ const SparkleIcon = () => (
   </svg>
 );
 const TrainingForm = () => {
+  const location = useLocation();
+  const isBookingSource =
+    new URLSearchParams(location.search).get("source") === "booking";
+
   const [formData, setFormData] = useState({
     serviceType: "",
     dayTrainingWaitlistType: "",
@@ -226,6 +231,11 @@ const TrainingForm = () => {
       }
       setLastSubmittedService(formData.serviceType);
       setShowSuccess(true);
+      trackEvent("training_intake_submitted", {
+        page_path: "/training",
+        source: isBookingSource ? "booking" : "direct",
+        service_type: formData.serviceType
+      });
       setFormData({
         serviceType: "",
         dayTrainingWaitlistType: "",
@@ -361,6 +371,23 @@ const TrainingForm = () => {
       <div className="training-form-container">
         <h1>Dog Training Request</h1>
 
+        {isBookingSource && (
+          <section
+            className="booking-source-notice"
+            aria-labelledby="booking-source-title"
+            role="status"
+          >
+            <span className="booking-source-icon" aria-hidden="true">✓</span>
+            <div>
+              <h2 id="booking-source-title">Your appointment has been reserved.</h2>
+              <p>
+                Please complete this intake form before your session so I can
+                review your dog’s history, goals and current challenges.
+              </p>
+            </div>
+          </section>
+        )}
+
         <p className="links-container1">
           <Link to="/boston-dog-trainer-north-end">Boston Training</Link>
         </p>
@@ -372,6 +399,13 @@ const TrainingForm = () => {
           personalized plan, pricing, and scheduling options.
         </p>
 
+        {!isBookingSource && (
+          <p className="booking-page-cta">
+            Prefer to start with a quick conversation?{" "}
+            <Link to="/booking">Book a free 15-minute training consultation</Link>.
+          </p>
+        )}
+
         <p className="skipline">
           <a className="skip-to-form" href="#training-form">
             Skip to the request form
@@ -379,13 +413,22 @@ const TrainingForm = () => {
         </p>
 
         <section aria-label="How quotes and scheduling work" className="page-intro">
-          <h2>How training works</h2>
-          <ul className="bulleted">
-            <li>Fill out the form with your goals.</li>
-            <li>I review and send a short intake if we’re a good fit.</li>
-            <li>You get a tailored plan with pricing and scheduling options.</li>
-            <li>Approve → book → train. Payment via Venmo or PayPal.</li>
-          </ul>
+          <h2>{isBookingSource ? "What happens next" : "How training works"}</h2>
+          {isBookingSource ? (
+            <ul className="bulleted">
+              <li>Your consultation time has been reserved.</li>
+              <li>Complete this form with your dog’s history and goals.</li>
+              <li>I review your responses before the session.</li>
+              <li>Keep the scheduling email for appointment details and changes.</li>
+            </ul>
+          ) : (
+            <ul className="bulleted">
+              <li>Fill out the form with your goals.</li>
+              <li>I review your information and follow up about fit and next steps.</li>
+              <li>You get a tailored plan with pricing and scheduling options.</li>
+              <li>Approve → book → train. Payment via Venmo or PayPal.</li>
+            </ul>
+          )}
         </section>
 
         <section className="availability-notice" aria-label="Current training availability">

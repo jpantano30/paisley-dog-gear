@@ -90,6 +90,8 @@ export default function Boston() {
             </p>
             <p>
               <Link className="btn" to="/training">Tell me about your dog</Link>
+              {" "}
+              <Link className="btn" to="/booking">Book a free consultation</Link>
             </p>
           </header>
 
