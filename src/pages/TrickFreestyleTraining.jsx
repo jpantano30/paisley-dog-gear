@@ -78,6 +78,10 @@ const TrickFreestyleTraining = () => {
               Request trick training
             </a>
 
+            <Link to="/booking" className="secondary-btn">
+              Book a free consultation
+            </Link>
+
             <Link to="/videos" className="secondary-btn">
               Watch training videos
             </Link>
@@ -260,6 +264,9 @@ const TrickFreestyleTraining = () => {
           <a href="/training#training-form" className="primary-btn">
             Request trick training
           </a>
+          <Link to="/booking" className="secondary-btn">
+            Book a free consultation
+          </Link>
         </section>
       </main>
     </>

@@ -1,58 +1,95 @@
 import { useEffect } from "react";
 
-function upsertMetaByName(name, content) {
-  let tag = document.querySelector(`meta[name="${name}"]`);
-  if (!tag) {
-    tag = document.createElement("meta");
-    tag.setAttribute("name", name);
-    tag.setAttribute("data-managed-head", "true");
-    document.head.appendChild(tag);
-  }
-  tag.setAttribute("content", content);
-}
+function updateHeadElement(selector, createElement, attribute, value, cleanups) {
+  let element = document.querySelector(selector);
+  const wasCreated = !element;
 
-function upsertMetaByProperty(property, content) {
-  let tag = document.querySelector(`meta[property="${property}"]`);
-  if (!tag) {
-    tag = document.createElement("meta");
-    tag.setAttribute("property", property);
-    tag.setAttribute("data-managed-head", "true");
-    document.head.appendChild(tag);
+  if (!element) {
+    element = createElement();
+    document.head.appendChild(element);
   }
-  tag.setAttribute("content", content);
-}
 
-function upsertCanonical(href) {
-  let link = document.querySelector('link[rel="canonical"]');
-  if (!link) {
-    link = document.createElement("link");
-    link.setAttribute("rel", "canonical");
-    link.setAttribute("data-managed-head", "true");
-    document.head.appendChild(link);
-  }
-  link.setAttribute("href", href);
+  const previousValue = element.getAttribute(attribute);
+  element.setAttribute(attribute, value);
+
+  cleanups.push(() => {
+    if (wasCreated) {
+      element.remove();
+    } else if (previousValue === null) {
+      element.removeAttribute(attribute);
+    } else {
+      element.setAttribute(attribute, previousValue);
+    }
+  });
 }
 
 export function useHead({ title, description, canonical, metas = [] }) {
   useEffect(() => {
     const prevTitle = document.title;
+    const cleanups = [];
 
     if (title) document.title = title;
-    if (description) upsertMetaByName("description", description);
-    if (canonical) upsertCanonical(canonical);
+    if (description) {
+      updateHeadElement(
+        'meta[name="description"]',
+        () => {
+          const element = document.createElement("meta");
+          element.setAttribute("name", "description");
+          return element;
+        },
+        "content",
+        description,
+        cleanups
+      );
+    }
+    if (canonical) {
+      updateHeadElement(
+        'link[rel="canonical"]',
+        () => {
+          const element = document.createElement("link");
+          element.setAttribute("rel", "canonical");
+          return element;
+        },
+        "href",
+        canonical,
+        cleanups
+      );
+    }
 
     if (Array.isArray(metas)) {
       metas.forEach((m) => {
         if (!m || !m.content) return;
-        if (m.name) upsertMetaByName(m.name, m.content);
-        if (m.property) upsertMetaByProperty(m.property, m.content);
+        if (m.name) {
+          updateHeadElement(
+            `meta[name="${m.name}"]`,
+            () => {
+              const element = document.createElement("meta");
+              element.setAttribute("name", m.name);
+              return element;
+            },
+            "content",
+            m.content,
+            cleanups
+          );
+        }
+        if (m.property) {
+          updateHeadElement(
+            `meta[property="${m.property}"]`,
+            () => {
+              const element = document.createElement("meta");
+              element.setAttribute("property", m.property);
+              return element;
+            },
+            "content",
+            m.content,
+            cleanups
+          );
+        }
       });
     }
 
     return () => {
-      document
-        .querySelectorAll('[data-managed-head="true"]')
-        .forEach((el) => el.remove());
+      cleanups.reverse().forEach((cleanup) => cleanup());
       document.title = prevTitle;
     };
   }, [title, description, canonical, metas]);

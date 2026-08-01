@@ -216,6 +216,9 @@ const Home = () => {
           <Link to="/training" className="cta-button cta-secondary">
             Training Request Form
           </Link>
+          <Link to="/booking" className="cta-button cta-secondary">
+            Book a Free Consultation
+          </Link>
         </section>
 
         {/* Quick links (kept) */}
@@ -225,6 +228,7 @@ const Home = () => {
             Know what you want? <a href="/order">Request a quote</a>.{" "}
             <br />
             Want help with behavior or tricks? <a href="/training">Request training.</a>{" "}
+            Or <a href="/booking">book a free training consultation</a>.{" "}
             <br />
             Explore our <a href="/gallery">gallery</a>, <a href="/colors">colors</a>,{" "}
             <a href="/options">options</a>, and <a href="/videos">videos</a>.

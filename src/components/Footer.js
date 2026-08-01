@@ -38,6 +38,8 @@ const Footer = () => {
               <Link to="/order">Biothane Gear: Request a Quote</Link>
               <br />
               <Link to="/training">Dog Training Services</Link>
+              <br />
+              <Link to="/booking">Book a Training Consultation</Link>
             </p>
 
           </nav>

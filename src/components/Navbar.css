@@ -37,6 +37,20 @@
 .link{ text-decoration:none; color:var(--ink); padding:.25rem .35rem; border-radius:8px; transition:color .15s ease, background-color .15s ease; }
 .link:hover, .link:focus{ color:var(--brand-coral); background:rgba(226,125,96,.08); outline:none; }
 .link.active{ color:var(--brand-teal); background:rgba(108,154,139,.10); }
+.book-training-link{
+  background:var(--brand-coral);
+  color:#fff;
+  padding:.45rem .75rem;
+}
+.book-training-link:hover,
+.book-training-link:focus{
+  background:#cf6f56;
+  color:#fff;
+}
+.book-training-link.active{
+  background:var(--brand-teal);
+  color:#fff;
+}
 
 /* Desktop dropdown */
 .has-dropdown{ position:relative; }
@@ -84,7 +98,7 @@
 /* Mobile panel + accordion */
 .mobile-accordion{ display:none; } /* hidden on desktop */
 
-@media (max-width: 860px){
+@media (max-width: 1100px){
   .brand-name{ font-size:1.15rem; }
 
   .links{
@@ -112,6 +126,16 @@
   .links .link.active{
     background:transparent;
     color:var(--brand-teal);
+  }
+  .links .book-training-link,
+  .links .book-training-link.active{
+    width:auto;
+    margin:.35rem 0 .5rem;
+    padding:.65rem .75rem;
+    border-radius:10px;
+    background:var(--brand-coral);
+    color:#fff;
+    text-align:center;
   }
   .link:hover, .link:focus{
     background:transparent;

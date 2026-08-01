@@ -34,6 +34,59 @@ h1 {
   color: #555;
 }
 
+.booking-source-notice {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  max-width: 820px;
+  margin: 0 auto 1.4rem;
+  padding: 1.2rem 1.3rem;
+  border: 2px solid rgba(108, 154, 139, 0.55);
+  border-radius: 16px;
+  background: #f2f9f8;
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-source-icon {
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-teal);
+  color: #fff;
+  font-weight: 900;
+}
+
+.booking-source-notice h2 {
+  margin: 0 0 0.3rem;
+  color: var(--accent-brown);
+  font-size: 1.25rem;
+}
+
+.booking-source-notice p {
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+}
+
+.booking-page-cta {
+  max-width: 720px;
+  margin: 0 auto 1.35rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+.booking-page-cta a {
+  color: var(--accent-brown);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
 /* ========== HOW TRAINING WORKS (page-intro) ========== */
 .page-intro {
   max-width: 900px;
@@ -671,6 +724,10 @@ h1 {
 
   .training-form {
     padding: 1.5rem;
+  }
+
+  .booking-source-notice {
+    padding: 1rem;
   }
 
   .form-heading {
