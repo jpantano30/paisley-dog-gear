@@ -58,7 +58,7 @@ const Home = () => {
       {/* <Banner /> */}
       <title>Boston Dog Trainer & Custom Biothane Leashes | Paisley Dog Gear & Training</title>
       <meta name="description"
-            content="Private dog training in Boston and nearby communities, plus handmade waterproof BioThane leashes and collars. Puppy training, manners, tricks, and canine freestyle." />
+            content="Private dog training, AKC CGC testing, and virtual or in-person Trick Dog title evaluations in Boston, plus handmade waterproof BioThane leashes and collars." />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/" />
       {/* Structured Data */}
       <script type="application/ld+json"
@@ -166,12 +166,40 @@ const Home = () => {
                 <br /><br />
                 I started Paisley Dog Gear &amp; Training to combine thoughtful training with durable, functional gear that is tested daily by my own dogs, Paisley (retired service dog) and Tallulah (Bordoodle and service dog in training). My background as a pastry chef means I am used to precision, aesthetics, and working with my hands, and that now goes into every leash, long line, and tab I make: strong materials, secure hardware, and creative color pairings that still make sense for real training. The goal is gear that feels good in your hands, holds up to daily use, and reflects your dog’s personality.
                 <br /><br />
-                I am a member of the <strong>Association of Professional Dog Trainers (APDT)</strong> and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>, and I am actively working toward CPDT-KA certification. I am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
+                I am an <strong>AKC Approved Canine Good Citizen Evaluator</strong> (Evaluator #116472), a member of the <strong>Association of Professional Dog Trainers (APDT)</strong>, and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I am also actively working toward CPDT-KA certification and am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
               </p>
           </div>
         </div>
       </div>
     </section>
+
+        {/* AKC testing and titling */}
+        <section className="akc-home-feature" aria-labelledby="akc-home-title">
+          <img
+            src="/assets/akc-cgc-evaluator-logo.png"
+            alt="AKC Approved CGC Evaluator logo"
+            className="akc-home-logo"
+            loading="lazy"
+            onError={(event) => {
+              const feature = event.currentTarget.closest(".akc-home-feature");
+              feature?.classList.add("akc-logo-missing");
+              event.currentTarget.remove();
+            }}
+          />
+
+          <div className="akc-home-copy">
+            <p className="akc-eyebrow">AKC Approved Evaluator #116472</p>
+            <h2 id="akc-home-title">CGC Testing &amp; Trick Dog Titles</h2>
+            <p>
+              Request an in-person Canine Good Citizen test or earn an AKC Trick Dog
+              title through an in-person or video evaluation. Evaluations are
+              <strong> $25 per dog, per test or title</strong>. AKC application fees are separate.
+            </p>
+            <a href="/training#akc-testing" className="cta-button akc-home-button">
+              View AKC Testing Options
+            </a>
+          </div>
+        </section>
 
         {/* Dogs (kept) */}
         <section className="dogs">
@@ -210,8 +238,9 @@ const Home = () => {
         <section className="training-inquiry">
           <h2>Dog Training Inquiries</h2>
           <p>
-            I offer trick training, freestyle, and behavior support in the Boston area.
-            Interested in training or private coaching? Fill out the contact form.
+            I offer trick training, freestyle, behavior support, AKC CGC testing,
+            and Trick Dog title evaluations in the Boston area. Virtual Trick Dog
+            video evaluations are available nationwide.
           </p>
           <Link to="/training" className="cta-button cta-secondary">
             Training Request Form
@@ -225,6 +254,8 @@ const Home = () => {
             Know what you want? <a href="/order">Request a quote</a>.{" "}
             <br />
             Want help with behavior or tricks? <a href="/training">Request training.</a>{" "}
+            <br />
+            Ready for a CGC test or Trick Dog title? <a href="/training#akc-testing">View AKC testing.</a>{" "}
             <br />
             Explore our <a href="/gallery">gallery</a>, <a href="/colors">colors</a>,{" "}
             <a href="/options">options</a>, and <a href="/videos">videos</a>.

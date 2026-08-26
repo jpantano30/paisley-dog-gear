@@ -190,6 +190,146 @@ h1 {
   font-weight: 800;
 }
 
+/* AKC Testing & Titles */
+.akc-testing-section {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  border: 1.5px solid rgba(108, 154, 139, 0.35);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f2f9f8 0%, #ffffff 100%);
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: 90px;
+}
+
+.akc-testing-heading {
+  display: grid;
+  grid-template-columns: 125px minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.akc-testing-logo {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  justify-self: center;
+}
+
+/* If the official logo has not been added yet, remove its empty desktop column. */
+.akc-testing-heading.akc-logo-missing {
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
+}
+
+.akc-testing-heading.akc-logo-missing > div {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.akc-testing-heading h2 {
+  margin: 0.15rem 0 0.4rem;
+  color: var(--accent-brown);
+  font-size: clamp(1.55rem, 3vw, 2rem);
+}
+
+.akc-testing-heading p {
+  margin: 0;
+  color: #444;
+  line-height: 1.55;
+}
+
+.akc-testing-heading .akc-kicker {
+  color: var(--accent-teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.akc-testing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.akc-test-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.15rem;
+  border: 1px solid rgba(108, 154, 139, 0.28);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.akc-test-card.featured-akc-card {
+  border-color: rgba(226, 125, 96, 0.55);
+}
+
+.akc-test-card h3 {
+  margin: 0.35rem 0 0.55rem;
+  color: var(--accent-brown);
+  font-size: 1.15rem;
+}
+
+.akc-test-card p {
+  margin: 0;
+  color: #444;
+  line-height: 1.55;
+}
+
+.akc-test-card .akc-format {
+  align-self: flex-start;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: #eaf6f3;
+  color: #376b5e;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.akc-test-card .akc-price {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  color: var(--accent-coral);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.akc-testing-note {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #444;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.akc-request-button {
+  display: block;
+  width: fit-content;
+  margin: 1.15rem auto 0;
+  padding: 0.72rem 1.05rem;
+  border-radius: 10px;
+  background: var(--accent-coral);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.akc-request-button:hover,
+.akc-request-button:focus {
+  background: #cf6f56;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 /* Trainer Credentials */
 .trainer-credentials {
   margin: 2.5rem 0;
@@ -250,12 +390,19 @@ h1 {
 }
 
 
+.credential-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto 1rem;
+}
+
 .credential-highlight-card {
   display: flex;
   align-items: center;
   gap: 1rem;
-  max-width: 720px;
-  margin: 0 auto 1rem;
+  margin: 0;
   padding: 1rem;
   border-radius: 14px;
   background: #fff;
@@ -266,6 +413,13 @@ h1 {
 .credential-cpr-logo {
   width: 96px;
   height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.credential-akc-logo {
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -287,6 +441,25 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  .akc-testing-section {
+    padding: 1.2rem;
+  }
+
+  .akc-testing-heading {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .akc-testing-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .akc-testing-grid,
+  .credential-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
   .credential-highlight-card {
     flex-direction: column;
     text-align: center;
@@ -661,6 +834,10 @@ h1 {
 @media (max-width: 900px) {
   .training-intro .notes {
     padding: 0.85rem 0.9rem;
+  }
+
+  .akc-testing-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1143,6 +1320,22 @@ textarea[aria-invalid="true"] {
   margin: 0 0 0.3rem;
   color: #555;
   line-height: 1.55;
+}
+
+.akc-request-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1.5px solid rgba(108, 154, 139, 0.38);
+  border-radius: 14px;
+  background: #f6fbfa;
+  box-shadow: var(--shadow-sm);
+}
+
+.akc-price-card {
+  border-color: rgba(108, 154, 139, 0.5) !important;
+  background: linear-gradient(180deg, #f6fbfa 0%, #ffffff 100%) !important;
 }
 
 @media (max-width: 700px) {

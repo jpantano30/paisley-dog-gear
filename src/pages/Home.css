@@ -435,6 +435,77 @@
 }
 .training-inquiry a:hover { background-color: #369f91; }
 
+/* ===== AKC TESTING FEATURE ===== */
+.akc-home-feature {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, #f6fbfa 0%, #ffffff 100%);
+  border: 1.5px solid rgba(65, 179, 163, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  text-align: left;
+}
+
+.akc-home-logo {
+  width: 135px;
+  height: 135px;
+  object-fit: contain;
+  justify-self: center;
+}
+
+/* If the official logo has not been added yet, remove its empty desktop column. */
+.akc-home-feature.akc-logo-missing {
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
+}
+
+.akc-home-feature.akc-logo-missing .akc-home-copy {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.akc-home-copy h2 {
+  margin: 0.15rem 0 0.55rem;
+  color: #7e5e3b;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.akc-home-copy p {
+  margin: 0 0 0.9rem;
+  color: #404040;
+  line-height: 1.6;
+}
+
+.akc-home-copy .akc-eyebrow {
+  margin-bottom: 0.1rem;
+  color: var(--brand-teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.akc-home-button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border-radius: 10px;
+  background: var(--brand-coral);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.akc-home-button:hover,
+.akc-home-button:focus {
+  background: #cf6f56;
+  color: #fff;
+}
+
 /* ===== UTILITIES ===== */
 .social-links {
   font-size: 0.95rem;
@@ -606,5 +677,17 @@
 
   .maker-info {
     text-align: left;
+  }
+
+  .akc-home-feature {
+    grid-template-columns: 1fr;
+    margin: 2rem 1rem;
+    padding: 1.35rem;
+    text-align: center;
+  }
+
+  .akc-home-logo {
+    width: 110px;
+    height: 110px;
   }
 }

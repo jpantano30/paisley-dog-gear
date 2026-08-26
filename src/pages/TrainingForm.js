@@ -100,9 +100,36 @@ const SparkleIcon = () => (
     />
   </svg>
 );
+
+const AwardIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle
+      cx="12"
+      cy="9"
+      r="5"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+    <path
+      d="m9 13-2 8 5-3 5 3-2-8"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="m12 6 .9 1.8 2 .3-1.45 1.4.35 2-1.8-.95-1.8.95.35-2L9.1 8.1l2-.3L12 6Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const TrainingForm = () => {
   const [formData, setFormData] = useState({
     serviceType: "",
+    akcRequestType: "",
+    akcTitleLevel: "",
+    akcVideoLink: "",
     dayTrainingWaitlistType: "",
     preferredDays: "",
     preferredStart: "",
@@ -127,6 +154,8 @@ const TrainingForm = () => {
 
   const wantsDayTrainingWaitlist =
     formData.serviceType === "Day Training Waitlist";
+
+  const wantsAkcTesting = formData.serviceType === "AKC Testing & Titles";
 
   const serviceOptions = [
     {
@@ -154,6 +183,12 @@ const TrainingForm = () => {
       desc: "Reward-based tricks, body awareness, freestyle foundations, routines, and title prep."
     },
     {
+      value: "AKC Testing & Titles",
+      icon: <AwardIcon />,
+      title: "AKC Testing & Titles",
+      desc: "CGC testing and in-person or video Trick Dog title evaluations."
+    },
+    {
       value: "Virtual Coaching",
       icon: <VideoIcon />,
       title: "Virtual Coaching",
@@ -176,6 +211,9 @@ const TrainingForm = () => {
     const next = {};
 
     if (!data.serviceType) next.serviceType = "Please choose a service.";
+    if (data.serviceType === "AKC Testing & Titles" && !data.akcRequestType) {
+      next.akcRequestType = "Please choose the AKC test or evaluation you want.";
+    }
     if (!data.name.trim()) next.name = "Please enter your name.";
     if (!data.email.trim()) next.email = "Please enter your email.";
     if (data.email && !/^\S+@\S+\.\S+$/.test(data.email)) {
@@ -192,7 +230,13 @@ const TrainingForm = () => {
     e.preventDefault();
     const nextErrors = validate(formData);
     setErrors(nextErrors);
-    setTouched({ serviceType: true, name: true, email: true, goals: true });
+    setTouched({
+      serviceType: true,
+      akcRequestType: true,
+      name: true,
+      email: true,
+      goals: true
+    });
 
     if (Object.keys(nextErrors).length > 0) {
       setErrorMsg("Please fix the highlighted fields.");
@@ -228,6 +272,9 @@ const TrainingForm = () => {
       setShowSuccess(true);
       setFormData({
         serviceType: "",
+        akcRequestType: "",
+        akcTitleLevel: "",
+        akcVideoLink: "",
         dayTrainingWaitlistType: "",
         preferredDays: "",
         preferredStart: "",
@@ -254,32 +301,32 @@ const TrainingForm = () => {
     <>
       {/* <Banner /> */}
 
-      <title>Boston Dog Trainer | Private, Puppy & Trick Training</title>
+      <title>Boston Dog Trainer | AKC CGC &amp; Trick Dog Evaluator</title>
       <meta
         name="description"
-        content="Private dog training in Boston and nearby communities for puppies, obedience, leash manners, confidence, tricks, and canine freestyle. View rates and request training."
+        content="Private dog training in Boston plus AKC CGC testing and virtual or in-person Trick Dog title evaluations. View rates and request an evaluation."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
 
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content="Boston Dog Trainer | Private, Puppy & Trick Training"
+        content="Boston Dog Trainer | AKC CGC & Trick Dog Evaluator"
       />
       <meta
         property="og:description"
-        content="Private dog training in Boston and nearby communities for puppies, obedience, leash manners, confidence, tricks, and canine freestyle."
+        content="Private dog training in Boston plus AKC CGC testing and virtual or in-person Trick Dog title evaluations."
       />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="Boston Dog Trainer | Private, Puppy & Trick Training"
+        content="Boston Dog Trainer | AKC CGC & Trick Dog Evaluator"
       />
       <meta
         name="twitter:description"
-        content="Private dog training in Boston and nearby communities for puppies, obedience, leash manners, confidence, tricks, and canine freestyle."
+        content="Private dog training in Boston plus AKC CGC testing and virtual or in-person Trick Dog title evaluations."
       />
 
       <script
@@ -289,8 +336,8 @@ const TrainingForm = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             "@id": "https://paisleydoggearandtraining.com/training#service",
-            name: "Private Dog Training",
-            serviceType: "Private dog training",
+            name: "Dog Training and AKC Evaluations",
+            serviceType: "Private dog training and AKC title evaluations",
             url: "https://paisleydoggearandtraining.com/training",
             provider: {
               "@id": "https://paisleydoggearandtraining.com/#business"
@@ -315,7 +362,10 @@ const TrainingForm = () => {
                 "Leash skills",
                 "Trick training",
                 "Canine freestyle",
-                "Virtual coaching"
+                "Virtual coaching",
+                "AKC Canine Good Citizen testing",
+                "AKC Trick Dog title evaluation",
+                "Virtual Trick Dog video evaluation"
               ].map((name) => ({
                 "@type": "Offer",
                 itemOffered: {
@@ -351,6 +401,24 @@ const TrainingForm = () => {
                   "@type": "Answer",
                   text:
                     "Yes. Day Training is primarily an owner drop-off service where your dog spends a structured half or full day with me. We rotate focused training sessions, rest breaks, and real-life field trips to work on your goals. Owners are responsible for drop-off and pick-up. For North End day training packages, pick-up may be available."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Can AKC Trick Dog titles be evaluated by video?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Yes. AKC Trick Dog title evaluations are available in person or through submitted video. The evaluation fee is $25 per dog, per title. AKC application fees are separate."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Can the AKC Canine Good Citizen test be completed virtually?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "No. Canine Good Citizen and related CGC tests are scheduled in person. Virtual evaluations are available for AKC Trick Dog and Virtual Home Manners titles."
                 }
               }
             ]
@@ -478,22 +546,117 @@ const TrainingForm = () => {
           <p className="notes two">Every dog and person is different. We personalize the plan so you both succeed.</p>
         </section>
 
+        <section
+          className="akc-testing-section"
+          id="akc-testing"
+          aria-labelledby="akc-testing-title"
+        >
+          <div className="akc-testing-heading">
+            <img
+              src="/assets/akc-cgc-evaluator-logo.png"
+              alt="AKC Approved CGC Evaluator logo"
+              className="akc-testing-logo"
+              onError={(event) => {
+                const heading = event.currentTarget.closest(".akc-testing-heading");
+                heading?.classList.add("akc-logo-missing");
+                event.currentTarget.remove();
+              }}
+            />
+
+            <div>
+              <p className="akc-kicker">AKC Approved Evaluator #116472</p>
+              <h2 id="akc-testing-title">AKC Testing &amp; Trick Dog Titles</h2>
+              <p>
+                Ready to test your dog’s skills? Request an in-person CGC-family
+                test or an AKC Trick Dog evaluation in person or by video.
+              </p>
+            </div>
+          </div>
+
+          <div className="akc-testing-grid">
+            <article className="akc-test-card">
+              <span className="akc-format">In person</span>
+              <h3>Canine Good Citizen Testing</h3>
+              <p>
+                In-person evaluations for Canine Good Citizen (CGC), Community
+                Canine (CGCA), and Urban CGC (CGCU), scheduled at an appropriate
+                Boston-area testing location.
+              </p>
+              <p className="akc-price">$25 per dog, per test</p>
+            </article>
+
+            <article className="akc-test-card featured-akc-card">
+              <span className="akc-format">Video or in person</span>
+              <h3>AKC Trick Dog Titles</h3>
+              <p>
+                Evaluation for Novice, Intermediate, Advanced, Performer, or
+                Elite Performer. Submit a video link or arrange an in-person
+                evaluation.
+              </p>
+              <p className="akc-price">$25 per dog, per title</p>
+            </article>
+
+            <article className="akc-test-card">
+              <span className="akc-format">Video</span>
+              <h3>Virtual Home Manners</h3>
+              <p>
+                Video evaluation for the AKC Virtual Home Manners Puppy or Adult
+                title using the applicable AKC checklist.
+              </p>
+              <p className="akc-price">$25 per dog, per title</p>
+            </article>
+          </div>
+
+          <div className="akc-testing-note">
+            <strong>Please note:</strong> The $25 fee covers your evaluation,
+            feedback, and completed evaluator paperwork. It does not guarantee a
+            passing result. AKC application or recording fees are separate and
+            paid directly to AKC. Official titles require an eligible AKC,
+            PAL, or Canine Partners number.
+          </div>
+
+          <a href="#training-form" className="akc-request-button">
+            Request an AKC Test or Evaluation
+          </a>
+        </section>
+
         <section className="trainer-credentials" aria-label="Trainer credentials and affiliations">
           <h2 className="cred">Experience, Education, and Approach</h2>
 
-          <div className="credential-highlight-card">
-            <img
-              src="/assets/PEE-logo-certified.png"
-              alt="Pet Emergency Education Certified Pet CPR and First Aid logo"
-              className="credential-cpr-logo"
-            />
+          <div className="credential-highlight-grid">
+            <div className="credential-highlight-card">
+              <img
+                src="/assets/akc-cgc-evaluator-logo.png"
+                alt="AKC Approved CGC Evaluator logo"
+                className="credential-akc-logo"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
 
-            <div className="credential-highlight-copy">
-              <h3>Pet CPR &amp; First Aid Certified</h3>
-              <p>
-                Certified in Canine &amp; Feline CPR and First Aid through Pet Emergency Education.
-                Completed May 2026.
-              </p>
+              <div className="credential-highlight-copy">
+                <h3>AKC Approved CGC Evaluator</h3>
+                <p>
+                  Approved to conduct CGC-family testing and AKC Trick Dog
+                  evaluations. Evaluator #116472.
+                </p>
+              </div>
+            </div>
+
+            <div className="credential-highlight-card">
+              <img
+                src="/assets/PEE-logo-certified.png"
+                alt="Pet Emergency Education Certified Pet CPR and First Aid logo"
+                className="credential-cpr-logo"
+              />
+
+              <div className="credential-highlight-copy">
+                <h3>Pet CPR &amp; First Aid Certified</h3>
+                <p>
+                  Certified in Canine &amp; Feline CPR and First Aid through Pet Emergency Education.
+                  Completed May 2026.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -503,9 +666,9 @@ const TrainingForm = () => {
             freestyle demo dog and has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles. Now I help
             clients with puppies, obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced
             training, with a focus on clear communication, building a strong dog and owner relationship, and setting
-            both up for real world success. I’m an active member of professional training organizations, including IACP
-            and APDT, Pet CPR &amp; First Aid certified through Pet Emergency Education, and I’m currently working toward
-            my CPDT-KA certification. I stay current on modern, science informed training through courses, workshops,
+            both up for real world success. I’m an AKC Approved CGC Evaluator (#116472), an active member of IACP and
+            APDT, Pet CPR &amp; First Aid certified through Pet Emergency Education, and I’m currently working toward my
+            CPDT-KA certification. I stay current on modern, science informed training through courses, workshops,
             and mentorship, and I tailor each plan to the dog in front of me and the goals you care about most. If you
             have questions about methods or whether your dog is a good fit, feel free to email me at
             paisleygearandtraining@gmail.com.
@@ -682,6 +845,22 @@ const TrainingForm = () => {
               </ul>
             </div>
 
+            <div className="price-card akc-price-card">
+              <h3>AKC Testing &amp; Title Evaluations</h3>
+              <ul>
+                <li>
+                  In-person CGC-family test: <strong>$25 per dog, per test</strong>
+                </li>
+                <li>
+                  Trick Dog video or in-person evaluation: <strong>$25 per title</strong>
+                </li>
+                <li>
+                  Virtual Home Manners video evaluation: <strong>$25 per title</strong>
+                </li>
+                <li>AKC application and recording fees are paid separately to AKC.</li>
+              </ul>
+            </div>
+
             <div className="price-card">
               <h3>Virtual Coaching</h3>
               <ul>
@@ -765,6 +944,95 @@ const TrainingForm = () => {
                 ))}
               </div>
             </fieldset>
+
+            {wantsAkcTesting && (
+              <section className="akc-request-fields" aria-label="AKC testing request details">
+                <h3 className="form-section">AKC Test or Title Details</h3>
+
+                <p className="waitlist-helper">
+                  CGC-family tests are completed in person. Trick Dog and Virtual
+                  Home Manners evaluations may be completed using submitted video.
+                </p>
+
+                <label htmlFor="akcRequestType">Which evaluation do you want?</label>
+                <select
+                  id="akcRequestType"
+                  name="akcRequestType"
+                  value={formData.akcRequestType}
+                  onChange={(event) => {
+                    handleChange(event);
+                    markTouched("akcRequestType");
+                  }}
+                  onBlur={() => markTouched("akcRequestType")}
+                  aria-invalid={!!(touched.akcRequestType && errors.akcRequestType)}
+                  aria-describedby={
+                    touched.akcRequestType && errors.akcRequestType
+                      ? "akcRequestType-error"
+                      : undefined
+                  }
+                >
+                  <option value="">Select one</option>
+                  <option value="CGC – in person">Canine Good Citizen (CGC) — in person</option>
+                  <option value="CGCA – in person">Community Canine (CGCA) — in person</option>
+                  <option value="CGCU – in person">Urban CGC (CGCU) — in person</option>
+                  <option value="Trick Dog – video">Trick Dog title — video evaluation</option>
+                  <option value="Trick Dog – in person">Trick Dog title — in person</option>
+                  <option value="Virtual Home Manners – video">Virtual Home Manners — video evaluation</option>
+                  <option value="Not sure">Not sure yet</option>
+                </select>
+
+                {touched.akcRequestType && errors.akcRequestType && (
+                  <div className="field-error" id="akcRequestType-error" role="alert">
+                    {errors.akcRequestType}
+                  </div>
+                )}
+
+                {(formData.akcRequestType.startsWith("Trick Dog") ||
+                  formData.akcRequestType.startsWith("Virtual Home Manners")) && (
+                  <>
+                    <label htmlFor="akcTitleLevel">Which title level?</label>
+                    <select
+                      id="akcTitleLevel"
+                      name="akcTitleLevel"
+                      value={formData.akcTitleLevel}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select one or choose “Not sure”</option>
+                      {formData.akcRequestType.startsWith("Trick Dog") ? (
+                        <>
+                          <option value="Novice Trick Dog (TKN)">Novice Trick Dog (TKN)</option>
+                          <option value="Intermediate Trick Dog (TKI)">Intermediate Trick Dog (TKI)</option>
+                          <option value="Advanced Trick Dog (TKA)">Advanced Trick Dog (TKA)</option>
+                          <option value="Trick Dog Performer (TKP)">Trick Dog Performer (TKP)</option>
+                          <option value="Trick Dog Elite Performer (TKE)">Trick Dog Elite Performer (TKE)</option>
+                        </>
+                      ) : (
+                        <>
+                          <option value="Virtual Home Manners Puppy">Virtual Home Manners Puppy</option>
+                          <option value="Virtual Home Manners Adult">Virtual Home Manners Adult</option>
+                        </>
+                      )}
+                      <option value="Not sure">Not sure</option>
+                    </select>
+
+                    <label htmlFor="akcVideoLink">
+                      Video link, if it is already ready (optional)
+                    </label>
+                    <input
+                      id="akcVideoLink"
+                      type="url"
+                      name="akcVideoLink"
+                      placeholder="YouTube, Google Drive, Dropbox, Vimeo, etc."
+                      value={formData.akcVideoLink}
+                      onChange={handleChange}
+                    />
+                    <p className="helper">
+                      You can leave this blank and send the video after I reply with instructions.
+                    </p>
+                  </>
+                )}
+              </section>
+            )}
 
             {wantsDayTrainingWaitlist && (
               <section className="waitlist-fields" aria-label="Day Training waitlist details">
@@ -947,7 +1215,11 @@ const TrainingForm = () => {
             )}
 
             <button type="submit" disabled={submitting} aria-busy={submitting}>
-              {submitting ? "Sending…" : "Request a Session"}
+              {submitting
+                ? "Sending…"
+                : wantsAkcTesting
+                  ? "Request an AKC Evaluation"
+                  : "Request a Session"}
             </button>
           </form>
         )}
@@ -960,6 +1232,11 @@ const TrainingForm = () => {
               <p>
                 You’re on the Day Training waitlist. I’ll reach out if a spot opens or if
                 your dog may be a good fit for a future day training package.
+              </p>
+            ) : lastSubmittedService === "AKC Testing & Titles" ? (
+              <p>
+                I received your AKC testing request. I’ll reply with scheduling or
+                video-submission instructions and the forms you’ll need.
               </p>
             ) : (
               <p>I’ll follow up shortly with a plan, pricing, and scheduling options.</p>
