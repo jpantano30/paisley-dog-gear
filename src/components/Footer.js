@@ -126,7 +126,7 @@ const Footer = () => {
           <p className="membership-text">
             <strong>AKC Approved CGC Evaluator</strong>
             <br />
-            Jena Pantano · Evaluator #116472
+            Jena Pantano, approved to conduct Canine Good Citizen and AKC Trick Dog evaluations
           </p>
         </div>
 

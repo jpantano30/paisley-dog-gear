@@ -564,7 +564,7 @@ const TrainingForm = () => {
             />
 
             <div>
-              <p className="akc-kicker">AKC Approved Evaluator #116472</p>
+              <p className="akc-kicker">AKC Approved Evaluator </p>
               <h2 id="akc-testing-title">AKC Testing &amp; Trick Dog Titles</h2>
               <p>
                 Ready to test your dog’s skills? Request an in-person CGC-family
@@ -638,7 +638,7 @@ const TrainingForm = () => {
                 <h3>AKC Approved CGC Evaluator</h3>
                 <p>
                   Approved to conduct CGC-family testing and AKC Trick Dog
-                  evaluations. Evaluator #116472.
+                  evaluations.
                 </p>
               </div>
             </div>
@@ -666,7 +666,7 @@ const TrainingForm = () => {
             freestyle demo dog and has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles. Now I help
             clients with puppies, obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced
             training, with a focus on clear communication, building a strong dog and owner relationship, and setting
-            both up for real world success. I’m an AKC Approved CGC Evaluator (#116472), an active member of IACP and
+            both up for real world success. I’m an AKC Approved CGC Evaluator, an active member of IACP and
             APDT, Pet CPR &amp; First Aid certified through Pet Emergency Education, and I’m currently working toward my
             CPDT-KA certification. I stay current on modern, science informed training through courses, workshops,
             and mentorship, and I tailor each plan to the dog in front of me and the goals you care about most. If you

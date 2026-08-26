@@ -166,7 +166,7 @@ const Home = () => {
                 <br /><br />
                 I started Paisley Dog Gear &amp; Training to combine thoughtful training with durable, functional gear that is tested daily by my own dogs, Paisley (retired service dog) and Tallulah (Bordoodle and service dog in training). My background as a pastry chef means I am used to precision, aesthetics, and working with my hands, and that now goes into every leash, long line, and tab I make: strong materials, secure hardware, and creative color pairings that still make sense for real training. The goal is gear that feels good in your hands, holds up to daily use, and reflects your dog’s personality.
                 <br /><br />
-                I am an <strong>AKC Approved Canine Good Citizen Evaluator</strong> (Evaluator #116472), a member of the <strong>Association of Professional Dog Trainers (APDT)</strong>, and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I am also actively working toward CPDT-KA certification and am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
+                I am an <strong>AKC Approved Canine Good Citizen Evaluator</strong>, a member of the <strong>Association of Professional Dog Trainers (APDT)</strong>, and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I am also actively working toward CPDT-KA certification and am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
               </p>
           </div>
         </div>
@@ -188,7 +188,7 @@ const Home = () => {
           />
 
           <div className="akc-home-copy">
-            <p className="akc-eyebrow">AKC Approved Evaluator #116472</p>
+            <p className="akc-eyebrow">AKC Approved Evaluator</p>
             <h2 id="akc-home-title">CGC Testing &amp; Trick Dog Titles</h2>
             <p>
               Request an in-person Canine Good Citizen test or earn an AKC Trick Dog
