@@ -87,12 +87,27 @@
 }
 
 .membership-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1.2rem;
-  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.5rem 2rem;
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+}
+
+.membership-badges > div {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.4rem;
+  margin-top: 0;
+}
+
+.membership-badges img {
+  width: auto;
+  height: 86px;
+  max-width: 115px;
+  object-fit: contain;
 }
 
 .commitment-text {
@@ -138,6 +153,14 @@
 
 .apdt-text {
   font-size: .92rem;
+  max-width: 440px;
+  color: #333;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+.akc-text {
+  font-size: 0.92rem;
   max-width: 440px;
   color: #333;
   margin: 0 auto;
@@ -194,3 +217,18 @@
   .footer { padding: 1.6rem .9rem 2rem; }
 }
 
+@media (max-width: 700px) {
+  .membership-badges {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer {
+    padding: 1.6rem 0.9rem 2rem;
+  }
+}

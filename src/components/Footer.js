@@ -86,6 +86,26 @@ const Footer = () => {
       </div>
       
       <div className="membership-badges">
+        {/* AKC Approved CGC Evaluator */}
+        <div className="akc-membership">
+          <a
+            href="https://www.akc.org/products-services/training-programs/canine-good-citizen/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/assets/akc-cgc-evaluator-logo.png"
+              alt="AKC Approved CGC Evaluator logo"
+              className="akc-logo"
+            />
+          </a>
+
+          <p className="akc-text">
+            <strong>AKC Approved CGC Evaluator</strong>
+            <br />
+            Jena Pantano · Evaluator #116472
+          </p>
+        </div>
         {/* IACP membership */}
         <div className="iacp-membership">
           <a href="https://iacpdogs.org/" target="_blank" rel="noreferrer">
