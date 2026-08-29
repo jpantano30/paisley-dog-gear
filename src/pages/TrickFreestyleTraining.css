@@ -212,6 +212,20 @@
   font-size: 0.9rem;
 }
 
+.program-title-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: var(--accent-brown);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.program-title-link:hover,
+.program-title-link:focus {
+  color: var(--accent-coral);
+  text-decoration: none;
+}
+
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;

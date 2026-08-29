@@ -675,6 +675,10 @@ h1 {
   font-weight: 600;
 }
 
+#training-form {
+  scroll-margin-top: 110px;
+}
+
 .training-form {
   background-color: white;
   padding: 1.6rem;
@@ -1348,6 +1352,62 @@ textarea[aria-invalid="true"] {
   }
 
   .availability-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* ===== AKC service expansion ===== */
+.akc-testing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.akc-testing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.akc-testing-actions .akc-request-button {
+  margin: 0;
+}
+
+.akc-learn-button {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.68rem 1rem;
+  border: 2px solid var(--accent-teal);
+  border-radius: 10px;
+  background: #fff;
+  color: #376b5e;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.akc-learn-button:hover,
+.akc-learn-button:focus {
+  background: #edf7f5;
+  color: #315e54;
+  transform: translateY(-1px);
+}
+
+.pricing-inline-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--accent-teal);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .akc-testing-actions {
+    flex-direction: column;
+  }
+
+  .akc-testing-actions .akc-request-button,
+  .akc-testing-actions .akc-learn-button {
     width: 100%;
     text-align: center;
   }

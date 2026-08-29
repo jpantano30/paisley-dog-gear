@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TrainingForm.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import Banner from "../components/Banner";
 // import "../components/Banner.css";
 import formHeader from "../background.png";
@@ -125,9 +125,13 @@ const AwardIcon = () => (
 );
 
 const TrainingForm = () => {
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     serviceType: "",
     akcRequestType: "",
+    akcTestTitle: "",
+    akcTestFormat: "",
     akcTitleLevel: "",
     akcVideoLink: "",
     dayTrainingWaitlistType: "",
@@ -156,6 +160,46 @@ const TrainingForm = () => {
     formData.serviceType === "Day Training Waitlist";
 
   const wantsAkcTesting = formData.serviceType === "AKC Testing & Titles";
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const requestedService = params.get("service");
+
+    if (requestedService === "akc") {
+      const requestMap = {
+        "cgc-testing": "CGC Testing",
+        "trick-dog": "Trick Dog",
+        "cgc-prep": "CGC Prep + Test",
+        "home-manners": "Virtual Home Manners",
+        "star-puppy": "STAR Puppy – interest list",
+        "not-sure": "Not sure"
+      };
+
+      const requested = requestMap[params.get("request")] || "";
+
+      setFormData((prev) => ({
+        ...prev,
+        serviceType: "AKC Testing & Titles",
+        akcRequestType: requested || prev.akcRequestType
+      }));
+    } else if (requestedService === "trick-training") {
+      setFormData((prev) => ({
+        ...prev,
+        serviceType: "Trick & Freestyle Training"
+      }));
+    } else {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      document.getElementById("training-form")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 120);
+
+    return () => window.clearTimeout(timer);
+  }, [location.search]);
 
   const serviceOptions = [
     {
@@ -186,7 +230,7 @@ const TrainingForm = () => {
       value: "AKC Testing & Titles",
       icon: <AwardIcon />,
       title: "AKC Testing & Titles",
-      desc: "CGC testing and in-person or video Trick Dog title evaluations."
+      desc: "CGC-family testing, CGC prep, virtual Trick Dog titles, Virtual Home Manners, and S.T.A.R. Puppy interest."
     },
     {
       value: "Virtual Coaching",
@@ -273,6 +317,8 @@ const TrainingForm = () => {
       setFormData({
         serviceType: "",
         akcRequestType: "",
+        akcTestTitle: "",
+        akcTestFormat: "",
         akcTitleLevel: "",
         akcVideoLink: "",
         dayTrainingWaitlistType: "",
@@ -304,7 +350,7 @@ const TrainingForm = () => {
       <title>Boston Dog Trainer | AKC CGC &amp; Trick Dog Evaluator</title>
       <meta
         name="description"
-        content="Private dog training in Boston plus AKC CGC testing and virtual or in-person Trick Dog title evaluations. View rates and request an evaluation."
+        content="Private dog training in Boston plus AKC CGC, CGCA and CGCU testing, CGC prep, virtual Trick Dog evaluations, Virtual Home Manners, and S.T.A.R. Puppy interest."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
 
@@ -315,7 +361,7 @@ const TrainingForm = () => {
       />
       <meta
         property="og:description"
-        content="Private dog training in Boston plus AKC CGC testing and virtual or in-person Trick Dog title evaluations."
+        content="Private dog training in Boston plus AKC CGC-family testing, CGC prep, virtual Trick Dog evaluations, Virtual Home Manners, and S.T.A.R. Puppy interest."
       />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
 
@@ -326,7 +372,7 @@ const TrainingForm = () => {
       />
       <meta
         name="twitter:description"
-        content="Private dog training in Boston plus AKC CGC testing and virtual or in-person Trick Dog title evaluations."
+        content="Private dog training in Boston plus AKC CGC-family testing, CGC prep, virtual Trick Dog evaluations, Virtual Home Manners, and S.T.A.R. Puppy interest."
       />
 
       <script
@@ -364,8 +410,13 @@ const TrainingForm = () => {
                 "Canine freestyle",
                 "Virtual coaching",
                 "AKC Canine Good Citizen testing",
+                "AKC Community Canine testing",
+                "AKC Urban CGC testing",
+                "CGC preparation and testing",
                 "AKC Trick Dog title evaluation",
-                "Virtual Trick Dog video evaluation"
+                "Virtual Trick Dog video evaluation",
+                "AKC Virtual Home Manners evaluation",
+                "AKC S.T.A.R. Puppy class interest"
               ].map((name) => ({
                 "@type": "Offer",
                 itemOffered: {
@@ -564,60 +615,26 @@ const TrainingForm = () => {
             />
 
             <div>
-              <p className="akc-kicker">AKC Approved Evaluator </p>
-              <h2 id="akc-testing-title">AKC Testing &amp; Trick Dog Titles</h2>
+              <p className="akc-kicker">AKC Approved CGC Evaluator</p>
+              <h2 id="akc-testing-title">Want to Earn an AKC Title?</h2>
               <p>
-                Ready to test your dog’s skills? Request an in-person CGC-family
-                test or an AKC Trick Dog evaluation in person or by video.
+                I offer in-person CGC testing in the Boston area, virtual Trick Dog
+                evaluations, and CGC prep if your dog needs some practice first.
               </p>
             </div>
           </div>
 
-          <div className="akc-testing-grid">
-            <article className="akc-test-card">
-              <span className="akc-format">In person</span>
-              <h3>Canine Good Citizen Testing</h3>
-              <p>
-                In-person evaluations for Canine Good Citizen (CGC), Community
-                Canine (CGCA), and Urban CGC (CGCU), scheduled at an appropriate
-                Boston-area testing location.
-              </p>
-              <p className="akc-price">$25 per dog, per test</p>
-            </article>
-
-            <article className="akc-test-card featured-akc-card">
-              <span className="akc-format">Video or in person</span>
-              <h3>AKC Trick Dog Titles</h3>
-              <p>
-                Evaluation for Novice, Intermediate, Advanced, Performer, or
-                Elite Performer. Submit a video link or arrange an in-person
-                evaluation.
-              </p>
-              <p className="akc-price">$25 per dog, per title</p>
-            </article>
-
-            <article className="akc-test-card">
-              <span className="akc-format">Video</span>
-              <h3>Virtual Home Manners</h3>
-              <p>
-                Video evaluation for the AKC Virtual Home Manners Puppy or Adult
-                title using the applicable AKC checklist.
-              </p>
-              <p className="akc-price">$25 per dog, per title</p>
-            </article>
+          <div className="akc-testing-actions">
+            <a
+              href="/training?service=akc#training-form"
+              className="akc-request-button"
+            >
+              Request an AKC Service
+            </a>
+            <Link to="/akc-titles" className="akc-learn-button">
+              See AKC Options &amp; Pricing
+            </Link>
           </div>
-
-          <div className="akc-testing-note">
-            <strong>Please note:</strong> The $25 fee covers your evaluation,
-            feedback, and completed evaluator paperwork. It does not guarantee a
-            passing result. AKC application or recording fees are separate and
-            paid directly to AKC. Official titles require an eligible AKC,
-            PAL, or Canine Partners number.
-          </div>
-
-          <a href="#training-form" className="akc-request-button">
-            Request an AKC Test or Evaluation
-          </a>
         </section>
 
         <section className="trainer-credentials" aria-label="Trainer credentials and affiliations">
@@ -849,16 +866,26 @@ const TrainingForm = () => {
               <h3>AKC Testing &amp; Title Evaluations</h3>
               <ul>
                 <li>
-                  In-person CGC-family test: <strong>$25 per dog, per test</strong>
+                  Scheduled Paisley AKC Title Day: <strong>$25 per test/title</strong>
                 </li>
                 <li>
-                  Trick Dog video or in-person evaluation: <strong>$25 per title</strong>
+                  Private CGC, CGCA, or CGCU appointment: <strong>$50 per test</strong> + travel if applicable
+                </li>
+                <li>
+                  Private CGC Prep + Test: <strong>$115</strong>
+                </li>
+                <li>
+                  Virtual Trick Dog evaluation: <strong>$25/title</strong>; 2 titles <strong>$45</strong>; 3 titles <strong>$60</strong>
                 </li>
                 <li>
                   Virtual Home Manners video evaluation: <strong>$25 per title</strong>
                 </li>
+                <li>
+                  S.T.A.R. Puppy small-group interest list: planned launch <strong>$240 / puppy</strong> for 6 weeks
+                </li>
                 <li>AKC application and recording fees are paid separately to AKC.</li>
               </ul>
+              <Link to="/akc-titles" className="pricing-inline-link">See full AKC service details</Link>
             </div>
 
             <div className="price-card">
@@ -947,14 +974,14 @@ const TrainingForm = () => {
 
             {wantsAkcTesting && (
               <section className="akc-request-fields" aria-label="AKC testing request details">
-                <h3 className="form-section">AKC Test or Title Details</h3>
+                <h3 className="form-section">AKC Service</h3>
 
                 <p className="waitlist-helper">
-                  CGC-family tests are completed in person. Trick Dog and Virtual
-                  Home Manners evaluations may be completed using submitted video.
+                  Just choose the option that sounds closest. If you are not sure which
+                  AKC title or test you need, choose “I’m not sure.”
                 </p>
 
-                <label htmlFor="akcRequestType">Which evaluation do you want?</label>
+                <label htmlFor="akcRequestType">What would you like to do?</label>
                 <select
                   id="akcRequestType"
                   name="akcRequestType"
@@ -971,14 +998,13 @@ const TrainingForm = () => {
                       : undefined
                   }
                 >
-                  <option value="">Select one</option>
-                  <option value="CGC – in person">Canine Good Citizen (CGC) — in person</option>
-                  <option value="CGCA – in person">Community Canine (CGCA) — in person</option>
-                  <option value="CGCU – in person">Urban CGC (CGCU) — in person</option>
-                  <option value="Trick Dog – video">Trick Dog title — video evaluation</option>
-                  <option value="Trick Dog – in person">Trick Dog title — in person</option>
-                  <option value="Virtual Home Manners – video">Virtual Home Manners — video evaluation</option>
-                  <option value="Not sure">Not sure yet</option>
+                  <option value="">Choose one</option>
+                  <option value="CGC Testing">Test my dog — CGC / CGCA / CGCU</option>
+                  <option value="Trick Dog">Earn an AKC Trick Dog title by video</option>
+                  <option value="CGC Prep + Test">Help me prepare for CGC + take the test</option>
+                  <option value="Virtual Home Manners">Virtual Home Manners evaluation</option>
+                  <option value="STAR Puppy – interest list">S.T.A.R. Puppy class interest list</option>
+                  <option value="Not sure">I’m not sure — help me choose</option>
                 </select>
 
                 {touched.akcRequestType && errors.akcRequestType && (
@@ -987,8 +1013,39 @@ const TrainingForm = () => {
                   </div>
                 )}
 
-                {(formData.akcRequestType.startsWith("Trick Dog") ||
-                  formData.akcRequestType.startsWith("Virtual Home Manners")) && (
+                {formData.akcRequestType === "CGC Testing" && (
+                  <>
+                    <label htmlFor="akcTestTitle">Which test?</label>
+                    <select
+                      id="akcTestTitle"
+                      name="akcTestTitle"
+                      value={formData.akcTestTitle}
+                      onChange={handleChange}
+                    >
+                      <option value="">Choose one or “Not sure”</option>
+                      <option value="CGC">Canine Good Citizen (CGC)</option>
+                      <option value="CGCA">Community Canine (CGCA)</option>
+                      <option value="CGCU">Urban Canine Good Citizen (CGCU)</option>
+                      <option value="Not sure">Not sure which one</option>
+                    </select>
+
+                    <label htmlFor="akcTestFormat">How would you like to test?</label>
+                    <select
+                      id="akcTestFormat"
+                      name="akcTestFormat"
+                      value={formData.akcTestFormat}
+                      onChange={handleChange}
+                    >
+                      <option value="">Choose one</option>
+                      <option value="Scheduled Title Day – $25">Next scheduled Title Day — $25</option>
+                      <option value="Private appointment – $50">Private appointment — $50</option>
+                      <option value="Not sure">Not sure / either works</option>
+                    </select>
+                  </>
+                )}
+
+                {(formData.akcRequestType === "Trick Dog" ||
+                  formData.akcRequestType === "Virtual Home Manners") && (
                   <>
                     <label htmlFor="akcTitleLevel">Which title level?</label>
                     <select
@@ -997,8 +1054,8 @@ const TrainingForm = () => {
                       value={formData.akcTitleLevel}
                       onChange={handleChange}
                     >
-                      <option value="">Select one or choose “Not sure”</option>
-                      {formData.akcRequestType.startsWith("Trick Dog") ? (
+                      <option value="">Choose one or “Not sure”</option>
+                      {formData.akcRequestType === "Trick Dog" ? (
                         <>
                           <option value="Novice Trick Dog (TKN)">Novice Trick Dog (TKN)</option>
                           <option value="Intermediate Trick Dog (TKI)">Intermediate Trick Dog (TKI)</option>
@@ -1027,7 +1084,7 @@ const TrainingForm = () => {
                       onChange={handleChange}
                     />
                     <p className="helper">
-                      You can leave this blank and send the video after I reply with instructions.
+                      No video yet? That is fine — leave this blank and I will send instructions.
                     </p>
                   </>
                 )}
@@ -1218,7 +1275,7 @@ const TrainingForm = () => {
               {submitting
                 ? "Sending…"
                 : wantsAkcTesting
-                  ? "Request an AKC Evaluation"
+                  ? "Request an AKC Service"
                   : "Request a Session"}
             </button>
           </form>
@@ -1235,8 +1292,8 @@ const TrainingForm = () => {
               </p>
             ) : lastSubmittedService === "AKC Testing & Titles" ? (
               <p>
-                I received your AKC testing request. I’ll reply with scheduling or
-                video-submission instructions and the forms you’ll need.
+                I received your AKC request. I’ll reply with the next step for testing,
+                training, video submission, or the S.T.A.R. Puppy interest list.
               </p>
             ) : (
               <p>I’ll follow up shortly with a plan, pricing, and scheduling options.</p>

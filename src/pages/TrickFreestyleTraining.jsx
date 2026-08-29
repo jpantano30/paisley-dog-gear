@@ -74,7 +74,7 @@ const TrickFreestyleTraining = () => {
           </p>
 
           <div className="hero-buttons">
-            <a href="/training#training-form" className="primary-btn">
+            <a href="/training?service=trick-training#training-form" className="primary-btn">
               Request trick training
             </a>
 
@@ -184,6 +184,10 @@ const TrickFreestyleTraining = () => {
                 <li>Polishing tricks for clearer performances</li>
                 <li>Building confidence on camera</li>
               </ul>
+
+              <Link to="/akc-titles#trick-dog-titles" className="program-title-link">
+                See AKC Trick Dog titling →
+              </Link>
             </article>
           </div>
         </section>
@@ -257,9 +261,14 @@ const TrickFreestyleTraining = () => {
             you want to work toward. I’ll help you choose the best starting point.
           </p>
 
-          <a href="/training#training-form" className="primary-btn">
-            Request trick training
-          </a>
+          <div className="hero-buttons">
+            <a href="/training?service=trick-training#training-form" className="primary-btn">
+              Request trick training
+            </a>
+            <Link to="/akc-titles#trick-dog-titles" className="secondary-btn">
+              AKC Trick Dog Titles
+            </Link>
+          </div>
         </section>
       </main>
     </>

@@ -78,35 +78,7 @@ button:hover {
   text-align: center;
 }
 
-/* ===== NAVBAR OVERRIDES (if applicable) ===== */
-.navbar {
-  background-color: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-logo img {
-  height: 48px;
-  margin-right: 0.75rem;
-}
-
-.navbar a {
-  color: #2f2f2f;
-  font-weight: 600;
-  margin-left: 1.5rem;
-}
-
-.navbar a:hover {
-  color: #e27d60;
-}
+/* Navbar styles live in components/Navbar.css. */
 
 /* ===== FOOTER ===== */
 footer {

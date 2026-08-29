@@ -188,16 +188,17 @@ const Home = () => {
           />
 
           <div className="akc-home-copy">
-            <p className="akc-eyebrow">AKC Approved Evaluator</p>
-            <h2 id="akc-home-title">CGC Testing &amp; Trick Dog Titles</h2>
+            <p className="akc-eyebrow">AKC Approved CGC Evaluator</p>
+            <h2 id="akc-home-title">CGC • S.T.A.R. Puppy • Trick Dog Titles</h2>
             <p>
-              Request an in-person Canine Good Citizen test or earn an AKC Trick Dog
-              title through an in-person or video evaluation. Evaluations are
-              <strong> $25 per dog, per test or title</strong>. AKC application fees are separate.
+              In-person CGC, CGCA, and CGCU testing in the Boston area, virtual
+              Trick Dog and Virtual Home Manners evaluations, CGC prep, and a
+              future small-group S.T.A.R. Puppy program. <strong>Title Day
+              evaluations start at $25.</strong>
             </p>
-            <a href="/training#akc-testing" className="cta-button akc-home-button">
-              View AKC Testing Options
-            </a>
+            <Link to="/akc-titles" className="cta-button akc-home-button">
+              Explore AKC Titles &amp; Testing
+            </Link>
           </div>
         </section>
 
