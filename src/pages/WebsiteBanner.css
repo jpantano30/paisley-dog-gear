@@ -1,0 +1,109 @@
+.website-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f3ed;
+  border-bottom: 1px solid rgba(126, 94, 59, 0.12);
+}
+
+.website-banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.website-hero-intro {
+  background: #faf9f6;
+  border-bottom: 1px solid rgba(126, 94, 59, 0.12);
+  padding: 1.75rem 1.25rem 2rem;
+}
+
+.website-hero-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.website-hero-copy {
+  max-width: 650px;
+}
+
+.website-hero-kicker {
+  margin: 0 0 0.35rem;
+  color: #a65f4b;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.website-hero-copy h1 {
+  margin: 0;
+  color: #38261f;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.98;
+}
+
+.website-hero-copy > p:last-child {
+  margin: 0.75rem 0 0;
+  color: #4a403b;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.website-hero-actions {
+  width: min(360px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.website-hero-actions .cta-button {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .website-banner-image {
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: 50% center;
+  }
+
+  .website-hero-intro {
+    padding: 1.4rem 1rem 1.65rem;
+  }
+
+  .website-hero-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .website-hero-copy {
+    text-align: center;
+  }
+
+  .website-hero-copy h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .website-hero-actions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .website-hero-actions {
+    grid-template-columns: 1fr;
+  }
+}

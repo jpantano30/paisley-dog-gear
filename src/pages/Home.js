@@ -3,14 +3,7 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
 import "@fontsource/cormorant-garamond/700.css";
-// import Banner from "../components/Banner";
-import "../components/Banner.css";
-
-const HERO_IMAGES = [
-  { src: "/assets/leashpicsNvids/set3.JPG", alt: "Hands-free biothane dog leash" },
-  { src: "/assets/leashpicsNvids/red&bluebuckle.JPG", alt: "Biothane buckle dog collar" },
-  { src: "/assets/leashpicsNvids/ballholder3.JPG", alt: "Biothane ball holder" },
-];
+import "./WebsiteBanner.css";
 
 const Parade_IMG = "/assets/Show.jpeg";
 
@@ -55,7 +48,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <Banner /> */}
       <title>Boston Dog Trainer & Custom Biothane Leashes | Paisley Dog Gear & Training</title>
       <meta name="description"
             content="Private dog training, AKC CGC testing, and virtual or in-person Trick Dog title evaluations in Boston, plus handmade waterproof BioThane leashes and collars." />
@@ -64,53 +56,46 @@ const Home = () => {
       <script type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLD) }} />
 
-      {/* ===== HERO STRIP ===== */}
-      <section className="hero-strip" aria-label="Featured photos">
-        <div className="hero-grid">
-          {HERO_IMAGES.slice(0, 3).map((img, i) => (
-            <div className="hero-tile" key={i}>
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading={i === 0 ? "eager" : "lazy"}
-                decoding="async"
-              />
-            </div>
-          ))}
-        </div>
+      {/* ===== BRANDED WEBSITE BANNER ===== */}
+      <section className="website-banner" aria-label="Paisley Dog Gear and Training">
+        <img
+          src="/assets/paisley-website-banner.webp"
+          alt="Paisley Dog Gear and Training with Paisley wearing custom gear and a selection of handmade BioThane products"
+          className="website-banner-image"
+          loading="eager"
+          decoding="async"
+        />
+      </section>
 
-        {/* Bottom-left bar */}
-        <div className="hero-bottombar" role="presentation">
-          <div className="hero-bar-inner">
-            <div className="hero-bar-text">
-              <p className="hero-kicker">Handmade in Boston</p>
-              <h1 className="hero-heading">Custom Biothane Dog Gear & Training</h1>
-              <p className="hero-sub">
-                Durable, waterproof gear and balanced training built for real life.
-              </p>
-            </div>
+      {/* Keep the important heading and links as real text for accessibility and search engines. */}
+      <section className="website-hero-intro" aria-labelledby="homepage-heading">
+        <div className="website-hero-inner">
+          <div className="website-hero-copy">
+            <p className="website-hero-kicker">Handmade in Boston</p>
+            <h1 id="homepage-heading">Custom BioThane Dog Gear &amp; Training</h1>
+            <p>
+              Durable, waterproof gear and balanced training built for real life.
+            </p>
+          </div>
 
-            <div className="hero-actions">
-              <div className="hero-actions-row">
-                <Link to="/builder" className="cta-button cta-primary" id="herobtn">
-                  Design Your Own
-                </Link>
-                <Link to="/training" className="cta-button cta-ghost" id="herobtn">
-                  Training
-                </Link>
-              </div>
-
-              <div className="hero-actions-row">
-                <Link to="/options" className="cta-button cta-ghost" id="herobtn">
-                  View Options
-                </Link>
-                <Link to="/gallery" className="cta-button cta-ghost" id="herobtn">
-                  Gallery
-                </Link>
-              </div>
-            </div>
-
-
+          <div className="website-hero-actions" aria-label="Homepage actions">
+            <a
+              href="https://www.etsy.com/shop/PaisleyDogGear"
+              className="cta-button cta-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Shop on Etsy
+            </a>
+            <Link to="/training" className="cta-button cta-ghost">
+              Training
+            </Link>
+            <Link to="/akc-titles" className="cta-button cta-ghost">
+              AKC Titles
+            </Link>
+            <Link to="/gallery" className="cta-button cta-ghost">
+              Gallery
+            </Link>
           </div>
         </div>
       </section>
@@ -121,10 +106,6 @@ const Home = () => {
         {/* Site intro */}
         <div className="hero">
           <p className="links-container1"><a href="/boston-dog-trainer-north-end">Boston</a> <a href="/biothane-dog-leashes-boston">Biothane</a></p>
-          <img src="/assets/logo.jpg" alt="Paisley Dog Logo" className="hero-logo" />
-          <h1>Paisley Dog Gear & Training</h1>
-          <h2 className="tagline">Custom Biothane Dog Gear & Training in Boston, MA</h2>
-          <p>Functional. Custom. Made for Adventure.</p>
           <img src={Parade_IMG} alt="Parade" className="parade-img" />
           <p className="featured-in">Featured in The Boston Globe October 2025</p>
         </div>
@@ -176,7 +157,7 @@ const Home = () => {
         {/* AKC testing and titling */}
         <section className="akc-home-feature" aria-labelledby="akc-home-title">
           <img
-            src="/assets/akc-cgc-evaluator-logo.png"
+            src="/assets/akc-cgc-evaluator-logo.jpg"
             alt="AKC Approved CGC Evaluator logo"
             className="akc-home-logo"
             loading="lazy"
