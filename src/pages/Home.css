@@ -359,34 +359,163 @@
 
 /* ===== DOGS ===== */
 .dogs {
-  max-width: 1000px;
-  margin: 3rem auto;
+  max-width: 1080px;
+  margin: 3.5rem auto;
+  padding: 0 18px;
   text-align: center;
 }
+
+.dogs-heading {
+  max-width: 680px;
+  margin: 0 auto 1.7rem;
+}
+
+.dogs-eyebrow {
+  margin: 0 0 0.2rem;
+  color: var(--brand-teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
 .dogs h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #333;
+  margin: 0 0 0.45rem;
+  color: #7e5e3b;
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
 }
+
+.dogs-heading > p:last-child {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
 .dog-profiles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.35rem;
+  align-items: stretch;
 }
+
 .dog-card {
-  max-width: 250px;
-  text-align: center;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  text-align: left;
+  background: #fff;
+  border: 1px solid rgba(126, 94, 59, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.dog-card:hover { transform: scale(1.03); }
-.dog-card img {
+
+.dog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 11px 28px rgba(0, 0, 0, 0.1);
+}
+
+.dog-photo {
+  position: relative;
   width: 100%;
-  border-radius: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eef8f6, #fbf4ef);
+}
+
+.dog-photo > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.dog-photo-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: #7e5e3b;
+  text-align: center;
+}
+
+.dog-photo-fallback[hidden] {
+  display: none;
+}
+
+.dog-photo-fallback span {
+  font-size: 2rem;
+}
+
+.dog-photo-fallback strong {
+  font-size: 1.2rem;
+}
+
+.dog-photo-fallback small {
+  color: #6a6a6a;
+}
+
+.dog-card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.2rem 1.2rem 1.3rem;
+}
+
+.dog-role {
+  margin: 0 0 0.3rem;
+  color: var(--brand-teal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.dog-card h3 {
+  margin: 0 0 0.55rem;
+  color: #7e5e3b;
+  font-size: 1.45rem;
+}
+
+.dog-card-copy > p:not(.dog-role) {
+  margin: 0;
+  color: #4b4b4b;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.dog-social {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--brand-teal);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.dog-social:hover,
+.dog-social:focus {
+  color: #2f8f82;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .dog-profiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dog-card:last-child {
+    grid-column: 1 / -1;
+    width: min(100%, 520px);
+    justify-self: center;
+  }
 }
 
 /* ===== FEATURED PRODUCTS ===== */
@@ -528,8 +657,16 @@
   .tagline { font-size: 0.9rem; }
 
   .product-card img { height: 150px; }
-  .dog-profiles { flex-direction: column; align-items: center; }
-  .dog-card { max-width: 90%; }
+  .dog-profiles {
+    grid-template-columns: 1fr;
+  }
+  .dog-card,
+  .dog-card:last-child {
+    width: 100%;
+    max-width: 520px;
+    grid-column: auto;
+    justify-self: center;
+  }
   .product-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;

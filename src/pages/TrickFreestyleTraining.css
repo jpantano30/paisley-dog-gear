@@ -290,3 +290,15 @@
     padding-top: 1.5rem;
   }
 }
+/* Personal demo-dog note */
+.demo-dog-note {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(65, 179, 163, 0.08);
+  border-left: 4px solid var(--brand-teal, #41b3a3);
+  border-radius: 0 10px 10px 0;
+}
+
+.demo-dog-note strong {
+  color: #7e5e3b;
+}

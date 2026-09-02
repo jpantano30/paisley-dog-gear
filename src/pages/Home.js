@@ -164,7 +164,7 @@ const Home = () => {
                 <br /><br />
                 The relationship between the dog and human is always the priority. My goal is to help teams build better communication, confidence, and trust so everyday life feels easier and you actually enjoy working together. Training is not just about skills. It is about a stronger bond.
                 <br /><br />
-                I started Paisley Dog Gear &amp; Training to combine thoughtful training with durable, functional gear that is tested daily by my own dogs, Paisley (retired service dog) and Tallulah (Bordoodle and service dog in training). My background as a pastry chef means I am used to precision, aesthetics, and working with my hands, and that now goes into every leash, long line, and tab I make: strong materials, secure hardware, and creative color pairings that still make sense for real training. The goal is gear that feels good in your hands, holds up to daily use, and reflects your dog’s personality.
+                I started Paisley Dog Gear &amp; Training to combine thoughtful training with durable, functional gear that is tested daily by my own dogs. Paisley, my retired service dog, inspired the business. Tallulah is my trick and freestyle demo dog and service dog in training, and Tucker is growing up with foundations for tricks, freestyle, and agility. My background as a pastry chef means I am used to precision, aesthetics, and working with my hands, and that now goes into every leash, long line, and tab I make: strong materials, secure hardware, and creative color pairings that still make sense for real training. The goal is gear that feels good in your hands, holds up to daily use, and reflects your dog’s personality.
                 <br /><br />
                 I am an <strong>AKC Approved Canine Good Citizen Evaluator</strong>, a member of the <strong>Association of Professional Dog Trainers (APDT)</strong>, and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I am also actively working toward CPDT-KA certification and am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
               </p>
@@ -202,36 +202,102 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Dogs (kept) */}
+        {/* Meet the dogs */}
         <section className="dogs">
-          <h2>Meet the Dogs</h2>
+          <div className="dogs-heading">
+            <p className="dogs-eyebrow">The Paisley crew</p>
+            <h2>Meet the Dogs</h2>
+            <p>
+              The dogs behind the gear, the training, and a lot of the ideas you see here.
+            </p>
+          </div>
+
           <div className="dog-profiles">
-            <div className="dog-card">
-              <img src="/assets/tully.jpeg" alt="Tallulah the Bordoodle" />
-              <h3>Tallulah</h3>
-              <p>
-                My energetic SDiT and demo dog. Smart, sassy, and training in freestyle and service work. She has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles. She has also earned her Noice, Intermediate, Advanced, and Expert trick titles through Do More With Your Dog! We are working towards Grand Champion and Animal Actors certifications. 
-                <br /><br />
-                Follow her adventures on Instagram:
-                <br />
-                <a href="https://www.instagram.com/tullytornado" target="_blank" rel="noopener noreferrer">
-                  @TullyTornado
+            <article className="dog-card">
+              <div className="dog-photo">
+                <img src="/assets/tully.jpeg" alt="Tallulah the Bordoodle" loading="lazy" />
+              </div>
+              <div className="dog-card-copy">
+                <p className="dog-role">Demo dog • Tricks • Freestyle</p>
+                <h3>Tallulah</h3>
+                <p>
+                  My energetic SDiT and primary demo dog for trick training and canine freestyle.
+                  Tully has earned AKC Novice, Intermediate, and Advanced Trick Dog titles, plus
+                  Do More With Your Dog titles from Novice through Expert. We also train in
+                  agility and keep building toward more advanced trick and performance goals.
+                </p>
+                <a
+                  className="dog-social"
+                  href="https://www.instagram.com/tullytornado"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Follow Tully &amp; Tucker @TullyTornado →
                 </a>
-              </p>
-            </div>
-            <div className="dog-card">
-              <img src="/assets/paisley.jpg" alt="Paisley the Cavachon" />
-              <h3>Paisley</h3>
-              <p>
-                The OG service dog. Sweet, calm, and retired... but still the inspiration behind it all. My first dog ever and the reason I fell in love with training, canine communication, and the power of a true bond. Paisley supported me through some of the hardest years of my life. She worked with quiet confidence, always by my side, always steady. Though she’s now enjoying retirement (and plenty of naps), her legacy lives on in every leash I make and every dog I help train. None of this would exist without her.
-                <br /><br />
-                Follow her journey on Instagram:
-                <br />
-                <a href="https://www.instagram.com/paisleyisbeautiful" target="_blank" rel="noopener noreferrer">
-                  @PaisleyIsBeautiful
+              </div>
+            </article>
+
+            <article className="dog-card dog-card-tucker">
+              <div className="dog-photo">
+                <img
+                  src="/assets/tucker.jpg"
+                  alt="Tucker"
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                    const fallback = event.currentTarget.nextElementSibling;
+                    if (fallback) fallback.hidden = false;
+                  }}
+                />
+                <div className="dog-photo-fallback" hidden>
+                  <span aria-hidden="true">🐾</span>
+                  <strong>Tucker</strong>
+                  <small>Photo coming soon</small>
+                </div>
+              </div>
+              <div className="dog-card-copy">
+                <p className="dog-role">Puppy in training • Future sport dog</p>
+                <h3>Tucker</h3>
+                <p>
+                  The newest member of the Paisley crew. Tucker is learning engagement,
+                  confidence, body awareness, and how to learn from the very beginning. As he
+                  grows, we’ll be training in tricks, canine freestyle, and agility—so you’ll
+                  get to see his progress from puppy foundations onward.
+                </p>
+                <a
+                  className="dog-social"
+                  href="https://www.instagram.com/tullytornado"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Follow Tully &amp; Tucker @TullyTornado →
                 </a>
-              </p>
-            </div>
+              </div>
+            </article>
+
+            <article className="dog-card">
+              <div className="dog-photo">
+                <img src="/assets/paisley.jpg" alt="Paisley the Cavachon" loading="lazy" />
+              </div>
+              <div className="dog-card-copy">
+                <p className="dog-role">The original Paisley • Retired service dog</p>
+                <h3>Paisley</h3>
+                <p>
+                  The original Paisley and the reason this business exists. My first dog and
+                  retired service dog, she taught me how much thoughtful training, communication,
+                  and a strong dog-handler relationship can matter. These days she is enjoying
+                  retirement, but her legacy is behind every dog I train and every piece of gear I make.
+                </p>
+                <a
+                  className="dog-social"
+                  href="https://www.instagram.com/paisleyisbeautiful"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Follow Paisley @PaisleyIsBeautiful →
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -256,7 +322,7 @@ const Home = () => {
             <br />
             Want help with behavior or tricks? <a href="/training">Request training.</a>{" "}
             <br />
-            Ready for a CGC test or Trick Dog title? <a href="/training#akc-testing">View AKC testing.</a>{" "}
+            Ready for a CGC test or Trick Dog title? <a href="/akc-titles">View AKC titles &amp; testing.</a>{" "}
             <br />
             Explore our <a href="/gallery">gallery</a>, <a href="/colors">colors</a>,{" "}
             <a href="/options">options</a>, and <a href="/videos">videos</a>.

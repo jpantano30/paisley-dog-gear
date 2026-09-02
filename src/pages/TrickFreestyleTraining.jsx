@@ -100,6 +100,12 @@ const TrickFreestyleTraining = () => {
               high-energy dogs who need an outlet, and handlers who want to do
               something fun and creative with their dog.
             </p>
+
+            <p className="demo-dog-note">
+              <strong>I practice these skills with my own dogs, too:</strong> Tallulah works on
+              more advanced tricks and freestyle, while Tucker is learning the same foundations
+              from puppyhood before building into freestyle and agility.
+            </p>
           </div>
 
           <div className="method-card">

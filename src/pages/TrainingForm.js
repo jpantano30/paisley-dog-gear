@@ -680,8 +680,10 @@ const TrainingForm = () => {
           <p className="cred-disclaimer">
             I’ve been working hands-on with dogs for over 10 years, from walking and pet sitting to training. I started
             by training my first service dog, then my second service dog, Tallulah (Tully), who is also my trick and
-            freestyle demo dog and has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles. Now I help
-            clients with puppies, obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced
+            freestyle demo dog and has earned her AKC Novice, Intermediate, and Advanced Trick Dog titles. I’m now
+            also raising Tucker from puppy foundations with plans to build into tricks, freestyle, and agility as he grows.
+            That keeps early development, engagement, confidence, and learning-how-to-learn skills part of my daily
+            training work. I help clients with puppies, obedience, behavior, and freestyle (Dog Dance) foundations. My style is balanced
             training, with a focus on clear communication, building a strong dog and owner relationship, and setting
             both up for real world success. I’m an AKC Approved CGC Evaluator, an active member of IACP and
             APDT, Pet CPR &amp; First Aid certified through Pet Emergency Education, and I’m currently working toward my
