@@ -828,56 +828,115 @@
 
 /* ===== Maker card ===== */
 .maker {
-  max-width: 1000px;
-  margin: 1.75rem auto 1.5rem;
+  max-width: 1080px;
+  margin: 2.25rem auto 2rem;
   text-align: left;
   padding: 0 12px;
 }
 
 .maker-card {
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  padding: 1.5rem 1.75rem;
-  transition: transform 0.2s ease;
+  border: 1px solid rgba(65, 179, 163, 0.16);
+  border-radius: 22px;
+  box-shadow: 0 12px 34px rgba(71, 54, 39, 0.09);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
 }
-.maker-card:hover { transform: scale(1.03); }
 
 .maker-layout {
-  display: flex;
-  gap: 1.75rem;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.55fr);
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: start;
 }
 
 .maker-photo-stack {
-  width: 230px;
-  flex: 0 0 230px;
   display: grid;
-  gap: 0.65rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .maker-photo-stack img {
   width: 100%;
-  height: 220px;
-  border-radius: 12px;
+  height: 180px;
+  border-radius: 14px;
   object-fit: contain;
   background: #f8f5f1;
   display: block;
 }
 
-.maker-info { flex: 1; }
-
-.maker-name {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  text-align: center;
+.maker-photo-stack img:first-child {
+  grid-column: 1 / -1;
+  height: 330px;
+  background: #fff0fa;
 }
 
-.maker-bio {
-  font-size: 0.98rem;
-  line-height: 1.6;
+.maker-info { flex: 1; }
+
+.maker-eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--brand-teal);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.maker-name {
+  margin: 0 0 0.65rem;
+  color: #7e5e3b;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.maker-lead {
+  margin: 0 0 1.35rem;
+  color: #343434;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.maker-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.maker-details > div {
+  padding: 1rem;
+  background: linear-gradient(145deg, #f6fbfa, #fff9f5);
+  border: 1px solid rgba(65, 179, 163, 0.16);
+  border-radius: 14px;
+}
+
+.maker-details h3 {
+  margin: 0 0 0.45rem;
+  color: #7e5e3b;
+  font-size: 1rem;
+}
+
+.maker-details p {
+  margin: 0;
+  color: #505050;
+  font-size: 0.91rem;
+  line-height: 1.58;
+}
+
+.maker-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.2rem;
+}
+
+.maker-credentials span {
+  padding: 0.48rem 0.72rem;
+  color: #286f65;
+  background: #eaf7f5;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 /* ===== Footer / disclaimer ===== */
@@ -908,19 +967,22 @@
 /* Maker layout on small screens */
 @media (max-width: 800px) {
   .maker-layout {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 
   .maker-photo-stack {
     width: 100%;
     max-width: 620px;
-    flex-basis: auto;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .maker-photo-stack img {
-    height: clamp(150px, 38vw, 230px);
+    height: clamp(145px, 38vw, 230px);
+  }
+
+  .maker-photo-stack img:first-child {
+    height: clamp(300px, 88vw, 480px);
   }
 
   .maker {
@@ -929,6 +991,10 @@
 
   .maker-info {
     text-align: left;
+  }
+
+  .maker-details {
+    grid-template-columns: 1fr;
   }
 
   .akc-home-feature {

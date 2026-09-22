@@ -205,18 +205,33 @@ const Home = () => {
                 />
               </div>
               <div className="maker-info">
-                <h3 className="maker-name">About the Maker</h3>
-                <p className="maker-bio">
-                Hi, I’m Jena, the founder of Paisley Dog Gear &amp; Training in Boston. I’m a dog trainer with a special focus on trick training and canine freestyle, and I also work on the real-life skills dogs need every day. From puppy foundations and manners to leash skills, obedience, behavior support, and confidence-building tricks, my goal is to help dogs thrive both at home and out in the world.
-                <br /><br />
-                My education in health sciences and psychology gives me a strong foundation in behavior, learning, and stress. I use that background to create clear, step by step training plans that support both the dog and the person on the other end of the leash.
-                <br /><br />
-                The relationship between the dog and human is always the priority. My goal is to help teams build better communication, confidence, and trust so everyday life feels easier and you actually enjoy working together. Training is not just about skills. It is about a stronger bond.
-                <br /><br />
-                I started Paisley Dog Gear &amp; Training to combine thoughtful training with durable, functional gear that is tested daily by my own dogs. Paisley, my retired service dog, inspired the business. Tallulah is my trick and freestyle demo dog and service dog in training, and Tucker is growing up with foundations for tricks, freestyle, and agility. My background as a pastry chef means I am used to precision, aesthetics, and working with my hands, and that now goes into every leash, long line, and tab I make: strong materials, secure hardware, and creative color pairings that still make sense for real training. The goal is gear that feels good in your hands, holds up to daily use, and reflects your dog’s personality.
-                <br /><br />
-                I am an <strong>AKC Approved Canine Good Citizen Evaluator</strong>, a member of the <strong>Association of Professional Dog Trainers (APDT)</strong>, and an <strong>Associate Member of the International Association of Canine Professionals (IACP)</strong>. I am also actively working toward CPDT-KA certification and am committed to ongoing education, ethics, and clear communication with every dog and handler I work with.
-              </p>
+                <p className="maker-eyebrow">Trainer • Maker • Dog person</p>
+                <h2 className="maker-name">Hi, I’m Jena</h2>
+                <p className="maker-lead">
+                  I’m the founder of Paisley Dog Gear &amp; Training in Boston. I help dogs and their people build practical skills, clearer communication, and a stronger relationship.
+                </p>
+
+                <div className="maker-details">
+                  <div>
+                    <h3>Thoughtful, real-life training</h3>
+                    <p>
+                      I specialize in trick training and canine freestyle while also working on puppy foundations, manners, leash skills, obedience, behavior support, and confidence. My background in health sciences and psychology helps me create clear, step-by-step plans built around behavior, learning, and stress.
+                    </p>
+                  </div>
+                  <div>
+                    <h3>Gear made for everyday adventures</h3>
+                    <p>
+                      Paisley, my retired service dog, inspired the business. Tallulah is my trick and freestyle demo dog and service dog in training, while Tucker is building foundations for tricks, freestyle, and agility. My pastry-chef background brings precision and creativity to every durable, functional piece of gear I make.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="maker-credentials" aria-label="Professional credentials">
+                  <span>AKC Approved CGC Evaluator</span>
+                  <span>APDT Member</span>
+                  <span>IACP Associate Member</span>
+                  <span>Working toward CPDT-KA</span>
+                </div>
           </div>
         </div>
       </div>
