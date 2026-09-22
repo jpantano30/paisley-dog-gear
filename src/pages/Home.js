@@ -7,7 +7,10 @@ import "./WebsiteBanner.css";
 
 const Parade_IMG = "/assets/Show.jpeg";
 
-const YT_ID = "wJ6vECs0Cu4"; // Shorts id
+const handleImageFallback = (event, fallbackSrc) => {
+  event.currentTarget.onerror = null;
+  event.currentTarget.src = fallbackSrc;
+};
 
 const Home = () => {
 
@@ -141,32 +144,33 @@ const Home = () => {
           <p className="featured-in">Featured in The Boston Globe October 2025</p>
         </div>
 
-        {/* NEW: Video in main content (responsive) */}
-        <section className="intro-video" aria-label="Tully video">
-          <div className="video-frame">
-            <iframe
-              title="Tully tricks"
-              src={`https://www.youtube.com/embed/${YT_ID}?autoplay=0&mute=0&controls=1&loop=0&playsinline=1&modestbranding=1`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
-          {/* <p className="video-caption">A quick look at the fun, practical training style I use.</p> */}
-        </section>
-        
-        
-        {/* NEW: Maker image card ABOVE About the Maker (styled like dog cards) */}
+        {/* About the maker */}
         <section className="maker" aria-label="About the maker photo">
-          {/* <h2>About the Maker</h2> */}
           <div className="maker-card">
             <div className="maker-layout">
-              <img
-                src="/assets/Jena_hero.jpg"
-                alt="Jena holding her dog by the water"
-                loading="lazy"
-                decoding="async"
-              />
+              <div className="maker-photo-stack" aria-label="Jena and the Paisley crew">
+                <img
+                  src="/assets/jandtul.jpg"
+                  alt="Jena with Tallulah"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event) => handleImageFallback(event, "/assets/Jena_hero.jpg")}
+                />
+                <img
+                  src="/assets/splitwhite.jpg"
+                  alt="Jena training with one of her dogs"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event) => handleImageFallback(event, "/assets/tully.jpeg")}
+                />
+                <img
+                  src="/assets/headjumppink.jpg"
+                  alt="Jena and her dog performing a trick together"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event) => handleImageFallback(event, "/assets/paisley.JPG")}
+                />
+              </div>
               <div className="maker-info">
                 <h3 className="maker-name">About the Maker</h3>
                 <p className="maker-bio">
@@ -227,7 +231,12 @@ const Home = () => {
           <div className="dog-profiles">
             <article className="dog-card">
               <div className="dog-photo">
-                <img src="/assets/tully.jpeg" alt="Tallulah the Bordoodle" loading="lazy" />
+                <img
+                  src="/assets/tully.jpg"
+                  alt="Tallulah the Bordoodle"
+                  loading="lazy"
+                  onError={(event) => handleImageFallback(event, "/assets/tully.jpeg")}
+                />
               </div>
               <div className="dog-card-copy">
                 <p className="dog-role">Demo dog • Tricks • Freestyle</p>
@@ -238,27 +247,17 @@ const Home = () => {
                   Do More With Your Dog titles from Novice through Expert. We also train in
                   agility and keep building toward more advanced trick and performance goals.
                 </p>
-                <a
-                  className="dog-social"
-                  href="https://www.instagram.com/tullytornado"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Follow Tully &amp; Tucker @TullyTornado →
-                </a>
               </div>
             </article>
 
             <article className="dog-card dog-card-tucker">
               <div className="dog-photo">
                 <img
-                  src="/assets/tucker.jpg"
+                  src="/assets/tucker.jpeg"
                   alt="Tucker"
                   loading="lazy"
                   onError={(event) => {
-                    event.currentTarget.style.display = "none";
-                    const fallback = event.currentTarget.nextElementSibling;
-                    if (fallback) fallback.hidden = false;
+                    handleImageFallback(event, "/assets/tucker.jpg");
                   }}
                 />
                 <div className="dog-photo-fallback" hidden>
@@ -276,20 +275,17 @@ const Home = () => {
                   grows, we’ll be training in tricks, canine freestyle, and agility—so you’ll
                   get to see his progress from puppy foundations onward.
                 </p>
-                <a
-                  className="dog-social"
-                  href="https://www.instagram.com/tullytornado"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Follow Tully &amp; Tucker @TullyTornado →
-                </a>
               </div>
             </article>
 
             <article className="dog-card">
               <div className="dog-photo">
-                <img src="/assets/paisley.jpg" alt="Paisley the Cavachon" loading="lazy" />
+                <img
+                  src="/assets/pais.jpeg"
+                  alt="Paisley the Cavachon"
+                  loading="lazy"
+                  onError={(event) => handleImageFallback(event, "/assets/paisley.JPG")}
+                />
               </div>
               <div className="dog-card-copy">
                 <p className="dog-role">The original Paisley • Retired service dog</p>
@@ -310,6 +306,22 @@ const Home = () => {
                 </a>
               </div>
             </article>
+          </div>
+
+          <div className="tully-instagram">
+            <div>
+              <p className="tully-instagram-eyebrow">More from the Paisley crew</p>
+              <h3>See Tully in action</h3>
+              <p>Visit Tully’s Instagram for training clips, tricks, freestyle, and everyday adventures.</p>
+            </div>
+            <a
+              href="https://www.instagram.com/tullytornado/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tully-instagram-link"
+            >
+              View Tully’s Instagram posts →
+            </a>
           </div>
         </section>
 
