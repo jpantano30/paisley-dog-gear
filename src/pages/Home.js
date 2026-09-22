@@ -6,6 +6,7 @@ import "@fontsource/cormorant-garamond/700.css";
 import "./WebsiteBanner.css";
 
 const Parade_IMG = "/assets/Show.jpeg";
+const YT_ID = "wJ6vECs0Cu4";
 
 const handleImageFallback = (event, fallbackSrc) => {
   event.currentTarget.onerror = null;
@@ -143,6 +144,22 @@ const Home = () => {
           <img src={Parade_IMG} alt="Parade" className="parade-img" />
           <p className="featured-in">Featured in The Boston Globe October 2025</p>
         </div>
+
+        <section className="tully-instagram tully-instagram-home" aria-label="Tully on Instagram">
+          <div>
+            <p className="tully-instagram-eyebrow">Follow Tully’s adventures</p>
+            <h2>See Tully’s latest posts</h2>
+            <p>Training clips, tricks, freestyle, and everyday life with the Paisley crew.</p>
+          </div>
+          <a
+            href="https://www.instagram.com/tullytornado/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tully-instagram-link"
+          >
+            View Tully’s Instagram posts →
+          </a>
+        </section>
 
         {/* About the maker */}
         <section className="maker" aria-label="About the maker photo">
@@ -308,20 +325,17 @@ const Home = () => {
             </article>
           </div>
 
-          <div className="tully-instagram">
-            <div>
-              <p className="tully-instagram-eyebrow">More from the Paisley crew</p>
-              <h3>See Tully in action</h3>
-              <p>Visit Tully’s Instagram for training clips, tricks, freestyle, and everyday adventures.</p>
-            </div>
-            <a
-              href="https://www.instagram.com/tullytornado/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tully-instagram-link"
-            >
-              View Tully’s Instagram posts →
-            </a>
+        </section>
+
+        <section className="intro-video" aria-label="Tully training video">
+          <div className="video-frame">
+            <iframe
+              title="Tully tricks"
+              src={`https://www.youtube.com/embed/${YT_ID}?autoplay=0&mute=0&controls=1&loop=0&playsinline=1&modestbranding=1`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
           </div>
         </section>
 
