@@ -50,7 +50,7 @@ const Home = () => {
     <>
       <title>Boston Dog Trainer & Custom Biothane Leashes | Paisley Dog Gear & Training</title>
       <meta name="description"
-            content="Private dog training, AKC CGC testing, and virtual or in-person Trick Dog title evaluations in Boston, plus handmade waterproof BioThane leashes and collars." />
+            content="Day training, private dog training, AKC CGC testing, and Trick Dog title evaluations in Boston, plus handmade waterproof BioThane leashes and collars." />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/" />
       {/* Structured Data */}
       <script type="application/ld+json"
@@ -96,6 +96,37 @@ const Home = () => {
             <Link to="/gallery" className="cta-button cta-ghost">
               Gallery
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="daytraining-spotlight" aria-labelledby="daytraining-title">
+        <div className="dt-inner">
+          <div className="dt-copy">
+            <span className="pill">Now enrolling</span>
+            <h2 id="daytraining-title">Day Training is open</h2>
+            <p className="dt-sub">
+              Your dog spends a structured half or full day with me working on
+              your goals through focused training, rest breaks, and real-world practice.
+            </p>
+            <ul className="dt-highlights">
+              <li>Half-day, full-day, and multi-day package options</li>
+              <li>Practice at parks, neighborhoods, and dog-friendly stores</li>
+              <li>Photo or video updates and a same-day summary</li>
+            </ul>
+            <div className="dt-cta-row">
+              <Link to="/training?service=day-training" className="cta-button cta-secondary">
+                See pricing &amp; request Day Training
+              </Link>
+            </div>
+          </div>
+
+          <div className="dt-media">
+            <img
+              src="/assets/new2/lulu1.jpg"
+              alt="A dog practicing during a Paisley Dog Gear and Training day training session"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -286,9 +317,10 @@ const Home = () => {
         <section className="training-inquiry">
           <h2>Dog Training Inquiries</h2>
           <p>
-            I offer trick training, freestyle, behavior support, AKC CGC testing,
-            and Trick Dog title evaluations in the Boston area. Virtual Trick Dog
-            video evaluations are available nationwide.
+            Day Training enrollment is open. I also offer private training, trick
+            training, freestyle, behavior support, AKC CGC testing, and Trick Dog
+            title evaluations in the Boston area. Virtual Trick Dog video evaluations
+            are available nationwide.
           </p>
           <Link to="/training" className="cta-button cta-secondary">
             Training Request Form

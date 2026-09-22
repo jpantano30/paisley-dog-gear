@@ -1250,8 +1250,8 @@ textarea[aria-invalid="true"] {
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: start;
-  background: #fffdfb;
-  border: 1.5px solid rgba(226, 125, 96, 0.38);
+  background: #f6fbfa;
+  border: 1.5px solid rgba(108, 154, 139, 0.45);
   border-radius: 16px;
   padding: 1.15rem 1.2rem;
   box-shadow: var(--shadow-sm);
@@ -1262,9 +1262,9 @@ textarea[aria-invalid="true"] {
   white-space: nowrap;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: #fff3e8;
-  color: var(--accent-brown);
-  border: 1px solid rgba(126, 94, 59, 0.25);
+  background: #e8f5f1;
+  color: #315e54;
+  border: 1px solid rgba(108, 154, 139, 0.42);
   font-weight: 900;
   font-size: 0.85rem;
 }
@@ -1304,14 +1304,14 @@ textarea[aria-invalid="true"] {
   box-shadow: var(--shadow-md);
 }
 
-.day-training-full-note {
-  border-color: rgba(226, 125, 96, 0.42) !important;
-  background: #fffdfb !important;
+.day-training-open-note {
+  border-color: rgba(108, 154, 139, 0.45) !important;
+  background: #f6fbfa !important;
 }
 
-.waitlist-fields {
-  background: #fffdfb;
-  border: 1.5px solid rgba(226, 125, 96, 0.35);
+.day-training-fields {
+  background: #f6fbfa;
+  border: 1.5px solid rgba(108, 154, 139, 0.38);
   border-radius: 14px;
   padding: 1rem;
   box-shadow: var(--shadow-sm);
@@ -1320,6 +1320,7 @@ textarea[aria-invalid="true"] {
   gap: 0.75rem;
 }
 
+.day-training-helper,
 .waitlist-helper {
   margin: 0 0 0.3rem;
   color: #555;

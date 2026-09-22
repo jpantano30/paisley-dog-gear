@@ -134,7 +134,7 @@ const TrainingForm = () => {
     akcTestFormat: "",
     akcTitleLevel: "",
     akcVideoLink: "",
-    dayTrainingWaitlistType: "",
+    dayTrainingType: "",
     preferredDays: "",
     preferredStart: "",
     scheduleFlexibility: "",
@@ -156,8 +156,7 @@ const TrainingForm = () => {
   const [touched, setTouched] = useState({});
   const [lastSubmittedService, setLastSubmittedService] = useState("")
 
-  const wantsDayTrainingWaitlist =
-    formData.serviceType === "Day Training Waitlist";
+  const wantsDayTraining = formData.serviceType === "Day Training";
 
   const wantsAkcTesting = formData.serviceType === "AKC Testing & Titles";
 
@@ -187,6 +186,11 @@ const TrainingForm = () => {
         ...prev,
         serviceType: "Trick & Freestyle Training"
       }));
+    } else if (requestedService === "day-training") {
+      setFormData((prev) => ({
+        ...prev,
+        serviceType: "Day Training"
+      }));
     } else {
       return;
     }
@@ -203,10 +207,10 @@ const TrainingForm = () => {
 
   const serviceOptions = [
     {
-      value: "Day Training Waitlist",
+      value: "Day Training",
       icon: <SchoolIcon />,
-      title: "Day Training Waitlist",
-      desc: "Day training is currently full. Join the waitlist for future openings."
+      title: "Day Training",
+      desc: "Now accepting new clients for structured half days, full days, and packages."
     },
     // {
     //   value: "Day Training Package",
@@ -321,7 +325,7 @@ const TrainingForm = () => {
         akcTestFormat: "",
         akcTitleLevel: "",
         akcVideoLink: "",
-        dayTrainingWaitlistType: "",
+        dayTrainingType: "",
         preferredDays: "",
         preferredStart: "",
         scheduleFlexibility: "",
@@ -347,32 +351,32 @@ const TrainingForm = () => {
     <>
       {/* <Banner /> */}
 
-      <title>Boston Dog Trainer | AKC CGC &amp; Trick Dog Evaluator</title>
+      <title>Boston Dog Training | Day Training, Private Training &amp; AKC Titles</title>
       <meta
         name="description"
-        content="Private dog training in Boston plus AKC CGC, CGCA and CGCU testing, CGC prep, virtual Trick Dog evaluations, Virtual Home Manners, and S.T.A.R. Puppy interest."
+        content="Day training and private dog training in Boston, plus trick and freestyle training, AKC CGC testing, and virtual Trick Dog title evaluations."
       />
       <link rel="canonical" href="https://paisleydoggearandtraining.com/training" />
 
       <meta property="og:type" content="website" />
       <meta
         property="og:title"
-        content="Boston Dog Trainer | AKC CGC & Trick Dog Evaluator"
+        content="Boston Dog Training | Day Training, Private Training & AKC Titles"
       />
       <meta
         property="og:description"
-        content="Private dog training in Boston plus AKC CGC-family testing, CGC prep, virtual Trick Dog evaluations, Virtual Home Manners, and S.T.A.R. Puppy interest."
+        content="Day training and private dog training in Boston, plus trick and freestyle training, AKC CGC testing, and virtual Trick Dog title evaluations."
       />
       <meta property="og:url" content="https://paisleydoggearandtraining.com/training" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="Boston Dog Trainer | AKC CGC & Trick Dog Evaluator"
+        content="Boston Dog Training | Day Training, Private Training & AKC Titles"
       />
       <meta
         name="twitter:description"
-        content="Private dog training in Boston plus AKC CGC-family testing, CGC prep, virtual Trick Dog evaluations, Virtual Home Manners, and S.T.A.R. Puppy interest."
+        content="Day training and private dog training in Boston, plus trick and freestyle training, AKC CGC testing, and virtual Trick Dog title evaluations."
       />
 
       <script
@@ -382,8 +386,8 @@ const TrainingForm = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             "@id": "https://paisleydoggearandtraining.com/training#service",
-            name: "Dog Training and AKC Evaluations",
-            serviceType: "Private dog training and AKC title evaluations",
+            name: "Dog Training, Day Training, and AKC Evaluations",
+            serviceType: "Day training, private dog training, and AKC title evaluations",
             url: "https://paisleydoggearandtraining.com/training",
             provider: {
               "@id": "https://paisleydoggearandtraining.com/#business"
@@ -404,6 +408,7 @@ const TrainingForm = () => {
               name: "Dog Training Services",
               itemListElement: [
                 "Puppy foundations",
+                "Day training",
                 "Obedience and manners",
                 "Leash skills",
                 "Trick training",
@@ -485,7 +490,7 @@ const TrainingForm = () => {
         </p>
 
         <p className="intro-sub">
-          Private dog training is available in Boston, Cambridge, Somerville,
+          Private and day training are available in Boston, Cambridge, Somerville,
           Medford, Brookline, Everett, Winchester, Woburn, Newton, and nearby
           communities. Share your dog’s needs and goals, and I’ll send a
           personalized plan, pricing, and scheduling options.
@@ -508,18 +513,24 @@ const TrainingForm = () => {
         </section>
 
         <section className="availability-notice" aria-label="Current training availability">
-          <div className="availability-badge">Currently full</div>
+          <div className="availability-badge">Now open</div>
 
           <div>
-            <h2>Day Training is currently full</h2>
+            <h2>Day Training enrollment is open</h2>
             <p>
-              I am not taking new Day Training clients right now, but you can join the waitlist
-              for future openings. Private training, trick and freestyle training, and virtual
-              coaching may still be available.
+              I am accepting a limited number of new Day Training clients for structured
+              half days, full days, and multi-day packages. Your dog gets focused training,
+              rest breaks, and real-world practice based on your goals.
             </p>
 
-            <a href="#training-form" className="availability-link">
-              Join the Day Training waitlist
+            <a
+              href="#training-form"
+              className="availability-link"
+              onClick={() =>
+                setFormData((prev) => ({ ...prev, serviceType: "Day Training" }))
+              }
+            >
+              Request Day Training
             </a>
           </div>
         </section>
@@ -557,17 +568,16 @@ const TrainingForm = () => {
             communication-focused approach. I tailor the plan to your dog and your goals.
           </p>
 
-          <p className="notes day-training-full-note">
+          <p className="notes day-training-open-note">
             <strong>
               <span role="img" aria-label="school">
                 🏫
               </span>{" "}
-              Day Training — Currently Full
+              Day Training — Now Open
             </strong>{" "}
-            — Day Training is currently full for new clients. You can still join the waitlist
-            for future openings. When spots are available, Day Training is an owner drop-off
-            and pick-up service with structured training, rest breaks, and real-world practice
-            at parks, neighborhoods, and dog-friendly stores.
+            — Day Training is an owner drop-off and pick-up service with structured training,
+            rest breaks, and real-world practice at parks, neighborhoods, and dog-friendly
+            stores. Half-day, full-day, and package options are available.
           </p>
 
           <div className="notes where-notes">
@@ -1093,19 +1103,19 @@ const TrainingForm = () => {
               </section>
             )}
 
-            {wantsDayTrainingWaitlist && (
-              <section className="waitlist-fields" aria-label="Day Training waitlist details">
-                <h3 className="form-section">Day Training Waitlist Details</h3>
+            {wantsDayTraining && (
+              <section className="day-training-fields" aria-label="Day Training request details">
+                <h3 className="form-section">Day Training Details</h3>
 
-                <p className="waitlist-helper">
-                  Day Training is currently full. Fill this out so I can contact you when a spot
-                  opens or if your dog may be a good fit for a future day training package.
+                <p className="day-training-helper">
+                  Tell me what schedule you are looking for. I will review your dog’s goals and
+                  send the best-fit option, pricing, and available dates.
                 </p>
 
                 <label>What type of Day Training are you interested in?</label>
                 <select
-                  name="dayTrainingWaitlistType"
-                  value={formData.dayTrainingWaitlistType}
+                  name="dayTrainingType"
+                  value={formData.dayTrainingType}
                   onChange={handleChange}
                 >
                   <option value="">Select one</option>
@@ -1278,7 +1288,9 @@ const TrainingForm = () => {
                 ? "Sending…"
                 : wantsAkcTesting
                   ? "Request an AKC Service"
-                  : "Request a Session"}
+                  : wantsDayTraining
+                    ? "Request Day Training"
+                    : "Request a Session"}
             </button>
           </form>
         )}
@@ -1287,10 +1299,10 @@ const TrainingForm = () => {
           <div className="success-card" role="status" aria-live="polite">
             <h2>Got it!</h2>
 
-            {lastSubmittedService === "Day Training Waitlist" ? (
+            {lastSubmittedService === "Day Training" ? (
               <p>
-                You’re on the Day Training waitlist. I’ll reach out if a spot opens or if
-                your dog may be a good fit for a future day training package.
+                I received your Day Training request. I’ll follow up with the best-fit option,
+                pricing, and available dates.
               </p>
             ) : lastSubmittedService === "AKC Testing & Titles" ? (
               <p>
