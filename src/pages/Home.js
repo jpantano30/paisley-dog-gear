@@ -143,7 +143,7 @@ const Home = () => {
 
           <div className="dt-media">
             <img
-              src="/assets/new2/lulu1.jpg"
+              src="/assets/daytraining.jpg"
               alt="A dog practicing during a Paisley Dog Gear and Training day training session"
               loading="lazy"
             />
