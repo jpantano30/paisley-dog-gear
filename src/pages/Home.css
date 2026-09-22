@@ -579,6 +579,44 @@
   }
 }
 
+/* ===== Reviews widget ===== */
+.reviews-section {
+  max-width: 1080px;
+  margin: 3rem auto;
+  padding: 0 18px;
+  text-align: center;
+}
+
+.reviews-heading {
+  max-width: 680px;
+  margin: 0 auto 1.4rem;
+}
+
+.reviews-eyebrow {
+  margin: 0 0 0.2rem;
+  color: var(--brand-teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.reviews-heading h2 {
+  margin: 0 0 0.45rem;
+  color: #7e5e3b;
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
+}
+
+.reviews-heading > p:last-child {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.reviews-widget {
+  min-height: 180px;
+}
+
 .tully-instagram-link {
   flex: 0 0 auto;
   display: inline-block;

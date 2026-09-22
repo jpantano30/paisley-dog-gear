@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
@@ -7,6 +7,7 @@ import "./WebsiteBanner.css";
 
 const Parade_IMG = "/assets/Show.jpeg";
 const YT_ID = "wJ6vECs0Cu4";
+const REVIEWS_WIDGET_SRC = "https://hub.apexmediasol.com/w/reviews/Pkd3yhMxtW9IHZXv9jRS1nXniTiKhVQxg63Ewveq.js";
 
 const handleImageFallback = (event, fallbackSrc) => {
   event.currentTarget.onerror = null;
@@ -14,6 +15,21 @@ const handleImageFallback = (event, fallbackSrc) => {
 };
 
 const Home = () => {
+  const reviewsWidgetRef = useRef(null);
+
+  useEffect(() => {
+    const widgetContainer = reviewsWidgetRef.current;
+    if (!widgetContainer) return undefined;
+
+    const script = document.createElement("script");
+    script.src = REVIEWS_WIDGET_SRC;
+    script.async = true;
+    widgetContainer.appendChild(script);
+
+    return () => {
+      widgetContainer.replaceChildren();
+    };
+  }, []);
 
   const businessLD = {
     "@context": "https://schema.org",
@@ -337,6 +353,15 @@ const Home = () => {
               loading="lazy"
             />
           </div>
+        </section>
+
+        <section className="reviews-section" aria-labelledby="reviews-title">
+          <div className="reviews-heading">
+            <p className="reviews-eyebrow">Training &amp; handmade gear</p>
+            <h2 id="reviews-title">What Clients Are Saying</h2>
+            <p>Reviews from dog-training clients and Paisley Dog Gear customers.</p>
+          </div>
+          <div className="reviews-widget" ref={reviewsWidgetRef} />
         </section>
 
         {/* Training CTA (kept) */}
