@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import "../components/page-intro.css";
@@ -16,6 +16,7 @@ const handleImageFallback = (event, fallbackSrc) => {
 
 const Home = () => {
   const reviewsWidgetRef = useRef(null);
+  const [lightboxPhoto, setLightboxPhoto] = useState(null);
 
   useEffect(() => {
     const widgetContainer = reviewsWidgetRef.current;
@@ -30,6 +31,23 @@ const Home = () => {
       widgetContainer.replaceChildren();
     };
   }, []);
+
+  useEffect(() => {
+    if (!lightboxPhoto) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setLightboxPhoto(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxPhoto]);
 
   const businessLD = {
     "@context": "https://schema.org",
@@ -189,20 +207,42 @@ const Home = () => {
                   decoding="async"
                   onError={(event) => handleImageFallback(event, "/assets/Jena_hero.jpg")}
                 />
-                <img
-                  src="/assets/splitwhite.jpg"
-                  alt="Jena training with one of her dogs"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(event) => handleImageFallback(event, "/assets/tully.jpeg")}
-                />
-                <img
-                  src="/assets/headjumppink.jpg"
-                  alt="Jena and her dog performing a trick together"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(event) => handleImageFallback(event, "/assets/paisley.JPG")}
-                />
+                <button
+                  type="button"
+                  className="maker-photo-button"
+                  onClick={() => setLightboxPhoto({
+                    src: "/assets/splitwhite.jpg",
+                    alt: "Jena training with one of her dogs"
+                  })}
+                  aria-label="Enlarge photo of Jena training with one of her dogs"
+                >
+                  <img
+                    src="/assets/splitwhite.jpg"
+                    alt="Jena training with one of her dogs"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => handleImageFallback(event, "/assets/tully.jpeg")}
+                  />
+                  <span aria-hidden="true">View larger</span>
+                </button>
+                <button
+                  type="button"
+                  className="maker-photo-button"
+                  onClick={() => setLightboxPhoto({
+                    src: "/assets/headjumppink.jpg",
+                    alt: "Jena and her dog performing a trick together"
+                  })}
+                  aria-label="Enlarge photo of Jena and her dog performing a trick together"
+                >
+                  <img
+                    src="/assets/headjumppink.jpg"
+                    alt="Jena and her dog performing a trick together"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => handleImageFallback(event, "/assets/paisley.JPG")}
+                  />
+                  <span aria-hidden="true">View larger</span>
+                </button>
               </div>
               <div className="maker-info">
                 <p className="maker-eyebrow">Trainer • Maker • Dog person</p>
@@ -236,6 +276,30 @@ const Home = () => {
         </div>
       </div>
     </section>
+
+        {lightboxPhoto && (
+          <div
+            className="maker-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged maker photo"
+            onClick={() => setLightboxPhoto(null)}
+          >
+            <button
+              type="button"
+              className="maker-lightbox-close"
+              onClick={() => setLightboxPhoto(null)}
+              aria-label="Close enlarged photo"
+            >
+              ×
+            </button>
+            <img
+              src={lightboxPhoto.src}
+              alt={lightboxPhoto.alt}
+              onClick={(event) => event.stopPropagation()}
+            />
+          </div>
+        )}
 
         {/* AKC testing and titling */}
         <section className="akc-home-feature" aria-labelledby="akc-home-title">
