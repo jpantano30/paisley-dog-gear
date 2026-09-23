@@ -17,6 +17,7 @@ const handleImageFallback = (event, fallbackSrc) => {
 
 const Home = () => {
   const reviewsWidgetRef = useRef(null);
+  const instagramWidgetRef = useRef(null);
   const [lightboxPhoto, setLightboxPhoto] = useState(null);
 
   useEffect(() => {
@@ -34,22 +35,66 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    const widgetContainer = instagramWidgetRef.current;
+    if (!widgetContainer) return undefined;
+
+    const applyInstagramStyles = () => {
+      const widgetShadowRoot = widgetContainer.querySelector(".es-embed-root")?.shadowRoot;
+      if (!widgetShadowRoot || widgetShadowRoot.querySelector("[data-paisley-instagram-styles]")) {
+        return Boolean(widgetShadowRoot);
+      }
+
+      const style = document.createElement("style");
+      style.dataset.paisleyInstagramStyles = "true";
+      style.textContent = `
+        .es-header-account-author-username-link,
+        .es-header-account-author-name-link,
+        .es-header-account-counters-counter-value,
+        .es-header-account-counters-counter-label {
+          color: #3f3a36 !important;
+        }
+
+        .es-carousel-item > div:nth-child(n + 2) {
+          display: none !important;
+        }
+
+        .es-carousel-item,
+        .swiper-slide,
+        .swiper-wrapper,
+        .swiper,
+        .es-carousel-swiper-wrapper {
+          height: auto !important;
+          min-height: 0 !important;
+        }
+      `;
+      widgetShadowRoot.appendChild(style);
+      return true;
+    };
+
+    const observer = new MutationObserver(applyInstagramStyles);
+    observer.observe(widgetContainer, { childList: true, subtree: true });
+    const styleCheck = window.setInterval(() => {
+      if (applyInstagramStyles()) window.clearInterval(styleCheck);
+    }, 250);
+
     const existingScript = document.querySelector(
       `script[src="${INSTAGRAM_WIDGET_SRC}"]`
     );
 
     if (existingScript) {
       window.eapps?.reinit?.();
-      return undefined;
+    } else {
+      const script = document.createElement("script");
+      script.src = INSTAGRAM_WIDGET_SRC;
+      script.async = true;
+      script.dataset.elfsightPlatform = "true";
+      document.body.appendChild(script);
     }
 
-    const script = document.createElement("script");
-    script.src = INSTAGRAM_WIDGET_SRC;
-    script.async = true;
-    script.dataset.elfsightPlatform = "true";
-    document.body.appendChild(script);
-
-    return undefined;
+    return () => {
+      observer.disconnect();
+      window.clearInterval(styleCheck);
+    };
   }, []);
 
   useEffect(() => {
@@ -210,6 +255,7 @@ const Home = () => {
           </div>
           <div className="tully-instagram-feed">
             <div
+              ref={instagramWidgetRef}
               className="elfsight-app-3ea839ae-f9e6-453f-a59d-863a7245e863"
               data-elfsight-app-lazy=""
             />
