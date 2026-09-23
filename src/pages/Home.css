@@ -527,8 +527,16 @@
 }
 
 .tully-instagram-home {
-  max-width: 900px;
-  margin: 1.5rem auto 1.75rem;
+  display: block;
+  max-width: 1080px;
+  margin: 1.5rem auto 2.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.tully-instagram-heading {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .tully-instagram-eyebrow {
@@ -547,10 +555,18 @@
   font-size: 1.35rem;
 }
 
-.tully-instagram div > p:last-child {
+.tully-instagram-heading > p:last-child {
   margin: 0;
   color: #555;
   line-height: 1.55;
+}
+
+.tully-instagram-feed {
+  width: 100%;
+  min-height: 320px;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
 /* ===== Video below Meet the Dogs ===== */

@@ -8,6 +8,7 @@ import "./WebsiteBanner.css";
 const Parade_IMG = "/assets/Show.jpeg";
 const YT_ID = "wJ6vECs0Cu4";
 const REVIEWS_WIDGET_SRC = "https://hub.apexmediasol.com/w/reviews/Pkd3yhMxtW9IHZXv9jRS1nXniTiKhVQxg63Ewveq.js";
+const INSTAGRAM_WIDGET_SRC = "https://elfsightcdn.com/platform.js";
 
 const handleImageFallback = (event, fallbackSrc) => {
   event.currentTarget.onerror = null;
@@ -30,6 +31,25 @@ const Home = () => {
     return () => {
       widgetContainer.replaceChildren();
     };
+  }, []);
+
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      `script[src="${INSTAGRAM_WIDGET_SRC}"]`
+    );
+
+    if (existingScript) {
+      window.eapps?.reinit?.();
+      return undefined;
+    }
+
+    const script = document.createElement("script");
+    script.src = INSTAGRAM_WIDGET_SRC;
+    script.async = true;
+    script.dataset.elfsightPlatform = "true";
+    document.body.appendChild(script);
+
+    return undefined;
   }, []);
 
   useEffect(() => {
@@ -179,20 +199,21 @@ const Home = () => {
           <p className="featured-in">Featured in The Boston Globe October 2025</p>
         </div>
 
-        <section className="tully-instagram tully-instagram-home" aria-label="Tully on Instagram">
-          <div>
+        <section
+          className="tully-instagram tully-instagram-home"
+          aria-labelledby="tully-instagram-title"
+        >
+          <div className="tully-instagram-heading">
             <p className="tully-instagram-eyebrow">Follow Tully’s adventures</p>
-            <h2>See Tully’s latest posts</h2>
+            <h2 id="tully-instagram-title">Tully’s latest posts</h2>
             <p>Training clips, tricks, freestyle, and everyday life with the Paisley crew.</p>
           </div>
-          <a
-            href="https://www.instagram.com/tullytornado/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tully-instagram-link"
-          >
-            View Tully’s Instagram posts →
-          </a>
+          <div className="tully-instagram-feed">
+            <div
+              className="elfsight-app-3ea839ae-f9e6-453f-a59d-863a7245e863"
+              data-elfsight-app-lazy=""
+            />
+          </div>
         </section>
 
         {/* About the maker */}
